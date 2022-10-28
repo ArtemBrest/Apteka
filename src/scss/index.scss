@@ -1,0 +1,480 @@
+@import "./colors.scss";
+@import "./adaptive.scss";
+html {
+  font-family: system, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Segoe WP', Roboto, Ubuntu, Oxygen, Cantarell, 'Fira Sans', 'Helvetica Neue', Helvetica, 'Lucida Grande', 'Droid Sans', Tahoma, 'Microsoft Sans Serif', sans-serif;
+  background: #fff;
+  font-size: 16px;
+  color: $black;
+  margin: 0;
+  padding: 0;
+}
+* {
+  font-family: system, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Segoe WP', Roboto, Ubuntu, Oxygen, Cantarell, 'Fira Sans', 'Helvetica Neue', Helvetica, 'Lucida Grande', 'Droid Sans', Tahoma, 'Microsoft Sans Serif', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+body{
+  background: $grayBg;
+  margin: 0 auto;
+  padding: 0;
+  font-size: 16px;
+  color: $black;
+}
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+}
+b, strong {
+  font-weight: 700;
+}
+ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+a:hover,
+button:hover {
+  cursor: pointer;
+}
+img {
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 3px;
+}
+svg {
+  color: inherit;
+  flex-shrink: 0;
+}
+button, input{
+  outline: none;
+}
+button,
+[type=button],
+[type=reset],
+[type=submit] {
+  -webkit-appearance: button;
+}
+button:not(:disabled),
+[type=button]:not(:disabled),
+[type=reset]:not(:disabled),
+[type=submit]:not(:disabled) {
+  cursor: pointer;
+}
+.container{
+  width: 1430px;
+  padding: 0 15px;
+  margin: 0 auto;
+  @include media("max", "xxl") {
+    width: 1170px;
+  }
+  @include media("max", "xl") {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+.float-left {
+  float: left;
+}
+.float-right {
+  float: right;
+}
+.df {
+  display: flex;
+}
+.d-none {
+  display: none;
+}
+.df-row {
+  flex-flow: row;
+}
+.df-column {
+  flex-flow: column;
+}
+.df-row-reverse {
+  flex-flow: row-reverse;
+}
+.df-column-reverse {
+  flex-flow: column-reverse;
+}
+.df-wrap {
+  flex-wrap: wrap;
+}
+.df-nowrap {
+  flex-wrap: nowrap;
+}
+.df-wrap-reverse {
+  flex-wrap: wrap-reverse;
+}
+.df-jc-start {
+  justify-content: flex-start;
+}
+.df-jc-end {
+  justify-content: flex-end;
+}
+.df-jc-center {
+  justify-content: center;
+}
+.df-jc-between {
+  justify-content: space-between;
+}
+.df-jc-around {
+  justify-content: space-around;
+}
+.df-ai-start {
+  align-items: flex-start;
+}
+.df-ai-end {
+  align-items: flex-end;
+}
+.df-ai-center {
+  align-items: center;
+}
+.df-ai-stretch {
+  align-items: stretch;
+}
+.df-ac-start {
+  align-content: flex-start;
+}
+.df-ac-end {
+  align-content: flex-end;
+}
+.df-ac-center {
+  align-content: center;
+}
+.df-ac-between {
+  align-content: space-between;
+}
+.df-ac-around {
+  align-content: space-around;
+}
+.df-ac-stretch {
+  align-content: stretch;
+}
+.df-as-auto {
+  align-self: auto;
+}
+.df-as-start {
+  align-self: flex-start;
+}
+.df-as-end {
+  align-self: flex-end;
+}
+.df-as-center {
+  align-self: center;
+}
+.df-as-baseline {
+  align-self: baseline;
+}
+.df-as-stretch {
+  align-self: stretch;
+}
+.grid-columns {
+  display: grid;
+  grid-gap: 20px;
+  @include media("max", "xl") {
+    display: block;
+    grid-gap: 0;
+  }
+  &_right {
+    grid-template-columns: 1fr 280px;
+    @include media("max", "x") {
+      grid-template-columns: initial;
+    }
+  }
+  &_left {
+    grid-template-columns: 230px 1fr;
+    @include media("max", "xl") {
+      grid-template-columns: initial;
+    }
+  }
+  &_between {
+    grid-template-columns: 230px 1fr 280px;
+    @include media("max", "xl") {
+      grid-template-columns: 230px 1fr;
+    }
+  }
+}
+.shadow-block{
+  box-shadow: 0 5px 10px rgba(26, 54, 95, 0.02);
+}
+.shadow-product{
+  box-shadow: 0 5px 10px rgba(26, 54, 95, 0.05);
+}
+.shadow-filter{
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06), 0 0 3px rgba(0, 0, 0, 0.06);
+}
+.scroll{
+  &::-webkit-scrollbar {
+    background: transparent;
+    width: 4px;
+    height: 4px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: $grayIcon;
+    opacity: 0.2;
+    border-radius: 4px;
+    transition: all 0.3s;
+  }
+}
+h1 .h1,
+h2 .h2,
+h3 .h3,
+h4 .h4,
+h5 .h5,
+h6 .h6,
+.h7, {
+  font-weight: 700;
+}
+h1, .h1 {
+  font-size: 24px;
+  line-height: 130%;
+}
+h2, .h2 {
+  font-size: 22px;
+  line-height: 130%;
+}
+h3, .h3 {
+  font-size: 20px;
+  line-height: 130%;
+}
+h4, .h4 {
+  font-size: 18px;
+  line-height: 130%;
+}
+h5, .h5 {
+  font-size: 16px;
+  line-height: 130%;
+}
+h6, .h6 {
+  font-size: 14px;
+  line-height: 130%;
+}
+.h7 {
+  font-size: 12px;
+  line-height: 130%;
+}
+p{
+  font-size: 16px;
+  line-height: 150%;
+}
+.p1{
+  font-size: 14px;
+  line-height: 150%;
+  &.bold{
+    font-weight: 700;
+  }
+}
+.p2{
+  font-size: 14px;
+  line-height: 150%;
+  &.bold{
+    font-weight: 700;
+  }
+}
+.p3{
+  font-size: 12px;
+  line-height: 150%;
+  &.bold{
+    font-weight: 700;
+  }
+}
+.btn-main{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: $blue;
+  border-radius: 6px;
+  border: 1px solid $blue;
+  color: $white;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 150%;
+  padding: 8px 15px;
+  &:hover{
+    background: $blueHover;
+    border: 1px solid $blueHover;
+  }
+  &:active{
+    background: $blueAccent;
+    border: 1px solid $blueAccent;
+  }
+  &.disable{
+    background: $grayBg;
+    border: 1px solid $grayBg;
+    color: $grayText;
+  }
+  &.added{
+    background: transparent;
+    color: $blue;
+  }
+}
+.header{
+  background: $white;
+  &__row{
+    padding: 12px 0;
+  }
+  &__left{
+    gap: 10px;
+  }
+  &__location{
+    line-height: 130%;
+    color: $grayText;
+    gap: 3px;
+  }
+  &__center{
+    width: 1030px;
+  }
+  &__right{
+    gap: 35px;
+  }
+  &-cart{
+    position: relative;
+    &__value{
+      display: block;
+      font-weight: 600;
+      font-size: 12px;
+      line-height: 12px;
+      text-align: center;
+      color: $white;
+      position: absolute;
+      top: -2px;
+      right: -4px;
+      width: 18px;
+      height: 18px;
+      min-width: 15px;
+      min-height: 15px;
+      background: $pink;
+      border: 1.5px solid $white;
+      flex-shrink: 0;
+      border-radius: 50%;
+    }
+  }
+}
+.search-catalog{
+  width: 100%;
+  &__input{
+    width: 100%;
+    height: 40px;
+    background: $white;
+    border: 1px solid $blue;
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+    padding-left: 15px;
+    color: $grayText;
+    cursor: pointer;
+    &:hover{
+      border: 1px solid $blueHover;
+    }
+    &:focus{
+      border: 1px solid $blueAccent;
+    }
+  }
+  &__btn{
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  .autocomplete{
+    margin-top: 10px;
+    &__content{
+      background: $white;
+      border-radius: 6px;
+      padding: 15px 12px;
+    }
+    .empty{
+      &__text{
+        padding: 5px;
+        text-align: center;
+      }
+      &__history{
+        margin-top: 10px;
+        padding-top: 15px;
+      }
+    }
+    .history{
+      padding: 8px 9px 10px;
+      gap: 8px;
+      &__item{
+        gap: 8px;
+        color: $black;
+      }
+      svg{
+        color: $grayIcon;
+      }
+    }
+  }
+}
+.footer{
+  background: $white;
+  box-shadow: 0 5px 10px rgba(26, 54, 95, 0.02);
+  padding-bottom: 20px;
+  @include media("max", "lg") {
+    padding: 0;
+  }
+  &-menu{
+    padding: 30px 0;
+    gap: 15px 30px;
+    @include media("max", "lg") {
+      padding: 30px 0 15px;
+    }
+    &__item{
+      display: flex;
+      flex-flow: column;
+      gap: 12px;
+      .menu-sub{
+        gap: 8px;
+        &__item{
+          max-width: 275px;
+          &:hover{
+            color: $blueHover;
+          }
+          &:active{
+            color: $blueAccent;
+          }
+        }
+        &__link{
+          line-height: 130%;
+        }
+      }
+    }
+    &__title{
+      font-weight: 700;
+      line-height: 130%;
+    }
+  }
+  &-copyright{
+    gap: 15px;
+    &__wrapper{
+      @include media("max", "lg") {
+        padding: 15px 0;
+        border-top: 1px solid $grayLine;
+      }
+    }
+  }
+  &__info{
+    gap: 6px;
+  }
+  &__logo{
+    margin-bottom: 4px;
+    @include media("max", "lg") {
+      margin: 0;
+    }
+  }
+  &__text{
+    line-height: 130%;
+    color: $grayText;
+  }
+}
+/*@include media("max", "xl") { }*/
