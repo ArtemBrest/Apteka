@@ -364,6 +364,7 @@ p{
 }
 .search-catalog{
   width: 100%;
+  position: relative;
   &__input{
     width: 100%;
     height: 40px;
@@ -372,8 +373,11 @@ p{
     border-top-left-radius: 6px;
     border-bottom-left-radius: 6px;
     padding-left: 15px;
-    color: $grayText;
+    color: $black;
     cursor: pointer;
+    &::placeholder{
+      color: $grayText;
+    }
     &:hover{
       border: 1px solid $blueHover;
     }
@@ -387,32 +391,131 @@ p{
   }
 
   .autocomplete{
+    display: none;
+    position: absolute;
+    z-index: 29;
+    top: 100%;
+    left: 0;
+    right: 0;
     margin-top: 10px;
+    width: 100%;
+    &::-webkit-scrollbar {
+      width: 4px;
+      height: 4px;
+      background-color: $grayLine;
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: $blue;
+      border-radius: 3px;
+    }
     &__content{
       background: $white;
       border-radius: 6px;
       padding: 15px 12px;
+    }
+    &__scroll-container{
+      gap: 12px;
+    }
+    &__group{
+      padding: 16px 0;
+      &:first-child{
+        padding-top: 0;
+      }
+      &:last-child{
+        padding-bottom: 0;
+      }
+      &-title{
+        padding: 0 8px;
+        font-weight: 700;
+        line-height: 130%;
+        margin-bottom: 16px;
+      }
+      & + .autocomplete__group{
+        border-top: 1px solid $grayLine;
+      }
+    }
+    &__list{
+      display: flex;
+      flex-flow: column;
+      gap: 8px;
+      &--popular{
+        display: flex;
+        align-items: center;
+        flex-flow: row wrap;
+        gap: 10px;
+        .autocomplete{
+          &__item{
+            background: $grayBg;
+            border-radius: 50px;
+          }
+        }
+      }
+      &--history{
+        .autocomplete{
+          &__item{
+            gap: 8px;
+            padding: 5px 8px;
+            color: $black;
+          }
+        }
+        svg{
+          color: $grayIcon;
+        }
+      }
+      &--product{
+        gap: 12px;
+        .product-item{
+          padding: 5px 8px;
+          &__left{
+            gap: 12px;
+          }
+          &__title{
+            line-height: 130%;
+            color: $black;
+          }
+          &__right{
+            gap: 30px;
+          }
+          &__price{
+            gap: 5px;
+            color: $grayText;
+            span{
+              line-height: 130%;
+              font-weight: 700;
+              color: $black;
+            }
+          }
+          &__btn{
+            padding: 6px;
+          }
+        }
+      }
+      .autocomplete{
+        &__link{
+          display: block;
+          padding: 5px 8px;
+          line-height: 130%;
+          color: $black;
+        }
+      }
     }
     .empty{
       &__text{
         padding: 5px;
         text-align: center;
       }
-      &__history{
-        margin-top: 10px;
-        padding-top: 15px;
+      .autocomplete__list{
+        margin-top: 11px;
+        padding-top: 16px;
+        border-top: 1px solid $grayLine;
       }
     }
-    .history{
-      padding: 8px 9px 10px;
-      gap: 8px;
-      &__item{
-        gap: 8px;
-        color: $black;
-      }
-      svg{
-        color: $grayIcon;
-      }
+    &__all-result{
+      display: block;
+      font-weight: 700;
+      line-height: 130%;
+      color: $blue;
+      margin-top: 11px;
     }
   }
 }
