@@ -1,14 +1,14 @@
-<div id="searchBlock" class="header__search search-catalog">
-    <div class="search-catalog__block search-catalog--active df df-ai-stretch">
+<div id="search" class="header__search search-catalog">
+    <div class="search-catalog__block search-catalog--active df df-ai-stretch" id="search-input">
         <input autocomplete="off" id="searchInput" class="search-catalog__input p2" type="search" maxlength="300" placeholder="Поиск по названию или веществу">
         <button id="applySearchBtn" class="search-catalog__btn search-catalog__btn--search btn-main">Найти</button>
         <!--<div class="search-catalog__btn-wrap">
             <button class="search-catalog__btn search-catalog__btn&#45;&#45;clear search-catalog__btn&#45;&#45;active" type="button">Очистить поиск</button>
         </div>-->
     </div>
-    <div class="autocomplete search-catalog__autocomplete">
+    <div class="autocomplete search-catalog__autocomplete" id="search-autocomplete">
         <div class="autocomplete__content shadow-product">
-            <div class="autocomplete__scroll-container">
+            <div class="autocomplete__scroll-container scroll">
                 <div class="autocomplete__group">
                     <div class="autocomplete__empty empty">
                         <div class="empty__text p2"> Ничего не найдено, попробуйте изменить запрос</div>
@@ -18,12 +18,18 @@
                                     <use xlink:href="/img/sprites.svg#icon-clock"></use>
                                 </svg>
                                 Сальбутамол
+                                <svg width="14" height="15" class="autocomplete__icon-trash">
+                                    <use xlink:href="/img/sprites.svg#icon-trash"></use>
+                                </svg>
                             </li>
                             <li class="autocomplete__item p2 df df-ai-center">
                                 <svg width="20" height="20">
                                     <use xlink:href="/img/sprites.svg#icon-clock"></use>
                                 </svg>
                                 Сабакомп
+                                <svg width="14" height="15" class="autocomplete__icon-trash">
+                                    <use xlink:href="/img/sprites.svg#icon-trash"></use>
+                                </svg>
                             </li>
                         </ul>
                     </div>
@@ -59,39 +65,10 @@
                         <li class="autocomplete__item product-item df df-ai-center df-jc-between">
                             <div class="product-item__left df df-ai-center">
                                 <img src="./img/mini-photo.png" alt="" width="32" height="32" class="product-item__img">
-                                <span class="product-item__title p2">Набор из 2х уп. Максиган табл. №20 по спец.цене</span>
-                            </div>
-                            <div class="product-item__right df df-ai-center">
-                                <div class="product-item__right df df-ai-center">
-                                    <span class="product-item__price df df-ai-center p3">Цена от:<span class="p1">28.55 р.</span></span>
+                                <div class="product-item__left-content df df-column">
+                                    <span class="product-item__title p2">Набор из 2х уп. Максиган табл. №20 по спец.цене</span>
+                                    <span class="product-item__price product-item__price--mob df df-ai-center p3">Цена от:<span class="p1">28.55 р.</span></span>
                                 </div>
-                                <button class="product-item__btn btn-main">
-                                    <svg width="16" height="20">
-                                        <use xlink:href="/img/sprites.svg#icon-basket"></use>
-                                    </svg>
-                                </button>
-                            </div>
-                        </li>
-                        <li class="autocomplete__item product-item df df-ai-center df-jc-between">
-                            <div class="product-item__left df df-ai-center">
-                                <img src="./img/mini-photo.png" alt="" width="32" height="32" class="product-item__img">
-                                <span class="product-item__title p2">Набор из 2х уп. Максиган табл. №20 по спец.цене</span>
-                            </div>
-                            <div class="product-item__right df df-ai-center">
-                                <div class="product-item__right df df-ai-center">
-                                    <span class="product-item__price df df-ai-center p3">Цена от:<span class="p1">28.55 р.</span></span>
-                                </div>
-                                <button class="product-item__btn btn-main">
-                                    <svg width="16" height="20">
-                                        <use xlink:href="/img/sprites.svg#icon-basket"></use>
-                                    </svg>
-                                </button>
-                            </div>
-                        </li>
-                        <li class="autocomplete__item product-item df df-ai-center df-jc-between">
-                            <div class="product-item__left df df-ai-center">
-                                <img src="./img/mini-photo.png" alt="" width="32" height="32" class="product-item__img">
-                                <span class="product-item__title p2">Набор из 2х уп. Максиган табл. №20 по спец.цене</span>
                             </div>
                             <div class="product-item__right df df-ai-center">
                                 <div class="product-item__right df df-ai-center">
@@ -113,12 +90,18 @@
                                 <use xlink:href="/img/sprites.svg#icon-clock"></use>
                             </svg>
                             Сальбутамол
+                            <svg width="14" height="15" class="autocomplete__icon-trash">
+                                <use xlink:href="/img/sprites.svg#icon-trash"></use>
+                            </svg>
                         </li>
                         <li class="autocomplete__item p2 df df-ai-center">
                             <svg width="20" height="20">
                                 <use xlink:href="/img/sprites.svg#icon-clock"></use>
                             </svg>
                             Сабакомп
+                            <svg width="14" height="15" class="autocomplete__icon-trash">
+                                <use xlink:href="/img/sprites.svg#icon-trash"></use>
+                            </svg>
                         </li>
                     </ul>
                 </div>
