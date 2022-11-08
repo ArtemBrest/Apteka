@@ -2,20 +2,23 @@
     <div class="container">
         <div class="header__row df df-ai-center df-jc-between">
             <div class="header__left df df-ai-center">
+                <a href="/" class="header__logo df df-ai-stretch">
+                    <img src="./img/logo.png" alt="Apteka" width="113" height="30">
+                </a>
                 <svg class="header__icon-mob" width="24" height="19">
                     <use xlink:href="/img/sprites.svg#icon-book"></use>
                 </svg>
-                <a href="/" class="header__logo df df-ai-stretch">
-                    <img src="./img/logo.png" alt="Apteka" width="153" height="26">
-                </a>
+            </div>
+            <div class="header__center">
                 <div class="header__location df df-ai-center p2" id="header-city">
-                    <svg width="16" height="16">
+                    <svg width="16" height="16" class="icon">
                         <use xlink:href="/img/sprites.svg#icon-location"></use>
                     </svg>
                     <span>Минск</span>
+                    <svg width="7" height="10" class="arrow">
+                        <use xlink:href="/img/sprites.svg#arrow-menu"></use>
+                    </svg>
                 </div>
-            </div>
-            <div class="header__center">
                 @@include('./search.html')
             </div>
             <div class="header__right df df-ai-center">
@@ -51,7 +54,7 @@
                     </svg>
                 </button>
                 <a href="/" class="header-mob__logo df df-ai-stretch">
-                    <img src="./img/logo.png" alt="Apteka" width="153" height="26">
+                    <img src="./img/logo.png" alt="Apteka" width="113" height="30">
                 </a>
                 <a href="#" class="header__cart header-cart df df-ai-stretch">
                     <svg width="26" height="26">

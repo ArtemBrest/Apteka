@@ -337,6 +337,7 @@ p{
   z-index: 1000;
   &.active{
     position: fixed;
+    top: 0;
     width: 100%;
     .header{
       &__sticky{
@@ -348,11 +349,11 @@ p{
     padding: 12px 0;
   }
   &__left{
-    gap: 10px;
+    gap: 30px;
   }
   &__icon-mob{
     display: none;
-    @include media("max", "lg") {
+    @include media("max", "xl") {
       display: block;
     }
   }
@@ -363,11 +364,21 @@ p{
     }
   }
   &__location{
+    position: absolute;
+    top: 0;
+    left: 1px;
+    z-index: 2;
+    width: 145px;
+    height: 30px;
+    margin: 5px 0;
+    padding: 5px 15px;
+    background: $white;
     line-height: 130%;
-    color: $grayText;
-    gap: 3px;
+    color: $black;
+    gap: 7px;
     transition: all 0.3s;
     cursor: pointer;
+    border-right: 1px solid $grayLine;
     &:hover{
       color: $blueHover;
     }
@@ -378,12 +389,23 @@ p{
     & span{
       text-transform: capitalize;
     }
+    & .icon{
+      color: $blue;
+    }
+    & .arrow{
+      color: $black;
+      margin: 0 0 0 auto;
+      transform: rotate(90deg);
+    }
     @include media("max", "lg") {
-      display: none;
+      padding: 5px 10px;
+      min-width: 110px;
+      width: fit-content;
     }
   }
   &__center{
-    width: 1030px;
+    position: relative;
+    width: 1130px;
     @include media("max", "xxl") {
       width: 730px;
     }
@@ -395,7 +417,7 @@ p{
     }
   }
   &__right{
-    gap: 35px;
+    gap: 25px;
   }
   &-cart{
     position: relative;
@@ -427,6 +449,9 @@ p{
   &__sticky{
     display: none;
     gap: 24px;
+    @include media("max", "lg") {
+      display: none!important;
+    }
   }
   &__name{
     font-weight: 700;
@@ -577,6 +602,9 @@ p{
       right: 0;
       width: 100%;
       height: 100%;
+      display: flex;
+      flex-flow: column;
+      gap: 8px;
       background: $white;
       opacity: 0;
       visibility: hidden;
@@ -601,7 +629,7 @@ p{
     border: 1px solid $blue;
     border-top-left-radius: 6px;
     border-bottom-left-radius: 6px;
-    padding-left: 15px;
+    padding-left: 160px;
     color: $black;
     cursor: pointer;
     &::placeholder{
@@ -612,6 +640,9 @@ p{
     }
     &:focus{
       border: 1px solid $blueAccent;
+    }
+    @include media("max", "lg") {
+      padding-left: 120px;
     }
   }
   &__btn{
@@ -633,14 +664,15 @@ p{
     width: 100%;
     @include media("max", "lg") {
       position: fixed;
-      top: 65px;
+      top: 0;
       left: 0;
       right: 0;
       z-index: 999;
-      height: calc(100% - 65px);
+      height: 100%;
       width: 100%;
       margin: 0;
     }
+
     &__content{
       background: $white;
       border-radius: 6px;
@@ -655,8 +687,47 @@ p{
       overflow-y: auto;
       max-height: 80vh;
       @include media("max", "lg") {
-        max-height: calc(100vh - 95px);
+        max-height: calc(100vh - 30px);
         padding: 0 12px;
+      }
+    }
+    &-mobile{
+      display: none;
+      position: relative;
+      @include media("max", "lg"){
+        display: flex;
+        gap: 10px;
+        &__input{
+          width: 100%;
+          height: 35px;
+          background: $white;
+          border: 1px solid $blue;
+          border-radius: 6px;
+          padding-left: 15px;
+          color: $black;
+          cursor: pointer;
+          &::placeholder{
+            color: $grayText;
+          }
+          &:hover{
+            border: 1px solid $blueHover;
+          }
+          &:focus{
+            border: 1px solid $blueAccent;
+          }
+        }
+        &__btn{
+          background: transparent;
+          border: none;
+          font-weight: 700;
+          color: $blue;
+          &:hover{
+            color: 1px solid $blueHover;
+          }
+          &:focus{
+            color: 1px solid $blueAccent;
+          }
+        }
       }
     }
     &__group{
@@ -829,6 +900,139 @@ p{
     }
   }
 }
+.aside-menu{
+  margin-top: 20px;
+  background: $white;
+  border-radius: 8px;
+  width: 230px;
+  &__wrapper{
+    position: relative;
+    padding: 8px 12px 12px;
+  }
+  .aside-menu__list{
+    display: flex;
+    flex-flow: column;
+    gap: 8px;
+    .sub-menu{
+      height: calc(100% - 50px);
+      margin-top: 50px;
+      display: flex;
+      flex-flow: column;
+      gap: 8px;
+      z-index: 2;
+      &:after{
+        content: "";
+        display: block;
+        position: absolute;
+        top: 49px;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: 1px;
+        background: $grayLine;
+      }
+      &__wrapper{
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 100%;
+        height: 100%;
+        min-width: 320px;
+        background: $white;
+        padding: 8px 12px 12px 25px;
+        z-index: 22;
+        margin-left: -15px;
+      }
+    }
+  }
+  &__item:not(.aside-menu__item--last){
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px;
+    gap: 8px;
+    border-radius: 6px;
+    cursor: pointer;
+    &:hover{
+      background: $grayBg;
+      & > .sub-menu__wrapper{
+        display: block;
+      }
+    }
+    &.aside-menu__item--favorite{
+      margin-bottom: 16px;
+      position: relative;
+      &:after{
+        content: "";
+        display: block;
+        position: absolute;
+        bottom: -8px;
+        left: -12px;
+        right: 0;
+        width: calc(100% + 24px);
+        height: 1px;
+        background: $grayLine;
+      }
+    }
+  }
+  &__item.aside-menu__item--last{
+    margin: auto 0 0;
+    padding: 8px;
+    .aside-menu__link{
+      display: block;
+      font-weight: 700;
+      font-size: 12px;
+      line-height: 130%;
+      color: $blue;
+      &:hover{
+        color: $blueHover;
+      }
+      &:focus,
+      &:active{
+        color: $blueAccent;
+      }
+    }
+  }
+  &__link{
+    display: block;
+    font-size: 14px;
+    line-height: 130%;
+    color: $black;
+  }
+}
+
+.error-page{
+  background: $white;
+  border-radius: 8px;
+  margin: 20px 0 30px;
+  padding: 85px 0;
+  @include media("max", "lg"){
+    background: transparent;
+    margin: 15px 0;
+    padding: 0;
+  }
+  &__content{
+    max-width: 450px;
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0 auto;
+    padding: 75px 85px 105px;
+    @include media("max", "lg"){
+      padding: 45px 0;
+    }
+  }
+  &__title{
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  &__text{
+    text-align: center;
+    max-width: 280px;
+    color: $grayText;
+    margin-bottom: 16px;
+  }
+}
 .footer{
   background: $white;
   box-shadow: 0 5px 10px rgba(26, 54, 95, 0.02);
@@ -901,6 +1105,9 @@ p{
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  @include media("max", "sm") {
+    width: 90%;
+  }
   &__close{
     position: absolute;
     top: 15px;
@@ -962,4 +1169,43 @@ p{
     }
   }
 }
-@include media("max", "xl") { }
+.add-product-cart{
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  min-height: 85px;
+  padding: 10px;
+  z-index: 99;
+  background: $white;
+  @include media("max", "lg"){
+    &.active{
+      display: block;
+    }
+  }
+  &__group{
+    gap: 25px;
+    margin-bottom: 10px;
+  }
+  &__price{
+    flex-shrink: 0;
+    .name{
+      font-size: 10px;
+      line-height: 150%;
+      color: $grayText;
+    }
+    .value{
+      font-weight: 700;
+      color: $black;
+    }
+  }
+  &__btn{
+    width: 100%;
+  }
+  &__text{
+    color: $black;
+    text-align: center;
+  }
+}

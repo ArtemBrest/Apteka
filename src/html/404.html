@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>АПТЕКА</title>
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+<body>
+@@include('./global/header.html')
+<div class="container">
+    <div class="grid-columns grid-columns_left">
+        <div>
+            @@include('./global/aside-menu.html')
+        </div>
+        <div class="content">
+            <section class="error-page shadow-block">
+                <div class="error-page__content df df-column df-ai-center" style="background-image: url(./img/400.png);">
+                    <h1 class="error-page__title">Страница не найдена</h1>
+                    <div class="error-page__text p2">Неправильно набран адрес, или такой страницы на сайте больше не существует.</div>
+                    <a href="index.html" class="error-page__btn btn-main">Вернуться на главную</a>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+@@include('./global/footer.html')
+<script defer src="./js/index.js"></script>
+</body>
+</html>

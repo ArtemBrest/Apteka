@@ -1,7 +1,11 @@
 <div id="search" class="header__search search-catalog">
     <div class="search-catalog__block search-catalog--active df df-ai-stretch" id="search-input">
         <input autocomplete="off" id="searchInput" class="search-catalog__input p2" type="search" maxlength="300" placeholder="Поиск по названию или веществу">
-        <button id="applySearchBtn" class="search-catalog__btn search-catalog__btn--search btn-main">Найти</button>
+        <button id="applySearchBtn" class="search-catalog__btn search-catalog__btn--search btn-main df df-ai-stretch">
+            <svg width="17" height="17">
+                <use xlink:href="/img/sprites.svg#icon-search"></use>
+            </svg>
+        </button>
         <!--<div class="search-catalog__btn-wrap">
             <button class="search-catalog__btn search-catalog__btn&#45;&#45;clear search-catalog__btn&#45;&#45;active" type="button">Очистить поиск</button>
         </div>-->
@@ -9,6 +13,10 @@
     <div class="autocomplete search-catalog__autocomplete" id="search-autocomplete">
         <div class="autocomplete__content shadow-product">
             <div class="autocomplete__scroll-container scroll">
+                <div class="autocomplete__mobile autocomplete-mobile df df-ai-center df-jc-between">
+                    <input autocomplete="off" id="searchInput-2" class="autocomplete-mobile__input p2" type="search" maxlength="300" placeholder="Поиск по названию или веществу">
+                    <button class="autocomplete-mobile__btn" id="autocomplete-mobile-close">Отмена</button>
+                </div>
                 <div class="autocomplete__group">
                     <div class="autocomplete__empty empty">
                         <div class="empty__text p2"> Ничего не найдено, попробуйте изменить запрос</div>
