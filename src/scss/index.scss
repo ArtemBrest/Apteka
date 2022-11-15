@@ -226,11 +226,76 @@ button:not(:disabled),
     transition: all 0.3s;
   }
 }
+.lg-backdrop {
+  background: rgba(49, 53, 59, .95);
+  z-index: 999;
+}
+.lg-container .lg-next,
+.lg-container .lg-prev {
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.05);
+  opacity: 0.8;
+  border-radius: 50%;
+  color: $white;
+  cursor: pointer;
+  display: block;
+  width: 38px;
+  height: 38px;
+  font-size: 20px;
+  margin-top: -10px;
+  padding: 8px 10px 9px;
+  position: absolute;
+  top: 50%;
+  z-index: 10000;
+}
+.lg-outer .lg-thumb{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  float: none;
+  margin: 0 auto 50px;
+  padding: 0;
+}
+.lg-outer .lg-thumb-outer{
+  background: transparent;
+}
+.lg-outer .lg-thumb-item{
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+  float: none;
+  border: 2px solid transparent;
+  border-radius: 6px;
+  margin: 0!important;
+  /*width: 50px!important;
+  height: 50px!important;*/
+  &.active,
+  &:hover{
+    border: 2px solid $blue;
+  }
+}
+.lg-sub-html{
+  padding: 20px;
+  h4{
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 130%;
+    color: $white;
+    margin-bottom: 8px;
+  }
+  p{
+    font-size: 12px;
+    line-height: 150%;
+    color: $white;
+    opacity: 0.8;
+  }
+}
 #fade {
   background: rgba(0, 0, 0, 0.6);
   display: none;
   position: fixed;
-  z-index: 999;
+  z-index: 99;
   left: 0;
   right: 0;
   top: 0;
@@ -238,12 +303,12 @@ button:not(:disabled),
   width: 100vw;
   height: 100vh;
 }
-h1 .h1,
-h2 .h2,
-h3 .h3,
-h4 .h4,
-h5 .h5,
-h6 .h6,
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6,
 .h7, {
   font-weight: 700;
 }
@@ -287,7 +352,7 @@ p{
   }
 }
 .p2{
-  font-size: 14px;
+  font-size: 13px;
   line-height: 150%;
   &.bold{
     font-weight: 700;
@@ -331,10 +396,13 @@ p{
     color: $blue;
   }
 }
+.m-20{
+  margin: 20px 0;
+}
 .header{
   position: relative;
   background: $white;
-  z-index: 1000;
+  z-index: 100;
   &.active{
     position: fixed;
     top: 0;
@@ -502,7 +570,7 @@ p{
     height: 100vh;
     width: 100vw;
     background: $white;
-    z-index: 1000;
+    z-index: 100;
     padding: 0 15px;
 
     &__row {
@@ -667,7 +735,7 @@ p{
       top: 0;
       left: 0;
       right: 0;
-      z-index: 999;
+      z-index: 100;
       height: 100%;
       width: 100%;
       margin: 0;
@@ -901,7 +969,6 @@ p{
   }
 }
 .aside-menu{
-  margin-top: 20px;
   background: $white;
   border-radius: 8px;
   width: 230px;
@@ -1000,7 +1067,6 @@ p{
     color: $black;
   }
 }
-
 .error-page{
   background: $white;
   border-radius: 8px;
@@ -1099,7 +1165,7 @@ p{
   background: $white;
   border-radius: 8px;
   padding: 20px;
-  z-index: 999;
+  z-index: 99;
   width: 360px;
   position: fixed;
   top: 50%;
@@ -1207,5 +1273,397 @@ p{
   &__text{
     color: $black;
     text-align: center;
+  }
+}
+.cms-description-text{
+  & > * {
+    margin: 8px 0;
+  }
+  & > *:not(div):first-child{
+    margin: 0;
+  }
+  & > *:not(img):last-child {
+    margin: 0;
+  }
+  & > * + *:not(img):last-child {
+    margin: 8px 0 0 !important;
+  }
+  p{
+    font-size: 14px;
+    line-height: 150%;
+    color: $black;
+  }
+  ul{
+    margin: 8px 0;
+    padding: 0;
+    list-style-type: none;
+    & > li{
+      position: relative;
+      font-size: 14px;
+      line-height: 150%;
+      color: $black;
+      padding-left: 15px;
+      &:not(:last-child){
+        margin-bottom: 8px;
+      }
+      &:before {
+        content: "";
+        position: absolute;
+        top: 8px;
+        left: 0;
+        display: block;
+        width: 8px;
+        height: 8px;
+        flex-shrink: 0;
+        border-radius: 50%;
+        background: $blue;
+      }
+      & > ol,
+      & > ul{
+        margin: 10px 0 10px 30px;
+      }
+    }
+  }
+  ol{
+    margin: 8px 0;
+    padding: 0;
+    list-style-type: none;
+    counter-reset: myCounter;
+    & > li{
+      position: relative;
+      font-size: 14px;
+      line-height: 150%;
+      color: $black;
+      &:not(:last-child){
+        margin-bottom: 8px;
+      }
+      &:before {
+        counter-increment: myCounter;
+        content: counter(myCounter);
+        margin: 1px 10px 0 0;
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        flex-shrink: 0;
+        border-radius: 30%;
+        background: $blue;
+        text-align: center;
+        font-size: 13px;
+        line-height: 17px;
+        color: $white;
+      }
+      & > ol,
+      & > ul{
+        margin: 10px 0 10px 30px;
+      }
+    }
+  }
+}
+
+.breadcrumb{
+  gap: 6px;
+  line-height: 130%;
+  &__separator{
+    display: block;
+    /*margin-top: 3px;*/
+    flex-shrink: 0;
+    width: 2px;
+    height: 2px;
+    background: $blue;
+    border-radius: 50%;
+    line-height: 130%;
+  }
+  &__item{
+    color: $blue;
+    &.active{
+      color: $grayText;
+    }
+  }
+}
+.product{
+  &__title{
+    margin-bottom: 8px;
+  }
+  &-rating{
+    gap: 2px;
+    svg{
+      flex-shrink: 0;
+      color: $grayIcon;
+      opacity: 0.2;
+      &.active{
+        color: $yellow;
+        opacity: 1;
+      }
+    }
+    &__text{
+      display: block;
+      margin-left: 4px;
+      color: $grayText;
+      border-bottom: 1px dashed $grayText;
+    }
+  }
+  &__row{
+    gap: 6px;
+  }
+  &-prescription{
+    color: $grayText;
+    gap: 6px;
+    &__item:not(.active){
+      font-weight: 700;
+      color: $pink;
+    }
+  }
+  &-wrapper{
+    padding: 10px 20px 20px;
+    background: $white;
+    border-radius: 8px;
+  }
+  &-nav{
+    margin: -10px -20px 20px;
+    padding: 0px 20px;
+    border-bottom: 1px solid $grayBg;
+    gap: 35px;
+    &__item{
+      &.product-nav__item--active a{
+        color: $blue;
+        border-bottom: 2px solid $blue;
+      }
+      a{
+        display: block;
+        font-weight: 600;
+        color: $grayText;
+        padding: 10px 0;
+        border-bottom: 2px solid transparent;
+      }
+    }
+  }
+  &-сharacteristic{
+    &__row{
+      gap: 30px;
+    }
+    &__info{
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-gap: 10px;
+      .сharacteristic-item{
+        &__title{
+          line-height: 130%;
+          color: $grayText;
+        }
+        &__text{
+          line-height: 130%;
+          color: $black;
+        }
+        &__form{
+          margin-top: 12px;
+          gap: 12px;
+        }
+        &__box{
+          position: relative;
+          input{
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            width: 1px;
+            height: 1px;
+            &:disabled ~ label{
+              opacity: 0.5;
+            }
+            &:checked ~ label{
+              border: 1px solid $blue;
+            }
+          }
+        }
+        &-label{
+          display: block;
+          padding: 4px 8px;
+          background: $white;
+          box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.06), 0px 0px 3px rgba(0, 0, 0, 0.06);
+          border-radius: 6px;
+          width: 96px;
+          flex-shrink: 0;
+          border: 1px solid $white;
+          .row{
+            font-size: 10px;
+            line-height: 150%;
+            gap: 4px;
+          }
+          .text{
+            color: $grayText;
+          }
+          .value{
+            color: $black;
+          }
+          .price{
+            display: block;
+            font-weight: 700;
+            color: $black;
+            margin-top: 4px;
+          }
+        }
+      }
+    }
+    &__btn{
+      display: block;
+      margin-top: 5px;
+      font-weight: 700;
+      line-height: 130%;
+      color: $blue;
+      &:hover{
+        color: $blueHover;
+      }
+      &:focus,
+      &:active{
+        color: $blueAccent;
+      }
+    }
+  }
+  &__slider{
+    display: grid;
+    grid-template-columns: 1fr 6fr;
+    grid-gap: 10px;
+    height: 280px;
+    max-width: 350px;
+    margin-bottom: 12px;
+    .swiper-pagination{
+      display: none;
+      &-bullet{
+        width: 8px;
+        height: 8px;
+        background: $grayBg;
+        border-radius: 50px;
+        opacity: 1;
+        &-active{
+          width: 16px;
+          height: 8px;
+          background: $blue;
+          opacity: 1;
+        }
+      }
+    }
+    &-label{
+      line-height: 130%;
+      color: $grayText;
+    }
+  }
+  &__swiper{
+    &-main{
+      width: 280px;
+      .product{
+        &__slide{
+          background-position: 50% 50%;
+          position: relative;
+          height: 100%;
+          width: 100%;
+          overflow: hidden;
+          cursor: zoom-in;
+          &.zoom img {
+            transition: opacity 0.5s;
+            display: block;
+            width: 100%;
+          }
+          &.zoom img:hover {
+            opacity: 0;
+          }
+        }
+      }
+    }
+    &-sub{
+      width: 60px;
+      .product{
+        &__slide{
+          border-radius: 6px;
+          &.swiper-slide-thumb-active{
+            border: 1px solid $blue;
+          }
+          img{
+            display: block;
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            border-radius: 6px;
+          }
+        }
+      }
+    }
+  }
+}
+.how-to-work{
+  background: $white;
+  border-radius: 8px;
+  padding: 20px;
+  &__title{
+    margin-bottom: 20px;
+  }
+  &__cards{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-gap: 20px;
+  }
+  &-card{
+    position: relative;
+    text-align: center;
+    &__icon{
+      margin-bottom: 12px;
+    }
+    &:not(:last-child):before{
+      content: "";
+      position: absolute;
+      top: 0;
+      right: -10px;
+      bottom: 0;
+      width: 1px;
+      height: 100%;
+      background: $grayLine;
+    }
+  }
+}
+.product-block-description{
+  background: $white;
+  border-radius: 8px;
+  padding: 20px;
+  & *:first-child{
+    margin-top: 0;
+  }
+  & *:last-child{
+    margin-bottom: 0;
+  }
+  &__title{
+    margin-bottom: 20px;
+  }
+  &__sub-title{
+    margin-bottom: 12px;
+  }
+  &__list{
+    gap: 12px;
+  }
+  &__item{
+    position: relative;
+    .title{
+      display: inline-block;
+      color: $grayText;
+      background: $white;
+      width: 320px;
+      vertical-align: top;
+      overflow: hidden;
+      &:after {
+        content: '';
+        display: inline-block;
+        width: 100%;
+        margin: 0 -99% 0 3px;
+        vertical-align: baseline;
+        border-bottom: 1px dashed $grayLine;
+      }
+    }
+    .value{
+      display: inline-block;
+      color: $black;
+      background: $white;
+      letter-spacing: normal;
+      padding-left: 3px;
+      width: calc(100% - 320px);
+      vertical-align: bottom;
+    }
   }
 }

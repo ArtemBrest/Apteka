@@ -159,7 +159,6 @@ window.addEventListener("load", function () {
             el.addEventListener("click",function (e) {
                 e.preventDefault();
                 e.stopPropagation();
-                console.log(this)
                 if(this.classList.contains("header-mob__item--prev")){
                     let parent = this.parentNode;
                     parent.classList.remove('is-active');
@@ -218,4 +217,51 @@ window.addEventListener("load", function () {
     headerIconMobClose.addEventListener("click", function (e) {
         fadeOut(headerMob);
     });
+
+    /*function zoom(e){
+        var zoomer = e.currentTarget;
+        e.offsetX ? offsetX = e.offsetX : offsetX = e.touches[0].pageX
+        e.offsetY ? offsetY = e.offsetY : offsetX = e.touches[0].pageX
+        x = offsetX/zoomer.offsetWidth*100
+        y = offsetY/zoomer.offsetHeight*100
+        zoomer.style.backgroundPosition = x + '% ' + y + '%';
+    }*/
+    let slideZoom = document.querySelectorAll(".zoom");
+    if(!isEmptyObject(slideZoom)){
+        slideZoom.forEach(function (el) {
+            el.addEventListener("mousemove",function (e){
+                var zoomer = e.currentTarget;
+                e.offsetX ? offsetX = e.offsetX : offsetX = e.touches[0].pageX
+                e.offsetY ? offsetY = e.offsetY : offsetX = e.touches[0].pageX
+                var x = offsetX/zoomer.offsetWidth*100
+                var y = offsetY/zoomer.offsetHeight*100
+                zoomer.style.backgroundPosition = x + '% ' + y + '%';
+            })
+        })
+    }
+
+    var swiperSub = new Swiper(".product__swiper-sub", {
+        direction: "vertical",
+        spaceBetween: 20,
+        slidesPerView: 4,
+        mousewheel: true,
+    });
+    var swiperMain = new Swiper(".product__swiper-main", {
+        spaceBetween: 0,
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+        thumbs: {
+            swiper: swiperSub,
+        },
+    });
+    let productSwiperMain = document.querySelector(".product__swiper-main");
+    if (productSwiperMain !== null) {
+        lightGallery(productSwiperMain, {
+            selector: '.product__slide ',
+            subHtmlSelectorRelative: true,
+            plugins: [lgThumbnail],
+        });
+    }
 })

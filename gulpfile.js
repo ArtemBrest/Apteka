@@ -70,9 +70,9 @@ const js = () => {
                 message: error.message
             }))
         }))
-        .pipe(babel())
-        .pipe(uglify())
-        .pipe(dest(path.js.dest), { sourcemaps: '.' })
+        //.pipe(babel())
+        //.pipe(uglify())
+        .pipe(dest(path.js.dest))
 }
 module.exports = js
 /**
