@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <title>АПТЕКА</title>
     <link rel="stylesheet" href="./css/swiper-bundle.min.css">
     <link rel="stylesheet" href="./lightGallery-master/dist/css/lightgallery-bundle.min.css">
@@ -62,7 +62,7 @@
             </div>
             <div class="grid-columns grid-columns_right">
                 <div class="content">
-                    <div class="product-wrapper m-20 shadow-block content-focus" id="сharacteristic" data-scroll_id="сharacteristic" data-attr_key_menu="сharacteristic">
+                    <div class="product-wrapper m-20 shadow-block content-focus"> <!--id="сharacteristic" data-scroll_id="сharacteristic" data-attr_key_menu="сharacteristic"-->
                         <ul class="product-nav df df-ai-center">
                            <li class="product-nav__item product-nav__item--active"><a href="#сharacteristic" class="p2">Характеристики</a></li>
                            <li class="product-nav__item"><a href="#instructions" class="p2">Инструкция</a></li>
@@ -147,8 +147,13 @@
                                                <div class="сharacteristic-item__value p2">ОртоС НОЦ</div>
                                            </div>
                                            <div class="product-сharacteristic__item сharacteristic-item сharacteristic-item--hidden">
-                                               <div class="сharacteristic-item__title p3">Страна:</div>
-                                               <div class="сharacteristic-item__value p2">Китай</div>
+                                               <div class="сharacteristic-item__title p3">Отпуск:</div>
+                                               <div class="сharacteristic-item__value p2 df df-ai-center">
+                                                   <svg width="20" height="20">
+                                                       <use xlink:href="/img/sprites.svg#icon-warning"></use>
+                                                   </svg>
+                                                   По рецепту
+                                               </div>
                                            </div>
                                            <div class="product-сharacteristic__item сharacteristic-item">
                                                <div class="сharacteristic-item__title p3">Доступные варианты:</div>
@@ -296,7 +301,7 @@
                             </button>
                         </div>
                     </div>
-                    <div class="product-block-description m-20 shadow-block content-focus" id="instructions" data-scroll_id="instructions" data-attr_key_menu="instructions">
+                    <div class="product-block-description m-20 shadow-block content-focus" id="instructions"> <!--id="instructions" data-scroll_id="instructions" data-attr_key_menu="instructions"-->
                         <h2 class="product-block-description__title m-20 h3">Инструкция</h2>
                         <div class="product-block-description__tabs product-tabs df df-ai-center df-row df-wrap">
                             <a href="#instructions-0" class="product-tabs__item p1">Лекарственная форма</a>
@@ -608,12 +613,12 @@
                 <div class="content">
                 </div>
             </div>
-            <section class="other-product m-20 content-focus" id="analog" data-scroll_id="analog" data-attr_key_menu="analog">
+            <section class="other-product m-20 content-focus"> <!--id="analog" data-scroll_id="analog" data-attr_key_menu="analog"-->
                 <div class="other-product__header df df-ai-center df-jc-between">
                     <h2 class="other-product__title h3">Аналоги</h2>
                     <a href="#" class="other-product__link p1 bold">Смотреть все</a>
                 </div>
-                <div class="swiper other-product__swiper other-product-swiper" id="analog-slider">
+                <div class="swiper other-product__swiper other-product-swiper">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide product-preview">
                             <a href="#" class="product-preview__img df df-ai-stretch">
@@ -833,22 +838,22 @@
                         </div>
                     </div>
                     <div class="swiper-button-prev other-product-swiper-prev">
-                        <svg width="7" height="12">
+                        <svg width="12" height="15">
                             <use xlink:href="./img/sprites.svg#arrow-menu"></use>
                         </svg>
                     </div>
                     <div class="swiper-button-next other-product-swiper-next">
-                        <svg width="7" height="12">
+                        <svg width="12" height="15">
                             <use xlink:href="./img/sprites.svg#arrow-menu"></use>
                         </svg>
                     </div>
                 </div>
             </section>
-            <section class="other-product m-20 content-focus" id="latest-watched" data-scroll_id="latest-watched" data-attr_key_menu="latest-watched">
+            <section class="other-product m-20 content-focus"> <!--id="latest-watched" data-scroll_id="latest-watched" data-attr_key_menu="latest-watched"-->
                 <div class="other-product__header">
                     <h2 class="other-product__title h3">Вы недавно смотрели</h2>
                 </div>
-                <div class="swiper other-product__swiper other-product-swiper" id="latest-watched-slider">
+                <div class="swiper other-product__swiper other-product-swiper">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide product-preview">
                             <a href="#" class="product-preview__img df df-ai-stretch">
@@ -933,12 +938,12 @@
                         </div>
                     </div>
                     <!--<div class="swiper-button-prev other-product-swiper-prev">
-                        <svg width="7" height="12">
+                        <svg width="12" height="15">
                             <use xlink:href="./img/sprites.svg#arrow-menu"></use>
                         </svg>
                     </div>
                     <div class="swiper-button-next other-product-swiper-next">
-                        <svg width="7" height="12">
+                        <svg width="12" height="15">
                             <use xlink:href="./img/sprites.svg#arrow-menu"></use>
                         </svg>
                     </div>-->
