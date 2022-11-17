@@ -3,11 +3,15 @@
         <div class="header__row df df-ai-center df-jc-between">
             <div class="header__left df df-ai-center">
                 <a href="/" class="header__logo df df-ai-stretch">
-                    <img src="./img/logo.png" alt="Apteka" width="109" height="26">
+                    <img src="./img/logo.svg" alt="Apteka" width="109" height="26">
                 </a>
-                <svg class="header__icon-mob" width="24" height="19">
-                    <use xlink:href="/img/sprites.svg#icon-book"></use>
-                </svg>
+                <div class="header-menu-xxl">
+                    <svg class="header__icon-mob" width="24" height="20">
+                        <use xlink:href="/img/sprites.svg#icon-book"></use>
+                    </svg>
+                    @@include('./aside-menu.html')
+
+                </div>
             </div>
             <div class="header__center">
                 <div class="header__location df df-ai-center p2" id="header-city">
@@ -36,7 +40,7 @@
             </div>
         </div>
     </div>
-    <div class="header__sticky" id="header-sticky">
+    <!--<div class="header__sticky" id="header-sticky">
         <div class="container">
             <div class="header__sticky-wrapper df df-ai-center">
                 <div class="header__name p2">Librederm церафавит крем липидовосстанавливающий с церамидами и пребиотиком 75 мл</div>
@@ -49,8 +53,9 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>-->
     <div class="container">
+        <div class="header-menu__backdrop" id="menu-backdrop"></div>
         <div class="header-mob">
             <div class="header-mob__row df df-ai-center df-jc-between">
                 <button class="header-mob__btn df df-ai-stretch">
@@ -59,7 +64,7 @@
                     </svg>
                 </button>
                 <a href="/" class="header-mob__logo df df-ai-stretch">
-                    <img src="./img/logo.png" alt="Apteka" width="109" height="26">
+                    <img src="./img/logo.svg" alt="Apteka" width="109" height="26">
                 </a>
                 <a href="#" class="header__cart header-cart df df-ai-stretch">
                     <svg width="26" height="26">
@@ -69,8 +74,8 @@
                 </a>
             </div>
             <div class="header-mob__title header-mob__title--profile df df-ai-center p1">
-                <svg width="20" height="19">
-                    <use xlink:href="/img/sprites.svg#icon-user"></use>
+                <svg width="20" height="20">
+                    <use xlink:href="/img/sprites.svg#icon-user-mob"></use>
                 </svg>
                 Профиль
                 <svg class="arrow" width="7" height="10">
@@ -84,8 +89,8 @@
             </ul>
             <div class="header-mob__li header-mob__li--favorit"><a href="#" class="header-mob__link">В избранном <b>(5)</b></a></div>
             <div class="header-mob__title df df-ai-center p1">
-                <svg class="header__icon-mob" width="24" height="19">
-                    <use xlink:href="/img/sprites.svg#icon-book"></use>
+                <svg class="header__icon-mob" width="24" height="20">
+                    <use xlink:href="/img/sprites.svg#icon-book-mob"></use>
                 </svg>
                 Каталог
             </div>

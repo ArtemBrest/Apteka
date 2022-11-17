@@ -47,8 +47,9 @@ function searchData(search) {
     });
 }
 window.addEventListener("load", function () {
+    let fade = document.getElementById("fade");
     let header = document.getElementById("header");
-    let headerSticky = document.getElementById("header-sticky")
+    /*let headerSticky = document.getElementById("header-sticky")*/
     let addProductCart = document.getElementById("add-product-cart");
     const body = document.body;
     const scrollUp = "scroll-up";
@@ -82,7 +83,7 @@ window.addEventListener("load", function () {
             if (currentScroll <= 0) {
                 body.classList.remove(scrollUp);
                 //header.classList.remove("active");
-                fadeOut(headerSticky);
+                //fadeOut(headerSticky);
                 return;
             }
             if (currentScroll > lastScroll && !body.classList.contains(scrollDown)) {
@@ -90,7 +91,7 @@ window.addEventListener("load", function () {
                 body.classList.remove(scrollUp);
                 body.classList.add(scrollDown);
                 //header.classList.add("active");
-                fadeIn(headerSticky);
+                //fadeIn(headerSticky);
             }
             else if (currentScroll < lastScroll && body.classList.contains(scrollDown)) {
                 // up
@@ -101,33 +102,47 @@ window.addEventListener("load", function () {
         }
     });
     let search = document.getElementById("search");
+    let searchBackdrop = document.getElementById("search__backdrop");
     let searchInput = document.getElementById("search-input");
     let searchPopup = document.getElementById("search-autocomplete");
     let searchBtnClose = document.getElementById("autocomplete-mobile-close");
     if(searchInput !== null && searchPopup !== null && searchBtnClose !== null){
         searchInput.addEventListener('click',function (e) {
+
             if(!search.classList.contains("active")){
                 search.classList.toggle("active")
                 fadeIn(searchPopup);
+                fadeIn(searchBackdrop)
             }
-
+            if(window.screen.width < 992) {
+                document.getElementById("searchInput").blur();
+                document.getElementById("searchInput-2").focus();
+            }
         })
         searchBtnClose.addEventListener('click',function (e) {
             if(search.classList.contains("active")){
                 search.classList.toggle("active")
                 fadeOut(searchPopup);
+                fadeOut(searchBackdrop)
             }
-        })
+        });
+        searchBackdrop.addEventListener('click',function (e) {
+            if(search.classList.contains("active")){
+                search.classList.toggle("active")
+                fadeOut(searchPopup);
+                fadeOut(searchBackdrop)
+            }
+        });
         document.addEventListener( 'click', (e) => {
             const withinBoundaries = e.composedPath().includes(search);
             if ( ! withinBoundaries ) {
                 fadeOut(searchPopup)
+                fadeOut(searchBackdrop)
                 search.classList.toggle("active")
             }
         })
     }
     let headerCity = document.getElementById("header-city");
-    let fade = document.getElementById("fade");
     let cityPopup = document.getElementById("city-popup");
     if(headerCity !== null && cityPopup !== null && fade !== null){
         headerCity.addEventListener("click", function (e) {
@@ -214,12 +229,39 @@ window.addEventListener("load", function () {
     let headerIconMobOpen = document.querySelector(".header__icon-mob");
     let headerIconMobClose = document.querySelector(".header-mob__btn");
     let headerMob = document.querySelector(".header-mob");
-    headerIconMobOpen.addEventListener("click", function (e) {
-        fadeIn(headerMob);
-    });
-    headerIconMobClose.addEventListener("click", function (e) {
-        fadeOut(headerMob);
-    });
+    let menuBackdrop = document.getElementById("menu-backdrop");
+    if(window.screen.width < 1430) {
+        headerIconMobOpen.addEventListener("click", function (e) {
+            fadeIn(headerMob);
+            fadeIn(menuBackdrop)
+        });
+        headerIconMobClose.addEventListener("click", function (e) {
+            fadeOut(headerMob);
+            fadeOut(menuBackdrop)
+        });
+        menuBackdrop.addEventListener("click", function (e) {
+            fadeOut(headerMob);
+            fadeOut(menuBackdrop)
+        });
+    }
+    /*else if(window.innerWidth > 992 && window.innerWidth < 1430){
+        let parent  = headerIconMobOpen.parentNode;
+        let menu = parent.querySelector('.aside-menu');
+        let backdrop = parent.querySelector('.header-menu__backdrop');
+        console.log(backdrop)
+        parent.addEventListener("click", function (e) {
+            fadeIn(menu, 'flex');
+            fadeIn(backdrop);
+        });
+        backdrop.addEventListener("click", function (e) {
+            fadeOut(menu);
+            fadeOut(backdrop);
+        });
+        menu.addEventListener("mouseout", function (e) {
+            fadeOut(menu);
+            fadeOut(backdrop);
+        });
+    }*/
     let slideZoom = document.querySelectorAll(".zoom");
     if(!isEmptyObject(slideZoom)){
         slideZoom.forEach(function (el) {
@@ -241,7 +283,8 @@ window.addEventListener("load", function () {
         mousewheel: true,
     });
     var swiperMain = new Swiper(".product__swiper-main", {
-        spaceBetween: 0,
+        spaceBetween: 10,
+
         pagination: {
             el: ".swiper-pagination",
             clickable: true,
@@ -288,7 +331,7 @@ window.addEventListener("load", function () {
         }
     });
     /////
-    const classChangeOnScroll = () => {
+    /*const classChangeOnScroll = () => {
         document.querySelectorAll("[data-scroll_id]").forEach((el) => {
             let top = el.offsetTop - 110;
             let bottom = top + el.offsetHeight;
@@ -306,12 +349,12 @@ window.addEventListener("load", function () {
                 });
             }
         });
-    };
+    };*/
     const scrollIntoViewWithMargin = (node, margin) => {
         const { top } = node.getBoundingClientRect();
         window.scrollTo({ top: top + window.scrollY + margin, behavior: "smooth" });
     };
-    const initScrollButtons = () => {
+    /*const initScrollButtons = () => {
         const scroll_buttons = document.querySelectorAll("[data-id]");
         if (!scroll_buttons) return;
         scroll_buttons.forEach((button) => {
@@ -336,12 +379,58 @@ window.addEventListener("load", function () {
         });
         window.addEventListener("scroll", classChangeOnScroll);
     };
-    initScrollButtons()
+    initScrollButtons()*/
 
     document.querySelectorAll('a[href^="#"]').forEach(link => link.addEventListener('click', function(e) {
         e.preventDefault();
         const id = e.currentTarget.getAttribute('href');
         const target = document.querySelector(id);
-        scrollIntoViewWithMargin(target, -110);
+        scrollIntoViewWithMargin(target, -60);
     }));
+
+
+
+    function initAcc(elem, option) {
+        let item = elem.querySelectorAll(".ui-accordion-item__toggle");
+        let item_content = elem.querySelectorAll(".ui-collapse");
+        for (let i = 0; i < item.length; i++) {
+            item[i].addEventListener('click', function (e) {
+                let parent = this.parentElement;
+                let content = this.parentElement.querySelector(".ui-collapse");
+                let mouseenter_ev;
+                console.log(!parent.classList.contains('ui-accordion-item--opened'))
+                if (!parent.classList.contains('ui-accordion-item--opened')) {
+                    if (option == true) {
+                        for (let i = 0; i < item.length; i++) {
+                            let parent = item[i].parentElement;
+                            parent.classList.remove('ui-accordion-item--opened');
+                            mouseenter_ev = setTimeout(() => {
+                                fadeOut(item_content[i]);
+                            }, 100);
+                        }
+                    }
+                    clearTimeout(mouseenter_ev);
+                    parent.classList.add('ui-accordion-item--opened');
+                    fadeIn(content);
+                } else {
+                    if (option == true) {
+                        for (let i = 0; i < item.length; i++) {
+                            let parent = item[i].parentElement;
+                            parent.classList.remove('ui-accordion-item--opened');
+                            mouseenter_ev = setTimeout(() => {
+                                fadeOut(item_content[i]);
+                            }, 100);
+                        }
+                    }
+                    clearTimeout(mouseenter_ev);
+                    parent.classList.remove('ui-accordion-item--opened');
+                    fadeOut(content);
+                }
+            });
+        }
+    }
+    let instructions = document.getElementById("instructions");
+    if (instructions !== null) {
+        initAcc(instructions, false);
+    }
 })

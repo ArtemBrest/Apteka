@@ -29,7 +29,7 @@ h1, h2, h3, h4, h5, h6, p {
   margin: 0;
 }
 b, strong {
-  font-weight: 700;
+  font-weight: 600;
 }
 ul {
   margin: 0;
@@ -46,6 +46,7 @@ button:hover {
   cursor: pointer;
 }
 img {
+  height: auto;
   max-width: 100%;
   margin: 0;
   padding: 0;
@@ -58,6 +59,20 @@ svg {
 }
 button, input{
   outline: none;
+}
+/* clears the 'X' from Internet Explorer */
+input[type=search]::-ms-clear,
+input[type=search]::-ms-reveal {
+  display: none;
+  width: 0;
+  height: 0;
+}
+/* clears the 'X' from Chrome */
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  display: none;
 }
 button,
 [type=button],
@@ -81,6 +96,9 @@ button:not(:disabled),
   @include media("max", "xl") {
     width: 100%;
     max-width: 100%;
+  }
+  @include media("max", "lg") {
+    padding: 0 10px;
   }
 }
 .float-left {
@@ -257,13 +275,16 @@ button:not(:disabled),
   top: 50%;
   z-index: 10000;
 }
+.lg-download{
+  display: none;
+}
 .lg-outer .lg-thumb{
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 10px;
   float: none;
-  margin: 0 auto 50px;
+  margin: 0 auto 20px;
   padding: 0;
 }
 .lg-outer .lg-thumb-outer{
@@ -284,14 +305,22 @@ button:not(:disabled),
     border: 2px solid $blue;
   }
 }
+.lg-outer .lg-thumb-outer.lg-grab .lg-thumb-item{
+  width: 50px!important;
+  height: 50px!important;
+}
 .lg-sub-html{
   padding: 20px;
   h4{
-    font-weight: 700;
+    font-weight: 600;
     font-size: 24px;
     line-height: 130%;
     color: $white;
     margin-bottom: 8px;
+    @include media("max", "lg") {
+      font-size: 18px;
+      line-height: 130%;
+    }
   }
   p{
     font-size: 12px;
@@ -319,34 +348,52 @@ h4, .h4,
 h5, .h5,
 h6, .h6,
 .h7, {
-  font-weight: 700;
+  font-weight: 600;
 }
 h1, .h1 {
-  font-size: 24px;
+  font-weight: 700;
+  font-size: 26px;
   line-height: 130%;
+  @include media("max", "lg") {
+    font-size: 22px;
+    line-height: 130%;
+  }
 }
 h2, .h2 {
-  font-size: 22px;
+  font-weight: 700;
+  font-size: 24px;
   line-height: 130%;
+  @include media("max", "lg") {
+    font-size: 20px;
+    line-height: 130%;
+  }
 }
 h3, .h3 {
-  font-size: 20px;
+  font-size: 22px;
   line-height: 130%;
+  @include media("max", "lg") {
+    font-size: 18px;
+    line-height: 130%;
+  }
 }
 h4, .h4 {
-  font-size: 18px;
+  font-size: 20px;
   line-height: 130%;
+  @include media("max", "lg") {
+    font-size: 18px;
+    line-height: 130%;
+  }
 }
 h5, .h5 {
   font-size: 16px;
   line-height: 130%;
 }
 h6, .h6 {
-  font-size: 14px;
+  font-size: 16px;
   line-height: 130%;
 }
 .h7 {
-  font-size: 12px;
+  font-size: 14px;
   line-height: 130%;
 }
 p{
@@ -357,21 +404,21 @@ p{
   font-size: 14px;
   line-height: 150%;
   &.bold{
-    font-weight: 700;
+    font-weight: 600;
   }
 }
 .p2{
-  font-size: 13px;
+  font-size: 14px;
   line-height: 150%;
   &.bold{
-    font-weight: 700;
+    font-weight: 600;
   }
 }
 .p3{
   font-size: 12px;
   line-height: 150%;
   &.bold{
-    font-weight: 700;
+    font-weight: 600;
   }
 }
 .btn-main{
@@ -383,7 +430,7 @@ p{
   border-radius: 6px;
   border: 1px solid $blue;
   color: $white;
-  font-weight: 700;
+  font-weight: 600;
   font-size: 14px;
   line-height: 150%;
   padding: 8px 15px;
@@ -414,7 +461,7 @@ p{
   border-radius: 6px;
   border: 1px solid $grayBg;
   color: $grayIcon;
-  font-weight: 700;
+  font-weight: 600;
   font-size: 12px;
   line-height: 150%;
   padding: 8px 14px;
@@ -434,6 +481,15 @@ p{
 }
 .m-20{
   margin: 20px 0;
+  @include media("max", "md") {
+    margin: 10px 0;
+  }
+}
+.m-footer{
+  margin-bottom: 90px!important;
+  @include media("max", "md") {
+    margin-bottom: 30px!important;
+  }
 }
 .header{
   position: sticky;
@@ -441,24 +497,55 @@ p{
   width: 100%;
   background: $white;
   z-index: 100;
-  &.active{
-    .header{
-      /*&__sticky{
-        display: flex;
-      }*/
-    }
-  }
+  box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.05);
   &__row{
+    position: relative;
     padding: 12px 0;
+    gap: 30px;
+    @include media("max", "md") {
+      gap: 10px;
+    }
   }
   &__left{
     gap: 30px;
   }
-  &__icon-mob{
+  &-menu-xxl{
     display: none;
-    @include media("max", "xl") {
+    height: 20px;
+    @include media("max", "xxl") {
       display: block;
     }
+    /*&:hover .aside-menu{
+      display: flex;
+      @include media("max", "lg") {
+        display: none;
+      }
+    }*/
+    .aside-menu{
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      &:before{
+        content: "";
+        position: absolute;
+        top: -30px;
+        left: 0;
+        width: 100%;
+        height: 40px;
+        background: transparent;
+      }
+    }
+  }
+  &-menu__backdrop{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 99;
+    background: rgba(0, 0, 0, 0.6);
+    display: none;
   }
   &__logo{
     flex-shrink: 0;
@@ -470,12 +557,12 @@ p{
     position: absolute;
     top: 0;
     left: 1px;
-    z-index: 2;
+    z-index: 9;
     width: 145px;
     height: 30px;
     margin: 5px 0;
     padding: 5px 15px;
-    background: $white;
+    background: transparent;
     line-height: 130%;
     color: $black;
     gap: 7px;
@@ -501,26 +588,27 @@ p{
       transform: rotate(90deg);
     }
     @include media("max", "lg") {
-      padding: 5px 10px;
-      min-width: 110px;
+      padding: 5px 12px;
+      min-width: 40px;
       width: fit-content;
+      & > *:not(:first-child){
+        display: none;
+      }
     }
   }
   &__center{
     position: relative;
+    z-index: 9;
     width: 1130px;
     @include media("max", "xxl") {
-      width: 900px;
-    }
-    @include media("max", "xl") {
-      width: calc(100% - 300px);
+      width: calc(100% - 290px);
     }
     @include media("max", "lg") {
       width: calc(100% - 80px);
     }
   }
   &__right{
-    gap: 25px;
+    gap: 30px;
   }
   &-cart{
     position: relative;
@@ -535,7 +623,7 @@ p{
       display: block;
       font-weight: 600;
       font-size: 12px;
-      line-height: 12px;
+      line-height: 14px;
       text-align: center;
       color: $white;
       position: absolute;
@@ -563,7 +651,7 @@ p{
       display: none;
     }
   }
-  &__sticky{
+  /*&__sticky{
     position: fixed;
     top: 64px;
     width: 100%;
@@ -579,7 +667,7 @@ p{
     }
   }
   &__name{
-    font-weight: 700;
+    font-weight: 600;
     color: $black;
     width: 230px;
     overflow: hidden;
@@ -602,7 +690,7 @@ p{
       height: 0;
     }
     &-item{
-      font-weight: 700;
+      font-weight: 600;
       color: $grayText;
       padding: 12px 0 10px;
       border-bottom: 2px solid transparent;
@@ -613,12 +701,12 @@ p{
         border-bottom: 2px solid $blue;
       }
     }
-  }
+  }*/
 }
 .header-mob {
   display: none;
 }
-@include media("max", "xl") {
+@include media("max", "xxl") {
   .header-mob {
     position: fixed;
     top: 0;
@@ -626,20 +714,20 @@ p{
     right: 0;
     bottom: 0;
     height: 100vh;
-    width: 100vw;
+    width: 300px;
     background: $white;
     z-index: 100;
     padding: 0 15px;
-
-    &__row {
-      padding: 13px 0;
+    @include media("max", "lg") {
+      width: 100vw;
     }
-
+    &__row {
+      padding: 19px 0;
+    }
     &__btn {
       padding: 0;
       background: transparent;
       border: none;
-
       &-close {
         color: $black;
         &:hover{
@@ -651,7 +739,6 @@ p{
         }
       }
     }
-
     &__scroll{
       overflow-y: auto;
       max-height: calc(100% - 200px);
@@ -659,9 +746,9 @@ p{
     &__title {
       width: 100%;
       padding: 6px 0;
-      font-weight: 700;
+      font-size: 15px;
+      font-weight: 600;
       gap: 8px;
-
       .arrow {
         margin: 0 0 0 auto;
         transform: rotate(90deg);
@@ -716,15 +803,18 @@ p{
         }
 
         span {
-          font-weight: 700;
+          font-weight: 600;
           font-size: 14px;
           line-height: 150%;
+          @include media("max", "lg") {
+            font-size: 15px;
+          }
         }
       }
     }
 
     &__link {
-      font-size: 14px;
+      font-size: 15px;
       line-height: 130%;
       color: $black;
     }
@@ -755,13 +845,14 @@ p{
 .search-catalog{
   width: 100%;
   position: relative;
+  background: $blue;
+  border-radius: 6px;
   &__input{
     width: 100%;
     height: 40px;
     background: $white;
     border: 1px solid $blue;
-    border-top-left-radius: 6px;
-    border-bottom-left-radius: 6px;
+    border-radius: 6px;
     padding-left: 160px;
     color: $black;
     cursor: pointer;
@@ -775,7 +866,7 @@ p{
       border: 1px solid $blueAccent;
     }
     @include media("max", "lg") {
-      padding-left: 120px;
+      padding-left: 60px;
     }
   }
   &__btn{
@@ -785,7 +876,16 @@ p{
       padding: 8px 12px;
     }
   }
-
+  &__backdrop{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    background: rgba(0, 0, 0, 0.6);
+    display: none;
+  }
   .autocomplete{
     display: none;
     position: absolute;
@@ -804,6 +904,10 @@ p{
       height: 100%;
       width: 100%;
       margin: 0;
+      .p2,
+      .p1{
+        font-size: 15px;
+      }
     }
 
     &__content{
@@ -852,8 +956,9 @@ p{
         &__btn{
           background: transparent;
           border: none;
-          font-weight: 700;
+          font-weight: 600;
           color: $blue;
+          font-size: 15px;
           &:hover{
             color: 1px solid $blueHover;
           }
@@ -873,7 +978,7 @@ p{
       }
       &-title{
         padding: 0 8px;
-        font-weight: 700;
+        font-weight: 600;
         line-height: 130%;
         margin-bottom: 16px;
       }
@@ -910,6 +1015,9 @@ p{
               color: $blueHover;
               & .autocomplete__icon-trash{
                 color: $grayIcon;
+                &:hover{
+                  color: $pink;
+                }
               }
             }
             &:active,
@@ -918,6 +1026,9 @@ p{
               color: $blueAccent;
               & .autocomplete__icon-trash{
                 color: $grayIcon;
+                &:hover{
+                  color: $pink;
+                }
               }
             }
           }
@@ -972,7 +1083,7 @@ p{
             }
             span{
               line-height: 130%;
-              font-weight: 700;
+              font-weight: 600;
               color: $black;
             }
             &--mob{
@@ -1019,7 +1130,7 @@ p{
     }
     &__all-result{
       display: block;
-      font-weight: 700;
+      font-weight: 600;
       line-height: 130%;
       color: $blue;
       margin-top: 11px;
@@ -1030,6 +1141,10 @@ p{
       &:active{
         color: $blueAccent;
       }
+      @include media("max", "lg") {
+        font-size: 15px;
+        line-height: 130%;
+      }
     }
   }
 }
@@ -1038,7 +1153,7 @@ p{
   border-radius: 8px;
   width: 230px;
   position: sticky;
-  top: 130px;
+  top: 80px;
   z-index: 99;
   &__wrapper{
     position: relative;
@@ -1076,7 +1191,7 @@ p{
         background: $white;
         padding: 8px 12px 12px 25px;
         z-index: 22;
-        margin-left: -15px;
+        margin-left: -10px;
       }
     }
   }
@@ -1115,7 +1230,7 @@ p{
     padding: 8px;
     .aside-menu__link{
       display: block;
-      font-weight: 700;
+      font-weight: 600;
       font-size: 12px;
       line-height: 130%;
       color: $blue;
@@ -1157,7 +1272,7 @@ p{
     }
   }
   &__title{
-    font-weight: 700;
+    font-weight: 600;
     margin-bottom: 8px;
   }
   &__text{
@@ -1179,6 +1294,7 @@ p{
     gap: 15px 30px;
     @include media("max", "lg") {
       padding: 30px 0 15px;
+      flex-flow: column;
     }
     &__item{
       display: flex;
@@ -1201,7 +1317,7 @@ p{
       }
     }
     &__title{
-      font-weight: 700;
+      font-weight: 600;
       line-height: 130%;
     }
   }
@@ -1250,12 +1366,13 @@ p{
     &:hover{
       color: $blueHover;
     }
-    &:active{
+    &:active,
+    &:focus{
       color: $blueAccent;
     }
   }
   &__title{
-    font-weight: 700;
+    font-weight: 600;
     color: $black;
     margin-bottom: 8px;
   }
@@ -1290,7 +1407,7 @@ p{
     }
   }
   &__list{
-    max-height: 230px;
+    height: 230px;
     padding: 12px 12px 16px;
     overflow-y: auto;
     gap: 15px;
@@ -1298,8 +1415,15 @@ p{
     border-radius: 8px;
     &-item{
       gap: 5px;
-      font-weight: 700;
+      font-weight: 600;
       cursor: pointer;
+      &:hover{
+        color: $blueHover;
+      }
+      &:active,
+      &:focus{
+        color: $blueAccent;
+      }
       &.hide{
         display: none;
       }
@@ -1311,7 +1435,7 @@ p{
 }
 .add-product-cart{
   position: sticky;
-  top: 130px;
+  top: 80px;
   background: $white;
   box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.02);
   border-radius: 8px;
@@ -1325,14 +1449,29 @@ p{
   &__price{
     .label{
       color: $black;
+      @include media("max", "md") {
+        font-size: 10px;
+        line-height: 130%;
+        color: $grayText;
+        margin-bottom: 2px;
+      }
     }
     .price{
       color: $black;
       margin-bottom: 4px;
+      @include media("max", "md") {
+        margin-bottom: 2px;
+      }
     }
     .text{
       color: $grayText;
+      font-size: 12px;
+      line-height: 150% ;
+      @include media("max", "md") {
+        line-height: 130%;
+      }
       span{
+        font-weight: 700;
         color: $black;
       }
     }
@@ -1356,8 +1495,10 @@ p{
   }
   &__text{
     color: $grayText;
+    font-size: 12px;
+    line-height: 150% ;
     span{
-      font-weight: 700;
+      font-weight: 600;
       color: $blue;
     }
     &:not(:last-child){
@@ -1376,6 +1517,7 @@ p{
   padding: 10px;
   z-index: 99;
   background: $white;
+  box-shadow: 0px -5px 10px rgba(26, 54, 95, 0.05);
   @include media("max", "lg"){
     &.active{
       display: block;
@@ -1400,6 +1542,9 @@ p{
   &__btn{
     width: 100%;
     max-width: 200px;
+    @include media("max", "lg"){
+      padding: 6px 15px;
+    }
   }
   &__text{
     color: $black;
@@ -1451,7 +1596,7 @@ p{
       }
       & > ol,
       & > ul{
-        margin: 10px 0 10px 30px;
+        margin: 10px 0 10px 20px;
       }
     }
   }
@@ -1475,15 +1620,21 @@ p{
         display: inline-block;
         flex-shrink: 0;
         text-align: center;
-        font-weight: 700;
+        font-weight: 600;
         font-size: 14px;
         line-height: 150%;
         color: $black;
       }
       & > ol,
       & > ul{
-        margin: 10px 0 10px 30px;
+        margin: 10px 0 10px 20px;
       }
+    }
+  }
+  @include media("max", "lg") {
+    .overflow-x-scroll {
+      overflow-x: auto;
+      width: 100%;
     }
   }
   table{
@@ -1493,6 +1644,9 @@ p{
     border: 1px solid $grayLine;
     border-radius: 6px;
     text-align: left;
+    @include media("max", "md") {
+      width: 768px;
+    }
     tbody{
       tr{
         td,
@@ -1504,10 +1658,10 @@ p{
           padding: 8px 12px;
           border-right: 1px solid $grayLine;
           border-bottom: 1px solid $grayLine;
-          max-width: 560px;
+          min-width: 100px;
         }
         th{
-          font-weight: 700;
+          font-weight: 600;
         }
         &:last-child{
           td,th{
@@ -1521,10 +1675,667 @@ p{
     }
   }
 }
+.product-preview{
+  background: $white;
+  box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.05);
+  border-radius: 8px;
+  width: 215px;
+  &__img{
+    position: relative;
+    border-radius: 8px;
+    img{
+      border-radius: 8px;
+    }
+  }
+  &__heart{
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 22px;
+    height: 22px;
+    background: none;
+    border: none;
+    &:hover svg path:first-child{
+      fill: $pink;
+    }
+    &:active svg path,
+    &:focus svg path{
+      fill: $pink;
+    }
+  }
+  &__content{
+    padding: 10px 8px 15px;
+  }
+  &__title{
+    line-height: 130%;
+    margin-bottom: 6px;
+    color: $black;
+  }
+  &__text{
+    margin-bottom: 6px;
+    color: $grayText;
+    @include media("max", "lg") {
+      font-size: 10px;
+      line-height: 130%;
+    }
+  }
+  &__status{
+    display: block;
+    width: fit-content;
+    padding: 0 4px;
+    font-weight: 600;
+    font-size: 10px;
+    line-height: 150%;
+    color: $green;
+    background: #EBF7EE;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    &.on{
+      background: rgba(255, 60, 107, 0.05);
+      color: $pink;
+    }
+    @include media("max", "lg") {
+      margin-bottom: 10px;
+    }
+  }
+  &__price{
+    .label{
+      margin-bottom: 2px;
+      color: $grayText;
+      @include media("max", "lg") {
+        font-size: 10px;
+        line-height: 130%;
+      }
+    }
+    .price{
+      line-height: 130%;
+      color: $black;
+    }
+  }
+  &__btn{
+    padding: 5px;
+    width: 35px;
+    height: 35px;
+    flex-shrink: 0;
+  }
+}
+
+.grid-columns-page{
+  @include media("max", "xxl") {
+    display: block;
+    &__menu{
+      display: none;
+    }
+  }
+}
+.breadcrumb{
+  gap: 6px;
+  line-height: 130%;
+  margin-top: 0;
+  overflow-x: auto;
+  &__separator{
+    display: block;
+    /*margin-top: 3px;*/
+    flex-shrink: 0;
+    width: 2px;
+    height: 2px;
+    background: $blue;
+    border-radius: 50%;
+    line-height: 130%;
+  }
+  &__item{
+    color: $blue;
+    flex-shrink: 0;
+    &.active{
+      color: $grayText;
+    }
+  }
+}
+.product{
+  &__title{
+    margin-bottom: 8px;
+  }
+  &-rating{
+    gap: 2px;
+    flex-shrink: 0;
+    svg{
+      flex-shrink: 0;
+      color: $grayIcon;
+      opacity: 0.2;
+      &.active{
+        color: $yellow;
+        opacity: 1;
+      }
+    }
+    &__text{
+      display: block;
+      margin-left: 4px;
+      color: $grayText;
+      border-bottom: 1px dashed $grayText;
+    }
+  }
+  &__row{
+    gap: 6px;
+    margin-bottom: 20px;
+    width: 100%;
+    overflow-x: auto;
+  }
+  &-prescription{
+    color: $grayText;
+    gap: 6px;
+    flex-shrink: 0;
+    &__item:not(.active){
+      font-weight: 600;
+      color: $pink;
+    }
+  }
+  &-wrapper{
+    padding: 10px 20px 20px;
+    background: $white;
+    border-radius: 8px;
+    @include media("max", "lg") {
+      padding: 12px 10px 15px;
+      margin: 0 -10px!important;
+      border-radius: 0;
+    }
+  }
+  &-nav{
+    margin: -10px -20px 20px;
+    padding: 0px 20px;
+    border-bottom: 1px solid $grayBg;
+    gap: 35px;
+    @include media("max", "lg") {
+      display: none;
+    }
+    &__item{
+      &.product-nav__item--active a{
+        color: $blue;
+        border-bottom: 2px solid $blue;
+      }
+      a{
+        display: block;
+        font-weight: 600;
+        color: $grayText;
+        padding: 10px 0;
+        border-bottom: 2px solid transparent;
+      }
+    }
+  }
+  &-сharacteristic{
+    &__row{
+      gap: 30px;
+      @include media("max", "md") {
+        flex-flow: column;
+        gap: 12px;
+      }
+    }
+    .add-product-cart__top{
+      display: none;
+      @include media("max", "md") {
+        display: flex;
+      }
+    }
+    &__info{
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-gap: 10px;
+      @include media("max", "md") {
+        display: block;
+      }
+      .сharacteristic-item{
+        &--hidden{
+          @include media("max", "md") {
+            display: none;
+          }
+        }
+        &__title{
+          line-height: 130%;
+          color: $grayText;
+        }
+        &__text{
+          line-height: 130%;
+          color: $black;
+        }
+        &__form{
+          margin-top: 12px;
+          gap: 12px;
+          width: 100%;
+          @include media("max", "md") {
+            overflow-x: auto;
+            padding-bottom: 3px;
+          }
+        }
+        &__box{
+          position: relative;
+          flex-shrink: 0;
+          input{
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            width: 1px;
+            height: 1px;
+            &:disabled ~ label{
+              opacity: 0.5;
+            }
+            &:checked ~ label{
+              border: 1px solid $blue;
+            }
+          }
+        }
+        &-label{
+          display: block;
+          padding: 4px 8px;
+          background: $white;
+          box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.06), 0px 0px 3px rgba(0, 0, 0, 0.06);
+          border-radius: 6px;
+          min-width: 100px;
+          flex: 1 1 auto;
+          border: 1px solid $white;
+          &:hover{
+            .price,
+            .value{
+              color: $blue;
+            }
+          }
+          .row{
+            font-size: 10px;
+            line-height: 150%;
+            gap: 4px;
+          }
+          .text{
+            color: $grayText;
+          }
+          .value{
+            color: $black;
+          }
+          .price{
+            display: block;
+            font-weight: 600;
+            color: $black;
+            margin-top: 4px;
+          }
+        }
+      }
+    }
+    &__btn{
+      display: block;
+      margin-top: 5px;
+      font-weight: 600;
+      line-height: 130%;
+      color: $blue;
+      @include media("max", "md") {
+        display: none;
+      }
+      &:hover{
+        color: $blueHover;
+      }
+      &:focus,
+      &:active{
+        color: $blueAccent;
+      }
+    }
+  }
+  &__slider{
+    display: grid;
+    grid-template-columns: 1fr 6fr;
+    grid-gap: 10px;
+    height: 280px;
+    max-width: 350px;
+    margin-bottom: 12px;
+    @include media("max", "md") {
+      display: block;
+      grid-template-columns: initial;
+      grid-gap: 0;
+      height: auto;
+      max-width: 100%;
+    }
+    .swiper-pagination{
+      display: none;
+      @include media("max", "md") {
+        display: block;
+      }
+      &-bullet{
+        width: 8px;
+        height: 8px;
+        background: $grayBg;
+        border-radius: 50px;
+        opacity: 1;
+        &-active{
+          width: 16px;
+          height: 8px;
+          background: $blue;
+          opacity: 1;
+        }
+      }
+    }
+    &-label{
+      line-height: 130%;
+      color: $grayText;
+      @include media("max", "md") {
+        display: none;
+      }
+    }
+  }
+  &__swiper{
+    &-main{
+      width: 280px;
+      @include media("max", "md") {
+        width: 80%;
+        max-width: 600px;
+      }
+      @include media("max", "sm") {
+        width: 100%;
+      }
+      .product{
+        &__slide{
+          background-repeat: no-repeat;
+          background-position: 50% 50%;
+          position: relative;
+          height: 100%;
+          width: 100%;
+          overflow: hidden;
+          cursor: zoom-in;
+          border-radius: 6px;
+          &.zoom img {
+            transition: opacity 0.5s;
+            display: block;
+            width: 100%;
+          }
+          &.zoom img:hover {
+            opacity: 0;
+          }
+        }
+      }
+    }
+    &-sub{
+      width: 55px;
+      .product{
+        &__slide{
+          cursor: pointer;
+          border-radius: 6px;
+          &.swiper-slide-thumb-active{
+            border: 1px solid $blue;
+          }
+          img{
+            display: block;
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            border-radius: 6px;
+          }
+        }
+      }
+      @include media("max", "md") {
+        display: none;
+      }
+    }
+  }
+}
+.how-to-work{
+  background: $white;
+  border-radius: 8px;
+  padding: 20px;
+  @include media("max", "lg") {
+    padding: 12px 10px;
+    margin: 10px -10px!important;
+    border-radius: 0;
+  }
+  &__title{
+    margin-bottom: 20px;
+    @include media("max", "lg") {
+      margin-bottom: 15px;
+    }
+  }
+  &__cards{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-gap: 20px;
+    @include media("max", "lg") {
+      grid-template-columns: 1fr;
+      grid-gap: 30px;
+    }
+  }
+  &-card{
+    position: relative;
+    text-align: center;
+    @include media("max", "lg") {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      flex-flow: row;
+      text-align: left;
+    }
+    &__icon{
+      margin-bottom: 12px;
+      @include media("max", "lg") {
+        margin: 0 12px 0 0;
+        flex-shrink: 0;
+      }
+    }
+    &:not(:last-child):before{
+      content: "";
+      position: absolute;
+      top: 0;
+      right: -10px;
+      bottom: 0;
+      width: 1px;
+      height: 100%;
+      background: $grayLine;
+      @include media("max", "md") {
+        width: calc(100% - 50px);
+        height: 1px;
+        top: initial;
+        bottom: -15px;
+        right: 0;
+      }
+    }
+  }
+}
+.product-block-description{
+  background: $white;
+  border-radius: 8px;
+  padding: 20px;
+  @include media("max", "lg") {
+    padding: 12px 10px;
+    margin: 10px -10px!important;
+    border-radius: 0;
+  }
+  & *:first-child{
+    margin-top: 0;
+  }
+  & *:last-child{
+    margin-bottom: 0;
+  }
+  &__title{
+    font-weight: 700;
+    margin-bottom: 20px;
+    @include media("max", "lg") {
+      margin-bottom: 12px;
+    }
+  }
+  &__sub-title{
+    margin-bottom: 12px;
+  }
+  &__list{
+    gap: 12px;
+  }
+  &__item{
+    position: relative;
+    .title{
+      display: inline-block;
+      color: $grayText;
+      background: $white;
+      width: 320px;
+      vertical-align: top;
+      overflow: hidden;
+      @include media("max", "lg") {
+        width: 50%;
+      }
+      &:after {
+        content: '';
+        display: inline-block;
+        width: 100%;
+        margin: 0 -99% 0 5px;
+        vertical-align: baseline;
+        border-bottom: 1px dashed $grayLine;
+      }
+    }
+    .value{
+      display: inline-block;
+      color: $black;
+      background: $white;
+      letter-spacing: normal;
+      padding-left: 5px;
+      width: calc(100% - 320px);
+      vertical-align: bottom;
+      @include media("max", "lg") {
+        width: 50%;
+      }
+      a{
+        font-weight: 600;
+        color: $blue;
+        &:hover{
+          color: $blueHover;
+        }
+        &:focus,
+        &:active{
+          color: $blueAccent;
+        }
+      }
+    }
+  }
+  &__tabs{
+    gap: 10px;
+    .product-tabs__item{
+      display: block;
+      padding: 4px 8px;
+      background: $grayBg;
+      border-radius: 50px;
+      &:hover{
+        color: $blueHover;
+      }
+      &:active,
+      &:focus{
+        color: $blueAccent;
+      }
+    }
+  }
+}
+.ui-accordion-item{
+  &--opened{
+    .ui-accordion-item{
+      &__icon{
+        .line{
+          transition: all 0.3s;
+          &:last-child{
+            transform: rotate(0);
+          }
+        }
+      }
+    }
+  }
+  &__toggle{
+    margin-bottom: 10px;
+  }
+  &__icon{
+    display: none;
+    height: 17px;
+    width: 17px;
+    position: relative;
+    border: 1px solid $grayIcon;
+    border-radius: 50%;
+    @include media("max", "lg") {
+      display: block;
+    }
+    &:hover{
+      border: 1px solid $blueHover;
+      & .line{
+        background: $blueHover;
+      }
+    }
+    &:active,
+    &:focus{
+      border: 1px solid $blueAccent;
+      & .line{
+        background: $blueAccent;
+      }
+    }
+    .line{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      /*transform: translate(-50%, -50%);*/
+      margin-left: -5px;
+      margin-top: -0.5px;
+      display: block;
+      width: 10px;
+      height: 1px;
+      background: $grayIcon;
+      border-radius: 8px;
+      transition: all 0.3s;
+      &:last-child{
+        transform: rotate(90deg);
+      }
+    }
+  }
+  .ui-collapse{
+    display: block;
+    opacity: 1;
+  }
+}
+.product-block-disclaimer{
+  background: $white;
+  box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.02);
+  border-radius: 8px;
+  padding: 20px;
+  @include media("max", "lg") {
+    padding: 12px 10px;
+    margin: 10px -10px!important;
+    border-radius: 0;
+  }
+  & > *:first-child{
+    margin-top: 0!important;
+  }
+  & > *:last-child{
+    margin-bottom: 0!important;
+  }
+  ul{
+    margin: 15px 0;
+    padding: 0;
+    list-style-type: none;
+    @include media("max", "lg") {
+      margin: 12px 0;
+    }
+    & > li{
+      font-size: 14px;
+      line-height: 150%;
+      color: $grayText;
+      &:not(:last-child){
+        margin-bottom: 10px;
+      }
+    }
+  }
+  p{
+    font-size: 14px;
+    line-height: 150%;
+    color: $grayText;
+    &:not(:last-child){
+      margin-bottom: 10px;
+    }
+  }
+}
 .other-product{
   max-width: 1150px;
+  margin: 30px 0;
+  @include media("max", "lg") {
+    margin: 20px 0!important;
+  }
   &__header{
     margin-bottom: 16px;
+    @include media("max", "lg") {
+      margin-bottom: 12px;
+    }
   }
   &__link{
     color: $blue;
@@ -1576,463 +2387,9 @@ p{
       &:before{
         display: none;
       }
-    }
-  }
-}
-.product-preview{
-  background: $white;
-  box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.05);
-  border-radius: 8px;
-  width: 215px;
-  &__img{
-    position: relative;
-  }
-  &__heart{
-    position: absolute;
-    top: 12px;
-    right: 12px;
-    width: 22px;
-    height: 22px;
-    background: none;
-    border: none;
-    &:hover svg path:first-child{
-      fill: $pink;
-    }
-    &:active svg path,
-    &:focus svg path{
-      fill: $pink;
-    }
-  }
-  &__content{
-    padding: 10px 8px 15px;
-  }
-  &__title{
-    line-height: 130%;
-    margin-bottom: 6px;
-    color: $black;
-  }
-  &__text{
-    margin-bottom: 6px;
-    color: $grayText;
-  }
-  &__status{
-    display: block;
-    width: fit-content;
-    padding: 0 4px;
-    font-weight: 700;
-    font-size: 10px;
-    line-height: 150%;
-    color: $green;
-    background: #EBF7EE;
-    border-radius: 4px;
-    margin-bottom: 20px;
-    &.on{
-      background: rgba(255, 60, 107, 0.05);
-      color: $pink;
-    }
-  }
-  &__price{
-    .label{
-      margin-bottom: 2px;
-      color: $grayText;
-    }
-    .price{
-      line-height: 130%;
-      color: $black;
-    }
-  }
-  &__btn{
-    padding: 5px;
-    width: 35px;
-    height: 35px;
-    flex-shrink: 0;
-  }
-}
-
-.grid-columns-page{
-  @include media("max", "xxl") {
-    display: block;
-    &__menu{
-      display: none;
-    }
-  }
-}
-.breadcrumb{
-  gap: 6px;
-  line-height: 130%;
-  margin-top: 0;
-  &__separator{
-    display: block;
-    /*margin-top: 3px;*/
-    flex-shrink: 0;
-    width: 2px;
-    height: 2px;
-    background: $blue;
-    border-radius: 50%;
-    line-height: 130%;
-  }
-  &__item{
-    color: $blue;
-    &.active{
-      color: $grayText;
-    }
-  }
-}
-.product{
-  &__title{
-    margin-bottom: 8px;
-  }
-  &-rating{
-    gap: 2px;
-    svg{
-      flex-shrink: 0;
-      color: $grayIcon;
-      opacity: 0.2;
-      &.active{
-        color: $yellow;
-        opacity: 1;
+      @include media("max", "lg") {
+        display: none;
       }
-    }
-    &__text{
-      display: block;
-      margin-left: 4px;
-      color: $grayText;
-      border-bottom: 1px dashed $grayText;
-    }
-  }
-  &__row{
-    gap: 6px;
-    margin-bottom: 20px;
-  }
-  &-prescription{
-    color: $grayText;
-    gap: 6px;
-    &__item:not(.active){
-      font-weight: 700;
-      color: $pink;
-    }
-  }
-  &-wrapper{
-    padding: 10px 20px 20px;
-    background: $white;
-    border-radius: 8px;
-  }
-  &-nav{
-    margin: -10px -20px 20px;
-    padding: 0px 20px;
-    border-bottom: 1px solid $grayBg;
-    gap: 35px;
-    &__item{
-      &.product-nav__item--active a{
-        color: $blue;
-        border-bottom: 2px solid $blue;
-      }
-      a{
-        display: block;
-        font-weight: 600;
-        color: $grayText;
-        padding: 10px 0;
-        border-bottom: 2px solid transparent;
-      }
-    }
-  }
-  &-сharacteristic{
-    &__row{
-      gap: 30px;
-    }
-    &__info{
-      display: grid;
-      grid-template-columns: 1fr;
-      grid-gap: 10px;
-      .сharacteristic-item{
-        &__title{
-          line-height: 130%;
-          color: $grayText;
-        }
-        &__text{
-          line-height: 130%;
-          color: $black;
-        }
-        &__form{
-          margin-top: 12px;
-          gap: 12px;
-        }
-        &__box{
-          position: relative;
-          input{
-            position: absolute;
-            top: 0;
-            left: 0;
-            opacity: 0;
-            width: 1px;
-            height: 1px;
-            &:disabled ~ label{
-              opacity: 0.5;
-            }
-            &:checked ~ label{
-              border: 1px solid $blue;
-              .price,
-              .value{
-                color: $blue;
-              }
-            }
-          }
-        }
-        &-label{
-          display: block;
-          padding: 4px 8px;
-          background: $white;
-          box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.06), 0px 0px 3px rgba(0, 0, 0, 0.06);
-          border-radius: 6px;
-          width: 96px;
-          flex-shrink: 0;
-          border: 1px solid $white;
-          &:hover{
-            .price,
-            .value{
-              color: $blue;
-            }
-          }
-          .row{
-            font-size: 10px;
-            line-height: 150%;
-            gap: 4px;
-          }
-          .text{
-            color: $grayText;
-          }
-          .value{
-            color: $black;
-          }
-          .price{
-            display: block;
-            font-weight: 700;
-            color: $black;
-            margin-top: 4px;
-          }
-        }
-      }
-    }
-    &__btn{
-      display: block;
-      margin-top: 5px;
-      font-weight: 700;
-      line-height: 130%;
-      color: $blue;
-      &:hover{
-        color: $blueHover;
-      }
-      &:focus,
-      &:active{
-        color: $blueAccent;
-      }
-    }
-  }
-  &__slider{
-    display: grid;
-    grid-template-columns: 1fr 6fr;
-    grid-gap: 10px;
-    height: 280px;
-    max-width: 350px;
-    margin-bottom: 12px;
-    .swiper-pagination{
-      display: none;
-      &-bullet{
-        width: 8px;
-        height: 8px;
-        background: $grayBg;
-        border-radius: 50px;
-        opacity: 1;
-        &-active{
-          width: 16px;
-          height: 8px;
-          background: $blue;
-          opacity: 1;
-        }
-      }
-    }
-    &-label{
-      line-height: 130%;
-      color: $grayText;
-    }
-  }
-  &__swiper{
-    &-main{
-      width: 280px;
-      .product{
-        &__slide{
-          background-position: 50% 50%;
-          position: relative;
-          height: 100%;
-          width: 100%;
-          overflow: hidden;
-          cursor: zoom-in;
-          &.zoom img {
-            transition: opacity 0.5s;
-            display: block;
-            width: 100%;
-          }
-          &.zoom img:hover {
-            opacity: 0;
-          }
-        }
-      }
-    }
-    &-sub{
-      width: 60px;
-      .product{
-        &__slide{
-          border-radius: 6px;
-          &.swiper-slide-thumb-active{
-            border: 1px solid $blue;
-          }
-          img{
-            display: block;
-            height: 100%;
-            width: 100%;
-            object-fit: cover;
-            border-radius: 6px;
-          }
-        }
-      }
-    }
-  }
-}
-.how-to-work{
-  background: $white;
-  border-radius: 8px;
-  padding: 20px;
-  &__title{
-    margin-bottom: 20px;
-  }
-  &__cards{
-    display: grid;
-    grid-template-columns: repeat(4,1fr);
-    grid-gap: 20px;
-  }
-  &-card{
-    position: relative;
-    text-align: center;
-    &__icon{
-      margin-bottom: 12px;
-    }
-    &:not(:last-child):before{
-      content: "";
-      position: absolute;
-      top: 0;
-      right: -10px;
-      bottom: 0;
-      width: 1px;
-      height: 100%;
-      background: $grayLine;
-    }
-  }
-}
-.product-block-description{
-  background: $white;
-  border-radius: 8px;
-  padding: 20px;
-  & *:first-child{
-    margin-top: 0;
-  }
-  & *:last-child{
-    margin-bottom: 0;
-  }
-  &__title{
-    margin-bottom: 20px;
-  }
-  &__sub-title{
-    margin-bottom: 12px;
-  }
-  &__list{
-    gap: 12px;
-  }
-  &__item{
-    position: relative;
-    .title{
-      display: inline-block;
-      color: $grayText;
-      background: $white;
-      width: 320px;
-      vertical-align: top;
-      overflow: hidden;
-      &:after {
-        content: '';
-        display: inline-block;
-        width: 100%;
-        margin: 0 -99% 0 3px;
-        vertical-align: baseline;
-        border-bottom: 1px dashed $grayLine;
-      }
-    }
-    .value{
-      display: inline-block;
-      color: $black;
-      background: $white;
-      letter-spacing: normal;
-      padding-left: 3px;
-      width: calc(100% - 320px);
-      vertical-align: bottom;
-      a{
-        font-weight: 700;
-        color: $blue;
-        &:hover{
-          color: $blueHover;
-        }
-        &:focus,
-        &:active{
-          color: $blueAccent;
-        }
-      }
-    }
-  }
-  &__tabs{
-    gap: 10px;
-    .product-tabs__item{
-      display: block;
-      padding: 4px 8px;
-      background: $grayBg;
-      border-radius: 50px;
-      &:hover{
-        color: $blueHover;
-      }
-      &:active,
-      &:focus{
-        color: $blueAccent;
-      }
-    }
-  }
-}
-.product-block-disclaimer{
-  background: #FFFFFF;
-  box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.02);
-  border-radius: 8px;
-  padding: 20px;
-  &:first-child{
-    margin-top: 0!important;
-  }
-  &:last-child{
-    margin-bottom: 0!important;
-  }
-  ul{
-    margin: 15px 0;
-    padding: 0;
-    list-style-type: none;
-    & > li{
-      font-size: 14px;
-      line-height: 150%;
-      color: $grayText;
-      &:not(:last-child){
-        margin-bottom: 10px;
-      }
-    }
-  }
-  p{
-    font-size: 14px;
-    line-height: 150%;
-    color: $grayText;
-    &:not(:last-child){
-      margin-bottom: 10px;
     }
   }
 }
