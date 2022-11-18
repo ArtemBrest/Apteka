@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>АПТЕКА</title>
+    <link rel="stylesheet" href="./css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="./lightGallery-master/dist/css/lightgallery-bundle.min.css">
+    <link rel="stylesheet" href="./lightGallery-master/dist/css/lg-thumbnail.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/favicon/site.webmanifest">
+    <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#31353b">
+    <meta name="msapplication-TileColor" content="#31353b">
+    <meta name="theme-color" content="#ffffff">
+</head>
+<body>
+@@include('./global/header.html')
+<div class="container">
+    <div class="grid-columns grid-columns_left catalog-page m-20 m-footer">
+        <div class="grid-columns__menu"></div>
+        <div class="content">
+            <nav class="breadcrumb df df-ai-center p3 m-20 scroll">
+                <a href="index.html" class="breadcrumb__item">Главная</a>
+                <span class="breadcrumb__separator"></span>
+                <a href="catalog-level1.html" class="breadcrumb__item">Главная</a>
+                <span class="breadcrumb__separator"></span>
+                <span class="breadcrumb__item active">Препараты от аллергии</span>
+            </nav>
+            <h1 class="product__title h1">Препараты от аллергии</h1>
+            <div class="catalog"></div>
+        </div>
+    </div>
+</div>
+@@include('./global/footer.html')
+<script defer src="./js/swiper-bundle.min.js"></script>
+<script defer src="./lightGallery-master/dist/lightgallery.min.js"></script>
+<script defer src="./lightGallery-master/dist/plugins/thumbnail/lg-thumbnail.min.js"></script>
+<script defer src="./js/index.js"></script>
+</body>
+</html>

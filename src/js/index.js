@@ -49,6 +49,7 @@ function searchData(search) {
 window.addEventListener("load", function () {
     let fade = document.getElementById("fade");
     let header = document.getElementById("header");
+    let footer = document.getElementById("footer");
     /*let headerSticky = document.getElementById("header-sticky")*/
     let addProductCart = document.getElementById("add-product-cart");
     const body = document.body;
@@ -57,10 +58,11 @@ window.addEventListener("load", function () {
     let lastScroll = 0;
     window.addEventListener("scroll", () => {
         const currentScroll = window.pageYOffset;
-        if(window.screen.width < 992){
+        if(window.screen.width < 1200){
+
             if (currentScroll <= 0) {
                 body.classList.remove(scrollUp);
-                //header.classList.remove("active");
+                header.classList.remove("active");
                 addProductCart.classList.remove("active");
                 return;
             }
@@ -68,14 +70,20 @@ window.addEventListener("load", function () {
                 // down
                 body.classList.remove(scrollUp);
                 body.classList.add(scrollDown);
-                //header.classList.remove("active");
+                header.classList.add("active");
                 addProductCart.classList.add("active");
             } else if (currentScroll < lastScroll && body.classList.contains(scrollDown)) {
                 // up
                 body.classList.remove(scrollDown);
                 body.classList.add(scrollUp);
-                //header.classList.add("active");
+                header.classList.remove("active");
+                addProductCart.classList.add("active");
+            }
+            if(footer.getBoundingClientRect().bottom / 2 - footer.getBoundingClientRect().height <= 0){
                 addProductCart.classList.remove("active");
+            }
+            else{
+                addProductCart.classList.add("active");
             }
             lastScroll = currentScroll;
         }
@@ -111,8 +119,11 @@ window.addEventListener("load", function () {
 
             if(!search.classList.contains("active")){
                 search.classList.toggle("active")
-                fadeIn(searchPopup);
-                fadeIn(searchBackdrop)
+                //fadeIn(searchPopup);
+                searchPopup.classList.add("autocomplete--open")
+                if(window.screen.width > 992) {
+                    fadeIn(searchBackdrop)
+                }
             }
             if(window.screen.width < 992) {
                 document.getElementById("searchInput").blur();
@@ -122,15 +133,21 @@ window.addEventListener("load", function () {
         searchBtnClose.addEventListener('click',function (e) {
             if(search.classList.contains("active")){
                 search.classList.toggle("active")
-                fadeOut(searchPopup);
-                fadeOut(searchBackdrop)
+                //fadeOut(searchPopup);
+                searchPopup.classList.remove("autocomplete--open")
+                if(window.screen.width > 992) {
+                    fadeOut(searchBackdrop)
+                }
             }
         });
         searchBackdrop.addEventListener('click',function (e) {
             if(search.classList.contains("active")){
                 search.classList.toggle("active")
-                fadeOut(searchPopup);
-                fadeOut(searchBackdrop)
+                //fadeOut(searchPopup);
+                searchPopup.classList.remove("autocomplete--open")
+                if(window.screen.width > 992) {
+                    fadeOut(searchBackdrop)
+                }
             }
         });
         /*document.addEventListener( 'click', (e) => {
@@ -232,16 +249,25 @@ window.addEventListener("load", function () {
     let menuBackdrop = document.getElementById("menu-backdrop");
     if(window.screen.width < 1430) {
         headerIconMobOpen.addEventListener("click", function (e) {
-            fadeIn(headerMob);
-            fadeIn(menuBackdrop)
+            //fadeIn(headerMob);
+            headerMob.classList.add("header-mob--open")
+            if(window.screen.width > 992) {
+                fadeIn(menuBackdrop)
+            }
         });
         headerIconMobClose.addEventListener("click", function (e) {
-            fadeOut(headerMob);
-            fadeOut(menuBackdrop)
+            //fadeOut(headerMob);
+            headerMob.classList.remove("header-mob--open")
+            if(window.screen.width > 992) {
+                fadeOut(menuBackdrop)
+            }
         });
         menuBackdrop.addEventListener("click", function (e) {
-            fadeOut(headerMob);
-            fadeOut(menuBackdrop)
+            //fadeOut(headerMob);
+            headerMob.classList.remove("header-mob--open")
+            if(window.screen.width > 992) {
+                fadeOut(menuBackdrop)
+            }
         });
     }
     /*else if(window.innerWidth > 992 && window.innerWidth < 1430){
@@ -262,28 +288,30 @@ window.addEventListener("load", function () {
             fadeOut(backdrop);
         });
     }*/
-    let slideZoom = document.querySelectorAll(".zoom");
-    if(!isEmptyObject(slideZoom)){
-        slideZoom.forEach(function (el) {
-            el.addEventListener("mousemove",function (e){
-                console.log()
-                var zoomer = e.currentTarget;
-                //e.offsetX ? offsetX = e.offsetX : offsetX = e.touches[0].pageX
-                //e.offsetY ? offsetY = e.offsetY : offsetX = e.touches[0].pageX
-                e.offsetX ? offsetX = e.offsetX : offsetX = (e.touches) ? e.touches[0].pageX : 0;
-                e.offsetY ? offsetY = e.offsetY : offsetX = (e.touches) ? e.touches[0].pageX : 0;
-                var x = offsetX/zoomer.offsetWidth * 100
-                var y = offsetY/zoomer.offsetHeight * 100
-                zoomer.style.backgroundPosition = x + '% ' + y + '%';
+    if(window.screen.width > 992){
+        let slideZoom = document.querySelectorAll(".zoom-custom");
+        if(!isEmptyObject(slideZoom)){
+            slideZoom.forEach(function (el) {
+                el.addEventListener("mousemove",function (e){
+                    var zoomer = e.currentTarget;
+                    //e.offsetX ? offsetX = e.offsetX : offsetX = e.touches[0].pageX
+                    //e.offsetY ? offsetY = e.offsetY : offsetX = e.touches[0].pageX
+                    e.offsetX ? offsetX = e.offsetX : offsetX = (e.touches) ? e.touches[0].pageX : 0;
+                    e.offsetY ? offsetY = e.offsetY : offsetX = (e.touches) ? e.touches[0].pageX : 0;
+                    var x = offsetX/zoomer.offsetWidth * 100
+                    var y = offsetY/zoomer.offsetHeight * 100
+                    zoomer.style.backgroundPosition = x + '% ' + y + '%';
+                })
             })
-        })
+        }
     }
 
     var swiperSub = new Swiper(".product__swiper-sub", {
         direction: "vertical",
         spaceBetween: 20,
         slidesPerView: 4,
-        mousewheel: true,
+        allowTouchMove: false,
+        mousewheel:  true,
     });
     var swiperMain = new Swiper(".product__swiper-main", {
         spaceBetween: 10,
@@ -441,7 +469,6 @@ window.addEventListener("load", function () {
                 let parent = this.parentElement;
                 let content = this.parentElement.querySelector(".ui-collapse");
                 let mouseenter_ev;
-                console.log(!parent.classList.contains('ui-accordion-item--opened'))
                 if (!parent.classList.contains('ui-accordion-item--opened')) {
                     if (option == true) {
                         for (let i = 0; i < item.length; i++) {
@@ -510,5 +537,50 @@ window.addEventListener("load", function () {
                 })
             }
         })
+    }
+    let catalogPanel = document.querySelector(".catalog-panel");
+    if(catalogPanel !== null){
+        let panels = catalogPanel.querySelectorAll(".catalog-panel__item");
+        let btn = catalogPanel.querySelector(".catalog-panel__btn");
+        panels.forEach(function (el,i) {
+            if(window.screen.width < 992) {
+                if(i > 7){
+                    el.classList.add("hidden")
+                }
+            }
+            else{
+                if(i > 15){
+                    el.classList.add("hidden")
+                }
+            }
+        })
+        if(btn !== null){
+            btn.addEventListener("click", function (e){
+                if(btn.classList.contains("active")) {
+                    btn.classList.remove("active");
+                    btn.innerHTML = "Показать все";
+                    panels.forEach(function (el,i) {
+                        if(window.screen.width < 992) {
+                            if(i > 7){
+                                el.classList.add("hidden")
+                            }
+                        }
+                        else{
+                            if(i > 15){
+                                el.classList.add("hidden")
+                            }
+                        }
+                    })
+                }
+                else{
+                    btn.classList.add("active");
+                    btn.innerHTML = "Скрыть";
+                    panels.forEach(function (el) {
+                        el.classList.remove("hidden")
+                    })
+                }
+
+            })
+        }
     }
 })
