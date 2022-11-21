@@ -652,4 +652,38 @@ window.addEventListener("load", function () {
             btn.classList.toggle("added");
         })
     })
+
+
+    const selectSingle = document.querySelector('.catalog-sorting__select');
+    if(selectSingle !== null){
+        const selectSingle_title = selectSingle.querySelector('.catalog-sorting__title');
+        const selectSingle_labels = selectSingle.querySelectorAll('.catalog-sorting__label');
+        if(selectSingle_title !== null && selectSingle_labels !== null){
+            selectSingle_title.addEventListener('click', () => {
+                if ('active' === selectSingle.getAttribute('data-state')) {
+                    selectSingle.setAttribute('data-state', '');
+                } else {
+                    selectSingle.setAttribute('data-state', 'active');
+                }
+            });
+            for (let i = 0; i < selectSingle_labels.length; i++) {
+                selectSingle_labels[i].addEventListener('click', (evt) => {
+                    console.log(evt.target.textContent)
+                    selectSingle_title.querySelector("span").innerHTML = selectSingle_labels[i].textContent; //
+                    selectSingle.setAttribute('data-state', '');
+                });
+            }
+        }
+    }
+
+    const form = document.querySelector(".catalog-sorting__form");
+    const select = document.querySelectorAll(".catalog-sorting__input");
+    if(!isEmptyObject(select)){
+        select.forEach(function (el) {
+            el.addEventListener("change", function () {
+                //form.submit();
+            })
+        })
+    }
+
 })
