@@ -344,6 +344,9 @@ button:not(:disabled),
   bottom: 0;
   width: 100vw;
   height: 100vh;
+  &.open{
+    display: block;
+  }
 }
 h1, .h1,
 h2, .h2,
@@ -819,6 +822,9 @@ p{
       flex-flow: column;
       gap: 8px;
       margin-bottom: 8px;
+      &.header-mob__menu--open{
+        display: flex;
+      }
     }
 
     &__li {
@@ -1551,6 +1557,9 @@ p{
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  &.city-popup--open{
+    display: block;
+  }
   @include media("max", "sm") {
     width: 90%;
   }
@@ -1909,10 +1918,10 @@ p{
         fill: $pink;
       }
     }
-    &:focus svg path,
+    /*&:focus svg path,
     &:active svg path{
       fill: $pink;
-    }
+    }*/
     &.added svg path{
       fill: $pink;
     }

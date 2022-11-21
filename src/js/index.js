@@ -163,23 +163,31 @@ window.addEventListener("load", function () {
     let cityPopup = document.getElementById("city-popup");
     if(headerCity !== null && cityPopup !== null && fade !== null){
         headerCity.addEventListener("click", function (e) {
-            fadeIn(cityPopup);
-            fadeIn(fade);
+            cityPopup.classList.add("city-popup--open");
+            fade.classList.add("open");
+            //fadeIn(cityPopup);
+            //fadeIn(fade);
         });
         fade.addEventListener("click", function (e) {
-            fadeOut(cityPopup);
-            fadeOut(fade);
+            cityPopup.classList.remove("city-popup--open");
+            fade.classList.remove("open");
+            //fadeOut(cityPopup);
+            //fadeOut(fade);
         });
         document.querySelector(".city-popup__close").addEventListener("click", function (e){
-            fadeOut(cityPopup);
-            fadeOut(fade);
+            cityPopup.classList.remove("city-popup--open");
+            fade.classList.remove("open");
+            //fadeOut(cityPopup);
+            //fadeOut(fade);
         })
         document.querySelectorAll(".city-popup__list-item").forEach(function (el) {
             el.addEventListener("click", function (e) {
                 document.querySelector(".city-popup__input").value = el.getAttribute("data-value");
                 headerCity.querySelector("span").innerHTML = el.getAttribute("data-value");
-                fadeOut(cityPopup);
-                fadeOut(fade);
+                cityPopup.classList.remove("city-popup--open");
+                fade.classList.remove("open");
+                //fadeOut(cityPopup);
+                //fadeOut(fade);
             })
         })
         document.querySelector(".city-popup__input").addEventListener("input", function () {
@@ -194,11 +202,13 @@ window.addEventListener("load", function () {
         headerMobTitleProfile.addEventListener("click", function (e) {
             if(headerMobTitleProfile.classList.contains("active")){
                 headerMobTitleProfile.classList.toggle("active");
-                fadeOut(headerMobMenu);
+                headerMobMenu.classList.toggle("header-mob__menu--open")
+                //fadeOut(headerMobMenu);
             }
             else{
                 headerMobTitleProfile.classList.toggle("active");
-                fadeIn(headerMobMenu, 'flex');
+                headerMobMenu.classList.toggle("header-mob__menu--open");
+                //fadeIn(headerMobMenu, 'flex');
             }
         })
     }
@@ -357,9 +367,11 @@ window.addEventListener("load", function () {
                 prevEl: btnPrev,
                 nextEl: btnNext,
             },
+            allowTouchMove: true,
             breakpoints: {
                 // when window width is >= 640px
                 992: {
+                    allowTouchMove: false,
                     spaceBetween: 20,
                 }
             },
