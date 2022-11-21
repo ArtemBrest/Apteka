@@ -342,12 +342,12 @@ window.addEventListener("load", function () {
             },
         });
     }
-    function initSwiper(slider){
+    function initSwiper(slider) {
         let btnNext, btnPrev;
-        if(slider.querySelector(".swiper-button-next") !== null){
+        if (slider.querySelector(".swiper-button-next") !== null) {
             btnNext = slider.querySelector(".swiper-button-next");
         }
-        if(slider.querySelector(".swiper-button-prev") !== null){
+        if (slider.querySelector(".swiper-button-prev") !== null) {
             btnPrev = slider.querySelector(".swiper-button-prev");
         }
         var swiper = new Swiper(slider, {
@@ -362,8 +362,56 @@ window.addEventListener("load", function () {
                 992: {
                     spaceBetween: 20,
                 }
-            }
+            },
         });
+        if (btnPrev !== null && btnPrev !== btnNext){
+            if (btnPrev.classList.contains('swiper-button-disabled')) {
+                btnPrev.classList.remove('swiper-button-disabled')
+            }
+            if (btnPrev.getAttribute('aria-disabled') == "true") {
+                btnPrev.classList.add('disabled')
+            } else {
+                btnPrev.classList.remove('disabled')
+            }
+            if (btnNext.classList.contains('swiper-button-disabled')) {
+                btnNext.classList.remove('swiper-button-disabled')
+            }
+            if (btnNext.getAttribute('aria-disabled') == "true") {
+                btnNext.classList.add('disabled')
+            } else {
+                btnNext.classList.remove('disabled')
+            }
+            btnPrev.addEventListener("click", function (e) {
+                if (btnPrev.classList.contains('swiper-button-disabled')) {
+                    btnPrev.classList.remove('swiper-button-disabled')
+                }
+                if (btnPrev.getAttribute('aria-disabled') == "true") {
+                    btnPrev.classList.add('disabled')
+                } else {
+                    btnPrev.classList.remove('disabled')
+                }
+                if (btnNext.getAttribute('aria-disabled') == "true") {
+                    btnNext.classList.add('disabled')
+                } else {
+                    btnNext.classList.remove('disabled')
+                }
+            })
+            btnNext.addEventListener("click", function (e) {
+                if (btnNext.classList.contains('swiper-button-disabled')) {
+                    btnNext.classList.remove('swiper-button-disabled')
+                }
+                if (btnNext.getAttribute('aria-disabled') == "true") {
+                    btnNext.classList.add('disabled')
+                } else {
+                    btnNext.classList.remove('disabled')
+                }
+                if (btnPrev.getAttribute('aria-disabled') == "true") {
+                    btnPrev.classList.add('disabled')
+                } else {
+                    btnPrev.classList.remove('disabled')
+                }
+            })
+        }
     }
     let productSwiper = document.querySelectorAll(".other-product-swiper");
     if(!isEmptyObject(productSwiper)){
@@ -455,8 +503,10 @@ window.addEventListener("load", function () {
     document.querySelectorAll('a[href^="#"]').forEach(link => link.addEventListener('click', function(e) {
         e.preventDefault();
         const id = e.currentTarget.getAttribute('href');
-        const target = document.querySelector(id);
-        scrollIntoViewWithMargin(target, -60);
+        if(id != "#"){
+            const target = document.querySelector(id);
+            scrollIntoViewWithMargin(target, -60);
+        }
     }));
 
 
@@ -583,4 +633,11 @@ window.addEventListener("load", function () {
             })
         }
     }
+    document.querySelectorAll(".btn-heart").forEach(function (btn){
+        btn.addEventListener("click", function (e){
+            e.preventDefault();
+            e.stopPropagation()
+            btn.classList.toggle("added");
+        })
+    })
 })
