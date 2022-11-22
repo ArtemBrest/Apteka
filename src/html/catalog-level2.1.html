@@ -20,7 +20,682 @@
 @@include('./global/header.html')
 <div class="container">
     <div class="grid-columns grid-columns_left catalog-page m-20 m-footer">
-        <div class="grid-columns__menu"></div>
+        <div class="grid-columns__menu">
+            <aside class="aside-menu aside-menu--filter">
+                <div class="aside-menu__wrapper">
+                    <div class="aside-menu__item aside-menu__item--favorite">
+                        <div class="aside-menu__row">
+                            <a href="#" class="aside-menu__link">В избранном <b>(5)</b></a>
+                        </div>
+                    </div>
+                    <div class="category-menu">
+                        <div class="category-menu-parent df df-ai-center">
+                            <svg width="7" height="10">
+                                <use xlink:href="/img/sprites.svg#arrow-menu"></use>
+                            </svg>
+                            <a href="catalog-level1.html" class="category-menu-parent__link h6">Медикаменты</a>
+                        </div>
+                        <div class="category-menu-group ui-accordion-item ui-accordion-item--opened">
+                            <div class="category-menu-group__head ui-accordion-item__toggle df df-ai-center df-jc-between">
+                                <div class="category-menu-group__title h6">Подкатегории</div>
+                                <svg width="7" height="10">
+                                    <use xlink:href="/img/sprites.svg#arrow-menu"></use>
+                                </svg>
+                            </div>
+                            <div class="ui-collapse">
+                                <ul class="category-menu__list category-menu-group__list">
+                                    <li class="category-menu__item"><a href="#" class="category-menu__link">Аллергический кашель препараты</a></li>
+                                    <li class="category-menu__item"><a href="#" class="category-menu__link">Аллергический ринит препараты</a></li>
+                                    <li class="category-menu__item"><a href="#" class="category-menu__link">Аллергическая сыпь препараты</a></li>
+                                    <li class="category-menu__item hidden"><a href="#" class="category-menu__link">Аллергический дерматит препараты</a></li>
+                                    <li class="category-menu__item hidden"><a href="#" class="category-menu__link">Аллергическая сыпь у детей препараты</a></li>
+                                    <li class="category-menu__item hidden"><a href="#" class="category-menu__link">Аллергическая реакция препараты</a></li>
+                                    <li class="category-menu__item hidden"><a href="#" class="category-menu__link">Препараты от анафилактического шока</a></li>
+                                    <li class="category-menu__item hidden"><a href="#" class="category-menu__link">Аллергия на животных</a></li>
+                                    <li class="category-menu__item hidden"><a href="#" class="category-menu__link">Аллергия на пыль препараты</a></li>
+                                    <li class="category-menu__item hidden"><a href="#" class="category-menu__link">Аллергия на пыльцу препараты</a></li>
+                                    <li class="category-menu__item hidden"><a href="#" class="category-menu__link">Средства от аллергии на медпрепараты</a></li>
+                                    <li class="category-menu__item hidden"><a href="#" class="category-menu__link">Пищевая аллергия</a></li>
+                                </ul>
+                                <div class="category-menu-group__btn h7">Показать все</div>
+                            </div>
+                        </div>
+                        <div class="category-menu__separator"></div>
+                    </div>
+                    <div class="category-menu-filter">
+                        <div class="category-menu-filter__head df df-ai-center df-jc-between">
+                            <div class="category-menu-filter__title h4">Фильтры</div>
+                            <svg width="10" height="10">
+                                <use xlink:href="/img/sprites.svg#icon-close"></use>
+                            </svg>
+                        </div>
+                        <div class="category-menu-filter__scroll">
+                            <div class="category-menu-filter__wrapper">
+                                <div class="category-menu-group ui-accordion-item ui-accordion-item--opened">
+                                    <div class="category-menu-group__head ui-accordion-item__toggle df df-ai-center df-jc-between">
+                                        <div class="category-menu-group__title h6">Цена</div>
+                                        <svg width="7" height="10">
+                                            <use xlink:href="/img/sprites.svg#arrow-menu"></use>
+                                        </svg>
+                                    </div>
+                                    <div class="ui-collapse">
+                                        <div class="filter-range__inputs df df-ai-center df-jc-between">
+                                            <input class="filter-range__input filter-range__input_min" type="number" name="price_min" placeholder="0">
+                                            <input class="filter-range__input filter-range__input_max" type="number" name="price_max" placeholder="1200">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="category-menu__separator"></div>
+                                <div class="category-menu-group ui-accordion-item ui-accordion-item--opened">
+                                    <div class="category-menu-group__head ui-accordion-item__toggle df df-ai-center df-jc-between">
+                                        <div class="category-menu-group__title h6">Кому разрешено</div>
+                                        <svg width="7" height="10">
+                                            <use xlink:href="/img/sprites.svg#arrow-menu"></use>
+                                        </svg>
+                                    </div>
+                                    <div class="ui-collapse checkbox-list">
+                                        <div class="checkbox-list__scroll df df-column scroll">
+                                            <label class="filter-checkbox-item filter-checkbox df df-ai-center">
+                                                <input type="checkbox" name="permitted[]" value="Аллергикам " class="filter-checkbox__input">
+                                                <span class="filter-checkbox__control df df-ai-center df-jc-center">
+                                                    <svg width="14" height="14">
+                                                        <use xlink:href="/img/sprites.svg#icon-check"></use>
+                                                    </svg>
+                                                </span>
+                                                <span class="filter-checkbox__label p1">Аллергикам  <span>(43)</span></span>
+                                            </label>
+                                            <label class="filter-checkbox-item filter-checkbox df df-ai-center">
+                                                <input type="checkbox" name="permitted[]" value="Диабетикам " class="filter-checkbox__input">
+                                                <span class="filter-checkbox__control df df-ai-center df-jc-center">
+                                                    <svg width="14" height="14">
+                                                        <use xlink:href="/img/sprites.svg#icon-check"></use>
+                                                    </svg>
+                                                </span>
+                                                <span class="filter-checkbox__label p1">Диабетикам  <span>(43)</span></span>
+                                            </label>
+                                            <label class="filter-checkbox-item filter-checkbox df df-ai-center">
+                                                <input type="checkbox" name="permitted[]" value="Водителям " class="filter-checkbox__input" disabled>
+                                                <span class="filter-checkbox__control df df-ai-center df-jc-center">
+                                                    <svg width="14" height="14">
+                                                        <use xlink:href="/img/sprites.svg#icon-check"></use>
+                                                    </svg>
+                                                </span>
+                                                <span class="filter-checkbox__label p1">Водителям  <span>(43)</span></span>
+                                            </label>
+                                            <label class="filter-checkbox-item filter-checkbox df df-ai-center">
+                                                <input type="checkbox" name="permitted[]" value="Беременным " class="filter-checkbox__input">
+                                                <span class="filter-checkbox__control df df-ai-center df-jc-center">
+                                                    <svg width="14" height="14">
+                                                        <use xlink:href="/img/sprites.svg#icon-check"></use>
+                                                    </svg>
+                                                </span>
+                                                <span class="filter-checkbox__label p1">Беременным  <span>(43)</span></span>
+                                            </label>
+                                            <label class="filter-checkbox-item filter-checkbox df df-ai-center">
+                                                <input type="checkbox" name="permitted[]" value="Кормящим матерям " class="filter-checkbox__input">
+                                                <span class="filter-checkbox__control df df-ai-center df-jc-center">
+                                                    <svg width="14" height="14">
+                                                        <use xlink:href="/img/sprites.svg#icon-check"></use>
+                                                    </svg>
+                                                </span>
+                                                <span class="filter-checkbox__label p1">Кормящим матерям  <span>(43)</span></span>
+                                            </label>
+                                            <label class="filter-checkbox-item filter-checkbox df df-ai-center">
+                                                <input type="checkbox" name="permitted[]" value="Аллергикам " class="filter-checkbox__input">
+                                                <span class="filter-checkbox__control df df-ai-center df-jc-center">
+                                                    <svg width="14" height="14">
+                                                        <use xlink:href="/img/sprites.svg#icon-check"></use>
+                                                    </svg>
+                                                </span>
+                                                <span class="filter-checkbox__label p1">Аллергикам  <span>(43)</span></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="category-menu__separator"></div>
+                                <div class="category-menu-group ui-accordion-item ui-accordion-item--opened">
+                                    <div class="category-menu-group__head ui-accordion-item__toggle df df-ai-center df-jc-between">
+                                        <div class="category-menu-group__title h6">Производитель</div>
+                                        <svg width="7" height="10">
+                                            <use xlink:href="/img/sprites.svg#arrow-menu"></use>
+                                        </svg>
+                                    </div>
+                                    <div class="ui-collapse checkbox-list">
+                                        <div class="checkbox-list__scroll df df-column scroll">
+                                            <label class="filter-checkbox-item filter-checkbox df df-ai-center">
+                                                <input type="checkbox" name="manufacturer[]" value="Лекфарм СООО" class="filter-checkbox__input">
+                                                <span class="filter-checkbox__control df df-ai-center df-jc-center">
+                                                    <svg width="14" height="14">
+                                                        <use xlink:href="/img/sprites.svg#icon-check"></use>
+                                                    </svg>
+                                                </span>
+                                                <span class="filter-checkbox__label p1">Лекфарм СООО <span>(43)</span></span>
+                                            </label>
+                                            <label class="filter-checkbox-item filter-checkbox df df-ai-center">
+                                                <input type="checkbox" name="manufacturer[]" value="Полисорб АО" class="filter-checkbox__input">
+                                                <span class="filter-checkbox__control df df-ai-center df-jc-center">
+                                                    <svg width="14" height="14">
+                                                        <use xlink:href="/img/sprites.svg#icon-check"></use>
+                                                    </svg>
+                                                </span>
+                                                <span class="filter-checkbox__label p1">Полисорб АО <span>(87)</span></span>
+                                            </label>
+                                            <label class="filter-checkbox-item filter-checkbox df df-ai-center">
+                                                <input type="checkbox" name="manufacturer[]" value="ИНГАВИРИН" class="filter-checkbox__input">
+                                                <span class="filter-checkbox__control df df-ai-center df-jc-center">
+                                                    <svg width="14" height="14">
+                                                        <use xlink:href="/img/sprites.svg#icon-check"></use>
+                                                    </svg>
+                                                </span>
+                                                <span class="filter-checkbox__label p1">ИНГАВИРИН <span>(7)</span></span>
+                                            </label>
+                                            <label class="filter-checkbox-item filter-checkbox df df-ai-center">
+                                                <input type="checkbox" name="manufacturer[]" value="Лекфарм СООО" class="filter-checkbox__input">
+                                                <span class="filter-checkbox__control df df-ai-center df-jc-center">
+                                                    <svg width="14" height="14">
+                                                        <use xlink:href="/img/sprites.svg#icon-check"></use>
+                                                    </svg>
+                                                </span>
+                                                <span class="filter-checkbox__label p1">СЕРВЬЕ РУС ООО <span>(11)</span></span>
+                                            </label>
+                                            <label class="filter-checkbox-item filter-checkbox df df-ai-center">
+                                                <input type="checkbox" name="manufacturer[]" value="ИНГАВИРИН" class="filter-checkbox__input">
+                                                <span class="filter-checkbox__control df df-ai-center df-jc-center">
+                                                    <svg width="14" height="14">
+                                                        <use xlink:href="/img/sprites.svg#icon-check"></use>
+                                                    </svg>
+                                                </span>
+                                                <span class="filter-checkbox__label p1">Байер АГ <span>(43)</span></span>
+                                            </label>
+                                            <label class="filter-checkbox-item filter-checkbox df df-ai-center">
+                                                <input type="checkbox" name="manufacturer[]" value="ИНГАВИРИН" class="filter-checkbox__input" disabled>
+                                                <span class="filter-checkbox__control df df-ai-center df-jc-center">
+                                                    <svg width="14" height="14">
+                                                        <use xlink:href="/img/sprites.svg#icon-check"></use>
+                                                    </svg>
+                                                </span>
+                                                <span class="filter-checkbox__label p1">Гриндекс АО <span>(7)</span></span>
+                                            </label>
+                                            <label class="filter-checkbox-item filter-checkbox df df-ai-center">
+                                                <input type="checkbox" name="manufacturer[]" value="ИНГАВИРИН" class="filter-checkbox__input">
+                                                <span class="filter-checkbox__control df df-ai-center df-jc-center">
+                                                    <svg width="14" height="14">
+                                                        <use xlink:href="/img/sprites.svg#icon-check"></use>
+                                                    </svg>
+                                                </span>
+                                                <span class="filter-checkbox__label p1">Гриндекс АО <span>(7)</span></span>
+                                            </label>
+                                            <label class="filter-checkbox-item filter-checkbox df df-ai-center">
+                                                <input type="checkbox" name="manufacturer[]" value="Полисорб АО" class="filter-checkbox__input">
+                                                <span class="filter-checkbox__control df df-ai-center df-jc-center">
+                                                    <svg width="14" height="14">
+                                                        <use xlink:href="/img/sprites.svg#icon-check"></use>
+                                                    </svg>
+                                                </span>
+                                                <span class="filter-checkbox__label p1">Полисорб АО <span>(87)</span></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="category-menu__separator"></div>
+                                <div class="category-menu-group ui-accordion-item ui-accordion-item--opened">
+                                    <div class="category-menu-group__head ui-accordion-item__toggle df df-ai-center df-jc-between">
+                                        <div class="category-menu-group__title h6">Дозировка</div>
+                                        <svg width="7" height="10">
+                                            <use xlink:href="/img/sprites.svg#arrow-menu"></use>
+                                        </svg>
+                                    </div>
+                                    <div class="ui-collapse checkbox-list">
+                                        <div class="checkbox-list__scroll df df-column scroll">
+                                            <label class="filter-checkbox-item filter-checkbox df df-ai-center">
+                                                <input type="checkbox" name="dosage[]" value="100 мл " class="filter-checkbox__input">
+                                                <span class="filter-checkbox__control df df-ai-center df-jc-center">
+                                                    <svg width="14" height="14">
+                                                        <use xlink:href="/img/sprites.svg#icon-check"></use>
+                                                    </svg>
+                                                </span>
+                                                <span class="filter-checkbox__label p1">100 мл  <span>(43)</span></span>
+                                            </label>
+                                            <label class="filter-checkbox-item filter-checkbox df df-ai-center">
+                                                <input type="checkbox" name="dosage[]" value="10 мл " class="filter-checkbox__input">
+                                                <span class="filter-checkbox__control df df-ai-center df-jc-center">
+                                                    <svg width="14" height="14">
+                                                        <use xlink:href="/img/sprites.svg#icon-check"></use>
+                                                    </svg>
+                                                </span>
+                                                <span class="filter-checkbox__label p1">10 мл  <span>(43)</span></span>
+                                            </label>
+                                            <label class="filter-checkbox-item filter-checkbox df df-ai-center">
+                                                <input type="checkbox" name="dosage[]" value="20 мл " class="filter-checkbox__input">
+                                                <span class="filter-checkbox__control df df-ai-center df-jc-center">
+                                                    <svg width="14" height="14">
+                                                        <use xlink:href="/img/sprites.svg#icon-check"></use>
+                                                    </svg>
+                                                </span>
+                                                <span class="filter-checkbox__label p1">20 мл  <span>(43)</span></span>
+                                            </label>
+                                            <label class="filter-checkbox-item filter-checkbox df df-ai-center">
+                                                <input type="checkbox" name="dosage[]" value="30 мл " class="filter-checkbox__input">
+                                                <span class="filter-checkbox__control df df-ai-center df-jc-center">
+                                                    <svg width="14" height="14">
+                                                        <use xlink:href="/img/sprites.svg#icon-check"></use>
+                                                    </svg>
+                                                </span>
+                                                <span class="filter-checkbox__label p1">30 мл  <span>(43)</span></span>
+                                            </label>
+                                            <label class="filter-checkbox-item filter-checkbox df df-ai-center">
+                                                <input type="checkbox" name="dosage[]" value="50 мл " class="filter-checkbox__input">
+                                                <span class="filter-checkbox__control df df-ai-center df-jc-center">
+                                                    <svg width="14" height="14">
+                                                        <use xlink:href="/img/sprites.svg#icon-check"></use>
+                                                    </svg>
+                                                </span>
+                                                <span class="filter-checkbox__label p1">50 мл  <span>(43)</span></span>
+                                            </label>
+                                            <label class="filter-checkbox-item filter-checkbox df df-ai-center">
+                                                <input type="checkbox" name="dosage[]" value="200 мл " class="filter-checkbox__input">
+                                                <span class="filter-checkbox__control df df-ai-center df-jc-center">
+                                                    <svg width="14" height="14">
+                                                        <use xlink:href="/img/sprites.svg#icon-check"></use>
+                                                    </svg>
+                                                </span>
+                                                <span class="filter-checkbox__label p1">200 мл  <span>(43)</span></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="category-menu__separator"></div>
+                                <div class="category-menu-group ui-accordion-item ui-accordion-item--opened">
+                                    <div class="category-menu-group__head ui-accordion-item__toggle df df-ai-center df-jc-between">
+                                        <div class="category-menu-group__title h6">Взаимодействие с алкоголем</div>
+                                        <svg width="7" height="10">
+                                            <use xlink:href="/img/sprites.svg#arrow-menu"></use>
+                                        </svg>
+                                    </div>
+                                    <div class="ui-collapse checkbox-list">
+                                        <div class="checkbox-list__scroll df df-column scroll">
+                                            <label class="filter-checkbox-item filter-checkbox df df-ai-center">
+                                                <input type="checkbox" name="alcohol[]" value="нет данных " class="filter-checkbox__input">
+                                                <span class="filter-checkbox__control df df-ai-center df-jc-center">
+                                                    <svg width="14" height="14">
+                                                        <use xlink:href="/img/sprites.svg#icon-check"></use>
+                                                    </svg>
+                                                </span>
+                                                <span class="filter-checkbox__label p1">Нет данных <span>(43)</span></span>
+                                            </label>
+                                            <label class="filter-checkbox-item filter-checkbox df df-ai-center">
+                                                <input type="checkbox" name="alcohol[]" value="Критичное" class="filter-checkbox__input">
+                                                <span class="filter-checkbox__control df df-ai-center df-jc-center">
+                                                    <svg width="14" height="14">
+                                                        <use xlink:href="/img/sprites.svg#icon-check"></use>
+                                                    </svg>
+                                                </span>
+                                                <span class="filter-checkbox__label p1">Критичное <span>(43)</span></span>
+                                            </label>
+                                            <label class="filter-checkbox-item filter-checkbox df df-ai-center">
+                                                <input type="checkbox" name="alcohol[]" value="Минимальное" class="filter-checkbox__input" disabled>
+                                                <span class="filter-checkbox__control df df-ai-center df-jc-center">
+                                                    <svg width="14" height="14">
+                                                        <use xlink:href="/img/sprites.svg#icon-check"></use>
+                                                    </svg>
+                                                </span>
+                                                <span class="filter-checkbox__label p1">Минимальное <span>(43)</span></span>
+                                            </label>
+                                            <label class="filter-checkbox-item filter-checkbox df df-ai-center">
+                                                <input type="checkbox" name="alcohol[]" value="Умеренное" class="filter-checkbox__input" disabled>
+                                                <span class="filter-checkbox__control df df-ai-center df-jc-center">
+                                                    <svg width="14" height="14">
+                                                        <use xlink:href="/img/sprites.svg#icon-check"></use>
+                                                    </svg>
+                                                </span>
+                                                <span class="filter-checkbox__label p1">Умеренное <span>(43)</span></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="category-menu__separator"></div>
+                                <div class="category-menu-group ui-accordion-item ui-accordion-item--opened">
+                                    <div class="category-menu-group__head ui-accordion-item__toggle df df-ai-center df-jc-between">
+                                        <div class="category-menu-group__title h6">Импортный</div>
+                                        <svg width="7" height="10">
+                                            <use xlink:href="/img/sprites.svg#arrow-menu"></use>
+                                        </svg>
+                                    </div>
+                                    <div class="ui-collapse checkbox-list">
+                                        <div class="checkbox-list__scroll df df-column scroll">
+                                            <label class="filter-checkbox-item filter-checkbox df df-ai-center">
+                                                <input type="checkbox" name="import[]" value="да" class="filter-checkbox__input">
+                                                <span class="filter-checkbox__control df df-ai-center df-jc-center">
+                                                    <svg width="14" height="14">
+                                                        <use xlink:href="/img/sprites.svg#icon-check"></use>
+                                                    </svg>
+                                                </span>
+                                                <span class="filter-checkbox__label p1">Да <span>(43)</span></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="category-menu__separator"></div>
+                                <div class="category-menu-group ui-accordion-item ui-accordion-item--opened">
+                                    <div class="category-menu-group__head ui-accordion-item__toggle df df-ai-center df-jc-between">
+                                        <div class="category-menu-group__title h6">Способ введения</div>
+                                        <svg width="7" height="10">
+                                            <use xlink:href="/img/sprites.svg#arrow-menu"></use>
+                                        </svg>
+                                    </div>
+                                    <div class="ui-collapse checkbox-list">
+                                        <div class="checkbox-list__scroll df df-column scroll">
+                                            <label class="filter-checkbox-item filter-checkbox df df-ai-center">
+                                                <input type="checkbox" name="introductions[]" value="Орально" class="filter-checkbox__input">
+                                                <span class="filter-checkbox__control df df-ai-center df-jc-center">
+                                                    <svg width="14" height="14">
+                                                        <use xlink:href="/img/sprites.svg#icon-check"></use>
+                                                    </svg>
+                                                </span>
+                                                <span class="filter-checkbox__label p1">Орально <span>(43)</span></span>
+                                            </label>
+                                            <label class="filter-checkbox-item filter-checkbox df df-ai-center">
+                                                <input type="checkbox" name="introductions[]" value="Назально" class="filter-checkbox__input">
+                                                <span class="filter-checkbox__control df df-ai-center df-jc-center">
+                                                    <svg width="14" height="14">
+                                                        <use xlink:href="/img/sprites.svg#icon-check"></use>
+                                                    </svg>
+                                                </span>
+                                                <span class="filter-checkbox__label p1">Назально <span>(43)</span></span>
+                                            </label>
+                                            <label class="filter-checkbox-item filter-checkbox df df-ai-center">
+                                                <input type="checkbox" name="introductions[]" value="Назально" class="filter-checkbox__input">
+                                                <span class="filter-checkbox__control df df-ai-center df-jc-center">
+                                                    <svg width="14" height="14">
+                                                        <use xlink:href="/img/sprites.svg#icon-check"></use>
+                                                    </svg>
+                                                </span>
+                                                <span class="filter-checkbox__label p1">Назально <span>(43)</span></span>
+                                            </label>
+                                            <label class="filter-checkbox-item filter-checkbox df df-ai-center">
+                                                <input type="checkbox" name="introductions[]" value="для полости рта" class="filter-checkbox__input">
+                                                <span class="filter-checkbox__control df df-ai-center df-jc-center">
+                                                    <svg width="14" height="14">
+                                                        <use xlink:href="/img/sprites.svg#icon-check"></use>
+                                                    </svg>
+                                                </span>
+                                                <span class="filter-checkbox__label p1">для полости рта <span>(43)</span></span>
+                                            </label>
+                                            <label class="filter-checkbox-item filter-checkbox df df-ai-center">
+                                                <input type="checkbox" name="introductions[]" value="ингаляционно" class="filter-checkbox__input">
+                                                <span class="filter-checkbox__control df df-ai-center df-jc-center">
+                                                    <svg width="14" height="14">
+                                                        <use xlink:href="/img/sprites.svg#icon-check"></use>
+                                                    </svg>
+                                                </span>
+                                                <span class="filter-checkbox__label p1">ингаляционно <span>(43)</span></span>
+                                            </label>
+                                            <label class="filter-checkbox-item filter-checkbox df df-ai-center">
+                                                <input type="checkbox" name="introductions[]" value="накожно" class="filter-checkbox__input">
+                                                <span class="filter-checkbox__control df df-ai-center df-jc-center">
+                                                    <svg width="14" height="14">
+                                                        <use xlink:href="/img/sprites.svg#icon-check"></use>
+                                                    </svg>
+                                                </span>
+                                                <span class="filter-checkbox__label p1">накожно <span>(43)</span></span>
+                                            </label>
+                                            <label class="filter-checkbox-item filter-checkbox df df-ai-center">
+                                                <input type="checkbox" name="introductions[]" value="за щеку" class="filter-checkbox__input">
+                                                <span class="filter-checkbox__control df df-ai-center df-jc-center">
+                                                    <svg width="14" height="14">
+                                                        <use xlink:href="/img/sprites.svg#icon-check"></use>
+                                                    </svg>
+                                                </span>
+                                                <span class="filter-checkbox__label p1">за щеку <span>(43)</span></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="category-menu__separator"></div>
+                                <div class="category-menu-group ui-accordion-item ui-accordion-item--opened">
+                                    <div class="category-menu-group__head ui-accordion-item__toggle df df-ai-center df-jc-between">
+                                        <div class="category-menu-group__title h6">Рецептурный отпуск</div>
+                                        <svg width="7" height="10">
+                                            <use xlink:href="/img/sprites.svg#arrow-menu"></use>
+                                        </svg>
+                                    </div>
+                                    <div class="ui-collapse checkbox-list">
+                                        <div class="checkbox-list__scroll df df-column scroll">
+                                            <label class="filter-checkbox-item filter-checkbox df df-ai-center">
+                                                <input type="checkbox" name="recipe[]" value="Без рецепта" class="filter-checkbox__input">
+                                                <span class="filter-checkbox__control df df-ai-center df-jc-center">
+                                                    <svg width="14" height="14">
+                                                        <use xlink:href="/img/sprites.svg#icon-check"></use>
+                                                    </svg>
+                                                </span>
+                                                <span class="filter-checkbox__label p1">Без рецепта <span>(43)</span></span>
+                                            </label>
+                                            <label class="filter-checkbox-item filter-checkbox df df-ai-center">
+                                                <input type="checkbox" name="recipe[]" value="Рекомендуется" class="filter-checkbox__input">
+                                                <span class="filter-checkbox__control df df-ai-center df-jc-center">
+                                                    <svg width="14" height="14">
+                                                        <use xlink:href="/img/sprites.svg#icon-check"></use>
+                                                    </svg>
+                                                </span>
+                                                <span class="filter-checkbox__label p1">Рекомендуется <span>(43)</span></span>
+                                            </label>
+                                            <label class="filter-checkbox-item filter-checkbox df df-ai-center">
+                                                <input type="checkbox" name="recipe[]" value="Только с рецептом" class="filter-checkbox__input">
+                                                <span class="filter-checkbox__control df df-ai-center df-jc-center">
+                                                    <svg width="14" height="14">
+                                                        <use xlink:href="/img/sprites.svg#icon-check"></use>
+                                                    </svg>
+                                                </span>
+                                                <span class="filter-checkbox__label p1">Только с рецептом <span>(43)</span></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="category-menu__separator"></div>
+                                <div class="category-menu-group ui-accordion-item ui-accordion-item--opened">
+                                    <div class="category-menu-group__head ui-accordion-item__toggle df df-ai-center df-jc-between">
+                                        <div class="category-menu-group__title h6">Форма выпуска</div>
+                                        <svg width="7" height="10">
+                                            <use xlink:href="/img/sprites.svg#arrow-menu"></use>
+                                        </svg>
+                                    </div>
+                                    <div class="ui-collapse checkbox-list">
+                                        <div class="checkbox-list__scroll df df-column scroll">
+                                            <label class="filter-checkbox-item filter-checkbox df df-ai-center">
+                                                <input type="checkbox" name="form[]" value="Таблетки" class="filter-checkbox__input">
+                                                <span class="filter-checkbox__control df df-ai-center df-jc-center">
+                                                    <svg width="14" height="14">
+                                                        <use xlink:href="/img/sprites.svg#icon-check"></use>
+                                                    </svg>
+                                                </span>
+                                                <span class="filter-checkbox__label p1">Таблетки <span>(43)</span></span>
+                                            </label>
+                                            <label class="filter-checkbox-item filter-checkbox df df-ai-center">
+                                                <input type="checkbox" name="form[]" value="Таблетки" class="filter-checkbox__input">
+                                                <span class="filter-checkbox__control df df-ai-center df-jc-center">
+                                                    <svg width="14" height="14">
+                                                        <use xlink:href="/img/sprites.svg#icon-check"></use>
+                                                    </svg>
+                                                </span>
+                                                <span class="filter-checkbox__label p1">Таблетки <span>(43)</span></span>
+                                            </label>
+                                            <label class="filter-checkbox-item filter-checkbox df df-ai-center">
+                                                <input type="checkbox" name="form[]" value="Спрей" class="filter-checkbox__input">
+                                                <span class="filter-checkbox__control df df-ai-center df-jc-center">
+                                                    <svg width="14" height="14">
+                                                        <use xlink:href="/img/sprites.svg#icon-check"></use>
+                                                    </svg>
+                                                </span>
+                                                <span class="filter-checkbox__label p1">Спрей <span>(43)</span></span>
+                                            </label>
+                                            <label class="filter-checkbox-item filter-checkbox df df-ai-center">
+                                                <input type="checkbox" name="form[]" value="Сироп" class="filter-checkbox__input">
+                                                <span class="filter-checkbox__control df df-ai-center df-jc-center">
+                                                    <svg width="14" height="14">
+                                                        <use xlink:href="/img/sprites.svg#icon-check"></use>
+                                                    </svg>
+                                                </span>
+                                                <span class="filter-checkbox__label p1">Сироп <span>(43)</span></span>
+                                            </label>
+                                            <label class="filter-checkbox-item filter-checkbox df df-ai-center">
+                                                <input type="checkbox" name="form[]" value="Леденцы" class="filter-checkbox__input">
+                                                <span class="filter-checkbox__control df df-ai-center df-jc-center">
+                                                    <svg width="14" height="14">
+                                                        <use xlink:href="/img/sprites.svg#icon-check"></use>
+                                                    </svg>
+                                                </span>
+                                                <span class="filter-checkbox__label p1">Леденцы <span>(43)</span></span>
+                                            </label>
+                                            <label class="filter-checkbox-item filter-checkbox df df-ai-center">
+                                                <input type="checkbox" name="form[]" value="Капли" class="filter-checkbox__input">
+                                                <span class="filter-checkbox__control df df-ai-center df-jc-center">
+                                                    <svg width="14" height="14">
+                                                        <use xlink:href="/img/sprites.svg#icon-check"></use>
+                                                    </svg>
+                                                </span>
+                                                <span class="filter-checkbox__label p1">Капсулы <span>(43)</span></span>
+                                            </label>
+                                            <label class="filter-checkbox-item filter-checkbox df df-ai-center">
+                                                <input type="checkbox" name="form[]" value="Сироп" class="filter-checkbox__input">
+                                                <span class="filter-checkbox__control df df-ai-center df-jc-center">
+                                                    <svg width="14" height="14">
+                                                        <use xlink:href="/img/sprites.svg#icon-check"></use>
+                                                    </svg>
+                                                </span>
+                                                <span class="filter-checkbox__label p1">Капсулы <span>(43)</span></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="category-menu__separator"></div>
+                                <div class="category-menu-group ui-accordion-item ui-accordion-item--opened">
+                                    <div class="category-menu-group__head ui-accordion-item__toggle df df-ai-center df-jc-between">
+                                        <div class="category-menu-group__title h6">Кол-во в упаковке</div>
+                                        <svg width="7" height="10">
+                                            <use xlink:href="/img/sprites.svg#arrow-menu"></use>
+                                        </svg>
+                                    </div>
+                                    <div class="ui-collapse checkbox-list">
+                                        <div class="checkbox-list__scroll df df-column scroll">
+                                            <label class="filter-checkbox-item filter-checkbox df df-ai-center">
+                                                <input type="checkbox" name="quantity[]" value="1" class="filter-checkbox__input">
+                                                <span class="filter-checkbox__control df df-ai-center df-jc-center">
+                                                    <svg width="14" height="14">
+                                                        <use xlink:href="/img/sprites.svg#icon-check"></use>
+                                                    </svg>
+                                                </span>
+                                                <span class="filter-checkbox__label p1">1 <span>(43)</span></span>
+                                            </label>
+                                            <label class="filter-checkbox-item filter-checkbox df df-ai-center">
+                                                <input type="checkbox" name="quantity[]" value="5" class="filter-checkbox__input">
+                                                <span class="filter-checkbox__control df df-ai-center df-jc-center">
+                                                    <svg width="14" height="14">
+                                                        <use xlink:href="/img/sprites.svg#icon-check"></use>
+                                                    </svg>
+                                                </span>
+                                                <span class="filter-checkbox__label p1">5 <span>(43)</span></span>
+                                            </label>
+                                            <label class="filter-checkbox-item filter-checkbox df df-ai-center">
+                                                <input type="checkbox" name="quantity[]" value="10" class="filter-checkbox__input">
+                                                <span class="filter-checkbox__control df df-ai-center df-jc-center">
+                                                    <svg width="14" height="14">
+                                                        <use xlink:href="/img/sprites.svg#icon-check"></use>
+                                                    </svg>
+                                                </span>
+                                                <span class="filter-checkbox__label p1">10 <span>(43)</span></span>
+                                            </label>
+                                            <label class="filter-checkbox-item filter-checkbox df df-ai-center">
+                                                <input type="checkbox" name="quantity[]" value="20" class="filter-checkbox__input">
+                                                <span class="filter-checkbox__control df df-ai-center df-jc-center">
+                                                    <svg width="14" height="14">
+                                                        <use xlink:href="/img/sprites.svg#icon-check"></use>
+                                                    </svg>
+                                                </span>
+                                                <span class="filter-checkbox__label p1">20 <span>(43)</span></span>
+                                            </label>
+                                            <label class="filter-checkbox-item filter-checkbox df df-ai-center">
+                                                <input type="checkbox" name="quantity[]" value="30" class="filter-checkbox__input">
+                                                <span class="filter-checkbox__control df df-ai-center df-jc-center">
+                                                    <svg width="14" height="14">
+                                                        <use xlink:href="/img/sprites.svg#icon-check"></use>
+                                                    </svg>
+                                                </span>
+                                                <span class="filter-checkbox__label p1">30 <span>(43)</span></span>
+                                            </label>
+                                            <label class="filter-checkbox-item filter-checkbox df df-ai-center">
+                                                <input type="checkbox" name="quantity[]" value="35" class="filter-checkbox__input">
+                                                <span class="filter-checkbox__control df df-ai-center df-jc-center">
+                                                    <svg width="14" height="14">
+                                                        <use xlink:href="/img/sprites.svg#icon-check"></use>
+                                                    </svg>
+                                                </span>
+                                                <span class="filter-checkbox__label p1">35 <span>(43)</span></span>
+                                            </label>
+                                            <label class="filter-checkbox-item filter-checkbox df df-ai-center">
+                                                <input type="checkbox" name="quantity[]" value="50" class="filter-checkbox__input">
+                                                <span class="filter-checkbox__control df df-ai-center df-jc-center">
+                                                    <svg width="14" height="14">
+                                                        <use xlink:href="/img/sprites.svg#icon-check"></use>
+                                                    </svg>
+                                                </span>
+                                                <span class="filter-checkbox__label p1">50 <span>(43)</span></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="category-menu__separator"></div>
+                                <div class="category-menu-group ui-accordion-item ui-accordion-item--opened">
+                                    <div class="category-menu-group__head ui-accordion-item__toggle df df-ai-center df-jc-between">
+                                        <div class="category-menu-group__title h6">Температура хранения</div>
+                                        <svg width="7" height="10">
+                                            <use xlink:href="/img/sprites.svg#arrow-menu"></use>
+                                        </svg>
+                                    </div>
+                                    <div class="ui-collapse checkbox-list">
+                                        <div class="checkbox-list__scroll df df-column scroll">
+                                            <label class="filter-checkbox-item filter-checkbox df df-ai-center">
+                                                <input type="checkbox" name="temperature[]" value="от 5°C до 25°C" class="filter-checkbox__input">
+                                                <span class="filter-checkbox__control df df-ai-center df-jc-center">
+                                                    <svg width="14" height="14">
+                                                        <use xlink:href="/img/sprites.svg#icon-check"></use>
+                                                    </svg>
+                                                </span>
+                                                <span class="filter-checkbox__label p1">от 5°C до 25°C <span>(43)</span></span>
+                                            </label>
+                                            <label class="filter-checkbox-item filter-checkbox df df-ai-center">
+                                                <input type="checkbox" name="temperature[]" value="от 2 до 8 °С" class="filter-checkbox__input">
+                                                <span class="filter-checkbox__control df df-ai-center df-jc-center">
+                                                    <svg width="14" height="14">
+                                                        <use xlink:href="/img/sprites.svg#icon-check"></use>
+                                                    </svg>
+                                                </span>
+                                                <span class="filter-checkbox__label p1">от 2 до 8 °С <span>(87)</span></span>
+                                            </label>
+                                            <label class="filter-checkbox-item filter-checkbox df df-ai-center">
+                                                <input type="checkbox" name="temperature[]" value="от 8 до 15 °С" class="filter-checkbox__input">
+                                                <span class="filter-checkbox__control df df-ai-center df-jc-center">
+                                                    <svg width="14" height="14">
+                                                        <use xlink:href="/img/sprites.svg#icon-check"></use>
+                                                    </svg>
+                                                </span>
+                                                <span class="filter-checkbox__label p1">от 8 до 15 °С <span>(7)</span></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="category-menu-filter__bottom">
+                            <div class="category-menu-filter__buttons df df-ai-stretch df-jc-between">
+                                <button class="btn-default">Очистить фильтр</button>
+                                <button class="btn-main">Применить</button>
+                            </div>
+                            <div class="category-menu-filter__found p3">Найдено 144 товара</div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+        </div>
         <div class="content">
             <nav class="breadcrumb df df-ai-center p3 m-20 scroll">
                 <a href="index.html" class="breadcrumb__item">Главная</a>
@@ -65,12 +740,12 @@
                         </div>
                     </form>
                     <div class="card-sizes df df-ai-center">
-                        <a class="card-sizes__link df df-ai-center df-jc-center active" href="catalog-level2.html">
+                        <a class="card-sizes__link df df-ai-center df-jc-center" href="catalog-level2.html">
                             <svg width="20" height="20">
                                 <use xlink:href="/img/sprites.svg#icon-grid"></use>
                             </svg>
                         </a>
-                        <a class="card-sizes__link df df-ai-center df-jc-center" href="catalog-level2.1.html">
+                        <a class="card-sizes__link df df-ai-center df-jc-center active" href="catalog-level2.1.html">
                             <svg width="20" height="20">
                                 <use xlink:href="/img/sprites.svg#icon-grid-horizontal"></use>
                             </svg>
@@ -88,6 +763,62 @@
                     @@for (var i = 0; i < 10; i++) {
                     @@include('./global/product-preview-card-horizontal.html')
                     }
+                </div>
+                <div class="catalog__pagination">
+                    <ul class="pagination df df-ai-center df-jc-center">
+                        <li class="pagination__control pagination__control--prev">
+                            <a href="#" class="pagination__btn pagination__btn--disabled df df-ai-center df-jc-center">
+                                <svg width="7" height="10">
+                                    <use xlink:href="/img/sprites.svg#arrow-menu"></use>
+                                </svg>
+                                <svg width="7" height="10">
+                                    <use xlink:href="/img/sprites.svg#arrow-menu"></use>
+                                </svg>
+                            </a>
+                        </li>
+                        <li class="pagination__control pagination__control--prev">
+                            <a href="#" class="pagination__btn pagination__btn--disabled df df-ai-center df-jc-center">
+                                <svg width="7" height="10">
+                                    <use xlink:href="/img/sprites.svg#arrow-menu"></use>
+                                </svg>
+                            </a>
+                        </li>
+                        <li class="pagination__control">
+                            <span class="pagination__item pagination__item--active h6 df df-ai-center df-jc-center">1</span>
+                        </li>
+                        <li class="pagination__control">
+                            <a class="pagination__item h6 df df-ai-center df-jc-center">2</a>
+                        </li>
+                        <li class="pagination__control">
+                            <a class="pagination__item h6 df df-ai-center df-jc-center">2</a>
+                        </li>
+                        <li class="pagination__control">
+                            <a class="pagination__item h6 df df-ai-center df-jc-center">3</a>
+                        </li>
+                        <li class="pagination__control">
+                            <a class="pagination__item h6 df df-ai-center df-jc-center">...</a>
+                        </li>
+                        <li class="pagination__control">
+                            <a class="pagination__item h6 df df-ai-center df-jc-center">25</a>
+                        </li>
+                        <li class="pagination__control pagination__control--next">
+                            <a href="#" class="pagination__btn df df-ai-center df-jc-center">
+                                <svg width="7" height="10">
+                                    <use xlink:href="/img/sprites.svg#arrow-menu"></use>
+                                </svg>
+                            </a>
+                        </li>
+                        <li class="pagination__control pagination__control--next">
+                            <a href="#" class="pagination__btn df df-ai-center df-jc-center ">
+                                <svg width="7" height="10">
+                                    <use xlink:href="/img/sprites.svg#arrow-menu"></use>
+                                </svg>
+                                <svg width="7" height="10">
+                                    <use xlink:href="/img/sprites.svg#arrow-menu"></use>
+                                </svg>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>

@@ -86,19 +86,28 @@ button:not(:disabled),
 [type=submit]:not(:disabled) {
   cursor: pointer;
 }
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
 .container{
   width: 1430px;
   padding: 0 15px;
   margin: 0 auto;
   @include media("max", "xxl") {
     width: 1170px;
+    padding: 0 10px;
   }
   @include media("max", "xl") {
     width: 100%;
     max-width: 100%;
-  }
-  @include media("max", "lg") {
-    padding: 0 10px;
   }
 }
 .float-left {
@@ -1196,7 +1205,7 @@ p{
             }
           }
           &__btn{
-            padding: 6px;
+            padding: 6px 9px;
           }
         }
       }
@@ -1396,8 +1405,41 @@ p{
   }
   &-group{
     margin: 16px 0;
+    @include media("max", "lg") {
+      .ui-collapse{
+        display: none;
+        opacity: 0;
+      }
+    }
+    &.ui-accordion-item{
+      @include media("min", "lg") {
+        &:hover {
+          color: $blueHover;
+        }
+      }
+      &:focus,
+      &:active{
+        color: $blueAccent;
+      }
+    }
+    &.ui-accordion-item--opened{
+      .category-menu-group{
+        &__head{
+          svg{
+            transform: rotate(-90deg);
+          }
+        }
+      }
+    }
+    &__head{
+      svg{
+        transform: rotate(90deg);
+        transition: all 0.3s;
+      }
+    }
     &__title{
       cursor: pointer;
+      max-width: 180px;
       @include media("min", "lg") {
         &:hover {
           color: $blueHover;
@@ -1428,6 +1470,152 @@ p{
         color: $blueAccent;
       }
     }
+  }
+  &-filter{
+    background: $white;
+    @include media("max", "lg"){
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      z-index: 101;
+    }
+    &__head{
+      padding: 15px 10px;
+      background: $white;
+      box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.02);
+      display: none;
+      @include media("max", "lg"){
+        display: flex;
+      }
+    }
+    &__scroll{
+      max-height: calc(100% - 130px);
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
+    &__wrapper{
+      padding: 0 12px;
+    }
+    &__bottom{
+      display: none;
+      padding: 12px 10px;
+      background: $white;
+      box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.02);
+      @include media("max", "lg"){
+        display: block;
+      }
+    }
+    &__buttons{
+      gap: 10px;
+      .btn-default{
+        padding: 9px 15px;
+        color: $black;
+        flex: 1 1 auto;
+        min-width: auto;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 150%;
+      }
+      .btn-main{
+        padding: 9px 15px;
+        flex: 1 1 auto;
+        min-width: auto;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 150%;
+      }
+    }
+    &__found{
+      color: $grayText;
+      text-align: center;
+    }
+    .checkbox-list{
+      &__scroll{
+        position: relative;
+        overflow: hidden;
+        overflow-y: auto;
+        max-height: 200px;
+        gap: 16px;
+      }
+    }
+    .filter-checkbox{
+      &__input{
+        position: absolute;
+        visibility: hidden;
+        &:checked ~ .filter-checkbox__control {
+          background: $blue;
+          border: 1.5px solid $blue;
+        }
+        &:disabled ~ .filter-checkbox__control {
+          pointer-events: none;
+          background: rgba(234, 238, 244, 0.2);
+        }
+        &:disabled ~ .filter-checkbox__label{
+          opacity: 0.5;
+        }
+      }
+      &__control {
+        width: 20px;
+        height: 20px;
+        background: $white;
+        border: 1.5px solid $grayLine;
+        border-radius: 5px;
+        color: $white;
+        transition: all 0.3s;
+        margin-right: 8px;
+        padding: 2px;
+        cursor: pointer;
+        @include media("min", "lg") {
+          &:hover {
+            border: 1.5px solid $blueHover;
+          }
+        }
+      }
+      &__label{
+        color: $black;
+        line-height: 130%;
+        text-transform: capitalize;
+        cursor: pointer;
+        span{
+          color: $grayText;
+        }
+      }
+    }
+    .filter-range{
+      &__inputs{
+        gap: 10px;
+      }
+      &__input{
+        cursor: pointer;
+        background: $white;
+        border: 1px solid $grayLine;
+        border-radius: 6px;
+        width: 48%;
+        padding-left: 8px;
+        font-size: 14px;
+        line-height: 130%;
+        color: $black;
+        min-height: 34px;
+        @include media("min", "lg") {
+          &:hover {
+            border: 1px solid $blueHover;
+          }
+        }
+        &:active,
+        &:focus{
+          border: 1px solid $blueAccent;
+        }
+      }
+    }
+  }
+  &__separator{
+    display: block;
+    width: 100%;
+    height: 1px;
+    background: $grayLine;
   }
   &__item{
     &.hidden{
@@ -2139,6 +2327,13 @@ p{
     width: 100%;
     @include media("max", "xl") {
       display: none;
+      &.aside-menu--open{
+        display: block;
+        .category-menu,
+        .aside-menu__item--favorite{
+          display: none;
+        }
+      }
     }
   }
 }
@@ -2620,6 +2815,7 @@ p{
   }
 }
 .ui-accordion-item{
+  cursor: pointer;
   &--opened{
     .ui-accordion-item{
       &__icon{
@@ -2919,7 +3115,7 @@ p{
         }
         @include media("min", "lg") {
           &:hover {
-            border: 1px solid$blueHover;
+            border: 1px solid $blueHover;
             .card__title{
               color: $blueHover;
             }
@@ -2971,6 +3167,7 @@ p{
     display: grid;
     grid-template-columns: repeat(5,1fr);
     grid-gap: 16px 20px;
+    margin-bottom: 30px;
     &.catalog__cards--horizontal{
       grid-template-columns: 1fr;
       grid-gap: 20px;
@@ -2996,6 +3193,7 @@ p{
     @include media("max", "lg") {
       grid-template-columns: repeat(3,1fr);
       grid-gap: 10px;
+      margin-bottom: 20px;
     }
     @include media("max", "sm") {
       grid-template-columns: repeat(2,1fr);
@@ -3162,6 +3360,60 @@ p{
     }
     &__btn{
       display: none;
+    }
+  }
+}
+.pagination{
+  gap: 5px;
+  @include media("max", "lg") {
+    gap: 3px;
+  }
+  &__control{
+    &.pagination__control--prev{
+      svg{
+        transform: rotate(180deg);
+      }
+    }
+  }
+  &__item{
+    font-weight: 700;
+    line-height: 130%;
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    transition: all 0.3s;
+    @include media("max", "lg") {
+      width: 25px;
+      height: 25px;
+    }
+    &.pagination__item--active{
+      background: #056ECF;
+      color: $white;
+    }
+    @include media("min", "lg") {
+      &:not(.pagination__item--active):hover {
+        background: $grayLine;
+      }
+    }
+  }
+  &__btn{
+    width: 32px;
+    height: 32px;
+    @include media("max", "lg") {
+      width: 25px;
+      height: 25px;
+    }
+    &.pagination__btn--disabled{
+      color: $grayIcon;
+    }
+    @include media("min", "lg") {
+      &:not(.pagination__btn--disabled):hover {
+        color: $blueHover;
+      }
+    }
+    &:focus,
+    &:active{
+      color: $blueAccent;
     }
   }
 }

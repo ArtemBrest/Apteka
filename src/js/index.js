@@ -567,6 +567,10 @@ window.addEventListener("load", function () {
             initAcc(instructions, false);
         }
     }
+    let categoryMenu = document.querySelector(".category-menu-filter");
+    if (categoryMenu !== null) {
+        initAcc(categoryMenu, false);
+    }
 
 
 
@@ -684,6 +688,15 @@ window.addEventListener("load", function () {
                 //form.submit();
             })
         })
+    }
+
+    const filterBtnMob = document.getElementById("filter-btn-mob");
+    const asideMenu = document.querySelector(".aside-menu--filter");
+    if(filterBtnMob !== null && asideMenu  !== null){
+        filterBtnMob.addEventListener('click', (evt) => {
+            filterBtnMob.classList.toggle("active");
+            asideMenu.classList.toggle("aside-menu--open");
+        });
     }
 
 })
