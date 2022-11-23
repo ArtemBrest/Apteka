@@ -517,6 +517,70 @@ p{
     margin-bottom: 30px!important;
   }
 }
+.ui-accordion-item{
+  cursor: pointer;
+  &--opened{
+    .ui-accordion-item{
+      &__icon{
+        .line{
+          &:last-child{
+            transform: rotate(0);
+          }
+        }
+      }
+    }
+  }
+  &__toggle{
+    margin-bottom: 10px;
+  }
+  &__icon{
+    display: none;
+    height: 25px;
+    width: 25px;
+    position: relative;
+    border: 1px solid $grayIcon;
+    border-radius: 50%;
+    @include media("max", "lg") {
+      display: block;
+    }
+    @include media("min", "lg") {
+      &:hover {
+        border: 1px solid $blueHover;
+
+        & .line {
+          background: $blueHover;
+        }
+      }
+    }
+    &:focus,
+    &:active {
+      border: 1px solid $blueAccent;
+      & .line{
+        background: $blueAccent;
+      }
+    }
+    .line{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      /*transform: translate(-50%, -50%);*/
+      margin-left: -6px;
+      margin-top: -0.5px;
+      display: block;
+      width: 12px;
+      height: 1px;
+      background: $grayIcon;
+      border-radius: 8px;
+      &:last-child{
+        transform: rotate(90deg);
+      }
+    }
+  }
+  .ui-collapse{
+    display: block;
+    opacity: 1;
+  }
+}
 .header{
   position: sticky;
   top: 0;
@@ -1405,22 +1469,8 @@ p{
   }
   &-group{
     margin: 16px 0;
-    @include media("max", "lg") {
-      .ui-collapse{
-        display: none;
-        opacity: 0;
-      }
-    }
-    &.ui-accordion-item{
-      @include media("min", "lg") {
-        &:hover {
-          color: $blueHover;
-        }
-      }
-      &:focus,
-      &:active{
-        color: $blueAccent;
-      }
+    .ui-collapse{
+      display: none;
     }
     &.ui-accordion-item--opened{
       .category-menu-group{
@@ -1429,6 +1479,10 @@ p{
             transform: rotate(-90deg);
           }
         }
+      }
+      .ui-collapse{
+        display: block;
+        opacity: 1;
       }
     }
     &__head{
@@ -1440,15 +1494,6 @@ p{
     &__title{
       cursor: pointer;
       max-width: 180px;
-      @include media("min", "lg") {
-        &:hover {
-          color: $blueHover;
-        }
-      }
-      &:focus,
-      &:active{
-        color: $blueAccent;
-      }
     }
     &__list{
       display: flex;
@@ -1473,62 +1518,96 @@ p{
   }
   &-filter{
     background: $white;
-    @include media("max", "lg"){
+    &__backdrop{
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: -1;
+      background: rgba(0, 0, 0, 0.6);
+      display: none;
+      &.filter-backdrop--open{
+        display: block;
+      }
+    }
+    @include media("max", "xl"){
       position: fixed;
       top: 0;
       left: 0;
       right: 0;
       bottom: 0;
-      width: 100%;
+      width: 300px;
       z-index: 101;
+      @include media("max", "sm"){
+        width: 100%;
+      }
     }
     &__head{
       padding: 15px 10px;
       background: $white;
-      box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.02);
+      box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.05);
       display: none;
-      @include media("max", "lg"){
+      position: sticky;
+      top: 0;
+      right: 0;
+      left: 0;
+      @include media("max", "xl"){
         display: flex;
       }
     }
     &__scroll{
-      max-height: calc(100% - 130px);
+      max-height: calc(100% - 145px);
       overflow-x: hidden;
       overflow-y: auto;
+      background: $white;
     }
     &__wrapper{
       padding: 0 12px;
     }
     &__bottom{
-      display: none;
-      padding: 12px 10px;
+      position: sticky;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      padding: 16px 0;
       background: $white;
-      box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.02);
-      @include media("max", "lg"){
-        display: block;
+      margin: 0 10px -10px;
+      border-top: 1px solid $grayLine;
+      @include media("max", "xl"){
+        margin: 0;
+        padding: 12px 10px;
+      }
+      @include media("max", "sm"){
+        border: none;
+        box-shadow: 0px -5px 10px rgb(26, 54, 95, 0.05);
       }
     }
     &__buttons{
       gap: 10px;
+      @include media("max", "xl"){
+        flex-flow: row;
+      }
       .btn-default{
-        padding: 9px 15px;
+        padding: 9px 0;
         color: $black;
-        flex: 1 1 auto;
+        flex: 1 1 49%;
         min-width: auto;
-        font-weight: 700;
+        font-weight: 600;
         font-size: 14px;
         line-height: 150%;
       }
       .btn-main{
-        padding: 9px 15px;
-        flex: 1 1 auto;
+        padding: 9px 0;
+        flex: 1 1 49%;
         min-width: auto;
-        font-weight: 700;
+        font-weight: 600;
         font-size: 14px;
         line-height: 150%;
       }
     }
     &__found{
+      margin-top: 8px;
       color: $grayText;
       text-align: center;
     }
@@ -1564,7 +1643,6 @@ p{
         border: 1.5px solid $grayLine;
         border-radius: 5px;
         color: $white;
-        transition: all 0.3s;
         margin-right: 8px;
         padding: 2px;
         cursor: pointer;
@@ -1579,6 +1657,7 @@ p{
         line-height: 130%;
         text-transform: capitalize;
         cursor: pointer;
+        transition: initial;
         span{
           color: $grayText;
         }
@@ -2168,6 +2247,9 @@ p{
           margin: auto 0 0;
         }
       }
+      &__bottom{
+        padding: 0;
+      }
       &__btn{
         min-width: 140px;
         min-height: 36px;
@@ -2235,7 +2317,7 @@ p{
     }
   }
   &__content{
-    padding: 10px 8px 15px;
+    padding: 10px 8px 0;
   }
   &__title{
     display: block;
@@ -2293,10 +2375,14 @@ p{
       color: $black;
     }
   }
+  &__bottom{
+    padding: 0 8px 15px;
+    margin: auto 0 0 0;
+  }
   &__btn{
     padding: 5px;
-    width: 35px;
-    height: 35px;
+    width: 40px;
+    height: 40px;
     flex-shrink: 0;
     min-height: 100%;
     svg{
@@ -2332,6 +2418,9 @@ p{
         .category-menu,
         .aside-menu__item--favorite{
           display: none;
+        }
+        .aside-menu__wrapper{
+          padding: 0;
         }
       }
     }
@@ -2814,70 +2903,6 @@ p{
     }
   }
 }
-.ui-accordion-item{
-  cursor: pointer;
-  &--opened{
-    .ui-accordion-item{
-      &__icon{
-        .line{
-          &:last-child{
-            transform: rotate(0);
-          }
-        }
-      }
-    }
-  }
-  &__toggle{
-    margin-bottom: 10px;
-  }
-  &__icon{
-    display: none;
-    height: 25px;
-    width: 25px;
-    position: relative;
-    border: 1px solid $grayIcon;
-    border-radius: 50%;
-    @include media("max", "lg") {
-      display: block;
-    }
-    @include media("min", "lg") {
-      &:hover {
-        border: 1px solid $blueHover;
-
-        & .line {
-          background: $blueHover;
-        }
-      }
-    }
-    &:focus,
-    &:active {
-      border: 1px solid $blueAccent;
-      & .line{
-        background: $blueAccent;
-      }
-    }
-    .line{
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      /*transform: translate(-50%, -50%);*/
-      margin-left: -6px;
-      margin-top: -0.5px;
-      display: block;
-      width: 12px;
-      height: 1px;
-      background: $grayIcon;
-      border-radius: 8px;
-      &:last-child{
-        transform: rotate(90deg);
-      }
-    }
-  }
-  .ui-collapse{
-    display: block;
-    opacity: 1;
-  }
-}
 .product-block-disclaimer{
   background: $white;
   box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.02);
@@ -3217,7 +3242,7 @@ p{
     background: $white;
     color: $black;
     display: none;
-    @include media("max", "lg"){
+    @include media("max", "xl"){
       display: flex;
     }
     &.active{
@@ -3231,7 +3256,7 @@ p{
       display: none;
     }
     &__item{
-      font-weight: 700;
+      font-weight: 600;
       background: $white;
       border: 1px solid $white;
       border-radius: 6px;
@@ -3244,8 +3269,11 @@ p{
       }
       @include media("min", "lg") {
         &:hover {
-          border: 1px solid $blue;
-          color: $blue;
+          text-decoration-line: line-through;
+          color: $blueHover;
+          svg{
+            color: $blueHover;
+          }
         }
       }
       &:focus,
@@ -3255,14 +3283,19 @@ p{
     }
   }
   .card-sizes{
+    background: $white;
+    border-radius: 6px;
     &__link{
       width: 36px;
       height: 36px;
       border: 1px solid $white;
       background: $white;
-      color: $black;
+      color: $grayIcon;
       border-radius: 6px;
       flex-shrink: 0;
+      svg{
+        opacity: 0.5;
+      }
       @include media("min", "lg") {
         &:not(.active):hover {
           color: $blue;
@@ -3272,6 +3305,9 @@ p{
         border: 1px solid $blue;
         background: $blue;
         color: $white;
+        svg{
+          opacity: 1;
+        }
       }
     }
     @include media("max", "lg"){
@@ -3289,10 +3325,8 @@ p{
       &[data-state="active"] {
         .catalog-sorting{
           &__title{
-            color: $blue;
             border: 1px solid $blue;
             svg{
-              color: $blue;
               transform: rotate(-90deg);
             }
           }
@@ -3312,8 +3346,11 @@ p{
       border-radius: 6px;
       cursor: pointer;
       gap: 8px;
+      &:hover{
+        border: 1px solid $blue;
+      }
       span{
-        font-weight: 700;
+        font-weight: 600;
         font-size: 12px;
         line-height: 150%;
       }
@@ -3338,25 +3375,55 @@ p{
       z-index: 1;
       padding: 8px;
     }
+    &__row{
+      margin-bottom: 6px;
+      border-radius: 4px;
+      &:hover {
+        background: #F5F7FA;
+      }
+      &:hover label:after {
+        border: 0.75px solid $white;
+      }
+    }
     &__input {
+      position: absolute;
       display: none;
+      z-index: -1;
+      opacity: 0;
       pointer-events: none;
       &:checked + label {
-        color: $grayText;
+        color: $grayText; //#B7BFCB;
+      }
+      &:checked + label::after {
+        opacity: 1;
+        border: 0.75px solid $blue;
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-5 -5 10 10'%3e%3ccircle r='3' fill='%23056ECF'/%3e%3c/svg%3e");
+      }
+      & + label::after {
+        content: '';
+        display: inline-block;
+        width: 12px;
+        height: 12px;
+        flex-shrink: 0;
+        flex-grow: 0;
+        border: 0.75px solid #EAEEF4;
+        border-radius: 50%;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: 50% 50%;
       }
     }
     &__label {
       display: flex;
       align-items: center;
+      justify-content: space-between;
+      font-size: 12px;
+      line-height: 150%;
       width: 100%;
       min-height: 25px;
       padding: 4px 6px;
       transition: all 0.3s;
-      border-radius: 4px;
       cursor: pointer;
-      &:hover {
-        background: #F5F7FA;
-      }
     }
     &__btn{
       display: none;

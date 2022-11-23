@@ -691,12 +691,69 @@ window.addEventListener("load", function () {
     }
 
     const filterBtnMob = document.getElementById("filter-btn-mob");
+    const filterBtnMobClose = document.getElementById("filter-btn-mob-close");
     const asideMenu = document.querySelector(".aside-menu--filter");
-    if(filterBtnMob !== null && asideMenu  !== null){
+    const filterBackdrop = document.getElementById("filter-backdrop");
+    if(filterBtnMob !== null && asideMenu  !== null && filterBtnMobClose !== null && filterBackdrop !== null){
         filterBtnMob.addEventListener('click', (evt) => {
             filterBtnMob.classList.toggle("active");
             asideMenu.classList.toggle("aside-menu--open");
+            filterBackdrop.classList.toggle("filter-backdrop--open");
+        });
+        filterBtnMobClose.addEventListener('click', (evt) => {
+            filterBtnMob.classList.toggle("active");
+            asideMenu.classList.toggle("aside-menu--open");
+            filterBackdrop.classList.toggle("filter-backdrop--open");
+        });
+        filterBackdrop.addEventListener('click', (evt) => {
+            filterBtnMob.classList.toggle("active");
+            asideMenu.classList.toggle("aside-menu--open");
+            filterBackdrop.classList.toggle("filter-backdrop--open");
         });
     }
-
+    let allData = {
+        price: [0, 1200],
+        checked: [],
+    };
+    let filter = document.getElementById('filter-form');
+    let inputsFilter;
+    let createData = () => {
+        let nodeList = filter.querySelectorAll('input:checked');
+        let nodeNumberList = filter.querySelectorAll('input[type="number"]');
+        let checked = {
+            price: [],
+            checked: [],
+        };
+        nodeNumberList.forEach((node) => {
+            if(node.name == "price_min"){
+                checked.price[0] = node.value;
+            }
+            else if(node.name == "price_max"){
+                checked.price[1] = node.value;
+                console.log(node.value)
+            }
+        });
+        nodeList.forEach((node) => {
+            checked.checked.push(node.value);
+        });
+        allData.checked.push(checked.checked);
+        allData.checked.push(checked.price);
+        allData.checked.forEach(function (el){
+            
+        })
+    }
+    if(filter !== null){
+        inputsFilter = filter.querySelectorAll('input');
+        inputsFilter.forEach(input => {
+            input.addEventListener('keyup', createData);
+        })
+    }
+    /*if(filter !== null){
+        filter.addEventListener('submit', (event) => {
+            event.preventDefault();
+            if(allData.checked.length > 1){
+                allData.checked = [allData.checked.pop()];
+            }
+        });
+    }*/
 })
