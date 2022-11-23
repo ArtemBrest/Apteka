@@ -715,6 +715,49 @@ window.addEventListener("load", function () {
         price: [0, 1200],
         checked: [],
     };
+    const svgClose = `<svg width="10" height="10">
+                        <use xlink:href="/img/sprites.svg#icon-close"></use>
+                    </svg>`;
+    let articleDiv = document.getElementById("sort-tags");
+    let clearTag = document.createElement("a");
+    clearTag.href = "#";
+    clearTag.setAttribute('class', 'sort__item df df-ai-center p3');
+    let elemText = document.createTextNode("Все");
+    clearTag.appendChild(elemText);
+    clearTag.insertAdjacentHTML('beforeend', svgClose);
+    articleDiv.appendChild(clearTag)
+
+    function createTags(arr){
+        articleDiv.innerText = "";
+        articleDiv.appendChild(clearTag)
+        if(arr.price[0]){
+            let elem = document.createElement("a");
+            elem.href = "#";
+            elem.setAttribute('class', 'sort__item df df-ai-center p3');
+            let elemText = document.createTextNode("от " + arr.price[0] + " руб.");
+            elem.appendChild(elemText);
+            elem.insertAdjacentHTML('beforeend', svgClose);
+            articleDiv.appendChild(elem)
+        }
+        if(arr.price[1]){
+            let elem = document.createElement("a");
+            elem.href = "#";
+            elem.setAttribute('class', 'sort__item df df-ai-center p3');
+            let elemText = document.createTextNode("до " + arr.price[1] + " руб.");
+            elem.appendChild(elemText);
+            elem.insertAdjacentHTML('beforeend', svgClose);
+            articleDiv.appendChild(elem)
+        }
+        arr.checked.forEach(function (el) {
+            let elem = document.createElement("a");
+            elem.href = "#";
+            elem.setAttribute('class', 'sort__item df df-ai-center p3');
+            let elemText = document.createTextNode(el);
+            elem.appendChild(elemText);
+            elem.insertAdjacentHTML('beforeend', svgClose);
+            articleDiv.appendChild(elem)
+        })
+    }
     let filter = document.getElementById('filter-form');
     let inputsFilter;
     let createData = () => {
@@ -730,7 +773,7 @@ window.addEventListener("load", function () {
             }
             else if(node.name == "price_max"){
                 checked.price[1] = node.value;
-                console.log(node.value)
+
             }
         });
         nodeList.forEach((node) => {
@@ -738,13 +781,13 @@ window.addEventListener("load", function () {
         });
         allData.checked.push(checked.checked);
         allData.checked.push(checked.price);
-        allData.checked.forEach(function (el){
-
-        })
+        //createTags(checked.checked)
+        createTags(checked)
     }
     if(filter !== null){
         inputsFilter = filter.querySelectorAll('input');
         inputsFilter.forEach(input => {
+            input.addEventListener('change', createData);
             input.addEventListener('keyup', createData);
         })
     }
