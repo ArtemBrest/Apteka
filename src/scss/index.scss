@@ -519,7 +519,7 @@ p{
 }
 .ui-accordion-item{
   cursor: pointer;
-  &--opened{
+  &.ui-accordion-item--opened{
     .ui-accordion-item{
       &__icon{
         .line{
@@ -528,6 +528,10 @@ p{
           }
         }
       }
+    }
+    .ui-collapse{
+      display: block;
+      opacity: 1;
     }
   }
   &__toggle{
@@ -577,8 +581,7 @@ p{
     }
   }
   .ui-collapse{
-    display: block;
-    opacity: 1;
+    display: none;
   }
 }
 .header{
@@ -1561,6 +1564,9 @@ p{
       overflow-x: hidden;
       overflow-y: auto;
       background: $white;
+      @include media("max", "sm") {
+        padding: 0 0 15px;
+      }
     }
     &__wrapper{
       padding: 0 12px;
@@ -1570,10 +1576,8 @@ p{
       bottom: 0;
       right: 0;
       left: 0;
-      padding: 16px 0;
+      padding: 25px 10px 0;
       background: $white;
-      margin: 0 10px -10px;
-      border-top: 1px solid $grayLine;
       @include media("max", "xl"){
         margin: 0;
         padding: 12px 10px;
@@ -3381,9 +3385,6 @@ p{
       &:hover {
         background: #F5F7FA;
       }
-      &:hover label:after {
-        border: 0.75px solid $white;
-      }
     }
     &__input {
       position: absolute;
@@ -3396,17 +3397,17 @@ p{
       }
       &:checked + label::after {
         opacity: 1;
-        border: 0.75px solid $blue;
+        border: 1px solid $blue;
         background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-5 -5 10 10'%3e%3ccircle r='3' fill='%23056ECF'/%3e%3c/svg%3e");
       }
       & + label::after {
         content: '';
         display: inline-block;
-        width: 12px;
-        height: 12px;
+        width: 14px;
+        height: 14px;
         flex-shrink: 0;
         flex-grow: 0;
-        border: 0.75px solid #EAEEF4;
+        border: 1px solid $grayIcon;
         border-radius: 50%;
         background-repeat: no-repeat;
         background-position: center center;

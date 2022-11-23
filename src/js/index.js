@@ -543,7 +543,7 @@ window.addEventListener("load", function () {
                     }
                     clearTimeout(mouseenter_ev);
                     parent.classList.add('ui-accordion-item--opened');
-                    fadeIn(content);
+                    //fadeIn(content);
                 } else {
                     if (option == true) {
                         for (let i = 0; i < item.length; i++) {
@@ -556,7 +556,7 @@ window.addEventListener("load", function () {
                     }
                     clearTimeout(mouseenter_ev);
                     parent.classList.remove('ui-accordion-item--opened');
-                    fadeOut(content);
+                    //fadeOut(content);
                 }
             });
         }
@@ -739,7 +739,7 @@ window.addEventListener("load", function () {
         allData.checked.push(checked.checked);
         allData.checked.push(checked.price);
         allData.checked.forEach(function (el){
-            
+
         })
     }
     if(filter !== null){

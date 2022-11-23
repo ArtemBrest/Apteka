@@ -679,6 +679,7 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="category-menu__separator"></div>
                             </div>
                         </div>
                         <div class="category-menu-filter__bottom">
@@ -723,14 +724,18 @@
                                 </svg>
                             </div>
                             <div class="catalog-sorting__content">
-                                <input id="input-default" class="catalog-sorting__input" type="radio" name="sort" value="ASC">
-                                <label for="input-default" tabindex="0" class="catalog-sorting__label">По популярности</label>
-
-                                <input id="order-max" class="catalog-sorting__input" type="radio" name="sort" value="ASC">
-                                <label for="order-max" tabindex="0" class="catalog-sorting__label">По возрастанию</label>
-
-                                <input id="order-min" class="catalog-sorting__input" type="radio" name="sort" value="DESC">
-                                <label for="order-min" tabindex="0" class="catalog-sorting__label">По убыванию</label>
+                                <div class="catalog-sorting__row">
+                                    <input id="input-default" class="catalog-sorting__input" type="radio" name="sort" value="ASC" checked>
+                                    <label for="input-default" tabindex="0" class="catalog-sorting__label">По популярности</label>
+                                </div>
+                                <div class="catalog-sorting__row">
+                                    <input id="order-max" class="catalog-sorting__input" type="radio" name="sort" value="ASC">
+                                    <label for="order-max" tabindex="0" class="catalog-sorting__label">По возрастанию</label>
+                                </div>
+                                <div class="catalog-sorting__row">
+                                    <input id="order-min" class="catalog-sorting__input" type="radio" name="sort" value="DESC">
+                                    <label for="order-min" tabindex="0" class="catalog-sorting__label">По убыванию</label>
+                                </div>
                             </div>
                             <button class="catalog-sorting__btn"></button>
                         </div>
