@@ -1,29 +1,29 @@
 <footer class="footer shadow-block" id="footer">
     <div class="container">
-        <ul class="footer-menu df df-ai-start df-jc-between df-wrap">
+        <ul class="footer-menu">
             <li class="footer-menu__item">
                 <span class="footer-menu__title">О компании</span>
-                <ul class="menu-sub df df-column">
+                <ul class="menu-sub">
                     <li class="menu-sub__item"><a href="#" class="menu-sub__link p2">О сервисе «Apteka.KZ»</a></li>
                     <li class="menu-sub__item"><a href="#" class="menu-sub__link p2">Контактная информация</a></li>
                 </ul>
             </li>
             <li class="footer-menu__item">
                 <span class="footer-menu__title">Помощь</span>
-                <ul class="menu-sub df df-column">
+                <ul class="menu-sub">
                     <li class="menu-sub__item"><a href="#" class="menu-sub__link p2">Как сделать заказ</a></li>
                 </ul>
             </li>
             <li class="footer-menu__item">
                 <span class="footer-menu__title">Партнерам</span>
-                <ul class="menu-sub df df-column">
+                <ul class="menu-sub">
                     <li class="menu-sub__item"><a href="#" class="menu-sub__link p2">Реклама</a></li>
                     <li class="menu-sub__item"><a href="#" class="menu-sub__link p2">Подключить аптеку</a></li>
                 </ul>
             </li>
             <li class="footer-menu__item">
                 <span class="footer-menu__title">Юридическая информация</span>
-                <ul class="menu-sub df df-column">
+                <ul class="menu-sub">
                     <li class="menu-sub__item"><a href="#" class="menu-sub__link p2">Политика по обработке персональных данных</a></li>
                     <li class="menu-sub__item"><a href="#" class="menu-sub__link p2">Пользовательское соглашение</a></li>
                 </ul>
@@ -35,12 +35,12 @@
             <div class="footer-copyright df df-ai-end df-jc-between df-row df-wrap">
                 <div class="footer__info df df-column">
                     <a href="/" class="footer__logo df df-ai-stretch">
-                        <img src="./img/logo.svg" alt="Apteka" width="113" height="30">
+                        <img src="./img/logo.svg" alt="Apteka" width="113" height="26">
                     </a>
                     <div class="footer__text p3">2022 Apteka.KZ</div>
                     <div class="footer__text p3">Адрес: 141400, ОБЛАСТЬ Минская область, Город Минск, ШОССЕ Минское, дом 42, цокольный этаж, помещение I, комната 2;</div>
                 </div>
-                <div class="footer__text p3">Любая информация, размещенная на сайте, не является публичной офертой</div>
+                <div class="footer__text footer__text--last p3">Любая информация, размещенная на сайте, не является публичной офертой</div>
             </div>
         </div>
     </div>
@@ -58,7 +58,7 @@
                 <input type="text" class="city-popup__input p2" autocomplete="off" placeholder="Выберете город">
             </label>
         </div>
-        <ul class="city-popup__list scroll df df-column">
+        <ul class="city-popup__list scroll">
             <li class="city-popup__list-item p1 df df-ai-center" data-value="минск">
                 <svg width="18" height="18">
                     <use xlink:href="/img/sprites.svg#icon-location"></use>
@@ -136,16 +136,23 @@
 </div>
 <div class="add-product-cart-mob shadow-block" id="add-product-cart">
     <div class="add-product-cart-mob__group df df-ai-stretch df-jc-between">
-        <div class="add-product-cart-mob__price df df-column df-jc-between">
+        <!--<div class="add-product-cart-mob__price df df-column df-jc-between">
             <span class="name">Цена от:</span>
             <span class="value h4">28.55 р.</span>
-        </div>
+        </div>-->
         <button class="add-product-cart-mob__btn btn-main"><!-- disable added -->
             <svg width="22" height="22">
                 <use xlink:href="/img/sprites.svg#icon-cart"></use>
             </svg>
             В корзину
         </button>
+        <button class="add-product-cart-mob__btn btn-main second">Проверить наличие</button>
     </div>
-    <div class="add-product-cart__text p3">Оплата наличными или картой при получении</div>
+    <div class="add-product-cart-mob__text p3">Оплата наличными или картой при получении</div>
+</div>
+<div class="container cookie-notice" id="cookie-notice">
+    <div class="cookie-notice__wrapper df df-ai-center df-jc-between">
+        <div class="cookie-notice__text p2">Мы используем <b>файлы cookie</b>, чтобы улучшить сайт для вас</div>
+        <button class="cookie-notice__btn p3 bold" id="cookie-notice-btn">Согласен</button>
+    </div>
 </div>

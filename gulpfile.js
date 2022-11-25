@@ -47,7 +47,10 @@ const scss = () => {
             }))
         }))
         .pipe(sass())
-        .pipe(autoprefixer())
+        .pipe(autoprefixer({
+            //browsers: ['last 3 versions'],
+            //cascade: false
+        }))
         .pipe(shorthand())
         .pipe(gulpCssMediaQueries())
         .pipe(dest(path.scss.dest), { sourcemaps: true })

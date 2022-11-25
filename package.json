@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "browserslist": [
+    "last 3 versions"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "gulp",
@@ -24,6 +27,7 @@
     "browser-sync": "^2.27.10",
     "del": "^6.1.1",
     "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^8.0.0",
     "gulp-babel": "^8.0.0",
     "gulp-file-include": "^2.3.0",
     "gulp-fonter": "^0.3.0",
@@ -40,7 +44,7 @@
     "yargs": "^17.6.0"
   },
   "dependencies": {
-    "gulp-autoprefixer": "^6.1.0",
+    "autoprefixer": "^10.4.13",
     "gulp-csso": "^4.0.1",
     "gulp-group-css-media-queries": "^1.2.2",
     "gulp-if": "^3.0.0",

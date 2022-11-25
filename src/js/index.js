@@ -46,6 +46,31 @@ function searchData(search) {
         }
     });
 }
+function setCookie(name, value, options = {}) {
+    options = {
+        path: '/',
+        // при необходимости добавьте другие значения по умолчанию
+        ...options
+    };
+    if (options.expires instanceof Date) {
+        options.expires = options.expires.toUTCString();
+    }
+    let updatedCookie = encodeURIComponent(name) + "=" + encodeURIComponent(value);
+    for (let optionKey in options) {
+        updatedCookie += "; " + optionKey;
+        let optionValue = options[optionKey];
+        if (optionValue !== true) {
+            updatedCookie += "=" + optionValue;
+        }
+    }
+    document.cookie = updatedCookie;
+}
+function getCookie(name) {
+    let matches = document.cookie.match(new RegExp(
+        "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+    ));
+    return matches ? decodeURIComponent(matches[1]) : undefined;
+}
 window.addEventListener("load", function () {
     let fade = document.getElementById("fade");
     let header = document.getElementById("header");
@@ -719,43 +744,60 @@ window.addEventListener("load", function () {
                         <use xlink:href="/img/sprites.svg#icon-close"></use>
                     </svg>`;
     let articleDiv = document.getElementById("sort-tags");
-    let clearTag = document.createElement("a");
-    clearTag.href = "#";
-    clearTag.setAttribute('class', 'sort__item df df-ai-center p3');
-    let elemText = document.createTextNode("Все");
-    clearTag.appendChild(elemText);
-    clearTag.insertAdjacentHTML('beforeend', svgClose);
-    articleDiv.appendChild(clearTag)
-
+    let clearTag, elemText;
+    if(articleDiv !== null){
+        clearTag = document.createElement("a");
+        clearTag.href = document.location.href;
+        clearTag.setAttribute('class', 'sort__item df df-ai-center p3');
+        elemText = document.createTextNode("Все");
+        clearTag.appendChild(elemText);
+        clearTag.insertAdjacentHTML('beforeend', svgClose);
+        articleDiv.appendChild(clearTag)
+    }
     function createTags(arr){
         articleDiv.innerText = "";
         articleDiv.appendChild(clearTag)
         if(arr.price[0]){
-            let elem = document.createElement("a");
-            elem.href = "#";
+            let elem = document.createElement("div");
+            //elem.href = "#";
             elem.setAttribute('class', 'sort__item df df-ai-center p3');
+            elem.setAttribute('data-value', arr.price[0])
             let elemText = document.createTextNode("от " + arr.price[0] + " руб.");
             elem.appendChild(elemText);
             elem.insertAdjacentHTML('beforeend', svgClose);
             articleDiv.appendChild(elem)
         }
         if(arr.price[1]){
-            let elem = document.createElement("a");
-            elem.href = "#";
+            let elem = document.createElement("div");
+            //elem.href = "#";
             elem.setAttribute('class', 'sort__item df df-ai-center p3');
             let elemText = document.createTextNode("до " + arr.price[1] + " руб.");
+            elem.setAttribute('data-value', arr.price[1])
             elem.appendChild(elemText);
             elem.insertAdjacentHTML('beforeend', svgClose);
             articleDiv.appendChild(elem)
         }
         arr.checked.forEach(function (el) {
-            let elem = document.createElement("a");
-            elem.href = "#";
+            let elem = document.createElement("div");
+            //elem.href = "#";
             elem.setAttribute('class', 'sort__item df df-ai-center p3');
+            elem.setAttribute('data-value', el)
             let elemText = document.createTextNode(el);
             elem.appendChild(elemText);
             elem.insertAdjacentHTML('beforeend', svgClose);
             articleDiv.appendChild(elem)
+        })
+        let tags = articleDiv.querySelectorAll(".sort__item");
+        tags.forEach(function (el){
+            el.addEventListener("click", function (e){
+                let value = el.getAttribute("data-value");
+                document.querySelectorAll("input").forEach(function (tag){
+                    if(tag.value == value){
+                        el.remove();
+                        tag.checked = false;
+                    }
+                })
+            })
         })
     }
     let filter = document.getElementById('filter-form');
@@ -799,4 +841,17 @@ window.addEventListener("load", function () {
             }
         });
     }*/
+    if(getCookie('cookieNotice') !== null){
+        const cookieNotice = document.getElementById("cookie-notice");
+        const cookieNoticeBtn = document.getElementById("cookie-notice-btn");
+        if(cookieNoticeBtn !== null && cookieNotice !== null){
+            if(getCookie('cookieNotice') != 1){
+                cookieNotice.classList.add("cookie-notice--open");
+            }
+            cookieNoticeBtn.addEventListener("click", function (e){
+                setCookie('cookieNotice', '1'); // {secure: true, 'max-age': 3600}
+                cookieNotice.style.display = "none";
+            })
+        }
+    }
 })

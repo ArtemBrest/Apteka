@@ -97,6 +97,11 @@ input::-webkit-inner-spin-button {
 input[type=number] {
   -moz-appearance: textfield;
 }
+/* Safari*/
+input[type=search] {
+  -webkit-appearance: none;
+  border-radius: 6px;
+}
 .container{
   width: 1430px;
   padding: 0 15px;
@@ -300,10 +305,13 @@ input[type=number] {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  /*gap: 10px;*/
   float: none;
   margin: 0 auto 20px;
   padding: 0;
+  & > * + *{
+    margin-left: 10px;
+  }
 }
 .lg-outer .lg-thumb-outer{
   background: transparent;
@@ -445,7 +453,7 @@ p{
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  /*gap: 10px;*/
   background: $blue;
   border-radius: 6px;
   border: 1px solid $blue;
@@ -475,12 +483,15 @@ p{
     background: transparent;
     color: $blue;
   }
+  svg{
+    margin-right: 5px;
+  }
 }
 .btn-default{
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 5px;
+  /*gap: 5px;*/
   background: $grayBg;
   border-radius: 6px;
   border: 1px solid $grayBg;
@@ -503,6 +514,9 @@ p{
   }
   &.disable{
     opacity: 0.5;
+  }
+  svg{
+    margin-right: 5px;
   }
 }
 .m-20{
@@ -543,7 +557,7 @@ p{
     height: 25px;
     width: 25px;
     position: relative;
-    border: 1px solid $grayIcon;
+    border: 1px solid $blue;
     border-radius: 50%;
     @include media("max", "lg") {
       display: block;
@@ -597,17 +611,35 @@ p{
   &__row{
     position: relative;
     padding: 12px 0;
-    gap: 30px;
+    /*gap: 30px;*/
+    & > *{
+      margin-right: 30px;
+    }
+    & > *:last-child{
+      margin-right: 0;
+    }
     @include media("max", "md") {
-      gap: 10px;
+      /*gap: 10px;*/
+      & > *{
+        margin-right: 10px;
+      }
+      & > *:last-child{
+        margin-right: 0;
+      }
     }
   }
   &__left{
-    gap: 30px;
+    /*gap: 30px;*/
+    & > *{
+      margin-right: 30px;
+    }
+    & > *:last-child{
+      margin-right: 0;
+    }
   }
   &-menu-xxl{
     display: none;
-    height: 20px;
+    height: 24px;
     cursor: pointer;
     @include media("max", "xxl") {
       display: block;
@@ -656,10 +688,19 @@ p{
     background: transparent;
     line-height: 130%;
     color: $black;
-    gap: 7px;
+    /*gap: 7px;*/
     transition: all 0.3s;
     cursor: pointer;
     border-right: 1px solid $grayLine;
+    & > *{
+      margin-right: 7px;
+      @include media("max", "lg") {
+        margin: 0;
+      }
+    }
+    & > *:last-child{
+      margin-right: 0;
+    }
     @include media("min", "lg") {
       &:hover {
         color: $blueHover;
@@ -701,7 +742,13 @@ p{
     }
   }
   &__right{
-    gap: 25px;
+    /*gap: 25px;*/
+    & > *{
+      margin-right: 25px;
+    }
+    & > *:last-child{
+      margin-right: 0;
+    }
   }
   &-cart{
     position: relative;
@@ -836,8 +883,9 @@ p{
       position: sticky;
       z-index: 9;
       box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.02);
-      padding: 19px 15px;
+      padding: 18px 15px;
       margin-bottom: 16px;
+      min-height: 64px;
       @include media("max", "lg") {
         padding: 19px 10px;
       }
@@ -881,8 +929,12 @@ p{
       margin: 0 0 8px;
       font-size: 15px;
       font-weight: 600;
-      gap: 8px;
+      /*gap: 8px;*/
       min-height: 38px;
+      cursor: pointer;
+      & > *:first-child{
+        margin-right: 8px;
+      }
       .arrow {
         margin: 0 9px 0 auto;
         transform: rotate(90deg);
@@ -895,11 +947,11 @@ p{
 
     &__menu {
       display: none;
-      flex-flow: column;
-      gap: 8px;
+      grid-template-columns: 1fr;
+      grid-gap: 8px;
       margin-bottom: 8px;
       &.header-mob__menu--open{
-        display: flex;
+        display: grid;
       }
     }
 
@@ -916,9 +968,9 @@ p{
     }
     &__list {
       /*margin-top: 15px;*/
-      display: flex;
-      flex-flow: column;
-      gap: 8px;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-gap: 8px;
       /*position: relative;*/
     }
     &__item {
@@ -932,13 +984,14 @@ p{
       }
       &.header-mob__item--prev {
         justify-content: flex-start;
-        gap: 8px;
+        /*gap: 8px;*/
         padding: 8px;
         background: $grayBg;
         border-radius: 6px;
         min-height: 40px;
+        cursor: pointer;
         svg {
-          margin: 0;
+          margin: 0 8px 0 0 ;
           transform: rotate(180deg);
         }
         span {
@@ -976,7 +1029,7 @@ p{
       height: 100%;
       display: flex;
       flex-flow: column;
-      gap: 8px;
+      /*grid-gap: 8px;*/
       background: $white;
       opacity: 0;
       visibility: hidden;
@@ -987,6 +1040,12 @@ p{
         visibility: visible;
         transform: translateX(0%);
       }
+      & > .header-mob__item{
+        margin-bottom: 8px;
+        &:last-child{
+          margin-bottom: 0;
+        }
+      }
     }
   }
 }
@@ -996,11 +1055,12 @@ p{
   background: $blue;
   border-radius: 6px;
   &__input{
+    display: block;
     width: 100%;
     height: 40px;
     background: $white;
     border: 1px solid $blue;
-    border-radius: 6px;
+    border-radius: 6px!important;
     padding-left: 160px;
     color: $black;
     cursor: pointer;
@@ -1025,6 +1085,9 @@ p{
     border-bottom-left-radius: 0;
     @include media("max", "lg") {
       padding: 8px 12px;
+    }
+    svg{
+      margin: 0;
     }
   }
   &__backdrop{
@@ -1075,7 +1138,6 @@ p{
       }
     }
     &__scroll-container{
-      gap: 12px;
       overflow-y: auto;
       max-height: 80vh;
       @include media("max", "lg") {
@@ -1088,16 +1150,18 @@ p{
       position: relative;
       @include media("max", "lg"){
         display: flex;
-        gap: 10px;
+        /*gap: 10px*/;
         &__input{
+          display: block;
           width: 100%;
           height: 40px;
           background: $white;
           border: 1px solid $blue;
-          border-radius: 6px;
+          border-radius: 6px!important;
           padding-left: 15px;
           color: $black;
           cursor: pointer;
+          margin: 0 10px 0 0;
           &::placeholder{
             color: $grayText;
           }
@@ -1151,14 +1215,23 @@ p{
       }
     }
     &__list{
-      display: flex;
-      flex-flow: column;
-      gap: 8px;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-gap: 8px;
       &--popular{
         display: flex;
         align-items: center;
         flex-flow: row wrap;
-        gap: 10px;
+        /*gap: 10px;*/
+        margin-bottom: -10px;
+        gap: 0;
+        & > *{
+          margin-right: 10px;
+          margin-bottom: 10px;
+        }
+        & > *:last-child{
+          margin-right: 0;
+        }
         .autocomplete{
           &__item{
             background: $grayBg;
@@ -1169,11 +1242,14 @@ p{
       &--history{
         .autocomplete{
           &__item{
-            gap: 8px;
+            /*gap: 8px*/;
             padding: 5px 8px;
             color: $black;
             border-radius: 8px;
             cursor: pointer;
+            & > *:first-child{
+              margin-right: 8px;
+            }
             @include media("max", "lg") {
               /*padding: 5px 0;*/
             }
@@ -1215,7 +1291,7 @@ p{
         }
       }
       &--product{
-        gap: 12px;
+        /*gap: 12px;*/
         .product-item{
           padding: 5px 8px;
           color: $black;
@@ -1240,26 +1316,30 @@ p{
             color: $blueAccent;
           }
           &__left{
-            gap: 12px;
+            /*gap: 12px;*/
             @include media("max", "sm") {
               align-items: flex-start;
             }
+          }
+          &__img{
+            margin-right: 12px;
           }
           &__title{
             line-height: 130%;
             color: inherit;
           }
           &__right{
-            gap: 30px;
+            /*gap: 30px;*/
           }
           &__price{
-            gap: 5px;
+            /*gap: 5px;*/
             color: $grayText;
             flex-shrink: 0;
             @include media("max", "sm") {
               display: none;
             }
             span{
+              margin-left: 5px;
               line-height: 130%;
               font-weight: 600;
               color: $black;
@@ -1272,6 +1352,7 @@ p{
             }
           }
           &__btn{
+            margin-left: 30px;
             padding: 6px 9px;
           }
         }
@@ -1349,15 +1430,15 @@ p{
     padding: 8px 0 12px;
   }
   &__list{
-    display: flex;
-    flex-flow: column;
-    gap: 8px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 8px;
     .sub-menu{
-      height: calc(100% - 50px);
+      /*height: calc(100% - 50px);*/
       margin-top: 50px;
-      display: flex;
-      flex-flow: column;
-      gap: 8px;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-gap: 8px;
       z-index: 2;
       &:after{
         content: "";
@@ -1377,6 +1458,7 @@ p{
       }
       &__wrapper{
         display: none;
+        flex-flow: column;
         position: absolute;
         top: 0;
         left: 98%;
@@ -1402,7 +1484,7 @@ p{
         }
 
         & > .sub-menu__wrapper {
-          display: block;
+          display: flex;
         }
       }
     }
@@ -1447,7 +1529,7 @@ p{
     align-items: center;
     justify-content: space-between;
     padding: 8px;
-    gap: 8px;
+    /*gap: 8px;*/
     border-radius: 6px;
     cursor: pointer;
   }
@@ -1456,6 +1538,7 @@ p{
     font-size: 14px;
     line-height: 130%;
     color: $black;
+    margin-right: 8px;
   }
 }
 .category-menu{
@@ -1464,9 +1547,10 @@ p{
     padding: 8px 6px;
     background: $grayBg;
     border-radius: 6px;
-    gap: 8px;
+    /*gap: 8px;*/
     color: $black;
     svg{
+      margin-right: 8px;
       transform: rotate(180deg);
     }
   }
@@ -1499,9 +1583,9 @@ p{
       max-width: 180px;
     }
     &__list{
-      display: flex;
-      flex-flow: column;
-      gap: 10px;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-gap: 10px;
       margin-top: 12px;
     }
     &__btn{
@@ -1588,7 +1672,7 @@ p{
       }
     }
     &__buttons{
-      gap: 10px;
+      /*gap: 10px;*/
       @include media("max", "xl"){
         flex-flow: row;
       }
@@ -1596,7 +1680,7 @@ p{
         display: none;
         padding: 9px 0;
         color: $black;
-        flex: 1 1 49%;
+        flex: 0 0 49%;
         min-width: auto;
         font-weight: 600;
         font-size: 14px;
@@ -1607,7 +1691,7 @@ p{
       }
       .btn-main{
         padding: 9px 0;
-        flex: 1 1 49%;
+        flex: 0 0 49%;
         min-width: auto;
         font-weight: 600;
         font-size: 14px;
@@ -1625,7 +1709,9 @@ p{
         overflow: hidden;
         overflow-y: auto;
         max-height: 200px;
-        gap: 16px;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: 16px;
       }
     }
     .filter-checkbox{
@@ -1766,19 +1852,28 @@ p{
   }
   &-menu{
     padding: 30px 0;
-    gap: 15px 30px;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-gap: 15px 30px;
     @include media("max", "lg") {
+      grid-template-columns: repeat(2,1fr);
       padding: 30px 0 15px;
-      flex-flow: column;
+    }
+    @include media("max", "sm") {
+      grid-template-columns: 1fr;
     }
     &__item{
-      display: flex;
-      flex-flow: column;
-      gap: 12px;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-gap: 12px;
+      align-items: start;
+      height: max-content;
       .menu-sub{
-        gap: 8px;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: 8px;
         &__item{
-          max-width: 275px;
+          /*max-width: 275px;*/
           @include media("min", "lg") {
             &:hover {
               color: $blueHover;
@@ -1799,7 +1894,8 @@ p{
     }
   }
   &-copyright{
-    gap: 15px;
+    /*gap: 15px;*/
+    margin-bottom: -15px;
     &__wrapper{
       @include media("max", "lg") {
         padding: 15px 0;
@@ -1808,17 +1904,23 @@ p{
     }
   }
   &__info{
-    gap: 6px;
+    /*gap: 6px;*/
+    margin-right: 15px;
+    margin-bottom: 15px;
+    @include media("max", "lg") {
+      margin-right: 0;
+    }
   }
   &__logo{
-    margin-bottom: 4px;
-    @include media("max", "lg") {
-      margin: 0;
-    }
+    margin-bottom: 6px;
   }
   &__text{
     line-height: 130%;
     color: $grayText;
+    margin-bottom: 6px;
+    &.footer__text--last{
+      margin-bottom: 15px;
+    }
   }
 }
 .city-popup{
@@ -1893,12 +1995,15 @@ p{
   &__list{
     height: 230px;
     padding: 12px 12px 16px;
+    overflow: hidden;
     overflow-y: auto;
-    gap: 15px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 15px;
     border: 1px solid $grayLine;
     border-radius: 8px;
     &-item{
-      gap: 5px;
+      /*gap: 5px;*/
       font-weight: 600;
       cursor: pointer;
       @include media("min", "lg") {
@@ -1915,7 +2020,17 @@ p{
       }
       svg{
         color: $blue;
+        margin-right: 5px;
       }
+    }
+  }
+}
+.page-title{
+  margin-bottom: 8px;
+  &.page-title--catalog{
+    margin-bottom: 20px;
+    @include media("max", "lg") {
+      margin-bottom: 12px;
     }
   }
 }
@@ -1983,6 +2098,22 @@ p{
   &__btn{
     width: 100%;
     margin-bottom: 12px;
+    &.second{
+      background: transparent;
+      color: $blue;
+      @include media("min", "lg") {
+        &:hover {
+          border: 1px solid $blueHover;
+          background: transparent;
+          color: $blueHover;
+        }
+      }
+      &:active,
+      &:focus{
+        color: $blueAccent;
+        border: 1px solid $blueAccent;
+      }
+    }
   }
   &__text{
     color: $grayText;
@@ -2015,7 +2146,7 @@ p{
     }
   }
   &__group{
-    gap: 25px;
+    /*gap: 10px;*/
     margin-bottom: 10px;
   }
   &__price{
@@ -2032,9 +2163,19 @@ p{
   }
   &__btn{
     width: 100%;
-    max-width: 200px;
+    &.second{
+      background: transparent;
+      color: $blue;
+      margin-left: 10px;
+      &:active,
+      &:focus{
+        color: $blueAccent;
+        border: 1px solid $blueAccent;
+      }
+    }
     @include media("max", "lg"){
-      padding: 6px 15px;
+      /*padding: 6px 15px;*/
+      padding: 6px 0;
     }
   }
   &__text{
@@ -2225,15 +2366,19 @@ p{
         }
       }
       &__list{
-        gap: 8px;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: 8px;
         @include media("max", "lg"){
           display: none;
         }
       }
       &__item{
-        gap: 4px;
+        /*gap: 4px;*/
         line-height: 130%;
         .title{
+          display: block;
+          margin-right: 4px;
           color: $grayText;
         }
         .value{
@@ -2296,6 +2441,7 @@ p{
     border-radius: 8px;
     flex-shrink: 0;
     position: relative;
+    max-height: 215px;
     @include media("max", "lg") {
       position: static;
     }
@@ -2395,6 +2541,58 @@ p{
     min-height: 100%;
     svg{
       margin-left: -2px;
+      margin-right: 0;
+    }
+  }
+}
+.cookie-notice{
+  display: none;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 99;
+  @include media("max", "lg"){
+    padding: 0;
+  }
+  &.cookie-notice--open{
+    display: block;
+  }
+  &__wrapper{
+    background: rgba(110, 126, 150, 0.9);
+    box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.02);
+    border-radius: 8px;
+    /*gap: 20px;*/
+    min-height: 60px;
+    padding: 16px;
+    @include media("max", "lg"){
+      min-height: 50px;
+      padding: 6px;
+    }
+  }
+  &__text{
+    display: block;
+    color: $white;
+    margin-right: 20px;
+    b{
+      font-weight: 600;
+    }
+  }
+  &__btn{
+    background: $white;
+    border: 1px solid $white;
+    border-radius: 6px;
+    padding: 9px 16px;
+    min-width: 100px;
+    color: $blue;
+    @include media("min", "lg") {
+      &:hover {
+        color: $blueHover;
+      }
+    }
+    &:focus,
+    &:active{
+      color: $blueAccent;
     }
   }
 }
@@ -2435,10 +2633,16 @@ p{
   }
 }
 .breadcrumb{
-  gap: 6px;
+  /*gap: 6px;*/
   line-height: 130%;
   margin-top: 0;
   overflow-x: auto;
+  & > *{
+    margin-right: 6px;
+  }
+  & > *:last-child{
+    margin-right: 0;
+  }
   &__separator{
     display: block;
     /*margin-top: 3px;*/
@@ -2462,8 +2666,14 @@ p{
     margin-bottom: 8px;
   }
   &-rating{
-    gap: 2px;
+    /*gap: 2px;*/
     flex-shrink: 0;
+    & > *{
+      margin-right: 2px;
+    }
+    & > *:last-child{
+      margin-right: 0;
+    }
     svg{
       flex-shrink: 0;
       color: $grayIcon;
@@ -2481,18 +2691,30 @@ p{
     }
   }
   &__row{
-    gap: 6px;
+    /*gap: 6px;*/
     margin-bottom: 20px;
     width: 100%;
     overflow-x: auto;
+    & > *{
+      margin-right: 6px;
+    }
+    & > *:last-child{
+      margin-right: 0;
+    }
   }
   &-prescription{
     color: $grayText;
-    gap: 6px;
+    /*gap: 6px;*/
     flex-shrink: 0;
     &__item:not(.active){
       font-weight: 600;
       color: $pink;
+    }
+    & > *{
+      margin-right: 6px;
+    }
+    & > *:last-child{
+      margin-right: 0;
     }
   }
   &-wrapper{
@@ -2509,11 +2731,15 @@ p{
     margin: -10px -20px 20px;
     padding: 0px 20px;
     border-bottom: 1px solid $grayBg;
-    gap: 35px;
+    /*gap: 35px;*/
     @include media("max", "lg") {
       display: none;
     }
     &__item{
+      margin-right: 20px;
+      &:last-child{
+        margin-right: 0;
+      }
       &.product-nav__item--active a{
         color: $blue;
         border-bottom: 2px solid $blue;
@@ -2529,10 +2755,10 @@ p{
   }
   &-сharacteristic{
     &__row{
-      gap: 30px;
+      /*gap: 30px;*/
       @include media("max", "md") {
         flex-flow: column;
-        gap: 12px;
+        /*gap: 12px;*/
       }
     }
     .add-product-cart__top{
@@ -2565,9 +2791,10 @@ p{
           margin-bottom: 5px;
         }
         &__value{
-          gap: 4px;
+          /*gap: 4px;*/
           svg{
             color: $pink;
+            margin-right: 4px;
           }
         }
         &__text{
@@ -2576,7 +2803,7 @@ p{
         }
         &__form{
           margin-top: 12px;
-          gap: 12px;
+          /*gap: 12px;*/
           width: 100%;
           @include media("max", "md") {
             overflow-x: auto;
@@ -2586,6 +2813,10 @@ p{
         &__box{
           position: relative;
           flex-shrink: 0;
+          margin-right: 12px;
+          &:last-child{
+            margin-right: 0;
+          }
           input{
             position: absolute;
             top: 0;
@@ -2622,10 +2853,12 @@ p{
           .row{
             font-size: 10px;
             line-height: 150%;
-            gap: 4px;
+            /*gap: 4px;*/
           }
           .text{
+            display: block;
             color: $grayText;
+            margin-right: 4px;
           }
           .value{
             color: $black;
@@ -2666,12 +2899,14 @@ p{
     height: 280px;
     max-width: 350px;
     margin-bottom: 12px;
+    margin-right: 30px;
     @include media("max", "md") {
       display: block;
       grid-template-columns: initial;
       grid-gap: 0;
       height: auto;
       max-width: 100%;
+      margin: 0 0 12px;
     }
     .swiper-pagination{
       display: none;
@@ -2843,7 +3078,9 @@ p{
     margin-bottom: 12px;
   }
   &__list{
-    gap: 12px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 12px;
   }
   &__item{
     position: relative;
@@ -2893,12 +3130,14 @@ p{
     }
   }
   &__tabs{
-    gap: 10px;
+    /*gap: 10px;*/
+    margin: 0 -10px -10px 0;
     .product-tabs__item{
       display: block;
       padding: 4px 8px;
       background: $grayBg;
       border-radius: 50px;
+      margin: 0 10px 10px 0;
       @include media("min", "lg") {
         &:hover {
           color: $blueHover;
@@ -2960,7 +3199,7 @@ p{
   }
   &__header{
     margin-bottom: 16px;
-    gap: 10px;
+    /*gap: 10px;*/
     @include media("max", "lg") {
       margin-bottom: 12px;
     }
@@ -2969,6 +3208,8 @@ p{
     max-width: 80%;
   }
   &__link{
+    display: block;
+    margin-left: 10px;
     color: $blue;
     white-space: nowrap;
     @include media("min", "lg") {
@@ -3136,7 +3377,7 @@ p{
         grid-gap: 10px;
       }
       .card{
-        gap: 12px;
+        /*gap: 12px;*/
         border: 1px solid $grayLine;
         border-radius: 8px;
         padding: 15px;
@@ -3162,6 +3403,7 @@ p{
           }
         }
         &__title{
+          margin-top: 12px;
           text-align: center;
           @include media("max", "sm") {
             font-size: 12px !important;
@@ -3199,7 +3441,7 @@ p{
   &__cards{
     display: grid;
     grid-template-columns: repeat(5,1fr);
-    grid-gap: 16px 20px;
+    grid-gap: 20px;
     margin-bottom: 30px;
     &.catalog__cards--horizontal{
       grid-template-columns: 1fr;
@@ -3236,7 +3478,13 @@ p{
 .inner-sorter{
   margin-bottom: 15px;
   &__right{
-    gap: 10px;
+    /*gap: 10px;*/
+    & > *{
+      margin-right: 10px;
+    }
+    & >*:last-child{
+      margin-right: 0;
+    }
     @include media("max", "lg"){
       width: 100%;
       justify-content: space-between;
@@ -3250,6 +3498,7 @@ p{
     background: $white;
     color: $black;
     display: none;
+    margin-left: 10px;
     @include media("max", "xl"){
       display: flex;
     }
@@ -3260,7 +3509,8 @@ p{
     }
   }
   .sort{
-    gap: 10px;
+    /*gap: 10px;*/
+    margin: 0 -10px -10px 0;
     @include media("max", "lg"){
       display: none;
     }
@@ -3271,9 +3521,11 @@ p{
       border-radius: 6px;
       min-height: 36px;
       padding: 8px 8px 8px 14px;
-      gap: 6px;
+      /*gap: 6px;*/
       cursor: pointer;
+      margin: 0 10px 10px 0;
       svg{
+        margin-left: 6px;
         color: $grayIcon;
       }
       @include media("min", "lg") {
@@ -3294,6 +3546,7 @@ p{
   .card-sizes{
     background: $white;
     border-radius: 6px;
+    margin: 0;
     &__link{
       width: 36px;
       height: 36px;
@@ -3354,7 +3607,7 @@ p{
       background: $white;
       border-radius: 6px;
       cursor: pointer;
-      gap: 8px;
+      /*gap: 8px;*/
       &:hover{
         border: 1px solid $blue;
       }
@@ -3364,6 +3617,7 @@ p{
         line-height: 150%;
       }
       svg{
+        margin-left: 8px;
         transition: all 0.3s;
         color: $grayIcon;
         transform: rotate(90deg);
@@ -3432,9 +3686,21 @@ p{
   }
 }
 .pagination{
-  gap: 5px;
+  /*gap: 5px;*/
+  & > *{
+    margin-right: 5px;
+  }
+  & > *:last-child{
+    margin-right: 0;
+  }
   @include media("max", "lg") {
-    gap: 3px;
+    /*gap: 3px;*/
+    & > *{
+      margin-right: 3px;
+    }
+    & > *:last-child{
+      margin-right: 0;
+    }
   }
   &__control{
     &.pagination__control--prev{
