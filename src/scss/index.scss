@@ -598,6 +598,20 @@ p{
     display: none;
   }
 }
+.ui-tab{
+  &-item{
+    cursor: pointer;
+    &.ui-tab-item--active{
+      color: $blueAccent;
+    }
+  }
+  &-content{
+    display: none;
+    &.ui-tab-content--active{
+      display: block;
+    }
+  }
+}
 .header{
   position: sticky;
   top: 0;
@@ -3748,6 +3762,105 @@ p{
     &:focus,
     &:active{
       color: $blueAccent;
+    }
+  }
+}
+.page-abc{
+  &__container-mob{
+    @include media("max", "lg") {
+      margin: 0 -10px;
+      padding: 12px 10px 0;
+      background: #FFFFFF;
+      box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.02);
+    }
+  }
+  &__btns{
+    margin-bottom: -12px;
+  }
+  &__btn{
+    min-width: 18px;
+    height: 18px;
+    line-height: 130%;
+    padding: 0 4px;
+    text-transform: uppercase;
+    background: transparent;
+    border: none;
+    margin-right: 14px;
+    margin-bottom: 12px;
+    color: $blue;
+    cursor: pointer;
+    @include media("max", "lg") {
+      margin-right: 11px;
+    }
+    &:last-child{
+      margin-right: 0;
+      @include media("max", "lg") {
+        margin-right: 0;
+      }
+    }
+    @include media("min", "lg") {
+      &:hover {
+        color: $blueHover;
+      }
+    }
+    &:focus,
+    &:active{
+      color: $blueAccent;
+    }
+  }
+  &__wrapper{
+    margin: 20px 0 0;
+    background: $white;
+    box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.02);
+    border-radius: 8px;
+    padding: 20px;
+    min-height: 330px;
+    @include media("max", "lg"){
+      margin: 22px -10px 0;
+      min-height: 100px;
+      padding: 12px 10px 20px;
+      border-radius: 0;
+    }
+  }
+  &__content{
+    display: none;
+  }
+  &__title{
+    color: $black;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  &__text{
+    color: $grayText;
+  }
+  &__links{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-gap: 8px 240px;
+    @include media("max", "lg"){
+      grid-gap: 8px 20px;
+    }
+  }
+  &__link{
+    color: $blue;
+    cursor: pointer;
+    @include media("min", "lg") {
+      &:hover {
+        color: $blueHover;
+      }
+    }
+    &:focus,
+    &:active{
+      color: $blueAccent;
+    }
+    @include media("max", "sm"){
+      width: 100px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    @include media("max", "xs"){
+      width: 75px;
     }
   }
 }

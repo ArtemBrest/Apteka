@@ -854,4 +854,26 @@ window.addEventListener("load", function () {
             })
         }
     }
+
+
+    let FormLinks = document.querySelectorAll(".ui-tab-item");
+    let FormPanels = document.querySelectorAll(".ui-tab-content");
+    if (!isEmptyObject(FormPanels) && !isEmptyObject(FormLinks)) {
+        for (let el of FormLinks) {
+            el.addEventListener("click", e => {
+                e.preventDefault();
+                if (el.parentNode.parentNode.parentNode.querySelector(".ui-tab-item.ui-tab-item--active")) {
+                    el.parentNode.parentNode.parentNode.querySelector(".ui-tab-item.ui-tab-item--active").classList.remove("ui-tab-item--active");
+                }
+                if (el.parentNode.parentNode.parentNode.querySelector(".ui-tab-content.ui-tab-content--active")) {
+                    el.parentNode.parentNode.parentNode.querySelector(".ui-tab-content.ui-tab-content--active").classList.remove("ui-tab-content--active");
+                }
+                //const parentListItem = el.parentElement;
+                el.classList.add("ui-tab-item--active");
+                var index = [...el.parentElement.children].indexOf(el);
+                var panel = [...el.parentNode.parentNode.parentNode.querySelectorAll(".ui-tab-content")].filter(el => el.getAttribute("data-index") == index);
+                panel[0].classList.add("ui-tab-content--active");
+            });
+        }
+    }
 })
