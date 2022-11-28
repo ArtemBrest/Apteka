@@ -794,7 +794,12 @@ window.addEventListener("load", function () {
                 document.querySelectorAll("input").forEach(function (tag){
                     if(tag.value == value){
                         el.remove();
-                        tag.checked = false;
+                        if(tag.type == "number"){
+                            tag.value = "";
+                        }
+                        else{
+                            tag.checked = false;
+                        }
                     }
                 })
             })
@@ -875,5 +880,174 @@ window.addEventListener("load", function () {
                 panel[0].classList.add("ui-tab-content--active");
             });
         }
+    }
+
+    const toggleContainer = this.document.querySelector('.catalog-brands__description');
+    if (toggleContainer !== null) {
+        const toggleText = toggleContainer.querySelector('.cms-description-text');
+        let toggleTextChild;
+        if (toggleText !== null) {
+            toggleTextChild = toggleText.querySelectorAll("*");
+        }
+        let heighEl = 0;
+        for (let i = 0; i < toggleTextChild.length; i++) {
+            if (toggleTextChild[i].tagName === 'P') {
+                toggleTextChild[i].style.display = "-webkit-box";
+                toggleTextChild[i].style.webkitBoxOrient = "vertical";
+                toggleTextChild[i].style.overflow = "hidden";
+                toggleTextChild[i].style.webkitLineClamp = "4";
+                heighEl += toggleTextChild[i].offsetHeight;
+                break
+            }
+        }
+        heighEl = heighEl + 10;
+        toggleText.style.maxHeight = heighEl + "px";
+        toggleContainer.addEventListener('click', function (e) {
+            if (e.target.classList.contains('catalog-brands__btn') || e.target.closest('.catalog-brands__btn')) {
+                if(toggleContainer.classList.contains('opened')){
+                    toggleContainer.classList.remove('opened');
+                    toggleContainer.querySelector(".catalog-brands__btn").innerHTML = "Показать все";
+                }
+                else{
+                    toggleContainer.classList.add('opened');
+                    toggleContainer.querySelector(".catalog-brands__btn").innerHTML = "Скрыть";
+                }
+            }
+        })
+    }
+
+    const regexEmail = /^[\w-]+(\.[\w-]+)*@([a-z0-9-]+(\.[a-z0-9-]+)*?\.[a-z]{2,6}|(\d{1,3}\.){3}\d{1,3})(:\d{4})?$/;
+    let inputsEmail = document.querySelectorAll(".input-email");
+    inputsEmail.forEach(function (input){
+        input.addEventListener('keyup', () => {
+            let parent = input.parentNode;
+            if (regexEmail.test(input.value)) {
+                parent.classList.remove("error");
+                parent.classList.add("valid");
+            } else {
+                parent.classList.remove("valid");
+                parent.classList.add("error");
+            }
+        });
+    })
+    let fadeForm = document.getElementById("fade-form");
+    let loginPopup = document.getElementById("login-popup");
+    let registrationPopup = document.getElementById("registration-popup");
+    let registrationSuccess = document.getElementById("registration-success");
+    let passwordForgetPopup = document.getElementById("password-forget-popup");
+    let passwordForgetSuccess = document.getElementById("password-forget-success");
+    let passwordBtnClose = document.getElementById("password-btn-close");
+    let passwordBtnOpen = document.getElementById("password-btn-open");
+    if(fadeForm !== null && loginPopup !== null && registrationPopup !== null && passwordForgetPopup !== null && registrationSuccess !== null && passwordForgetSuccess !== null){
+        fadeForm.addEventListener("click", function (e) {
+            loginPopup.classList.remove("login-popup--open");
+            registrationPopup.classList.remove("registration-popup--open");
+            passwordForgetPopup.classList.remove("password-forget--open");
+            registrationSuccess.classList.remove("registration-success--open");
+            passwordForgetSuccess.classList.remove("password-forget-success--open");
+            fadeForm.classList.remove("open");
+        });
+        document.querySelectorAll(".popup__close").forEach(function (btn){
+            btn.addEventListener("click", function (e){
+                loginPopup.classList.remove("login-popup--open");
+                registrationPopup.classList.remove("registration-popup--open");
+                passwordForgetPopup.classList.remove("password-forget--open");
+                fadeForm.classList.remove("open");
+            })
+        })
+        document.querySelectorAll(".popup-success__close").forEach(function (btn){
+            btn.addEventListener("click", function (e){
+                registrationSuccess.classList.remove("registration-success--open");
+                passwordForgetSuccess.classList.remove("password-forget-success--open");
+                fadeForm.classList.remove("open");
+            })
+        })
+        document.querySelectorAll(".popup-success__btn").forEach(function (btn){
+            btn.addEventListener("click", function (e){
+                registrationSuccess.classList.remove("registration-success--open");
+                passwordForgetSuccess.classList.remove("password-forget-success--open");
+                fadeForm.classList.remove("open");
+            })
+        })
+        passwordBtnClose.addEventListener("click", function (e){
+            passwordBtnClose.classList.add("hidden");
+            passwordBtnOpen.classList.remove("hidden");
+            passwordBtnClose.parentNode.querySelector("input").type = "text";
+        })
+        passwordBtnOpen.addEventListener("click", function (e){
+            passwordBtnOpen.classList.add("hidden");
+            passwordBtnClose.classList.remove("hidden");
+            passwordBtnOpen.parentNode.querySelector("input").type = "password";
+        })
+        let loginForm = loginPopup.querySelector(".login-form");
+        loginForm.addEventListener('keyup', () => {
+            let inputs =loginForm.querySelectorAll("input");
+            let empty = false;
+            let btn = loginForm.querySelector("button");
+            inputs.forEach(function (input){
+                let parent = input.parentNode;
+                console.log(input)
+                if(input.value == "" ){
+                    empty = true;
+                }
+                if(parent.classList.contains("error")){
+                    empty = true;
+                }
+                if(input.classList.contains("input-password")){
+                    if(input.value.length < 6 ){
+                        empty = true;
+                    }
+                }
+            })
+            if(empty == false){
+                btn.removeAttribute("disabled");
+            }
+            else{
+                btn.setAttribute("disabled","disabled");
+            }
+        });
+        let registrationForm = registrationPopup.querySelector(".registration-form");
+        registrationForm.addEventListener('keyup', () => {
+            let inputs = registrationForm.querySelectorAll("input");
+            let empty = false;
+            let btn = registrationForm.querySelector("button");
+            inputs.forEach(function (input){
+                let parent = input.parentNode;
+                if(input.value == "" ){
+                    empty = true;
+                }
+                if(parent.classList.contains("error")){
+                    empty = true;
+                }
+            })
+            if(empty == false){
+                btn.removeAttribute("disabled");
+            }
+            else{
+                btn.setAttribute("disabled","disabled");
+            }
+        });
+
+        let passwordForgetForm = passwordForgetPopup.querySelector(".password-forget-form");
+        passwordForgetForm.addEventListener('keyup', () => {
+            let inputs = passwordForgetForm.querySelectorAll("input");
+            let empty = false;
+            let btn = passwordForgetForm.querySelector("button");
+            inputs.forEach(function (input){
+                let parent = input.parentNode;
+                if(input.value == "" ){
+                    empty = true;
+                }
+                if(parent.classList.contains("error")){
+                    empty = true;
+                }
+            })
+            if(empty == false){
+                btn.removeAttribute("disabled");
+            }
+            else{
+                btn.setAttribute("disabled","disabled");
+            }
+        });
     }
 })
