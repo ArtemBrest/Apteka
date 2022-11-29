@@ -487,7 +487,7 @@ window.addEventListener("load", function () {
     });
     */
     /////
-    /*const classChangeOnScroll = () => {
+    const classChangeOnScroll = () => {
         document.querySelectorAll("[data-scroll_id]").forEach((el) => {
             let top = el.offsetTop - 110;
             let bottom = top + el.offsetHeight;
@@ -495,34 +495,34 @@ window.addEventListener("load", function () {
             let id = el.getAttribute("data-scroll_id");
 
             if (scroll > top && scroll < bottom) {
-                document.querySelectorAll(".active.header__nav-item").forEach((button) => {
+                document.querySelectorAll(".active.scroll-item").forEach((button) => {
                     button.classList.remove("active");
                 });
                 document.querySelectorAll(`[data-id=${id}]`).forEach((button) => {
-                    if (button.classList.contains("header__nav-item")) {
+                    if (button.classList.contains("scroll-item")) {
                         button.classList.add("active");
                     }
                 });
             }
         });
-    };*/
+    };
     const scrollIntoViewWithMargin = (node, margin) => {
         const { top } = node.getBoundingClientRect();
         window.scrollTo({ top: top + window.scrollY + margin, behavior: "smooth" });
     };
-    /*const initScrollButtons = () => {
+    const initScrollButtons = () => {
         const scroll_buttons = document.querySelectorAll("[data-id]");
         if (!scroll_buttons) return;
         scroll_buttons.forEach((button) => {
             button.addEventListener("click", () => {
                 window.removeEventListener("scroll", classChangeOnScroll);
-                document.querySelectorAll(".header__nav-item").forEach((select) => {
+                document.querySelectorAll(".scroll-item").forEach((select) => {
                     select.classList.remove("active");
                 });
                 const id = button.getAttribute("data-id");
                 const target = document.querySelector(`[data-scroll_id=${id}]`);
                 document.querySelectorAll(`[data-id=${id}]`).forEach((button) => {
-                    if (button.classList.contains("header__nav-item")) {
+                    if (button.classList.contains("scroll-item")) {
                         button.classList.add("active");
                     }
                 });
@@ -535,7 +535,6 @@ window.addEventListener("load", function () {
         });
         window.addEventListener("scroll", classChangeOnScroll);
     };
-    initScrollButtons()*/
 
     document.querySelectorAll('a[href^="#"]').forEach(link => link.addEventListener('click', function(e) {
         e.preventDefault();
@@ -545,7 +544,7 @@ window.addEventListener("load", function () {
             scrollIntoViewWithMargin(target, -60);
         }
     }));
-
+    initScrollButtons()
 
 
     function initAcc(elem, option) {
@@ -1049,5 +1048,25 @@ window.addEventListener("load", function () {
                 btn.setAttribute("disabled","disabled");
             }
         });
+    }
+
+    let textPageMenuList = document.querySelector(".text-page-menu__list");
+    let textPageContent = document.getElementById("text-page-content");
+    if(textPageMenuList !== null && textPageContent !== null){
+        let titles = textPageContent.querySelectorAll(".template-text-page-title");
+        for (let i = 0; i < titles.length; i++){
+            let elem = document.createElement("li");
+            elem.setAttribute('class', "text-page-menu__item p1 scroll-item");
+            elem.setAttribute('data-id', "section-"+i);
+            let elemText = document.createTextNode(`${titles[i].textContent}`);
+            elem.appendChild(elemText);
+            textPageMenuList.appendChild(elem)
+            if(i + 1 == titles.length){
+                initScrollButtons()
+            }
+        }
+        if(window.screen.width < 992) {
+            initAcc(textPageContent, false);
+        }
     }
 })

@@ -2599,6 +2599,35 @@ p{
       }
     }
   }
+  b,strong{
+    font-weight: 700;
+  }
+  p > b{
+    color: $blue;
+  }
+  a{
+    color: $blue;
+    @include media("min", "lg") {
+      &:hover {
+        color: $blueHover;
+      }
+    }
+    &:focus,
+    &:active{
+      color: $blueAccent;
+    }
+  }
+  img{
+    display: block;
+    margin: 16px auto;
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+    &:last-child{
+      margin-bottom: 0;
+    }
+  }
 }
 .product-preview{
   background: $white;
@@ -4339,7 +4368,6 @@ p{
   background: $white;
   box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.05);
   border-radius: 8px;
-  overflow: hidden;
   padding: 17px 20px;
   @include media("max", "lg"){
     margin: 0 -10px;
@@ -4354,6 +4382,11 @@ p{
     height: 100%;
     object-fit: cover;
     border-radius: 0;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    @include media("max", "lg"){
+      border-radius: 0;
+    }
   }
   &__info{
     padding: 0 20px 0 30px;
@@ -4365,6 +4398,56 @@ p{
     margin-bottom: 2px;
     span{
       color: $blue;
+    }
+  }
+  &__faq{
+    position: relative;
+    cursor: help;
+    margin-left: 20px;
+    &:hover .hint {
+      display: block;
+    }
+    .icon{
+      color: $grayIcon;
+      border-radius: 50%;
+      box-shadow: 0px 0px 0px 4.50001px rgba(110, 126, 150, 0.05);
+    }
+    .hint{
+      display: none;
+      position: absolute;
+      top: -85px;
+      right: -20px;
+      width: 545px;
+      background: $white;
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.06), 0px 0px 3px rgba(0, 0, 0, 0.06);
+      border-radius: 8px;
+      padding: 8px 10px;
+      color: $black;
+      @include media("max", "sm"){
+        width: 340px;
+        top: -120px;
+        right: -6px;
+      }
+      @include media("max", "xs"){
+        width: 300px;
+        top: -135px;
+      }
+      &:before{
+        content: "";
+        position: absolute;
+        bottom: -6px;
+        right: 23px;
+        z-index: 1;
+        display: block;
+        width: 16px;
+        height: 10px;
+        background-image: url(../img/polygon.svg);
+        @include media("max", "sm"){
+          right: 10px;
+        }
+        /*background: $white;
+        clip-path: polygon(50% 100%, 0 0, 100% 0);*/
+      }
     }
   }
 }
@@ -4397,8 +4480,11 @@ p{
       border-radius: 8px;
       height: 120px;
       color: $grayIcon;
+      padding: 12px;
+      text-align: center;
       @include media("max", "lg") {
         height: 95px;
+        padding: 10px;
       }
       @include media("min", "lg") {
         &:hover {
@@ -4414,6 +4500,168 @@ p{
         height: auto;
         max-height: 100%;
       }
+    }
+  }
+}
+
+.template-text-page{
+  &__wrapper{
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    grid-gap: 20px;
+    @include media("max", "lg") {
+      display: block;
+    }
+  }
+  &__content{
+    & > *:first-child{
+      margin-top: 0;
+    }
+    & > *:last-child{
+      margin-bottom: 0;
+    }
+  }
+  .text-page-menu{
+    @include media("max", "lg") {
+      display: none;
+    }
+    &__list{
+      position: sticky;
+      top: 80px;
+      padding: 14px 14px 16px 10px;
+      border: 1px solid $grayLine;
+      border-radius: 8px;
+      height: max-content;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-gap: 8px;
+    }
+    &__item{
+      padding: 8px;
+      line-height: 130%;
+      color: $black;
+      border-radius: 6px;
+      cursor: pointer;
+      @include media("min", "lg") {
+        &:hover {
+          color: $blueHover;
+        }
+      }
+      &:focus,
+      &:active{
+        color: $blueAccent;
+      }
+      &.active{
+        background: #F5F7FA;
+        color: $blue;
+      }
+    }
+  }
+}
+.page-about{
+  background: $white;
+  box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.02);
+  border-radius: 8px;
+  padding: 20px;
+  @include media("max", "lg"){
+    margin: 0 -10px;
+    padding: 12px 10px;
+    border-radius: 0;
+  }
+  &__title{
+    margin-bottom: 20px;
+    @include media("max", "lg"){
+      margin-bottom: 12px;
+    }
+  }
+}
+.page-how-make{
+  background: $white;
+  box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.02);
+  border-radius: 8px;
+  padding: 20px;
+  @include media("max", "lg"){
+    margin: 0 -10px;
+    padding: 12px 10px;
+    border-radius: 0;
+  }
+}
+.page-contact{
+  background: $white;
+  box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.02);
+  border-radius: 8px;
+  padding: 20px;
+  @include media("max", "lg"){
+    margin: 0 -10px;
+    padding: 12px 10px;
+    border-radius: 0;
+  }
+  &__title{
+    margin-bottom: 16px;
+    @include media("max", "lg"){
+      margin-bottom: 12px;
+    }
+  }
+  &__wrapper{
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    grid-gap: 40px;
+    @include media("max", "lg") {
+      grid-template-columns: 1fr;
+      grid-gap: 15px;
+    }
+  }
+  &__map{
+    height: 320px;
+    width: 100%;
+    border-radius: 6px;
+    overflow: hidden;
+    @include media("max", "lg") {
+      width: auto;
+      height: 445px;
+      margin: 0 -10px;
+      border-radius: 0;
+    }
+  }
+  &__cards{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px 40px;
+    @include media("max", "lg") {
+      grid-template-columns: 1fr;
+      grid-gap: 10px;
+    }
+    a{
+      @include media("min", "lg") {
+        &:hover {
+          color: $blueHover;
+        }
+      }
+      &:focus,
+      &:active{
+        color: $blueAccent;
+      }
+    }
+  }
+  &-info{
+    &__title{
+      display: block;
+      margin-bottom: 8px;
+      color: $black;
+      &.p3{
+        color: $grayText;
+        margin-bottom: 6px;
+      }
+    }
+    &__location{
+      margin-bottom: 8px;
+      svg{
+        color: $blue;
+        margin-right: 6px;
+      }
+    }
+    &__text{
+      color: $black;
     }
   }
 }

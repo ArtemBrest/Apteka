@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>АПТЕКА</title>
+    <link rel="stylesheet" href="./css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="./lightGallery-master/dist/css/lightgallery-bundle.min.css">
+    <link rel="stylesheet" href="./lightGallery-master/dist/css/lg-thumbnail.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/favicon/site.webmanifest">
+    <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#31353b">
+    <meta name="msapplication-TileColor" content="#31353b">
+    <meta name="theme-color" content="#0478E3">
+</head>
+<body class="scroll">
+@@include('./global/header.html')
+<div class="container">
+    <div class="grid-columns grid-columns_left product-page m-20 m-footer">
+        <div class="product-page__menu">
+            @@include('./global/aside-menu.html')
+        </div>
+        <div class="content">
+            <nav class="breadcrumb df df-ai-center p3 m-20 scroll">
+                <a href="index.html" class="breadcrumb__item">Главная</a>
+                <span class="breadcrumb__separator"></span>
+                <span class="breadcrumb__item active">Как сделать заказ</span>
+            </nav>
+            <section class="page-how-make template-text-page">
+                <div class="template-text-page__wrapper">
+                    <div class="template-text-page__content" id="text-page-content">
+                        <h1 class="page-how-make__title page-title">Как сделать заказ</h1>
+                        <div class="cms-description-text">
+                            <p>Закажите товары на сайте по выгодной цене. Цены актуальны только для заказа с сайта.</p>
+                        </div>
+                        <div class="ui-accordion-item ui-accordion-item--opened m-20 content-focus" id="section-0" data-scroll_id="section-0" data-attr_key_menu="section-0">
+                            <div class="ui-accordion-item__toggle h6 df df-ai-center df-jc-between">
+                                <span class="template-text-page-title"><b>1. Выберите город</b></span>
+                                <div class="ui-accordion-item__icon">
+                                    <span class="line"></span>
+                                    <span class="line"></span>
+                                </div>
+                            </div>
+                            <div class="ui-collapse cms-description-text">
+                                <p>Выберите нужный город, чтобы видеть актуальные цены и ассортимент аптек вашего города</p>
+                                <img src="./img/img-1.png" alt="">
+                            </div>
+                        </div>
+                        <div class="ui-accordion-item ui-accordion-item--opened m-20 content-focus" id="section-1" data-scroll_id="section-1" data-attr_key_menu="section-1">
+                            <div class="ui-accordion-item__toggle h6 df df-ai-center df-jc-between">
+                                <span class="template-text-page-title"><b>2. Зарегистрируйтесь или войдите в личный кабинет, чтобы отслеживать статус заказа</b></span>
+                                <div class="ui-accordion-item__icon">
+                                    <span class="line"></span>
+                                    <span class="line"></span>
+                                </div>
+                            </div>
+                            <div class="ui-collapse cms-description-text">
+                                <p>После регистрации вы сможете отслеживать свои заказы в личном кабинете и добавлять лекарства, которые часто заказываете, в избранные товары.</p>
+                                <img src="./img/img-2.png" alt="">
+                            </div>
+                        </div>
+                        <div class="ui-accordion-item ui-accordion-item--opened m-20 content-focus" id="section-2" data-scroll_id="section-2" data-attr_key_menu="section-2">
+                            <div class="ui-accordion-item__toggle h6 df df-ai-center df-jc-between">
+                                <span class="template-text-page-title"><b>3. Найдите нужное лекарство</b></span>
+                                <div class="ui-accordion-item__icon">
+                                    <span class="line"></span>
+                                    <span class="line"></span>
+                                </div>
+                            </div>
+                            <div class="ui-collapse cms-description-text">
+                                <p>Воспользуйтесь поиском: укажите название лекарства, бренда или действующего вещества. Примените сортировку по цене или алфавиту, чтобы проще выбрать нужный товар.</p>
+                                <img src="./img/img-3.png" alt="">
+                            </div>
+                        </div>
+                        <div class="ui-accordion-item ui-accordion-item--opened m-20 content-focus" id="section-3" data-scroll_id="section-3" data-attr_key_menu="section-3">
+                            <div class="ui-accordion-item__toggle h6 df df-ai-center df-jc-between">
+                                <span class="template-text-page-title"><b>4. Добавьте товары в корзину</b></span>
+                                <div class="ui-accordion-item__icon">
+                                    <span class="line"></span>
+                                    <span class="line"></span>
+                                </div>
+                            </div>
+                            <div class="ui-collapse cms-description-text">
+                                <p>Нажмите на кнопку «В корзину» на карточке товара, чтобы добавить в корзину нужное количество. </p>
+                                <img src="./img/img-4.png" alt="">
+                                <p>Затем перейдите в корзину и нажмите «Оформить заказ».</p>
+                                <img src="./img/img-5.png" alt="">
+                            </div>
+                        </div>
+                        <div class="ui-accordion-item ui-accordion-item--opened m-20 content-focus" id="section-4" data-scroll_id="section-4" data-attr_key_menu="section-4">
+                            <div class="ui-accordion-item__toggle h6 df df-ai-center df-jc-between">
+                                <span class="template-text-page-title"><b>5. Выберите аптеку</b></span>
+                                <div class="ui-accordion-item__icon">
+                                    <span class="line"></span>
+                                    <span class="line"></span>
+                                </div>
+                            </div>
+                            <div class="ui-collapse cms-description-text">
+                                <p>Выберите из предложенного списка аптеку, где планируете забрать заказ. Проверьте состав вашего заказа в выбранной аптеке.</p>
+                                <img src="./img/img-6.png" alt="">
+                                <p>или список</p>
+                                <img src="./img/img-8.png" alt="">
+                            </div>
+                        </div>
+                        <div class="ui-accordion-item ui-accordion-item--opened m-20 content-focus" id="section-5" data-scroll_id="section-5" data-attr_key_menu="section-5">
+                            <div class="ui-accordion-item__toggle h6 df df-ai-center df-jc-between">
+                                <span class="template-text-page-title"><b>6. Укажите контакты для связи</b></span>
+                                <div class="ui-accordion-item__icon">
+                                    <span class="line"></span>
+                                    <span class="line"></span>
+                                </div>
+                            </div>
+                            <div class="ui-collapse cms-description-text">
+                                <p>Укажите электронную почту (на неё вы получите письмо со статусом заказа) и телефон (оператор позвонит вам, если возникнут вопросы при формировании заказа).</p>
+                                <img src="./img/img-9.png" alt="">
+                                <p>Нажмите оформить заказ</p>
+                                <img src="./img/img-10.png" alt="">
+                            </div>
+                        </div>
+                        <div class="ui-accordion-item ui-accordion-item--opened m-20 content-focus" id="section-6" data-scroll_id="section-6" data-attr_key_menu="section-6">
+                            <div class="ui-accordion-item__toggle h6 df df-ai-center df-jc-between">
+                                <span class="template-text-page-title"><b>7. Всё готово! Заберите заказ</b></span>
+                                <div class="ui-accordion-item__icon">
+                                    <span class="line"></span>
+                                    <span class="line"></span>
+                                </div>
+                            </div>
+                            <div class="ui-collapse cms-description-text">
+                                <p>На вашу электронную почту придёт письмо со статусом заказа. Мы сообщим, когда можно прийти за ним в аптеку.</p>
+                                <p>Для получения заказа в аптеке достаточно назвать его номер, а если вы его забыли, то заказ легко найдут по номеру вашего телефона.</p>
+                                <img src="./img/img-7.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="template-text-page__menu text-page-menu">
+                        <ul class="text-page-menu__list"></ul>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+@@include('./global/footer.html')
+<script defer src="./js/swiper-bundle.min.js"></script>
+<script defer src="./lightGallery-master/dist/lightgallery.min.js"></script>
+<script defer src="./lightGallery-master/dist/plugins/thumbnail/lg-thumbnail.min.js"></script>
+<script defer src="./js/index.js"></script>
+</body>
+</html>
