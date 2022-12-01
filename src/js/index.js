@@ -704,6 +704,27 @@ window.addEventListener("load", function () {
         }
     }
 
+    const formSelect = document.querySelector('.form-select');
+    if(formSelect !== null){
+        const formSelect_title = formSelect.querySelector('.form-select__title');
+        const formSelect_labels = formSelect.querySelectorAll('.form-select__label');
+        if(formSelect_title !== null && formSelect_labels !== null){
+            formSelect_title.addEventListener('click', () => {
+                if ('active' === formSelect.getAttribute('data-state')) {
+                    formSelect.setAttribute('data-state', '');
+                } else {
+                    formSelect.setAttribute('data-state', 'active');
+                }
+            });
+            for (let i = 0; i < formSelect_labels.length; i++) {
+                formSelect_labels[i].addEventListener('click', (evt) => {
+                    formSelect_title.querySelector("span").innerHTML = formSelect_labels[i].textContent; //
+                    formSelect.setAttribute('data-state', '');
+                });
+            }
+        }
+    }
+
     const form = document.querySelector(".catalog-sorting__form");
     const select = document.querySelectorAll(".catalog-sorting__input");
     if(!isEmptyObject(select)){
@@ -1068,5 +1089,155 @@ window.addEventListener("load", function () {
         if(window.screen.width < 992) {
             initAcc(textPageContent, false);
         }
+    }
+
+
+
+    const regexSubject = /^[а-яёА-Я0-9 .,!?:'"+_&@#*()-]{2,100}$/iu;
+    const regexPhone = /^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){9,12}(\s*)?$/;
+
+    const feedbackForm = document.getElementById('feedback-form');
+    const feedbackFormName = document.getElementById('feedback-name');
+    const feedbackFormEmail = document.getElementById('feedback-email');
+    const feedbackFormPhone = document.getElementById('feedback-phone');
+    const feedbackFormCompany = document.getElementById('feedback-company');
+    const feedbackFormAppeal = document.querySelectorAll('input[name="appeal"]')
+
+    if(feedbackForm !== null) {
+        feedbackFormAppeal.forEach(function (input) {
+            input.addEventListener("change", function (el) {
+                if (input.checked) {
+                    let parent = input.parentNode.parentNode.parentNode.parentNode;
+                    if (input.value == "Выберете тему обращения") {
+                        parent.classList.add("error")
+                    } else{
+                        parent.classList.remove("error");
+                        parent.classList.add("valid");
+                    }
+                }
+            })
+        })
+        feedbackForm.addEventListener('keyup', () => {
+            if (regexSubject.test(feedbackFormName.value)) {
+                feedbackFormName.parentNode.classList.remove("error");
+                feedbackFormName.parentNode.classList.add("valid");
+            } else {
+                feedbackFormName.parentNode.classList.remove("valid");
+                feedbackFormName.parentNode.classList.add("error");
+            }
+            if(feedbackFormCompany !== null){
+                if (regexSubject.test(feedbackFormCompany.value)) {
+                    feedbackFormCompany.parentNode.classList.remove("error");
+                    feedbackFormCompany.parentNode.classList.add("valid");
+                } else {
+                    feedbackFormCompany.parentNode.classList.remove("valid");
+                    feedbackFormCompany.parentNode.classList.add("error");
+                }
+            }
+            if (regexEmail.test(feedbackFormEmail.value)) {
+                feedbackFormEmail.parentNode.classList.remove("error");
+                feedbackFormEmail.parentNode.classList.add("valid");
+            } else {
+                feedbackFormEmail.parentNode.classList.remove("valid");
+                feedbackFormEmail.parentNode.classList.add("error");
+            }
+            if (regexPhone.test(feedbackFormPhone.value)) {
+                feedbackFormPhone.parentNode.classList.remove("error");
+                feedbackFormPhone.parentNode.classList.add("valid");
+            } else {
+                feedbackFormPhone.parentNode.classList.remove("valid");
+                feedbackFormPhone.parentNode.classList.add("error");
+            }
+            if(!isEmptyObject(feedbackFormAppeal)) {
+                feedbackFormAppeal.forEach(function (el) {
+                    if (el.checked) {
+                        let parent = el.parentNode.parentNode.parentNode.parentNode;
+                        if (el.value == "Выберете тему обращения") {
+                            parent.classList.add("error")
+                        } else {
+                            parent.classList.remove("error");
+                            parent.classList.add("valid");
+                        }
+                    }
+                })
+            }
+        });
+        feedbackForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+            let radioValue = '';
+            if(document.querySelector('input[name="appeal"]') !== null){
+                radioValue = document.querySelector('input[name="appeal"]:checked').value;
+            }
+            let feedbackFormCompanyValue;
+            if(feedbackFormCompany !== null){
+                feedbackFormCompanyValue = feedbackFormCompany.value
+            }
+            if (!regexSubject.test(feedbackFormName.value) || !regexEmail.test(feedbackFormEmail.value) || !regexPhone.test(feedbackFormPhone.value) || radioValue == "Выберете тему обращения" && !regexSubject.test(feedbackFormCompanyValue)) {
+                if (!regexSubject.test(feedbackFormName.value)) {
+                    feedbackFormName.parentNode.classList.add("error");
+                }
+                if(feedbackFormCompany !== null) {
+                    if (!regexSubject.test(feedbackFormCompany.value)) {
+                        feedbackFormCompany.parentNode.classList.add("error");
+                    }
+                }
+                if (!regexEmail.test(feedbackFormEmail.value)) {
+                    feedbackFormEmail.parentNode.classList.add("error");
+                }
+                if (!regexPhone.test(feedbackFormPhone.value)) {
+                    feedbackFormPhone.parentNode.classList.add("error");
+                }
+                if(!isEmptyObject(feedbackFormAppeal)) {
+                    feedbackFormAppeal.forEach(function (el) {
+                        if (el.checked) {
+                            let parent = el.parentNode.parentNode.parentNode.parentNode;
+                            if (el.value == "Выберете тему обращения") {
+                                parent.classList.add("error")
+                            } else {
+                                parent.classList.remove("error");
+                                parent.classList.add("valid");
+                            }
+                        }
+                    })
+                }
+            }
+            else {
+                const ajax = async () => {
+                    const response = await fetch('/wp-admin/admin-ajax.php', { // php обработчик формы
+                        method: 'POST',
+                        headers: new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' }),
+                        body: new FormData(feedbackForm),
+                    });
+                    if (!response.ok) {
+                        throw new Error(response.status);
+                    } else {
+                        const data = await response.text();
+                        switch (data) {
+                            case '0':
+                                console.log("Извините, произошла ошибка. Пожалуйста, повторите отправку позже!")
+                                break;
+                            case '1':
+                                feedbackFormName.classList.remove("valid");
+                                feedbackFormEmail.classList.remove("valid");
+                                feedbackFormPhone.classList.remove("valid");
+                                if(feedbackFormCompany !== null) {
+                                    feedbackFormCompany.classList.remove("valid");
+                                }
+                                break;
+                        }
+                    }
+                };
+                //ajax()
+                feedbackForm.reset();
+                if(!isEmptyObject(feedbackFormAppeal)){
+                    feedbackFormAppeal.forEach(function (input) {
+                        if (input.value == "Выберете тему обращения") {
+                            input.checked = true;
+                            document.querySelector(".form-select__title span").innerHTML = "Выберете тему обращения";
+                        }
+                    })
+                }
+            }
+        });
     }
 })

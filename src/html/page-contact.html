@@ -93,6 +93,74 @@
                     </div>
                 </div>
             </section>
+            <section class="feedback m-20">
+                <h2 class="feedback__title h3">Обратная связь</h2>
+                <div class="feedback__wrapper">
+                    <div class="feedback__info">
+                        <div class="feedback__mail df df-ai-center">
+                            <svg width="20" height="20">
+                                <use xlink:href="/img/sprites.svg#icon-mail"></use>
+                            </svg>
+                            <a href="mailto:info@apteka.ru" class="h6">info@apteka.ru</a>
+                        </div>
+                        <div class="feedback__text p1">Напишите нам на почту или заполните форму, и вам ответят в ближайшее время</div>
+                    </div>
+                    <div class="feedback__form">
+                        <form class="feedback-form" id="feedback-form">
+                            <div class="feedback-form__group">
+                                <div class="feedback-form__item">
+                                    <label for="feedback-name" class="feedback-form__label p3">Имя фамилия*</label>
+                                    <input type="text" class="feedback-form__input" name="name" id="feedback-name" placeholder="Иван Иванов">
+                                </div>
+                                <div class="feedback-form__item">
+                                    <div class="feedback-form__label p3">Тема*</div>
+                                    <div class="feedback-form__select form-select" data-state>
+                                        <div class="form-select__title df df-ai-center df-jc-between" >
+                                            <div class="df df-ai-center">
+                                                <span>Выберете тему обращения</span>
+                                            </div>
+                                            <svg width="9" height="12">
+                                                <use xlink:href="/img/sprites.svg#arrow-menu"></use>
+                                            </svg>
+                                        </div>
+                                        <div class="form-select__content">
+                                            <div class="form-select__row">
+                                                <input id="feedback-appeal-0" class="form-select__input" type="radio" name="appeal" value="Выберете тему обращения" checked="">
+                                                <label for="feedback-appeal-0" tabindex="0" class="form-select__label">Выберете тему обращения</label>
+                                            </div>
+                                            <div class="form-select__row">
+                                                <input id="feedback-appeal-1" class="form-select__input" type="radio" name="appeal" value="Тема обращения 1">
+                                                <label for="feedback-appeal-1" tabindex="0" class="form-select__label">Тема обращения 1</label>
+                                            </div>
+                                            <div class="catalog-sorting__row">
+                                                <input id="feedback-appeal-2" class="form-select__input" type="radio" name="appeal" value="Тема обращения 2">
+                                                <label for="feedback-appeal-2" tabindex="0" class="form-select__label">Тема обращения 2</label>
+                                            </div>
+                                            <div class="catalog-sorting__row">
+                                                <input id="feedback-appeal-3" class="form-select__input" type="radio" name="appeal" value="Тема обращения 3">
+                                                <label for="feedback-appeal-3" tabindex="0" class="form-select__label">Тема обращения 3</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="feedback-form__item">
+                                    <label for="feedback-email" class="feedback-form__label p3">Электронная почта*</label>
+                                    <input type="text" class="feedback-form__input" name="email" id="feedback-email" placeholder="ivanov@gmail.com">
+                                </div>
+                                <div class="feedback-form__item">
+                                    <label for="feedback-phone" class="feedback-form__label p3">Мобильный телефон*</label>
+                                    <input type="text" class="feedback-form__input" name="phone" id="feedback-phone" placeholder="+375 (00) 00 - 00 - 000">
+                                </div>
+                                <div class="feedback-form__item feedback-form__item--message">
+                                    <textarea type="text" class="feedback-form__input feedback-form__input--message" name="message" id="feedback-message" placeholder="Ваше сообщение.."></textarea>
+                                </div>
+                            </div>
+                            <div class="feedback-form__accept">Нажимая «Продолжить», вы соглашаетесь с <a href="#">политикой обработки персональных данных</a></div>
+                            <button class="feedback-form__btn btn-main">Отправить</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
         </div>
     </div>
 </div>
