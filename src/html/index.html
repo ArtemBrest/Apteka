@@ -17,7 +17,363 @@
     <meta name="theme-color" content="#0478E3">
 </head>
 <body>
-@@include('./global/header.html')
+@@include('./global/header-front-page.html')
+<div class="container">
+    <section class="front-page">
+        <h1 class="front-page__title h2">Поиск и бронирование лекарственных средств</h1>
+        <div class="front-page__text p1">12 357 лекарств и товаров аптечного ассортимента</div>
+        <div class="header__center front-page__search">
+            <div class="header__location df df-ai-center p2" id="header-city">
+                <svg width="18" height="18" class="icon">
+                    <use xlink:href="/img/sprites.svg#icon-location"></use>
+                </svg>
+                <span>Минск</span>
+                <svg width="7" height="10" class="arrow">
+                    <use xlink:href="/img/sprites.svg#arrow-menu"></use>
+                </svg>
+            </div>
+            <div id="search" class="header__search search-catalog">
+                <div class="search-catalog__block search-catalog--active df df-ai-stretch" id="search-input">
+                    <input autocomplete="off" id="searchInput" class="search-catalog__input p2" type="search" maxlength="300" placeholder="Поиск в аптеках">
+                    <button id="applySearchBtn" class="search-catalog__btn search-catalog__btn--search btn-main df df-ai-stretch">
+                        <svg width="17" height="17">
+                            <use xlink:href="/img/sprites.svg#icon-search"></use>
+                        </svg>
+                    </button>
+                    <!--<div class="search-catalog__btn-wrap">
+                        <button class="search-catalog__btn search-catalog__btn&#45;&#45;clear search-catalog__btn&#45;&#45;active" type="button">Очистить поиск</button>
+                    </div>-->
+                </div>
+                <div class="autocomplete search-catalog__autocomplete" id="search-autocomplete">
+                    <div class="autocomplete__content shadow-product">
+                        <div class="autocomplete__scroll-container scroll">
+                            <div class="autocomplete__mobile autocomplete-mobile df df-ai-center df-jc-between">
+                                <input autocomplete="off" id="searchInput-2" class="autocomplete-mobile__input p2" type="search" maxlength="300" placeholder="Поиск в аптеках города">
+                                <button class="autocomplete-mobile__btn" id="autocomplete-mobile-close">Отмена</button>
+                            </div>
+                            <div class="autocomplete__group">
+                                <div class="autocomplete__empty empty">
+                                    <div class="empty__text p2"> Ничего не найдено, попробуйте изменить запрос</div>
+                                    <ul class="autocomplete__list autocomplete__list--history">
+                                        <li class="autocomplete__item p2 df df-ai-center">
+                                            <svg width="20" height="20">
+                                                <use xlink:href="/img/sprites.svg#icon-clock"></use>
+                                            </svg>
+                                            Сальбутамол
+                                            <svg width="14" height="15" class="autocomplete__icon-trash">
+                                                <use xlink:href="/img/sprites.svg#icon-trash"></use>
+                                            </svg>
+                                        </li>
+                                        <li class="autocomplete__item p2 df df-ai-center">
+                                            <svg width="20" height="20">
+                                                <use xlink:href="/img/sprites.svg#icon-clock"></use>
+                                            </svg>
+                                            Сабакомп
+                                            <svg width="14" height="15" class="autocomplete__icon-trash">
+                                                <use xlink:href="/img/sprites.svg#icon-trash"></use>
+                                            </svg>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="autocomplete__group">
+                                <div class="autocomplete__group-title p2">Популярные запросы</div>
+                                <ul class="autocomplete__list autocomplete__list--popular">
+                                    <li class="autocomplete__item">
+                                        <a href="#" class="autocomplete__link p2">Тералив</a>
+                                    </li>
+                                    <li class="autocomplete__item">
+                                        <a href="#" class="autocomplete__link p2">Биодерма</a>
+                                    </li>
+                                    <li class="autocomplete__item">
+                                        <a href="#" class="autocomplete__link p2">Тералив</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="autocomplete__group">
+                                <div class="autocomplete__group-title p2">Категории</div>
+                                <ul class="autocomplete__list autocomplete__list--subject">
+                                    <li class="autocomplete__item">
+                                        <a href="#" class="autocomplete__link p2">Средства для иммунопрофилактики аллергии</a>
+                                    </li>
+                                    <li class="autocomplete__item">
+                                        <a href="#" class="autocomplete__link p2">Вакцины, сыворотки, иммуноглобулины</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="autocomplete__group">
+                                <div class="autocomplete__group-title p2">Товары</div>
+                                <ul class="autocomplete__list autocomplete__list--product">
+                                    <li class="autocomplete__item product-item df df-ai-center df-jc-between">
+                                        <div class="product-item__left df df-ai-center">
+                                            <img src="./img/mini-photo.png" alt="" width="32" height="32" class="product-item__img">
+                                            <div class="product-item__left-content df df-column">
+                                                <span class="product-item__title p2">Набор из 2х уп. Максиган табл. №20 по спец.цене</span>
+                                                <span class="product-item__price product-item__price--mob df df-ai-center p3">Цена от:<span class="p1">28.55 р.</span></span>
+                                            </div>
+                                        </div>
+                                        <div class="product-item__right df df-ai-center">
+                                            <div class="product-item__right df df-ai-center">
+                                                <span class="product-item__price df df-ai-center p3">Цена от:<span class="p1">28.55 р.</span></span>
+                                            </div>
+                                            <button class="product-item__btn btn-main">
+                                                <svg width="20" height="20">
+                                                    <use xlink:href="/img/sprites.svg#icon-cart"></use>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="autocomplete__group">
+                                <ul class="autocomplete__list autocomplete__list--history">
+                                    <li class="autocomplete__item p2 df df-ai-center">
+                                        <svg width="20" height="20">
+                                            <use xlink:href="/img/sprites.svg#icon-clock"></use>
+                                        </svg>
+                                        Сальбутамол
+                                        <svg width="14" height="15" class="autocomplete__icon-trash">
+                                            <use xlink:href="/img/sprites.svg#icon-trash"></use>
+                                        </svg>
+                                    </li>
+                                    <li class="autocomplete__item p2 df df-ai-center">
+                                        <svg width="20" height="20">
+                                            <use xlink:href="/img/sprites.svg#icon-clock"></use>
+                                        </svg>
+                                        Сабакомп
+                                        <svg width="14" height="15" class="autocomplete__icon-trash">
+                                            <use xlink:href="/img/sprites.svg#icon-trash"></use>
+                                        </svg>
+                                    </li>
+                                </ul>
+                            </div>
+                            <a href="#" class="autocomplete__all-result p3">Все результаты</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="search-catalog__backdrop" id="search__backdrop"></div>
+            </div>
+        </div>
+        <div class="front-page__wrapper m-20">
+            <div class="front-page__sub-title h4">Каталог</div>
+            <div class="front-page__menu">
+                <div class="ui-accordion-item ui-accordion-item--opened">
+                    <div class="ui-accordion-item__toggle front-page__category h7 df df-ai-center df-jc-between">
+                        <span>Медикаменты</span>
+                        <div class="ui-accordion-item__icon">
+                            <span class="line"></span>
+                            <span class="line"></span>
+                        </div>
+                    </div>
+                    <div class="ui-collapse">
+                        <ul class="front-page__list">
+                            <li class="front-page__li"><a href="catalog-level2.1.html" class="front-page__link p1">Препараты от аллергии</a></li>
+                            <li class="front-page__li"><a href="catalog-level2.1.html" class="front-page__link p1">Препараты от простуды</a></li>
+                            <li class="front-page__li"><a href="catalog-level2.1.html" class="front-page__link p1">Контрастные вещества</a></li>
+                            <li class="front-page__li"><a href="catalog-level2.1.html" class="front-page__link p1">Гинекологические препараты</a></li>
+                            <li class="front-page__li"><a href="catalog-level2.1.html" class="front-page__link p1">Дерматологические препараты</a></li>
+                            <li class="front-page__li front-page__li--all"><a href="catalog-level2.1.html" class="front-page__link h7">Показать все</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="ui-accordion-item ui-accordion-item--opened">
+                    <div class="ui-accordion-item__toggle front-page__category h7 df df-ai-center df-jc-between">
+                        <span>Медикаменты</span>
+                        <div class="ui-accordion-item__icon">
+                            <span class="line"></span>
+                            <span class="line"></span>
+                        </div>
+                    </div>
+                    <div class="ui-collapse">
+                        <ul class="front-page__list">
+                            <li class="front-page__li"><a href="catalog-level2.1.html" class="front-page__link p1">Препараты от аллергии</a></li>
+                            <li class="front-page__li"><a href="catalog-level2.1.html" class="front-page__link p1">Препараты от простуды</a></li>
+                            <li class="front-page__li"><a href="catalog-level2.1.html" class="front-page__link p1">Контрастные вещества</a></li>
+                            <li class="front-page__li"><a href="catalog-level2.1.html" class="front-page__link p1">Гинекологические препараты</a></li>
+                            <li class="front-page__li"><a href="catalog-level2.1.html" class="front-page__link p1">Дерматологические препараты</a></li>
+                            <li class="front-page__li front-page__li--all"><a href="catalog-level2.1.html" class="front-page__link h7">Показать все</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="ui-accordion-item ui-accordion-item--opened">
+                    <div class="ui-accordion-item__toggle front-page__category h7 df df-ai-center df-jc-between">
+                        <span>Медикаменты</span>
+                        <div class="ui-accordion-item__icon">
+                            <span class="line"></span>
+                            <span class="line"></span>
+                        </div>
+                    </div>
+                    <div class="ui-collapse">
+                        <ul class="front-page__list">
+                            <li class="front-page__li"><a href="catalog-level2.1.html" class="front-page__link p1">Препараты от аллергии</a></li>
+                            <li class="front-page__li"><a href="catalog-level2.1.html" class="front-page__link p1">Препараты от простуды</a></li>
+                            <li class="front-page__li"><a href="catalog-level2.1.html" class="front-page__link p1">Контрастные вещества</a></li>
+                            <li class="front-page__li"><a href="catalog-level2.1.html" class="front-page__link p1">Гинекологические препараты</a></li>
+                            <li class="front-page__li"><a href="catalog-level2.1.html" class="front-page__link p1">Дерматологические препараты</a></li>
+                            <li class="front-page__li front-page__li--all"><a href="catalog-level2.1.html" class="front-page__link h7">Показать все</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="ui-accordion-item ui-accordion-item--opened">
+                    <div class="ui-accordion-item__toggle front-page__category h7 df df-ai-center df-jc-between">
+                        <span>Медикаменты</span>
+                        <div class="ui-accordion-item__icon">
+                            <span class="line"></span>
+                            <span class="line"></span>
+                        </div>
+                    </div>
+                    <div class="ui-collapse">
+                        <ul class="front-page__list">
+                            <li class="front-page__li"><a href="catalog-level2.1.html" class="front-page__link p1">Препараты от аллергии</a></li>
+                            <li class="front-page__li"><a href="catalog-level2.1.html" class="front-page__link p1">Препараты от простуды</a></li>
+                            <li class="front-page__li"><a href="catalog-level2.1.html" class="front-page__link p1">Контрастные вещества</a></li>
+                            <li class="front-page__li"><a href="catalog-level2.1.html" class="front-page__link p1">Гинекологические препараты</a></li>
+                            <li class="front-page__li"><a href="catalog-level2.1.html" class="front-page__link p1">Дерматологические препараты</a></li>
+                            <li class="front-page__li front-page__li--all"><a href="catalog-level2.1.html" class="front-page__link h7">Показать все</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="ui-accordion-item ui-accordion-item--opened">
+                    <div class="ui-accordion-item__toggle front-page__category h7 df df-ai-center df-jc-between">
+                        <span>Медикаменты</span>
+                        <div class="ui-accordion-item__icon">
+                            <span class="line"></span>
+                            <span class="line"></span>
+                        </div>
+                    </div>
+                    <div class="ui-collapse">
+                        <ul class="front-page__list">
+                            <li class="front-page__li"><a href="catalog-level2.1.html" class="front-page__link p1">Препараты от аллергии</a></li>
+                            <li class="front-page__li"><a href="catalog-level2.1.html" class="front-page__link p1">Препараты от простуды</a></li>
+                            <li class="front-page__li"><a href="catalog-level2.1.html" class="front-page__link p1">Контрастные вещества</a></li>
+                            <li class="front-page__li"><a href="catalog-level2.1.html" class="front-page__link p1">Гинекологические препараты</a></li>
+                            <li class="front-page__li"><a href="catalog-level2.1.html" class="front-page__link p1">Дерматологические препараты</a></li>
+                            <li class="front-page__li front-page__li--all"><a href="catalog-level2.1.html" class="front-page__link h7">Показать все</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="ui-accordion-item ui-accordion-item--opened">
+                    <div class="ui-accordion-item__toggle front-page__category h7 df df-ai-center df-jc-between">
+                        <span>Медикаменты</span>
+                        <div class="ui-accordion-item__icon">
+                            <span class="line"></span>
+                            <span class="line"></span>
+                        </div>
+                    </div>
+                    <div class="ui-collapse">
+                        <ul class="front-page__list">
+                            <li class="front-page__li"><a href="catalog-level2.1.html" class="front-page__link p1">Препараты от аллергии</a></li>
+                            <li class="front-page__li"><a href="catalog-level2.1.html" class="front-page__link p1">Препараты от простуды</a></li>
+                            <li class="front-page__li"><a href="catalog-level2.1.html" class="front-page__link p1">Контрастные вещества</a></li>
+                            <li class="front-page__li"><a href="catalog-level2.1.html" class="front-page__link p1">Гинекологические препараты</a></li>
+                            <li class="front-page__li"><a href="catalog-level2.1.html" class="front-page__link p1">Дерматологические препараты</a></li>
+                            <li class="front-page__li front-page__li--all"><a href="catalog-level2.1.html" class="front-page__link h7">Показать все</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="ui-accordion-item ui-accordion-item--opened">
+                    <div class="ui-accordion-item__toggle front-page__category h7 df df-ai-center df-jc-between">
+                        <span>Медикаменты</span>
+                        <div class="ui-accordion-item__icon">
+                            <span class="line"></span>
+                            <span class="line"></span>
+                        </div>
+                    </div>
+                    <div class="ui-collapse">
+                        <ul class="front-page__list">
+                            <li class="front-page__li"><a href="catalog-level2.1.html" class="front-page__link p1">Препараты от аллергии</a></li>
+                            <li class="front-page__li"><a href="catalog-level2.1.html" class="front-page__link p1">Препараты от простуды</a></li>
+                            <li class="front-page__li"><a href="catalog-level2.1.html" class="front-page__link p1">Контрастные вещества</a></li>
+                            <li class="front-page__li"><a href="catalog-level2.1.html" class="front-page__link p1">Гинекологические препараты</a></li>
+                            <li class="front-page__li"><a href="catalog-level2.1.html" class="front-page__link p1">Дерматологические препараты</a></li>
+                            <li class="front-page__li front-page__li--all"><a href="catalog-level2.1.html" class="front-page__link h7">Показать все</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="ui-accordion-item ui-accordion-item--opened">
+                    <div class="ui-accordion-item__toggle front-page__category h7 df df-ai-center df-jc-between">
+                        <span>Медикаменты</span>
+                        <div class="ui-accordion-item__icon">
+                            <span class="line"></span>
+                            <span class="line"></span>
+                        </div>
+                    </div>
+                    <div class="ui-collapse">
+                        <ul class="front-page__list">
+                            <li class="front-page__li"><a href="catalog-level2.1.html" class="front-page__link p1">Препараты от аллергии</a></li>
+                            <li class="front-page__li"><a href="catalog-level2.1.html" class="front-page__link p1">Препараты от простуды</a></li>
+                            <li class="front-page__li"><a href="catalog-level2.1.html" class="front-page__link p1">Контрастные вещества</a></li>
+                            <li class="front-page__li"><a href="catalog-level2.1.html" class="front-page__link p1">Гинекологические препараты</a></li>
+                            <li class="front-page__li"><a href="catalog-level2.1.html" class="front-page__link p1">Дерматологические препараты</a></li>
+                            <li class="front-page__li front-page__li--all"><a href="catalog-level2.1.html" class="front-page__link h7">Показать все</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="ui-accordion-item ui-accordion-item--opened">
+                    <div class="ui-accordion-item__toggle front-page__category h7 df df-ai-center df-jc-between">
+                        <span>Медикаменты</span>
+                        <div class="ui-accordion-item__icon">
+                            <span class="line"></span>
+                            <span class="line"></span>
+                        </div>
+                    </div>
+                    <div class="ui-collapse">
+                        <ul class="front-page__list">
+                            <li class="front-page__li"><a href="catalog-level2.1.html" class="front-page__link p1">Препараты от аллергии</a></li>
+                            <li class="front-page__li"><a href="catalog-level2.1.html" class="front-page__link p1">Препараты от простуды</a></li>
+                            <li class="front-page__li"><a href="catalog-level2.1.html" class="front-page__link p1">Контрастные вещества</a></li>
+                            <li class="front-page__li"><a href="catalog-level2.1.html" class="front-page__link p1">Гинекологические препараты</a></li>
+                            <li class="front-page__li"><a href="catalog-level2.1.html" class="front-page__link p1">Дерматологические препараты</a></li>
+                            <li class="front-page__li front-page__li--all"><a href="catalog-level2.1.html" class="front-page__link h7">Показать все</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="front-page__wrapper m-20">
+            <h2 class="front-page__sub-title h4">Список лекарств по алфавиту</h2>
+            <div class="front-page__btns df df-ai-center df-wrap">
+                <button class="front-page__btn p1">А</button>
+                <button class="front-page__btn p1">Б</button>
+                <button class="front-page__btn p1">В</button>
+                <button class="front-page__btn p1">Г</button>
+                <button class="front-page__btn p1">Д</button>
+                <button class="front-page__btn p1">Е</button>
+                <button class="front-page__btn p1">Ё</button>
+                <button class="front-page__btn p1">Ж</button>
+                <button class="front-page__btn p1">З</button>
+                <button class="front-page__btn p1">И</button>
+                <button class="front-page__btn p1">Й</button>
+                <button class="front-page__btn p1">К</button>
+                <button class="front-page__btn p1">Л</button>
+                <button class="front-page__btn p1">М</button>
+                <button class="front-page__btn p1">Н</button>
+                <button class="front-page__btn p1">О</button>
+                <button class="front-page__btn p1">П</button>
+                <button class="front-page__btn p1">Р</button>
+                <button class="front-page__btn p1">С</button>
+                <button class="front-page__btn p1">Т</button>
+                <button class="front-page__btn p1">У</button>
+                <button class="front-page__btn p1">Ф</button>
+                <button class="front-page__btn p1">Х</button>
+                <button class="front-page__btn p1">Ц</button>
+                <button class="front-page__btn p1">Ч</button>
+                <button class="front-page__btn p1">Ш</button>
+                <button class="front-page__btn p1">Щ</button>
+                <button class="front-page__btn p1">Ь</button>
+                <button class="front-page__btn p1">Ы</button>
+                <button class="front-page__btn p1">Ъ</button>
+                <button class="front-page__btn p1">Э</button>
+                <button class="front-page__btn p1">Ю</button>
+                <button class="front-page__btn p1">Я</button>
+                <button class="front-page__btn p1" disabled>A-Z</button>
+                <button class="front-page__btn p1" disabled>0-9</button>
+            </div>
+        </div>
+    </section>
+</div>
 @@include('./global/footer.html')
 <script defer src="./js/swiper-bundle.min.js"></script>
 <script defer src="./lightGallery-master/dist/lightgallery.min.js"></script>

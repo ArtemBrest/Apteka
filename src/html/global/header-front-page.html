@@ -1,0 +1,137 @@
+<header class="header shadow-block header--front-page" id="header">
+    <div class="container">
+        <div class="header__row df df-ai-center df-jc-between">
+            <div class="header__left df df-ai-center">
+                <a href="/" class="header__logo df df-ai-stretch">
+                    <img src="./img/logo.svg" alt="Apteka" width="113" height="26">
+                </a>
+                <div class="header-menu-xxl">
+                    <svg class="header__icon-mob" width="24" height="24">
+                        <use xlink:href="/img/sprites.svg#icon-catalog"></use>
+                    </svg>
+                    @@include('./aside-menu.html')
+                </div>
+            </div>
+            <a href="/" class="header__logo-mob df df-ai-stretch">
+                <img src="./img/logo.svg" alt="Apteka" width="113" height="30">
+            </a>
+            <div class="header__right df df-ai-center">
+                <a href="#" class="header__profile df df-ai-stretch">
+                    <svg width="24" height="24">
+                        <use xlink:href="/img/sprites.svg#icon-user"></use>
+                    </svg>
+                </a>
+                <a href="#" class="header__cart header-cart df df-ai-stretch">
+                    <svg width="24" height="24">
+                        <use xlink:href="/img/sprites.svg#icon-cart"></use>
+                    </svg>
+                    <span class="header-cart__value">5</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <!--<div class="header__sticky" id="header-sticky">
+        <div class="container">
+            <div class="header__sticky-wrapper df df-ai-center">
+                <div class="header__name p2">Librederm церафавит крем липидовосстанавливающий с церамидами и пребиотиком 75 мл</div>
+                <div class="header__nav df df-ai-center">
+                    <div class="header__nav-item p2 active" data-id="сharacteristic">Характеристики</div>
+                    <div class="header__nav-item p2" data-id="instructions">Инструкция</div>
+                    <div class="header__nav-item p2" data-id="review">Отзывы</div>
+                    <div class="header__nav-item p2" data-id="analog">Аналоги</div>
+                    <div class="header__nav-item p2" data-id="latest-watched">Вы недавно смотрели</div>
+                </div>
+            </div>
+        </div>
+    </div>-->
+    <div class="container">
+        <div class="header-menu__backdrop" id="menu-backdrop"></div>
+        <div class="header-mob">
+            <div class="header-mob__row df df-ai-center df-jc-between">
+                <button class="header-mob__btn df df-ai-center df-jc-center">
+                    <svg class="header-mob__btn-close" width="14" height="14">
+                        <use xlink:href="/img/sprites.svg?ver=1.0#icon-close"></use>
+                    </svg>
+                </button>
+                <a href="/" class="header-mob__logo df df-ai-stretch">
+                    <img src="./img/logo.svg" alt="Apteka" width="113" height="26">
+                </a>
+                <a href="#" class="header__cart header-cart df df-ai-stretch">
+                    <svg width="24" height="24">
+                        <use xlink:href="/img/sprites.svg#icon-cart"></use>
+                    </svg>
+                    <span class="header-cart__value">5</span>
+                </a>
+            </div>
+            <div class="header-mob__wrapper scroll">
+                <div class="header-mob__title header-mob__title--profile df df-ai-center p1">
+                    <svg width="24" height="24">
+                        <use xlink:href="/img/sprites.svg#icon-user"></use>
+                    </svg>
+                    Профиль
+                    <svg class="arrow" width="7" height="10">
+                        <use xlink:href="/img/sprites.svg#arrow-menu"></use>
+                    </svg>
+                </div>
+                <ul class="header-mob__menu">
+                    <li class="header-mob__li"><a href="#" class="header-mob__link">Личные данные</a></li>
+                    <li class="header-mob__li"><a href="#" class="header-mob__link">История покупок</a></li>
+                    <li class="header-mob__li"><a href="#" class="header-mob__link">Отзывы</a></li>
+                </ul>
+                <div class="header-mob__li header-mob__li--favorit"><a href="#" class="header-mob__link">В избранном <b>(5)</b></a></div>
+                <div class="header-mob__separator"></div>
+                <div class="header-mob__scroll">
+                    <div class="header-mob__title df df-ai-center p1">
+                        <svg class="header__icon-mob" width="24" height="24">
+                            <use xlink:href="/img/sprites.svg#icon-catalog"></use>
+                        </svg>
+                        Каталог
+                    </div>
+                    <ul class="header-mob__list">
+                        <li class="header-mob__item">
+                            <a href="#" class="header-mob__link">Медикаменты</a>
+                            <ul class="sub-menu">
+                                <li class="header-mob__item header-mob__item--prev">
+                                    <svg width="7" height="10">
+                                        <use xlink:href="/img/sprites.svg#arrow-menu"></use>
+                                    </svg>
+                                    <span>Назад</span>
+                                </li>
+                                <li class="header-mob__item">
+                                    <a href="#" class="header-mob__link">Уровень 2.1</a>
+                                    <ul class="sub-menu">
+                                        <li class="header-mob__item header-mob__item--prev">
+                                            <svg width="7" height="10">
+                                                <use xlink:href="/img/sprites.svg#arrow-menu"></use>
+                                            </svg>
+                                            <span>Назад</span>
+                                        </li>
+                                        <li class="header-mob__item"><a href="#" class="header-mob__link">Уровень 3.1</a></li>
+                                        <li class="header-mob__item"><a href="#" class="header-mob__link">Уровень 3.2</a></li>
+                                        <li class="header-mob__item"><a href="#" class="header-mob__link">Уровень 3.3</a></li>
+                                        <li class="header-mob__item"><a href="#" class="header-mob__link">Уровень 3.4</a></li>
+                                        <li class="header-mob__item"><a href="#" class="header-mob__link">Уровень 3.5</a></li>
+                                        <li class="header-mob__item"><a href="#" class="header-mob__link header-mob__link--btn">Показать все</a></li>
+                                    </ul>
+                                </li>
+                                <li class="header-mob__item"><a href="#" class="header-mob__link">Уровень 2.2</a></li>
+                                <li class="header-mob__item"><a href="#" class="header-mob__link">Уровень 2.3</a></li>
+                                <li class="header-mob__item"><a href="#" class="header-mob__link">Уровень 2.4</a></li>
+                                <li class="header-mob__item"><a href="#" class="header-mob__link">Уровень 2.5</a></li>
+                                <li class="header-mob__item"><a href="#" class="header-mob__link header-mob__link--btn">Показать все</a></li>
+                            </ul>
+                        </li>
+                        <li class="header-mob__item"><a href="#" class="header-mob__link">Продукция Coloplast</a></li>
+                        <li class="header-mob__item"><a href="#" class="header-mob__link">БАД и витамины</a></li>
+                        <li class="header-mob__item"><a href="#" class="header-mob__link">Медицинские товары</a></li>
+                        <li class="header-mob__item"><a href="#" class="header-mob__link">Антибиотики</a></li>
+                        <li class="header-mob__item"><a href="#" class="header-mob__link">Товары для косметологов</a></li>
+                        <li class="header-mob__item"><a href="#" class="header-mob__link">Товары для мам и детей</a></li>
+                        <li class="header-mob__item"><a href="#" class="header-mob__link">Оптика</a></li>
+                        <li class="header-mob__item"><a href="#" class="header-mob__link">Сексуальное здоровье</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

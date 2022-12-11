@@ -612,8 +612,352 @@
                     </aside>
                 </div>
             </div>
-            <div class="grid-columns grid-columns_right">
+            <div class="grid-columns grid-columns_right m-20">
                 <div class="content">
+                    <section class="review">
+                        <h2 class="review__title h3">Отзывы о товаре</h2>
+                        <div class="review-aside review-aside--mob">
+                            <div class="review-aside__head df df-ai-center df-jc-between">
+                                <div class="product-rating df df-ai-center">
+                                    <svg width="16" height="15" class="active">
+                                        <use xlink:href="/img/sprites.svg#icon-star"></use>
+                                    </svg>
+                                    <svg width="16" height="15" class="active">
+                                        <use xlink:href="/img/sprites.svg#icon-star"></use>
+                                    </svg>
+                                    <svg width="16" height="15" class="active">
+                                        <use xlink:href="/img/sprites.svg#icon-star"></use>
+                                    </svg>
+                                    <svg width="16" height="15" class="active">
+                                        <use xlink:href="/img/sprites.svg#icon-star"></use>
+                                    </svg>
+                                    <svg width="16" height="15">
+                                        <use xlink:href="/img/sprites.svg#icon-star"></use>
+                                    </svg>
+                                </div>
+                                <div class="review-aside__text h3">4.8 / 5</div>
+                            </div>
+                            <div class="review-aside__list">
+                                <div class="review-aside__row df df-ai-center df-jc-between">
+                                    <div class="review-aside__mark p3">5</div>
+                                    <div class="review-aside__progress"><div style="width: 38%;"></div></div>
+                                    <div class="review-aside__value p3">59</div>
+                                </div>
+                                <div class="review-aside__row df df-ai-center df-jc-between">
+                                    <div class="review-aside__mark p3">4</div>
+                                    <div class="review-aside__progress"><div style="width: 68%;"></div></div>
+                                    <div class="review-aside__value p3">609</div>
+                                </div>
+                                <div class="review-aside__row df df-ai-center df-jc-between">
+                                    <div class="review-aside__mark p3">3</div>
+                                    <div class="review-aside__progress"><div style="width: 36%;"></div></div>
+                                    <div class="review-aside__value p3">15</div>
+                                </div>
+                                <div class="review-aside__row df df-ai-center df-jc-between">
+                                    <div class="review-aside__mark p3">2</div>
+                                    <div class="review-aside__progress"><div style="width: 3%;"></div></div>
+                                    <div class="review-aside__value p3">6</div>
+                                </div>
+                                <div class="review-aside__row df df-ai-center df-jc-between">
+                                    <div class="review-aside__mark p3">1</div>
+                                    <div class="review-aside__progress"><div style="width: 8%;"></div></div>
+                                    <div class="review-aside__value p3">9</div>
+                                </div>
+                            </div>
+                            <button class="review-aside__btn btn-main reviewBtnPopup">Oставить отзыв</button>
+                        </div>
+                        <div class="review__gallery review-gallery">
+                            <div class="review-gallery__text p3">Фотографии покупателей:</div>
+                            <div class="review-gallery__row df df-ai-center" id="review-gallery">
+                                <span class="review-gallery__number p3"></span>
+                                <div class="review-gallery__card df df-ai-stretch" data-src="./img/review-mini-photo-1.png">
+                                    <img src="./img/review-mini-photo-1.png" alt="" width="48" height="48">
+                                </div>
+                                <div class="review-gallery__card df df-ai-stretch" data-src="./img/review-mini-photo-2.png">
+                                    <img src="./img/review-mini-photo-2.png" alt="" width="48" height="48">
+                                </div>
+                                <div class="review-gallery__card df df-ai-stretch" data-src="./img/review-mini-photo-1.png">
+                                    <img src="./img/review-mini-photo-1.png" alt="" width="48" height="48">
+                                </div>
+                                <div class="review-gallery__card df df-ai-stretch" data-src="./img/review-mini-photo-2.png">
+                                    <img src="./img/review-mini-photo-2.png" alt="" width="48" height="48">
+                                </div>
+                                <div class="review-gallery__card df df-ai-stretch" data-src="./img/review-mini-photo-1.png">
+                                    <img src="./img/review-mini-photo-1.png" alt="" width="48" height="48">
+                                </div>
+                                <div class="review-gallery__card df df-ai-stretch" data-src="./img/review-mini-photo-2.png">
+                                    <img src="./img/review-mini-photo-2.png" alt="" width="48" height="48">
+                                </div>
+                                <div class="review-gallery__card df df-ai-stretch" data-src="./img/review-mini-photo-1.png">
+                                    <img src="./img/review-mini-photo-1.png" alt="" width="48" height="48">
+                                </div>
+                                <div class="review-gallery__card df df-ai-stretch" data-src="./img/review-mini-photo-2.png">
+                                    <img src="./img/review-mini-photo-2.png" alt="" width="48" height="48">
+                                </div>
+                            </div>
+                            <button class="review-gallery__btn p3">Все изображения</button>
+                        </div>
+                        <div class="inner-sorter review-sorter df df-ai-center df-jc-between">
+                            <div class="review-sorter__buttons df df-ai-center">
+                                <button class="review-sorter__btn review-sorter__btn--active">Новые</button>
+                                <button class="review-sorter__btn">Положительные</button>
+                                <button class="review-sorter__btn">Самые полезные</button>
+                            </div>
+                            <div class="inner-sorter__right df df-ai-center">
+                                <form method="POST" class="catalog-sorting__form">
+                                    <div class="catalog-sorting__select">
+                                        <div class="catalog-sorting__title df df-ai-center df-jc-between">
+                                            <div class="df df-ai-center">
+                                                <span>По дате</span>
+                                            </div>
+                                            <svg width="9" height="12">
+                                                <use xlink:href="/img/sprites.svg#arrow-menu"></use>
+                                            </svg>
+                                        </div>
+                                        <div class="catalog-sorting__content">
+                                            <div class="catalog-sorting__row">
+                                                <input id="input-default" class="catalog-sorting__input" type="radio" name="sort" value="ASC" checked="">
+                                                <label for="input-default" tabindex="0" class="catalog-sorting__label">По популярности</label>
+                                            </div>
+                                            <div class="catalog-sorting__row">
+                                                <input id="order-max" class="catalog-sorting__input" type="radio" name="sort" value="ASC">
+                                                <label for="order-max" tabindex="0" class="catalog-sorting__label">По возрастанию</label>
+                                            </div>
+                                            <div class="catalog-sorting__row">
+                                                <input id="order-min" class="catalog-sorting__input" type="radio" name="sort" value="DESC">
+                                                <label for="order-min" tabindex="0" class="catalog-sorting__label">По убыванию</label>
+                                            </div>
+                                        </div>
+                                        <button class="catalog-sorting__btn"></button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <span class="review__separator"></span>
+                        <div class="review__list">
+                            <div class="review-card">
+                                <div class="review-card__head df df-ai-center df-jc-between">
+                                    <div class="review-card__left df df-ai-center">
+                                        <div class="review-card__icon h4 df df-ai-center df-jc-center">B</div>
+                                        <div class="review-card__info">
+                                            <div class="review-card__name h5">Виктория</div>
+                                            <div class="review-card__rating  df df-ai-center">
+                                                <svg width="16" height="15" class="active">
+                                                    <use xlink:href="/img/sprites.svg#icon-star"></use>
+                                                </svg>
+                                                <svg width="16" height="15" class="active">
+                                                    <use xlink:href="/img/sprites.svg#icon-star"></use>
+                                                </svg>
+                                                <svg width="16" height="15" class="active">
+                                                    <use xlink:href="/img/sprites.svg#icon-star"></use>
+                                                </svg>
+                                                <svg width="16" height="15" class="active">
+                                                    <use xlink:href="/img/sprites.svg#icon-star"></use>
+                                                </svg>
+                                                <svg width="16" height="15">
+                                                    <use xlink:href="/img/sprites.svg#icon-star"></use>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="review-card__right df df-ai-center">
+                                        <div class="review-card__date p3">12 сентября 2022 г.</div>
+                                        <div class="review-card__kebab df df-ai-stretch">
+                                            <svg width="20" height="20">
+                                                <use xlink:href="/img/sprites.svg#icon-kebab"></use>
+                                            </svg>
+                                            <div class="review-card__kebab-pop-up kebab-pop-up">
+                                                <button class="kebab-pop-up__btn btnComplain p3">Пожаловаться</button>
+                                                <button class="kebab-pop-up__btn btnRemove p3">Удалить</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="review-card__middle">
+                                    <div class="review-card__description p1">Отличный препарат! Принимаю для облегчения боли при простуде, для снижения температуры и при головной боли. Всегда есть в домашней аптечке. Недорогая цена, никогда не было побочных.</div>
+                                    <div class="review-card__gallery df df-ai-center df-wrap">
+                                        <div class="card df df-ai-stretch" data-src="/img/review-mini-photo-1.png">
+                                            <img src="./img/review-mini-photo-1.png" alt="" width="48" height="48">
+                                        </div>
+                                        <div class="card df df-ai-stretch" data-src="/img/review-mini-photo-2.png">
+                                            <img src="./img/review-mini-photo-2.png" alt="" width="48" height="48">
+                                        </div>
+                                        <div class="card df df-ai-stretch" data-src="/img/review-mini-photo-1.png">
+                                            <img src="./img/review-mini-photo-1.png" alt="" width="48" height="48">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="review-card__bottom df df-ai-center">
+                                    <div class="review-card__question p3">Вам помог этот отзыв?</div>
+                                    <button class="review-card__btn p3">Да (5)</button>
+                                    <button class="review-card__btn p3">Нет (1)</button>
+                                </div>
+                            </div>
+                            <div class="review-card">
+                                <div class="review-card__head df df-ai-center df-jc-between">
+                                    <div class="review-card__left df df-ai-center">
+                                        <div class="review-card__icon h4 df df-ai-center df-jc-center">B</div>
+                                        <div class="review-card__info">
+                                            <div class="review-card__name h5">Виктория</div>
+                                            <div class="review-card__rating  df df-ai-center">
+                                                <svg width="16" height="15" class="active">
+                                                    <use xlink:href="/img/sprites.svg#icon-star"></use>
+                                                </svg>
+                                                <svg width="16" height="15" class="active">
+                                                    <use xlink:href="/img/sprites.svg#icon-star"></use>
+                                                </svg>
+                                                <svg width="16" height="15" class="active">
+                                                    <use xlink:href="/img/sprites.svg#icon-star"></use>
+                                                </svg>
+                                                <svg width="16" height="15" class="active">
+                                                    <use xlink:href="/img/sprites.svg#icon-star"></use>
+                                                </svg>
+                                                <svg width="16" height="15">
+                                                    <use xlink:href="/img/sprites.svg#icon-star"></use>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="review-card__right df df-ai-center">
+                                        <div class="review-card__date p3">12 сентября 2022 г.</div>
+                                        <div class="review-card__kebab df df-ai-stretch">
+                                            <svg width="20" height="20">
+                                                <use xlink:href="/img/sprites.svg#icon-kebab"></use>
+                                            </svg>
+                                            <div class="review-card__kebab-pop-up kebab-pop-up">
+                                                <button class="kebab-pop-up__btn btnComplain p3">Пожаловаться</button>
+                                                <button class="kebab-pop-up__btn btnRemove p3">Удалить</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="review-card__middle">
+                                    <div class="review-card__description p1">Отличный препарат! Принимаю для облегчения боли при простуде, для снижения температуры и при головной боли. Всегда есть в домашней аптечке. Недорогая цена, никогда не было побочных.</div>
+                                </div>
+                                <div class="review-card__bottom df df-ai-center">
+                                    <div class="review-card__question p3">Вам помог этот отзыв?</div>
+                                    <button class="review-card__btn p3">Да (5)</button>
+                                    <button class="review-card__btn p3">Нет (1)</button>
+                                </div>
+                            </div>
+                            <div class="review-card">
+                                <div class="review-card__head df df-ai-center df-jc-between">
+                                    <div class="review-card__left df df-ai-center">
+                                        <div class="review-card__icon h4 df df-ai-center df-jc-center">B</div>
+                                        <div class="review-card__info">
+                                            <div class="review-card__name h5">Виктория</div>
+                                            <div class="review-card__rating  df df-ai-center">
+                                                <svg width="16" height="15" class="active">
+                                                    <use xlink:href="/img/sprites.svg#icon-star"></use>
+                                                </svg>
+                                                <svg width="16" height="15" class="active">
+                                                    <use xlink:href="/img/sprites.svg#icon-star"></use>
+                                                </svg>
+                                                <svg width="16" height="15" class="active">
+                                                    <use xlink:href="/img/sprites.svg#icon-star"></use>
+                                                </svg>
+                                                <svg width="16" height="15" class="active">
+                                                    <use xlink:href="/img/sprites.svg#icon-star"></use>
+                                                </svg>
+                                                <svg width="16" height="15">
+                                                    <use xlink:href="/img/sprites.svg#icon-star"></use>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="review-card__right df df-ai-center">
+                                        <div class="review-card__date p3">12 сентября 2022 г.</div>
+                                        <div class="review-card__kebab df df-ai-stretch">
+                                            <svg width="20" height="20">
+                                                <use xlink:href="/img/sprites.svg#icon-kebab"></use>
+                                            </svg>
+                                            <div class="review-card__kebab-pop-up kebab-pop-up">
+                                                <button class="kebab-pop-up__btn btnComplain p3">Пожаловаться</button>
+                                                <button class="kebab-pop-up__btn btnRemove p3">Удалить</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="review-card__middle">
+                                    <div class="review-card__description p1">Отличный препарат! Принимаю для облегчения боли при простуде, для снижения температуры и при головной боли. Всегда есть в домашней аптечке. Недорогая цена, никогда не было побочных.</div>
+                                    <div class="review-card__gallery df df-ai-center df-wrap">
+                                        <div class="card df df-ai-stretch" data-src="/img/review-mini-photo-1.png">
+                                            <img src="./img/review-mini-photo-1.png" alt="" width="48" height="48">
+                                        </div>
+                                        <div class="card df df-ai-stretch" data-src="/img/review-mini-photo-2.png">
+                                            <img src="./img/review-mini-photo-2.png" alt="" width="48" height="48">
+                                        </div>
+                                        <div class="card df df-ai-stretch" data-src="/img/review-mini-photo-1.png">
+                                            <img src="./img/review-mini-photo-1.png" alt="" width="48" height="48">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="review-card__bottom df df-ai-center">
+                                    <div class="review-card__question p3">Вам помог этот отзыв?</div>
+                                    <button class="review-card__btn p3">Да (5)</button>
+                                    <button class="review-card__btn p3">Нет (1)</button>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="review__btn p3">Смотреть все отзывы<span>(5)</span></button>
+                        <div class="review-empty">
+                            <div class="review-empty__title h3">Отзывы о товаре</div>
+                            <div class="review-empty__text p1">У этого товара пока нет отзывов</div>
+                            <button class="review-empty__btn btn-main reviewBtnPopup">Оставить отзыв</button>
+                        </div>
+                    </section>
+                </div>
+                <div>
+                    <aside class="review-aside">
+                        <div class="review-aside__head df df-ai-center df-jc-between">
+                            <div class="product-rating df df-ai-center">
+                                <svg width="16" height="15" class="active">
+                                    <use xlink:href="/img/sprites.svg#icon-star"></use>
+                                </svg>
+                                <svg width="16" height="15" class="active">
+                                    <use xlink:href="/img/sprites.svg#icon-star"></use>
+                                </svg>
+                                <svg width="16" height="15" class="active">
+                                    <use xlink:href="/img/sprites.svg#icon-star"></use>
+                                </svg>
+                                <svg width="16" height="15" class="active">
+                                    <use xlink:href="/img/sprites.svg#icon-star"></use>
+                                </svg>
+                                <svg width="16" height="15">
+                                    <use xlink:href="/img/sprites.svg#icon-star"></use>
+                                </svg>
+                            </div>
+                            <div class="review-aside__text h3">4.8 / 5</div>
+                        </div>
+                        <div class="review-aside__list">
+                            <div class="review-aside__row df df-ai-center df-jc-between">
+                                <div class="review-aside__mark p3">5</div>
+                                <div class="review-aside__progress"><div style="width: 38%;"></div></div>
+                                <div class="review-aside__value p3">59</div>
+                            </div>
+                            <div class="review-aside__row df df-ai-center df-jc-between">
+                                <div class="review-aside__mark p3">4</div>
+                                <div class="review-aside__progress"><div style="width: 68%;"></div></div>
+                                <div class="review-aside__value p3">609</div>
+                            </div>
+                            <div class="review-aside__row df df-ai-center df-jc-between">
+                                <div class="review-aside__mark p3">3</div>
+                                <div class="review-aside__progress"><div style="width: 36%;"></div></div>
+                                <div class="review-aside__value p3">15</div>
+                            </div>
+                            <div class="review-aside__row df df-ai-center df-jc-between">
+                                <div class="review-aside__mark p3">2</div>
+                                <div class="review-aside__progress"><div style="width: 3%;"></div></div>
+                                <div class="review-aside__value p3">6</div>
+                            </div>
+                            <div class="review-aside__row df df-ai-center df-jc-between">
+                                <div class="review-aside__mark p3">1</div>
+                                <div class="review-aside__progress"><div style="width: 8%;"></div></div>
+                                <div class="review-aside__value p3">9</div>
+                            </div>
+                        </div>
+                        <button class="review-aside__btn btn-main reviewBtnPopup">Oставить отзыв</button>
+                    </aside>
                 </div>
             </div>
             <section class="other-product content-focus" id="analog"> <!--data-scroll_id="analog" data-attr_key_menu="analog"-->

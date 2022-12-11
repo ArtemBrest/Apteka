@@ -489,7 +489,7 @@ window.addEventListener("load", function () {
     /////
     const classChangeOnScroll = () => {
         document.querySelectorAll("[data-scroll_id]").forEach((el) => {
-            let top = el.offsetTop - 110;
+            let top = el.offsetTop - 65;
             let bottom = top + el.offsetHeight;
             let scroll = window.scrollY;
             let id = el.getAttribute("data-scroll_id");
@@ -527,7 +527,7 @@ window.addEventListener("load", function () {
                     }
                 });
                 if (!target) return;
-                scrollIntoViewWithMargin(target, -110);
+                scrollIntoViewWithMargin(target, -65);
                 setTimeout(() => {
                     window.addEventListener("scroll", classChangeOnScroll);
                 }, 1000);
@@ -589,6 +589,16 @@ window.addEventListener("load", function () {
         let instructions = document.getElementById("instructions");
         if (instructions !== null) {
             initAcc(instructions, false);
+        }
+        let frontPageMenu = document.querySelector(".front-page__menu");
+        if(frontPageMenu !== null){
+            let frontPageMenuItems = frontPageMenu.querySelectorAll(".ui-accordion-item")
+            for(let i = 0; i < frontPageMenuItems.length; i++){
+                if(i >= 1){
+                    frontPageMenuItems[i].classList.remove("ui-accordion-item--opened")
+                }
+            }
+            initAcc(frontPageMenu, false);
         }
     }
     let categoryMenu = document.querySelector(".category-menu-filter");
@@ -1093,7 +1103,7 @@ window.addEventListener("load", function () {
 
 
 
-    const regexSubject = /^[а-яёА-Я0-9 .,!?:'"+_&@#*()-]{2,100}$/iu;
+    const regexSubject = /^[а-яёА-Я0-9 .,!?:'"+_&@#*()-]{2,1000}$/iu;
     const regexPhone = /^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){9,12}(\s*)?$/;
 
     const feedbackForm = document.getElementById('feedback-form');
@@ -1117,7 +1127,7 @@ window.addEventListener("load", function () {
                 }
             })
         })
-        feedbackForm.addEventListener('keyup', () => {
+        feedbackFormName.addEventListener('keyup', () => {
             if (regexSubject.test(feedbackFormName.value)) {
                 feedbackFormName.parentNode.classList.remove("error");
                 feedbackFormName.parentNode.classList.add("valid");
@@ -1125,7 +1135,9 @@ window.addEventListener("load", function () {
                 feedbackFormName.parentNode.classList.remove("valid");
                 feedbackFormName.parentNode.classList.add("error");
             }
-            if(feedbackFormCompany !== null){
+        })
+        if(feedbackFormCompany !== null) {
+            feedbackFormCompany.addEventListener('keyup', () => {
                 if (regexSubject.test(feedbackFormCompany.value)) {
                     feedbackFormCompany.parentNode.classList.remove("error");
                     feedbackFormCompany.parentNode.classList.add("valid");
@@ -1133,7 +1145,9 @@ window.addEventListener("load", function () {
                     feedbackFormCompany.parentNode.classList.remove("valid");
                     feedbackFormCompany.parentNode.classList.add("error");
                 }
-            }
+            })
+        }
+        feedbackFormEmail.addEventListener('keyup', () => {
             if (regexEmail.test(feedbackFormEmail.value)) {
                 feedbackFormEmail.parentNode.classList.remove("error");
                 feedbackFormEmail.parentNode.classList.add("valid");
@@ -1141,6 +1155,8 @@ window.addEventListener("load", function () {
                 feedbackFormEmail.parentNode.classList.remove("valid");
                 feedbackFormEmail.parentNode.classList.add("error");
             }
+        })
+        feedbackFormPhone.addEventListener('keyup', () => {
             if (regexPhone.test(feedbackFormPhone.value)) {
                 feedbackFormPhone.parentNode.classList.remove("error");
                 feedbackFormPhone.parentNode.classList.add("valid");
@@ -1148,6 +1164,8 @@ window.addEventListener("load", function () {
                 feedbackFormPhone.parentNode.classList.remove("valid");
                 feedbackFormPhone.parentNode.classList.add("error");
             }
+        })
+        feedbackForm.addEventListener('keyup', () => {
             if(!isEmptyObject(feedbackFormAppeal)) {
                 feedbackFormAppeal.forEach(function (el) {
                     if (el.checked) {
@@ -1217,18 +1235,22 @@ window.addEventListener("load", function () {
                                 console.log("Извините, произошла ошибка. Пожалуйста, повторите отправку позже!")
                                 break;
                             case '1':
-                                feedbackFormName.classList.remove("valid");
-                                feedbackFormEmail.classList.remove("valid");
-                                feedbackFormPhone.classList.remove("valid");
-                                if(feedbackFormCompany !== null) {
+                                //feedbackFormName.classList.remove("valid");
+                                //feedbackFormEmail.classList.remove("valid");
+                                //feedbackFormPhone.classList.remove("valid");
+                                /*if(feedbackFormCompany !== null) {
                                     feedbackFormCompany.classList.remove("valid");
-                                }
+                                }*/
                                 break;
                         }
                     }
                 };
                 //ajax()
                 feedbackForm.reset();
+                feedbackForm.querySelectorAll(".feedback-form__item").forEach(function (el) {
+                    el.classList.remove("error");
+                    el.classList.remove("valid");
+                })
                 if(!isEmptyObject(feedbackFormAppeal)){
                     feedbackFormAppeal.forEach(function (input) {
                         if (input.value == "Выберете тему обращения") {
@@ -1240,4 +1262,293 @@ window.addEventListener("load", function () {
             }
         });
     }
+
+    let reviewGallery = document.getElementById("review-gallery");
+    if(reviewGallery !== null){
+        let cards = reviewGallery.querySelectorAll(".review-gallery__card");
+        let numberPhoto = reviewGallery.querySelector(".review-gallery__number");
+        let reviewGalleryBtn = document.querySelector(".review-gallery__btn");
+        let count = 0;
+        cards.forEach((el, i) => {
+            if(window.screen.width < 992) {
+                if (i > 3) {
+                    el.style.display = "none";
+                }
+            }
+            else{
+                if (i > 6) {
+                    el.style.display = "none";
+                }
+            }
+            count = i;
+        });
+        if(window.screen.width < 992) {
+            count = count - 3;
+        }
+        else{
+            count = count - 6;
+        }
+        numberPhoto.innerHTML = "+"+ count;
+        numberPhoto.addEventListener("click", function (e) {
+            e.preventDefault();
+            cards[0].click();
+        })
+        reviewGalleryBtn.addEventListener("click", function (e) {
+            e.preventDefault();
+            cards[0].click();
+        })
+        lightGallery(reviewGallery, {
+            selector: '.review-gallery__card',
+            prevHtml: '<svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">\n' +
+                '<path d="M17.0404 19.1275C17.431 19.5181 17.431 20.1512 17.0404 20.5417C16.6499 20.9323 16.0168 20.9323 15.6262 20.5417L17.0404 19.1275ZM10.5 14.0013L9.79289 14.7084C9.40237 14.3179 9.40237 13.6847 9.79289 13.2942L10.5 14.0013ZM15.6262 7.46086C16.0167 7.07034 16.6499 7.07034 17.0404 7.46086C17.431 7.85139 17.431 8.48455 17.0404 8.87508L15.6262 7.46086ZM15.6262 20.5417L9.79289 14.7084L11.2071 13.2942L17.0404 19.1275L15.6262 20.5417ZM9.79289 13.2942L15.6262 7.46086L17.0404 8.87508L11.2071 14.7084L9.79289 13.2942Z" fill="white"/>\n' +
+                '</svg>',
+            nextHtml: '<svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">\n' +
+                '<path d="M10.9596 19.1275C10.569 19.5181 10.569 20.1512 10.9596 20.5417C11.3501 20.9323 11.9832 20.9323 12.3738 20.5417L10.9596 19.1275ZM17.5 14.0013L18.2071 14.7084C18.5976 14.3179 18.5976 13.6847 18.2071 13.2942L17.5 14.0013ZM12.3738 7.46086C11.9833 7.07034 11.3501 7.07034 10.9596 7.46086C10.569 7.85139 10.569 8.48455 10.9596 8.87508L12.3738 7.46086ZM12.3738 20.5417L18.2071 14.7084L16.7929 13.2942L10.9596 19.1275L12.3738 20.5417ZM18.2071 13.2942L12.3738 7.46086L10.9596 8.87508L16.7929 14.7084L18.2071 13.2942Z" fill="currentColor"/>\n' +
+                '</svg>',
+            mobileSettings: {
+                showCloseIcon: true
+            },
+        });
+    }
+    let reviewCardGallery = document.querySelectorAll(".review-card__gallery");
+    if(!isEmptyObject(reviewCardGallery)){
+        reviewCardGallery.forEach(function (el) {
+            lightGallery(el, {
+                selector: '.card',
+                prevHtml: '<svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">\n' +
+                    '<path d="M17.0404 19.1275C17.431 19.5181 17.431 20.1512 17.0404 20.5417C16.6499 20.9323 16.0168 20.9323 15.6262 20.5417L17.0404 19.1275ZM10.5 14.0013L9.79289 14.7084C9.40237 14.3179 9.40237 13.6847 9.79289 13.2942L10.5 14.0013ZM15.6262 7.46086C16.0167 7.07034 16.6499 7.07034 17.0404 7.46086C17.431 7.85139 17.431 8.48455 17.0404 8.87508L15.6262 7.46086ZM15.6262 20.5417L9.79289 14.7084L11.2071 13.2942L17.0404 19.1275L15.6262 20.5417ZM9.79289 13.2942L15.6262 7.46086L17.0404 8.87508L11.2071 14.7084L9.79289 13.2942Z" fill="white"/>\n' +
+                    '</svg>',
+                nextHtml: '<svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">\n' +
+                    '<path d="M10.9596 19.1275C10.569 19.5181 10.569 20.1512 10.9596 20.5417C11.3501 20.9323 11.9832 20.9323 12.3738 20.5417L10.9596 19.1275ZM17.5 14.0013L18.2071 14.7084C18.5976 14.3179 18.5976 13.6847 18.2071 13.2942L17.5 14.0013ZM12.3738 7.46086C11.9833 7.07034 11.3501 7.07034 10.9596 7.46086C10.569 7.85139 10.569 8.48455 10.9596 8.87508L12.3738 7.46086ZM12.3738 20.5417L18.2071 14.7084L16.7929 13.2942L10.9596 19.1275L12.3738 20.5417ZM18.2071 13.2942L12.3738 7.46086L10.9596 8.87508L16.7929 14.7084L18.2071 13.2942Z" fill="currentColor"/>\n' +
+                    '</svg>',
+                mobileSettings: {
+                    showCloseIcon: true
+                },
+            });
+        })
+    }
+
+    let btnComplain = document.querySelectorAll(".btnComplain");
+    let complainPopup = document.getElementById("complain-popup");
+    let complainPopupSuccess = document.getElementById("complain-popup-success");
+    let popupReview = document.getElementById("popup-review")
+    let sizesPopupError = document.getElementById("sizes-popup-error");
+    if(complainPopup !== null && fadeForm !== null && !isEmptyObject(btnComplain) && complainPopupSuccess !== null && sizesPopupError !== null){
+        btnComplain.forEach(function (btn) {
+            btn.addEventListener("click", () => {
+                complainPopup.classList.add("complain-popup--open");
+                fadeForm.classList.add("open");
+            })
+        })
+        fadeForm.addEventListener("click", function (e) {
+            complainPopup.classList.remove("complain-popup--open");
+            complainPopupSuccess.classList.remove("complain-popup-success--open");
+            sizesPopupError.classList.remove("sizes-popup-error--open");
+            fadeForm.classList.remove("open");
+        });
+        document.querySelectorAll(".popup__close").forEach(function (btn){
+            btn.addEventListener("click", function (e){
+                complainPopup.classList.remove("complain-popup--open");
+                fadeForm.classList.remove("open");
+            })
+        })
+        complainPopup.querySelector(".popup-complain__btn").addEventListener("click", function (e) {
+            complainPopup.querySelectorAll("input").forEach(function (elem) {
+                if (elem.checked) {
+                    complainPopup.classList.remove("complain-popup--open");
+                    complainPopupSuccess.classList.add("complain-popup-success--open");
+                    setTimeout(function(){
+                        complainPopupSuccess.classList.remove("complain-popup-success--open");
+                        fadeForm.classList.remove("open");
+                    }, 3000);
+                }
+            })
+        })
+        complainPopupSuccess.querySelector(".complain-popup-success__btn").addEventListener("click", function (e) {
+            complainPopupSuccess.classList.remove("complain-popup-success--open");
+            fadeForm.classList.remove("open");
+        })
+        sizesPopupError.querySelector(".sizes-popup-error__btn").addEventListener("click", function (e) {
+            sizesPopupError.classList.remove("sizes-popup-error--open");
+            //fadeForm.classList.remove("open");
+            popupReview.style.zIndex = "200";
+        })
+    }
+    let popupReviewForm = document.getElementById("popup-review-form");
+    let reviewMessage = document.getElementById("review-message");
+    let reviewBtnPopup = document.querySelectorAll(".reviewBtnPopup");
+    let popupReviewSuccess = document.getElementById("popup-review-success");
+    if(popupReviewForm !== null && popupReview !== null && reviewBtnPopup !== null && fadeForm !== null && popupReviewSuccess !== null) {
+        fadeForm.addEventListener("click", function (e) {
+            fadeForm.classList.remove("open");
+            popupReviewSuccess.classList.remove("popup-review--open");
+            popupReview.classList.remove("popup-review--open");
+            popupReview.style.zIndex = "200";
+        })
+        reviewBtnPopup.forEach(function (btn) {
+            btn.addEventListener("click", function (el) {
+                popupReview.classList.add("popup-review--open");
+                fadeForm.classList.add("open");
+            })
+        })
+        popupReviewSuccess.querySelector(".popup-review-success__btn").addEventListener("click", function (el) {
+            popupReviewSuccess.classList.remove("popup-review-success--open");
+            fadeForm.classList.remove("open");
+        })
+        popupReview.querySelector(".popup-review__close").addEventListener("click", function (e){
+            popupReview.classList.remove("popup-review--open");
+            fadeForm.classList.remove("open");
+        })
+        reviewMessage.addEventListener('keyup', () => {
+            let valueMessage = reviewMessage.value.length;
+            document.querySelector(".popup-review-form__message .now").innerHTML = valueMessage;
+            if (regexSubject.test(reviewMessage.value)) {
+                reviewMessage.classList.remove("error");
+                reviewMessage.classList.add("valid");
+            } else {
+                reviewMessage.classList.remove("valid");
+                reviewMessage.classList.add("error");
+            }
+        })
+        popupReviewForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+            if (!regexSubject.test(reviewMessage.value)) {
+                if (!regexEmail.test(reviewMessage.value)) {
+                    reviewMessage.classList.add("error");
+                }
+            }
+            else {
+                const ajax = async () => {
+                    const response = await fetch('/wp-admin/admin-ajax.php', { // php обработчик формы
+                        method: 'POST',
+                        headers: new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' }),
+                        body: new FormData(popupReviewForm),
+                    });
+                    if (!response.ok) {
+                        throw new Error(response.status);
+                    } else {
+                        const data = await response.text();
+                        switch (data) {
+                            case '0':
+                                console.log("Извините, произошла ошибка. Пожалуйста, повторите отправку позже!")
+                                break;
+                            case '1':
+                                popupReview.classList.remove("popup-review--open");
+                                popupReviewSuccess.classList.add("popup-review-success--open");
+                                setTimeout(function(){
+                                    popupReviewSuccess.classList.remove("popup-review-success--open");
+                                    fadeForm.classList.remove("open");
+                                }, 3000);
+                                break;
+                        }
+                    }
+                };
+                //ajax()
+                popupReviewForm.reset();
+            }
+        });
+    }
+
+
+
+
+    let files = [],
+        dragArea = document.querySelector('.drag-area'),
+        input = document.querySelector('.drag-area input'),
+        //button = document.querySelector('.card button'),
+        dragAreaSelect = document.querySelector('.drag-area .drag-area__select'),
+        container = document.getElementById('container');
+
+    /** CLICK LISTENER */
+    dragAreaSelect.addEventListener('click', () => input.click());
+
+    /* INPUT CHANGE EVENT */
+    let sizes = 0, sizesAll = 0;
+    input.addEventListener('change', () => {
+        let file = input.files;
+        for(let i = 0; i < file.length; i++) {
+            sizes += file[i].size;
+        }
+        files.forEach(function (el, index) {
+            sizesAll += el.size;
+        })
+        /*for(let j = 0; files.length; j++) {
+
+
+        }*/
+        // if user select no image
+        if (file.length == 0) return;
+        else if (sizes >= 10485760 || sizesAll >= 10485760){
+            if(sizesPopupError !== null){
+                sizesPopupError.classList.add("sizes-popup-error--open");
+                popupReview.style.zIndex = "199";
+                setTimeout(function(){
+                    sizesPopupError.classList.remove("sizes-popup-error--open");
+                    popupReview.style.zIndex = "200";
+                }, 3000);
+            }
+        }
+        else if (file.length > 5 || files.length > 3){
+            alert("Загрузите до 5 фотографий");
+        }
+        else{
+            for(let i = 0; i < file.length; i++) {
+                if (file[i].type.split("/")[0] != 'image') continue;
+                if (!files.some(e => e.name == file[i].name)) files.push(file[i])
+            }
+            showImages();
+        }
+        console.log(files)
+    });
+
+    /** SHOW IMAGES */
+    function showImages() {
+        container.innerHTML = files.reduce((prev, curr, index) => {
+            return `${prev}
+		    <div class="image">
+			    <span class="image-delete">&times;</span>
+			    <img src="${URL.createObjectURL(curr)}" />
+			</div>`
+        }, ''); /*onclick="delImage(${index});"*/
+
+        document.querySelectorAll(".image-delete").forEach(function (btn, index) {
+            btn.addEventListener("click",function (e) {
+                e.preventDefault();
+                files.splice(index, 1);
+                showImages();
+            });
+        })
+    }
+
+    /* DELETE IMAGE */
+    /*function delImage(index) {
+        files.splice(index, 1);
+        showImages();
+    }*/
+    /* DRAG & DROP */
+    dragArea.addEventListener('dragover', e => {
+        e.preventDefault()
+        dragArea.classList.add('dragover')
+    })
+
+    /* DRAG LEAVE */
+    dragArea.addEventListener('dragleave', e => {
+        e.preventDefault()
+        dragArea.classList.remove('dragover')
+    });
+
+    /* DROP EVENT */
+    dragArea.addEventListener('drop', e => {
+        e.preventDefault()
+        dragArea.classList.remove('dragover');
+
+        let file = e.dataTransfer.files;
+        for (let i = 0; i < file.length; i++) {
+            /** Check selected file is image */
+            if (file[i].type.split("/")[0] != 'image') continue;
+
+            if (!files.some(e => e.name == file[i].name)) files.push(file[i])
+        }
+        showImages();
+    });
 })

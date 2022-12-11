@@ -12,6 +12,7 @@
                 <span class="footer-menu__title">Помощь</span>
                 <ul class="menu-sub">
                     <li class="menu-sub__item"><a href="page-how-to-make.html" class="menu-sub__link p2">Как сделать заказ</a></li>
+                    <li class="menu-sub__item"><a href="brand-profile.html" class="menu-sub__link p2">Бренды</a></li>
                 </ul>
             </li>
             <li class="footer-menu__item">
@@ -58,8 +59,8 @@
                 <input type="text" class="city-popup__input p2" autocomplete="off" placeholder="Выберете город">
             </label>
         </div>
-        <div class="city-popup__scroll">
-            <ul class="city-popup__list scroll">
+        <div class="city-popup__scroll scroll">
+            <ul class="city-popup__list">
                 <li class="city-popup__list-item p1 df df-ai-center" data-value="минск">
                     <svg width="18" height="18">
                         <use xlink:href="/img/sprites.svg#icon-location"></use>
@@ -254,4 +255,121 @@
         <div class="cookie-notice__text p2">Мы используем <b>файлы cookie</b>, чтобы улучшить сайт для вас</div>
         <button class="cookie-notice__btn p3 bold" id="cookie-notice-btn">Согласен</button>
     </div>
+</div>
+
+<div class="popup-review" id="popup-review">
+    <svg class="popup-review__close" width="14" height="14">
+        <use xlink:href="/img/sprites.svg#icon-close"></use>
+    </svg>
+    <form class="popup-review-form" method="post" id="popup-review-form">
+        <div class="popup-review-form__rating m-20">
+            <div class="popup-review-form__title-mark h3">Оценка:</div>
+            <div class="stars">
+                <input name="rating" id="rating-5" value="5" type="radio">
+                <label for="rating-5">
+                    <svg width="16" height="15">
+                        <use xlink:href="./img/sprites.svg#icon-star"></use>
+                    </svg>
+                </label>
+                <input name="rating" id="rating-4" value="4" type="radio">
+                <label for="rating-4">
+                    <svg width="16" height="15">
+                        <use xlink:href="./img/sprites.svg#icon-star"></use>
+                    </svg>
+                </label>
+                <input name="rating" id="rating-3" value="3" type="radio">
+                <label for="rating-3">
+                    <svg width="16" height="15">
+                        <use xlink:href="./img/sprites.svg#icon-star"></use>
+                    </svg>
+                </label>
+                <input name="rating" id="rating-2" value="2" type="radio">
+                <label for="rating-2">
+                    <svg width="16" height="15">
+                        <use xlink:href="./img/sprites.svg#icon-star"></use>
+                    </svg>
+                </label>
+                <input name="rating" id="rating-1" value="1" type="radio">
+                <label for="rating-1">
+                    <svg width="16" height="15">
+                        <use xlink:href="./img/sprites.svg#icon-star"></use>
+                    </svg>
+                </label>
+            </div>
+        </div>
+        <div class="popup-review-form__message m-20 clear">
+            <div class="popup-review-form__row df df-ai-center df-jc-between">
+                <label for="review-message" class="popup-review-form__label h6">Расскажите о товаре</label>
+                <div class="symbols p3 df df-ai-center">
+                    <span class="now">0</span>
+                    <span class="all">&nbsp;/ 1000</span>
+                </div>
+            </div>
+            <textarea class="popup-review-form__textarea" placeholder="Оставьте комментарий.." maxlength="1000" id="review-message"></textarea>
+        </div>
+        <div class="popup-review-form__files m-20">
+            <div class="popup-review-form__row">
+                <label for="review-message" class="popup-review-form__label h6">Загрузите до 5 фотографий</label>
+            </div>
+            <div class="drag-area df df-ai-center">
+                <div class="drag-area__select df df-ai-center df-jc-center" role="button">
+                    <svg width="36" height="36">
+                        <use xlink:href="/img/sprites.svg#icon-photo"></use>
+                    </svg>
+                </div>
+                <!-- START IMAGE PREVIEW CONTAINER -->
+                <div class="df df-ai-stretch" id="container"></div>
+                <!-- END IMAGE PREVIEW CONTAINER -->
+                <div class="drag-area__info">
+                    <div class="title p1">Нажмите на область с иконкой</div>
+                    <div class="text p3">Фото до 10 МБ. Формат JPG, JPEG, PNG, BMP, GIF</div>
+                </div>
+                <input name="file" type="file" class="file" multiple />
+            </div>
+        </div>
+        <div class="popup-review-form__bottom m-20 df df-ai-center">
+            <button class="popup-review-form__btn btn-main">Отправить</button>
+            <div class="popup-review-form__text p3">Размещая отзыв на сайте, Вы даёте согласие на использование отзыва на сторонних ресурсах</div>
+        </div>
+    </form>
+</div>
+<div class="popup-review-success" id="popup-review-success">
+    <div class="popup-review-success__title h4">Спасибо за ваш отзыв!</div>
+    <div class="popup-review-success__text p1">Мы его разместим после того, как он пройдет модерацию.</div>
+    <button class="popup-review-success__btn btn-main">Закрыть</button>
+</div>
+<div class="popup" id="complain-popup">
+    <svg class="popup__close" width="14" height="14">
+        <use xlink:href="/img/sprites.svg#icon-close"></use>
+    </svg>
+    <div class="popup-complain">
+        <div class="popup-complain__title h3">Почему Вы хотите пожаловаться на отзыв?</div>
+        <div class="popup-complain__list">
+            <div class="popup-complain__item">
+                <input id="input-complain-1" class="popup-complain__input" type="radio" name="complain" value="1">
+                <label for="input-complain-1" tabindex="0" class="popup-complain__label">Отзыв содержит нецензурную, бранную лексику</label>
+            </div>
+            <div class="pop-up-complain__item">
+                <input id="input-complain-2" class="popup-complain__input" type="radio" name="complain" value="2">
+                <label for="input-complain-2" tabindex="0" class="popup-complain__label">Заказной, фиктивный</label>
+            </div>
+            <div class="pop-up-complain__item">
+                <input id="input-complain-3" class="popup-complain__input" type="radio" name="complain" value="3">
+                <label for="input-complain-3" tabindex="0" class="popup-complain__label">Спам</label>
+            </div>
+            <div class="pop-up-complain__item">
+                <input id="input-complain-4" class="popup-complain__input" type="radio" name="complain" value="4">
+                <label for="input-complain-4" tabindex="0" class="popup-complain__label">Некорректное фото, видео</label>
+            </div>
+        </div>
+        <button class="popup-complain__btn btn-main">Сообщить</button>
+    </div>
+</div>
+<div class="complain-popup-success" id="complain-popup-success">
+    <div class="complain-popup-success__title p1">Мы учли Вашу жалобу. Спасибо!</div>
+    <button class="complain-popup-success__btn btn-main">Закрыть</button>
+</div>
+<div class="sizes-popup-error" id="sizes-popup-error">
+    <div class="sizes-popup-error__title p1">Размер файла не должен превышать 10 Mb.</div>
+    <button class="sizes-popup-error__btn btn-main">Закрыть</button>
 </div>
