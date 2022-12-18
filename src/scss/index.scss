@@ -309,9 +309,7 @@ input[type=search] {
   float: none;
   margin: 0 auto 20px;
   padding: 0;
-  & > * + *{
-    margin-left: 10px;
-  }
+
 }
 .lg-outer .lg-thumb-outer{
   background: transparent;
@@ -323,8 +321,11 @@ input[type=search] {
   float: none;
   border: 1px solid transparent;
   border-radius: 6px;
-  margin: 0!important;
+  margin: 0 10px 0 0!important;
   flex-shrink: 0;
+  &:last-child{
+    margin: 0!important;
+  }
   &.active,
   &:hover{
     border: 1px solid $blue;
@@ -1970,6 +1971,9 @@ p{
     line-height: 130%;
     color: $grayText;
     margin-bottom: 6px;
+    &:last-child{
+      margin-bottom: 0;
+    }
     &.footer__text--last{
       margin-bottom: 15px;
     }
@@ -2519,12 +2523,12 @@ p{
           opacity: 0.2;
         }
         & > input:checked ~ label {
-          color: #ffc700;
+          color: $yellow;
           opacity: 1;
         }
         &:not(:checked) > label:hover,
         &:not(:checked) > label:hover ~ label {
-          color: #deb217;
+          color: $yellow;
           opacity: 1;
         }
         & > input:checked + label:hover,
@@ -2532,7 +2536,7 @@ p{
         & > input:checked ~ label:hover,
         & > input:checked ~ label:hover ~ label,
         & > label:hover ~ input:checked ~ label {
-          color: #c59b08;
+          color: $yellow;
           opacity: 1;
         }
       }
@@ -2604,6 +2608,7 @@ p{
         border: 1px solid $grayLine;
         margin-right: 16px;
         flex-shrink: 0 ;
+        cursor: pointer;
         @include media("max", "lg"){
           width: 55px;
           height: 55px;
@@ -3121,10 +3126,16 @@ p{
         min-height: 36px;
         width: auto;
         margin-bottom: 12px;
+        svg{
+          margin-right: 5px;
+          @include media("max", "lg") {
+            margin-right: 0;
+          }
+        }
         @include media("max", "lg"){
           font-size: 0;
-          min-width: 36px;
-          width: 36px;
+          min-width: 40px;
+          width: 40px;
           gap: 0;
           margin-bottom: 0;
         }
@@ -3230,7 +3241,7 @@ p{
   }
   &__price{
     .label{
-      margin-bottom: 2px;
+      margin-bottom: 1px;
       color: $grayText;
       @include media("max", "lg") {
         font-size: 10px;
@@ -3515,7 +3526,8 @@ p{
           color: $black;
         }
         &__form{
-          margin-top: 12px;
+          margin-top: -6px;
+          /*margin-right: -12px;*/
           /*gap: 12px;*/
           width: 100%;
           @include media("max", "md") {
@@ -3526,7 +3538,7 @@ p{
         &__box{
           position: relative;
           flex-shrink: 0;
-          margin-right: 12px;
+          margin: 12px 12px 0 0;
           &:last-child{
             margin-right: 0;
           }
@@ -3791,19 +3803,21 @@ p{
     margin-bottom: 12px;
   }
   &__list{
-    display: grid;
+    /*display: grid;
     grid-template-columns: 1fr;
-    grid-gap: 12px;
+    grid-gap: 12px;*/
+    width: 100%;
   }
   &__item{
     position: relative;
     .title{
-      display: inline-block;
+      /*display: inline-block;*/
       color: $grayText;
       background: $white;
       width: 320px;
       vertical-align: top;
       overflow: hidden;
+      padding: 6px 0;
       @include media("max", "lg") {
         width: 50%;
       }
@@ -3817,13 +3831,14 @@ p{
       }
     }
     .value{
-      display: inline-block;
+      /*display: inline-block;*/
       color: $black;
       background: $white;
       letter-spacing: normal;
       padding-left: 5px;
-      width: calc(100% - 320px);
+      /*width: calc(100% - 320px);*/
       vertical-align: bottom;
+      padding: 6px 0;
       @include media("max", "lg") {
         width: 50%;
       }
@@ -3944,6 +3959,13 @@ p{
     margin-bottom: 16px;
     @include media("max", "lg") {
       margin-bottom: 8px;
+    }
+  }
+  &__text{
+    color: $grayText;
+    margin-bottom: 20px;
+    @include media("max", "lg") {
+      margin-bottom: 16px;
     }
   }
   &-gallery{
@@ -4202,6 +4224,41 @@ p{
       &:last-child{
         margin-right: 0;
       }
+      @include media("min", "lg") {
+        &:hover {
+          color: $blueHover;
+        }
+      }
+      &:focus,
+      &:active{
+        color: $blueAccent;
+      }
+    }
+    &__row{
+      @include media("max", "lg") {
+        flex-flow: column;
+      }
+    }
+    &__logo-product{
+      width: 80px;
+      height: 80px;
+      margin-right: 25px;
+      flex-shrink: 0;
+      @include media("max", "lg") {
+        width: 50px;
+        height: 50px;
+        margin: 0 0 12px;
+      }
+      img{
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+    &__link-product{
+      color: $blue;
+      font-weight: 700;
       @include media("min", "lg") {
         &:hover {
           color: $blueHover;
@@ -5029,6 +5086,95 @@ p{
     padding: 12px 10px;
     border-radius: 0;
   }
+  &-order{
+    &__title{
+      margin-bottom: 8px;
+      color: $black;
+    }
+    &__text{
+      color: $black;
+    }
+    &__separator{
+      background: $grayBg;
+      height: 4px;
+      margin: 20px -20px;
+      @include media("max", "lg"){
+        margin: 20px -10px 12px;
+      }
+    }
+    &__list{
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-gap: 12px;
+      background: #FAFBFD;
+      border-radius: 8px;
+      padding: 12px;
+      margin-top: 16px;
+      @include media("max", "lg") {
+        padding: 0;
+      }
+      .order-item{
+        color: $black;
+        cursor: pointer;
+        &.order-item--no-active{
+          .order-item__title,
+          .order-item__img,
+          .order-item__price{
+            opacity: 0.5;
+          }
+        }
+        @include media("max", "sm") {
+          align-items: flex-start;
+        }
+        @include media("min", "lg") {
+          /*&:hover {
+            background: $grayBg;
+            color: $blueHover;
+          }*/
+        }
+        /*&:focus,
+        &:active{
+          background: $grayBg;
+          color: $blueAccent;
+        }*/
+        &__left{
+          @include media("max", "sm") {
+            align-items: flex-start;
+          }
+        }
+        &__img{
+          flex-shrink: 0;
+          margin-right: 12px;
+          border-radius: 6px;
+        }
+        &__status{
+          display: block;
+          font-size: 10px;
+          line-height: 150%;
+          color: $pink;
+          position: relative;
+          z-index: 2;
+          opacity: 1;
+        }
+        &__price{
+          display: block;
+          line-height: 130%;
+          font-weight: 600;
+          flex-shrink: 0;
+          margin-left: 15px;
+          @include media("max", "sm") {
+            margin: 15px 0 0 15px;
+          }
+        }
+      }
+    }
+    &__note{
+      display: block;
+      line-height: 130%;
+      color: $grayText;
+      margin: 16px 0 0;
+    }
+  }
   &__status{
     margin-bottom: 16px;
     @include media("max", "lg"){
@@ -5212,6 +5358,9 @@ p{
       border-radius: 8px;
       padding: 8px 10px;
       color: $black;
+      @include media("max", "lg"){
+        right: 0;
+      }
       @include media("max", "sm"){
         width: 340px;
         top: -120px;
@@ -5890,6 +6039,7 @@ p{
   @include media("max", "lg") {
     margin: 10px -10px!important;
     padding: 10px;
+    border-radius: 0;
   }
   &__head{
     margin-bottom: 16px;
@@ -5957,6 +6107,7 @@ p{
   }
 }
 
+/* ACCOUNT SECTION */
 .pharmacy-list{
   &__row{
     padding: 18px 0;
@@ -6054,6 +6205,451 @@ p{
     &:focus,
     &:active{
       color: $blueAccent;
+    }
+  }
+}
+.account-menu-wrapper{
+  @include media("max", "xl"){
+    display: none;
+  }
+}
+.account-menu{
+  background: $white;
+  border-radius: 8px;
+  width: 230px;
+  position: sticky;
+  top: 80px;
+  z-index: 99;
+  /*box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);*/
+  box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.06);
+  padding: 20px 12px 12px;
+  min-height: 425px;
+  &__title{
+    margin-bottom: 16px;
+  }
+  &__list {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 8px;
+  }
+  &__item.account-menu__item--main{
+    &.active{
+      background: $grayBg;
+      color: $blueAccent;
+    }
+  }
+  &__separator{
+    display: block;
+    width: 100%;
+    height: 1px;
+    background: $grayLine;
+    margin: 16px 0;
+  }
+  &__item{
+    color: $black;
+    padding: 6px 8px;
+    border-radius: 6px;
+    cursor: pointer;
+    &.active{
+      background: $grayBg;
+    }
+    svg{
+      margin-right: 8px;
+    }
+    @include media("min", "lg") {
+      &:hover {
+        color: $blueHover;
+      }
+    }
+    &:focus,
+    &:active{
+      color: $blueAccent;
+    }
+  }
+  &__link{
+    display: block;
+  }
+  &__btn{
+    display: flex;
+    margin: auto 0 0;
+  }
+}
+.account-order{
+  &.account-order--empty{
+    .account-order-empty{
+      display: flex;
+    }
+  }
+  &-empty{
+    display: none;
+    background: $white;
+    box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.02);
+    border-radius: 8px;
+    padding: 20px;
+    min-height: 525px;
+    @include media("max", "lg") {
+      margin: 10px -10px!important;
+      padding: 20px 10px;
+      border-radius: 0;
+      min-height: 165px;
+    }
+    &__content{
+      max-width: 370px;
+      text-align: center;
+    }
+    &__title{
+      margin-bottom: 8px;
+    }
+    &__text{
+      color: $grayText;
+      margin-bottom: 16px;
+    }
+    &__btn{
+      margin: 0 auto;
+      width: fit-content;
+    }
+  }
+  background: $white;
+  box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.02);
+  border-radius: 8px;
+  padding: 20px;
+  margin: 20px 0;
+  @include media("max", "lg") {
+    margin: 10px -10px 10px!important;
+    padding: 12px 10px;
+    border-radius: 0;
+  }
+  &__title {
+    margin-bottom: 8px;
+  }
+  &__text{
+    margin-bottom: 20px;
+    color: $grayText;
+  }
+  &__separator{
+    background: $grayBg;
+    height: 4px;
+    margin: 20px -20px;
+    @include media("max", "lg"){
+      margin: 20px -10px 12px;
+    }
+  }
+  &__row{
+    overflow-y: hidden;
+    overflow-x: auto;
+    margin: 0 10px -10px 0;
+    &::-webkit-scrollbar {
+      width: 0;
+      height: 0;
+    }
+  }
+  &__btn{
+    flex-shrink: 0;
+    background: transparent;
+    border: 1px solid $grayLine;
+    color: $black;
+    margin: 0 10px 10px 0;
+    &:last-child{
+      margin: 0 0 10px 0;
+    }
+    &.active{
+      border: 1px solid $blue;
+      color: $blue;
+    }
+    @include media("min", "lg") {
+      &:not(:disabled):hover {
+        background: transparent;
+        border: 1px solid $blueHover;
+        color: $blueHover;
+      }
+    }
+    &:not(:disabled):focus,
+    &:not(:disabled):active{
+      background: transparent;
+      border: 1px solid $blueAccent;
+      color: $blueAccent;
+    }
+  }
+  .inner-sorter{
+    &__right{
+      width: fit-content;
+      justify-content: flex-start;
+    }
+    .catalog-sorting{
+      &__select{
+        height: 40px;
+      }
+      &__title{
+        border: 1px solid $grayLine;
+      }
+    }
+  }
+  &__list{
+    .order-item{
+      padding: 18px 0;
+      &__row{
+        @include media("max", "sm") {
+          flex-flow: column;
+          align-items: flex-start;
+        }
+      }
+      &:not(:last-child){
+        border-bottom: 1px solid $grayLine;
+      }
+      &.active{
+        .order-item__list{
+          display: grid;
+        }
+      }
+      &__title{
+        margin-bottom: 8px;
+      }
+      &__status{
+        &.order-item__status--green{
+          .value{
+            color: $green;
+            &:before{
+              background: $green;
+              border: 2px solid rgba(52, 168, 83, 0.1);
+            }
+          }
+        }
+        &.order-item__status--blue{
+          .value{
+            color: $blue;
+            &:before{
+              background: $blue;
+              border: 2px solid rgba(5, 110, 207, 0.1);
+            }
+          }
+        }
+        &.order-item__status--red{
+          .value{
+            color: $pink;
+            &:before{
+              background: $pink;
+              border: 2px solid rgba(255, 60, 107, 0.1);;
+            }
+          }
+        }
+        .date{
+          margin-right: 8px;
+          color: $grayText;
+        }
+        .value{
+          color: $grayIcon;
+          &:before{
+            content: "";
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            flex-shrink: 0;
+            background: $grayIcon;
+            border: 2px solid rgba(110, 126, 150, 0.1);
+            margin-right: 6px;
+          }
+        }
+      }
+      &__right{
+        @include media("max", "sm") {
+          margin-top: 12px;
+          width: 100%;
+          align-items: flex-end;
+          justify-content: space-between;
+        }
+      }
+      &__column{
+        margin-right: 50px;
+      }
+      &__price{
+        margin-bottom: 8px;
+      }
+      &__btn-all{
+        color: $grayText;
+        cursor: pointer;
+        &.active svg{
+          transform: rotate(270deg);
+        }
+        svg{
+          transform: rotate(90deg);
+          margin-left: 8px;
+        }
+      }
+      &__list{
+        display: none;
+      }
+    }
+  }
+}
+.aside-order{
+  background: $white;
+  box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.02);
+  border-radius: 8px;
+  position: sticky;
+  top: 80px;
+  z-index: 99;
+  padding: 20px;
+  color: $black;
+  @include media("max", "xl") {
+    margin-top: 20px;
+    position: static;
+    top: unset;
+  }
+  @include media("max", "lg") {
+    margin: 10px -10px!important;
+    padding: 20px 10px;
+    border-radius: 0;
+  }
+  &__title{
+    margin-bottom: 8px;
+  }
+  &__status{
+    border-bottom: 1px solid $grayLine;
+    padding-bottom: 16px;
+    margin-bottom: 16px;
+    .name{
+      color: $grayText;
+    }
+    .value{
+      color: $blue;
+      font-weight: 700;
+    }
+  }
+  &__title-sub{
+    margin-bottom: 8px;
+  }
+  &__price{
+    margin-bottom: 16px;
+    .name{
+      color: $grayText;
+    }
+  }
+  &__btn{
+    width: 100%;
+  }
+}
+.account-feature{
+  &.account-feature--empty{
+    .account-feature-empty{
+      display: flex;
+    }
+  }
+  &__head{
+    margin-bottom: 20px;
+  }
+  &__clear{
+    font-weight: 700;
+    color: $blue;
+    @include media("min", "lg") {
+      &:hover {
+        color: $blueHover;
+      }
+    }
+    &:focus,
+    &:active{
+      color: $blueAccent;
+    }
+  }
+  &__list{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 20px;
+    margin-bottom: 20px;
+    @include media("max", "lg") {
+      grid-template-columns: repeat(3,1fr);
+      grid-gap: 10px;
+    }
+    @include media("max", "sm") {
+      grid-template-columns: repeat(2,1fr);
+    }
+  }
+  &-empty{
+    display: none;
+    background: $white;
+    box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.02);
+    border-radius: 8px;
+    padding: 20px;
+    min-height: 525px;
+    @include media("max", "lg") {
+      margin: 10px -10px!important;
+      padding: 20px 10px;
+      border-radius: 0;
+      min-height: 165px;
+    }
+    &__content{
+      max-width: 370px;
+      text-align: center;
+    }
+    &__title{
+      margin-bottom: 8px;
+    }
+    &__text{
+      color: $grayText;
+      margin-bottom: 16px;
+    }
+    &__btn{
+      margin: 0 auto;
+      width: fit-content;
+    }
+  }
+}
+.account-review{
+  &.account-review--empty{
+    .account-review-empty{
+      display: flex;
+    }
+  }
+  .review{
+    &-card{
+      position: relative;
+      &__right{
+        @include media("max", "lg") {
+          position: absolute;
+          top: 10px;
+          right: 10px;
+        }
+      }
+      .kebab-pop-up{
+        padding: 5px 8px;
+        width: 110px;
+        position: absolute;
+        top: 25px;
+        right: 0;
+        &:after{
+          top: -14px;
+          right: 3px;
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
+  &-empty{
+    display: none;
+    background: $white;
+    box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.02);
+    border-radius: 8px;
+    padding: 20px;
+    min-height: 525px;
+    @include media("max", "lg") {
+      margin: 10px -10px!important;
+      padding: 20px 10px;
+      border-radius: 0;
+      min-height: 165px;
+    }
+    &__content{
+      max-width: 370px;
+      text-align: center;
+    }
+    &__title{
+      margin-bottom: 8px;
+    }
+    &__text{
+      color: $grayText;
+      margin-bottom: 16px;
+    }
+    &__btn{
+      margin: 0 auto;
+      width: fit-content;
     }
   }
 }

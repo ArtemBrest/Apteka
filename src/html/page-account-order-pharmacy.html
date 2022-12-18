@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>АПТЕКА</title>
+    <link rel="stylesheet" href="./css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="./lightGallery-master/dist/css/lightgallery-bundle.min.css">
+    <link rel="stylesheet" href="./lightGallery-master/dist/css/lg-thumbnail.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/favicon/site.webmanifest">
+    <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#31353b">
+    <meta name="msapplication-TileColor" content="#31353b">
+    <meta name="theme-color" content="#0478E3">
+</head>
+<body class="scroll">
+@@include('./global/header.html')
+<div class="container">
+    <div class="grid-columns grid-columns_left m-20 m-footer">
+        <div class="account-menu-wrapper">
+            @@include('./global/account-menu.html')
+        </div>
+        <div class="content">
+            <div class="grid-columns grid-columns_right m-20">
+                <div class="content">
+                    <section class="pharmacy-profile pharmacy-profile-order">
+                        <h1 class="pharmacy-profile-order__title h1">Ваш заказ № 256.467.311</h1>
+                        <div class="pharmacy-profile-order__text p1">Как только заказ будет собран, на электронную почту придет оповещение. Ваш заказ будет храниться в аптеке 3 дня с момента готовности (в зависимости от аптеки).</div>
+                        <div class="pharmacy-profile-order__separator"></div>
+                        <div class="page-title h4">ФармОстров Аптека №9 на Рокоссовского</div>
+                        <div class="pharmacy-profile__status df df-ai-center p3">
+                            <span class="status status--close">Закрыто</span> <!--status--open-->
+                            <span class="separator">/</span>
+                            <span class="time">Откроется в 09:00 (пт)</span>
+                        </div>
+                        <div class="pharmacy-profile__wrapper">
+                            <div class="pharmacy-profile__map" id="pharmacy-profile-map"></div>
+                            <div class="pharmacy-profile__info pharmacy-info">
+                                <div class="pharmacy-info__item">
+                                    <div class="pharmacy-info__title p3">Адрес:</div>
+                                    <div class="pharmacy-info__text p3">г. Минск, ул. Просторная, 8</div>
+                                </div>
+                                <div class="pharmacy-info__item">
+                                    <div class="pharmacy-info__title p3">Ближайшее метро:</div>
+                                    <div class="pharmacy-info__text blue p3">м. Площадь победы</div> <!-- red, green-->
+                                </div>
+                                <div class="pharmacy-info__item">
+                                    <div class="pharmacy-info__title p3">Время работы:</div>
+                                    <div class="pharmacy-info__work-time">
+                                        <div class="day p3">Понедельник</div>
+                                        <div class="time p3">09:00–21:00</div>
+                                        <div class="day p3">Вторник</div>
+                                        <div class="time p3">09:00–21:00</div>
+                                        <div class="day p3">Среда</div>
+                                        <div class="time p3">09:00–21:00</div>
+                                        <div class="day p3">Четверг</div>
+                                        <div class="time p3">09:00–21:00</div>
+                                        <div class="day p3">Пятница</div>
+                                        <div class="time p3">09:00–21:00</div>
+                                        <div class="day p3">Суббота</div>
+                                        <div class="time p3">09:00–21:00</div>
+                                        <div class="day p3">Понедельник</div>
+                                        <div class="time p3">09:00–21:00</div>
+                                        <div class="day p3">Воскресенье</div>
+                                        <div class="time p3">09:00–21:00</div>
+                                    </div>
+                                </div>
+                                <div class="pharmacy-info__item">
+                                    <div class="pharmacy-info__title p3">Контакты:</div>
+                                    <a href="tel:+375293430213" class="pharmacy-info__link p3">+375 (29) 343 02 13</a>
+                                    <a href="tel:+375293430213" class="pharmacy-info__link p3">+375 (29) 343 02 13</a>
+                                </div>
+                                <div class="pharmacy-info__item">
+                                    <div class="pharmacy-info__title p3">Способы оплаты:</div>
+                                    <div class="pharmacy-info__text p3">Карта, Наличные</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <ul class="pharmacy-profile-order__list">
+                            <li class="order__item order-item df df-ai-center df-jc-between">
+                                <div class="order-item__left df df-ai-center">
+                                    <img src="./img/review-mini-photo-1.png" alt="" width="50" height="50" class="order-item__img">
+                                    <div class="order-item__left-content df df-column">
+                                        <span class="order-item__title p1">Набор из 2х уп. Максиган табл. №20 по спец.цене</span>
+                                    </div>
+                                </div>
+                                <span class="order-item__price df df-ai-center h5">8.55 р.</span>
+                            </li>
+                            <li class="order__item order-item df df-ai-center df-jc-between">
+                                <div class="order-item__left df df-ai-center">
+                                    <img src="./img/review-mini-photo-1.png" alt="" width="50" height="50" class="order-item__img">
+                                    <div class="order-item__left-content df df-column">
+                                        <span class="order-item__title p1">Набор из 2х уп. Максиган табл. №20 по спец.цене</span>
+                                    </div>
+                                </div>
+                                <span class="order-item__price df df-ai-center h5">8.55 р.</span>
+                            </li>
+                            <li class="order__item order-item order-item--no-active df df-ai-center df-jc-between">
+                                <div class="order-item__left df df-ai-center">
+                                    <img src="./img/review-mini-photo-1.png" alt="" width="50" height="50" class="order-item__img">
+                                    <div class="order-item__left-content df df-column">
+                                        <span class="order-item__status">Нет в наличии</span>
+                                        <span class="order-item__title p1">Librederm церафавит крем липидовосстанавливающий с церамидами и пребиотиком 75 мл</span>
+                                    </div>
+                                </div>
+                                <span class="order-item__price df df-ai-center h5">&mdash;</span>
+                            </li>
+                        </ul>
+                        <div class="pharmacy-profile-order__note p3">В заказе есть товары, которые отпускаются по рецепту врача.</div>
+                    </section>
+                    <section class="pharmacy-banner df df-ai-center df-jc-between">
+                        <img src="./img/pharmacy-profile-img.jpg" alt="" class="pharmacy-banner__img">
+                        <div class="pharmacy-banner__info">
+                            <div class="pharmacy-banner__title h2">Сэкономьте до <span>20 %</span></div>
+                            <div class="pharmacy-banner__text p1">Оформляя заказ на нашем сайте, вы экономите</div>
+                        </div>
+                        <div class="pharmacy-banner__faq">
+                            <svg class="icon" width="18" height="18">
+                                <use xlink:href="/img/sprites.svg#icon-i"></use>
+                            </svg>
+                            <div class="hint p3">В своём стремлении улучшить пользовательский опыт мы упускаем, что интерактивные прототипы формируют глобальную экономическую сеть и при этом —  рассмотрены исключительно в разрезе маркетинговых и финансовых предпосылок.</div>
+                        </div>
+                    </section>
+                </div>
+                <div>
+                    <aside class="aside-order">
+                        <div class="aside-order__title h3">Ваш заказ</div>
+                        <div class="aside-order__status df df-ai-center df-jc-between">
+                            <div class="name p3">Статус заказа</div>
+                            <div class="value p3">В работе</div>
+                        </div>
+                        <div class="aside-order__title-sub h5">Общая стоимость</div>
+                        <div class="aside-order__price df df-ai-end df-jc-between">
+                            <div class="name p3">Итого</div>
+                            <div class="value h2">39.25 р.</div>
+                        </div>
+                        <button class="aside-order__btn btn-main">Повторить заказ</button>
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@@include('./global/footer.html')
+<script defer src="./js/swiper-bundle.min.js"></script>
+<script defer src="./lightGallery-master/dist/lightgallery.min.js"></script>
+<script defer src="./lightGallery-master/dist/plugins/thumbnail/lg-thumbnail.min.js"></script>
+<script defer src="./js/index.js"></script>
+
+<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=2217d214-6b1d-4cb4-9e32-0bb75f87df86" type="text/javascript"></script>
+<script>!function(e,t){"object"==typeof exports&&"object"==typeof module?module.exports=t():"function"==typeof define&&define.amd?define([],t):"object"==typeof exports?exports.ymapsTouchScroll=t():e.ymapsTouchScroll=t()}(window,function(){return function(e){var t={};function n(o){if(t[o])return t[o].exports;var r=t[o]={i:o,l:!1,exports:{}};return e[o].call(r.exports,r,r.exports,n),r.l=!0,r.exports}return n.m=e,n.c=t,n.d=function(e,t,o){n.o(e,t)||Object.defineProperty(e,t,{enumerable:!0,get:o})},n.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},n.t=function(e,t){if(1&t&&(e=n(e)),8&t)return e;if(4&t&&"object"==typeof e&&e&&e.__esModule)return e;var o=Object.create(null);if(n.r(o),Object.defineProperty(o,"default",{enumerable:!0,value:e}),2&t&&"string"!=typeof e)for(var r in e)n.d(o,r,function(t){return e[t]}.bind(null,r));return o},n.n=function(e){var t=e&&e.__esModule?function(){return e.default}:function(){return e};return n.d(t,"a",t),t},n.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},n.p="",n(n.s=0)}([function(e,t,n){"use strict";function o(e){return(o="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e})(e)}n.r(t);t.default=function(e){var t=arguments.length>1&&void 0!==arguments[1]?arguments[1]:{},n=t.preventScroll,r=void 0===n||n,u=t.preventTouch,i=void 0===u||u,c=t.textScroll,f=void 0===c?"Чтобы изменить масштаб, прокручивайте карту, удерживая клавишу Ctrl":c,d=t.textTouch,a=void 0===d?"Чтобы переместить карту проведите по ней двумя пальцами":d;if("undefined"!=typeof window&&"object"===o(e)&&(r||i)&&"string"==typeof f&&"string"==typeof a){var l=/Mobi/i.test(navigator.userAgent)||/Android/i.test(navigator.userAgent),s=e.panes.get("events"),p=s.getElement(),y=l?a:f,b={alignItems:"center",boxSizing:"border-box",color:"#fff",display:"flex",justifyContent:"center",padding:"40px",textAlign:"center",transition:"background .2s",touchAction:"auto"};Object.keys(b).forEach(function(e){p.style[e]=b[e]});var v=function(e){p.style.background="rgba(0, 0, 0, ".concat(e?".6":"0",")"),p.textContent=e?y:""};if(i&&l&&(e.behaviors.disable("drag"),ymaps.domEvent.manager.add(p,"touchmove",function(e){v(1===e.get("touches").length)}),ymaps.domEvent.manager.add(p,"touchend",function(){v(!1)})),r&&!l){var m=function(t){t?e.behaviors.enable("scrollZoom"):e.behaviors.disable("scrollZoom")},g=!1,x=!1;m(!1),s.events.add("wheel",function(){g&&(m(x),v(!x))}),s.events.add("mousedown",function(){v(!1)}),s.events.add("mouseenter",function(){g=!0}),s.events.add("mouseleave",function(){g=!1,v(!1)}),document.addEventListener("keydown",function(e){(x=e.ctrlKey)&&v(!1)}),document.addEventListener("keyup",function(){x=!1})}}}}]).default});</script>
+<script>
+    ymaps.ready(init);
+
+    function init() {
+        var myMap = new ymaps.Map('pharmacy-profile-map', {
+            center: [53.818961, 27.465657],
+            zoom: 16,
+            controls: ['zoomControl'],
+        }, {
+            searchControlProvider: 'yandex#search'
+        });
+        ymapsTouchScroll(myMap);
+        var placemark = new ymaps.Placemark(myMap.getCenter(), {
+            // Зададим содержимое заголовка балуна.
+            balloonContentHeader: '<div class="title">Алладин-458</div>',
+            // Зададим содержимое основной части балуна.
+            balloonContentBody: '<p class="text">Молодежная ул, 10В, Климовск мкр, Подольск, МО</p',
+            // Зададим содержимое нижней части балуна.
+            balloonContentFooter: '<div class="row">\n' +
+                '    <img src="./img/phone.svg" height="16" width="16" class="row__icon">\n' +
+                '    <a href="tel:+71234567890" class="row__text">+7 (123) 456-78-90</a>\n' +
+                '</div>\n' +
+                '<div class="row">\n' +
+                '    <img src="./img/clock.svg" height="16" width="16" class="row__icon">\n' +
+                '    <p class="row__text">Открыто до 22:00</p>\n' +
+                '</div>',
+            // Зададим содержимое всплывающей подсказки.
+            hintContent: 'Алладин-458'
+        },/*{
+            // Опции.
+            // Необходимо указать данный тип макета.
+            iconLayout: 'default#image',
+            // Своё изображение иконки метки.
+            iconImageHref: './img/pharmaci.svg',
+            // Размеры метки.
+            iconImageSize: [48, 48],
+            // Смещение левого верхнего угла иконки относительно
+            // её "ножки" (точки привязки).
+            iconImageOffset: [-24, -24],
+        }*/);
+        // Добавим метку на карту.
+        myMap.geoObjects.add(placemark);
+        // Откроем балун на метке.
+        placemark.balloon.open();
+    }
+</script>
+<style>
+    .ymaps-2-1-79-balloon__layout{
+        background: #FFFFFF;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.06), 0px 0px 3px rgba(0, 0, 0, 0.06);
+        border-radius: 6px;
+        padding: 16px 12px!important;
+        width: 320px;
+        box-sizing: border-box;
+        border: none!important;
+    }
+    .ymaps-2-1-79-balloon__content{
+        margin: 0!important;
+        padding: 0!important;
+    }
+    .ymaps-2-1-79-balloon{
+        box-shadow: none!important;
+    }
+    @media only screen and (max-width: 580px){
+        .ymaps-2-1-79-balloon__content{
+            padding: 12px 10px!important;
+        }
+        .ymaps-2-1-79-balloon__close{
+            margin: 14px!important;
+        }
+    }
+    .ymaps-2-1-79-balloon__close-button{
+        width: 16px!important;
+        height: 16px!important;
+    }
+    .ymaps-2-1-79-balloon__tail{
+        box-shadow: none!important;
+        border-radius: 2px!important;
+        box-sizing: border-box!important;
+    }
+    .ymaps-2-1-79-balloon__content .title{
+        display: block;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 130%;
+        color: #056ECF;
+        margin-bottom: 8px;
+    }
+    .ymaps-2-1-79-balloon__content .text{
+        display: block;
+        max-width: 220px;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 150%;
+        color: #011930;
+        margin-bottom: 16px;
+    }
+    .ymaps-2-1-79-balloon__content .row{
+        display: flex;
+        align-items: center;
+        margin-bottom: 8px;
+    }
+    .ymaps-2-1-79-balloon__content .row:last-child{
+        margin-bottom: 0;
+    }
+    .ymaps-2-1-79-balloon__content .row__icon{
+        display: block;
+        margin-right: 8px;
+    }
+    .ymaps-2-1-79-balloon__content .row__text{
+        display: block;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 150%;
+        color: #011930;
+    }
+</style>
+</body>
+</html>

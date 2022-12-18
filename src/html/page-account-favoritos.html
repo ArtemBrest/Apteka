@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>АПТЕКА</title>
+    <link rel="stylesheet" href="./css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="./lightGallery-master/dist/css/lightgallery-bundle.min.css">
+    <link rel="stylesheet" href="./lightGallery-master/dist/css/lg-thumbnail.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/favicon/site.webmanifest">
+    <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#31353b">
+    <meta name="msapplication-TileColor" content="#31353b">
+    <meta name="theme-color" content="#0478E3">
+</head>
+<body class="scroll">
+@@include('./global/header.html')
+<div class="container">
+    <div class="grid-columns grid-columns_left m-20 m-footer">
+        <div class="account-menu-wrapper">
+            @@include('./global/account-menu.html')
+        </div>
+        <div class="content">
+            <section class="account-feature">
+                <div class="account-feature__head df df-ai-center df-jc-between">
+                    <h1 class="account-feature__title h1">Избранные товары</h1>
+                    <a href="#" class="account-feature__clear p3">Очистить</a>
+                </div>
+                <div class="account-feature__list">
+                    <div class="product-preview product-preview--horizontal df df-ai-stretch df-jc-between">
+                        <div class="product-preview__left df df-ai-stretch">
+                            <a href="product-page.html" class="product-preview__img df df-ai-stretch">
+                                <button class="product-preview__heart btn-heart df df-ai-center df-jc-center">
+                                    <svg width="20" height="20" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M8.87175 1.898L8.76603 1.81126C7.68678 0.925726 6.53166 0.476562 5.31295 0.476562C2.7681 0.476562 0.705078 2.53957 0.705078 5.08442C0.705078 8.60367 3.30553 12.0626 8.504 15.4995L8.87159 15.7426L9.23925 15.4995C14.4378 12.0626 17.0384 8.60367 17.0384 5.08442C17.0384 2.53956 14.9754 0.476562 12.4306 0.476562C11.2118 0.476562 10.0567 0.925727 8.97746 1.81126L8.87175 1.898ZM8.87175 3.74382L9.34116 3.27847C10.3327 2.2954 11.3547 1.8099 12.4306 1.8099C14.239 1.8099 15.7051 3.27594 15.7051 5.08442C15.7051 8.00414 13.4544 11.0135 8.96562 14.0772L8.87166 14.1413L8.77771 14.0772C4.28899 11.0135 2.03841 8.00414 2.03841 5.08442C2.03841 3.27595 3.50447 1.8099 5.31295 1.8099C6.38882 1.8099 7.41083 2.2954 8.40242 3.27848L8.87175 3.74382Z" fill="#6E7E96FF"></path>
+                                        <path d="M9.34116 3.27847L8.87175 3.74382L8.40242 3.27848C7.41083 2.2954 6.38882 1.8099 5.31295 1.8099C3.50447 1.8099 2.03841 3.27595 2.03841 5.08442C2.03841 8.00414 4.28899 11.0135 8.77771 14.0772L8.87166 14.1413L8.96562 14.0772C13.4544 11.0135 15.7051 8.00414 15.7051 5.08442C15.7051 3.27594 14.239 1.8099 12.4306 1.8099C11.3547 1.8099 10.3327 2.2954 9.34116 3.27847Z" fill="transparent"></path>
+                                    </svg>
+                                </button> <!--added-->
+                                <img src="./img/prodcut-img.png" alt="" width="215" height="215">
+                            </a>
+                            <div class="product-preview__content">
+                                <a href="product-page.html" class="product-preview__title h5">Набор из 2х уп. Максиган табл. №20 по спец.цене
+                                </a>
+                                <div class="product-preview__text p3">Лекфарм СООО, Республика Беларусь</div>
+                                <div class="product-preview__status">Без рецепта</div>
+                                <div class="product-preview__list">
+                                    <div class="product-preview__item df df-ai-center p3">
+                                        <span class="title">Тип:</span>
+                                        <div class="value">Лекарственное средство</div>
+                                    </div>
+                                    <div class="product-preview__item df df-ai-center p3">
+                                        <span class="title">Оригинальный препарат:</span>
+                                        <div class="value">Генерик</div>
+                                    </div>
+                                    <div class="product-preview__item df df-ai-center p3">
+                                        <span class="title">Дозировка:</span>
+                                        <div class="value">122мг/50мг</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-preview__right df df-ai-end df-jc-between df-column">
+                            <div class="product-preview__price">
+                                <div class="label p3">Цена от:</div>
+                                <div class="price h2">28.41 р.</div>
+                            </div>
+                            <div class="product-preview__bottom df df-ai-end df-column">
+                                <button class="product-preview__btn btn-main"><!--disable-->
+                                    <svg width="22" height="22">
+                                        <use xlink:href="/img/sprites.svg#icon-cart"></use>
+                                    </svg>
+                                    Купить
+                                </button>
+                                <div class="delivery__text p3">Доставка в <span>612 аптек</span> Минска </div>
+                                <div class="delivery__status p3">Бесплатно</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-preview product-preview--horizontal df df-ai-stretch df-jc-between">
+                        <div class="product-preview__left df df-ai-stretch">
+                            <a href="product-page.html" class="product-preview__img df df-ai-stretch">
+                                <button class="product-preview__heart btn-heart df df-ai-center df-jc-center">
+                                    <svg width="20" height="20" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M8.87175 1.898L8.76603 1.81126C7.68678 0.925726 6.53166 0.476562 5.31295 0.476562C2.7681 0.476562 0.705078 2.53957 0.705078 5.08442C0.705078 8.60367 3.30553 12.0626 8.504 15.4995L8.87159 15.7426L9.23925 15.4995C14.4378 12.0626 17.0384 8.60367 17.0384 5.08442C17.0384 2.53956 14.9754 0.476562 12.4306 0.476562C11.2118 0.476562 10.0567 0.925727 8.97746 1.81126L8.87175 1.898ZM8.87175 3.74382L9.34116 3.27847C10.3327 2.2954 11.3547 1.8099 12.4306 1.8099C14.239 1.8099 15.7051 3.27594 15.7051 5.08442C15.7051 8.00414 13.4544 11.0135 8.96562 14.0772L8.87166 14.1413L8.77771 14.0772C4.28899 11.0135 2.03841 8.00414 2.03841 5.08442C2.03841 3.27595 3.50447 1.8099 5.31295 1.8099C6.38882 1.8099 7.41083 2.2954 8.40242 3.27848L8.87175 3.74382Z" fill="#6E7E96FF"></path>
+                                        <path d="M9.34116 3.27847L8.87175 3.74382L8.40242 3.27848C7.41083 2.2954 6.38882 1.8099 5.31295 1.8099C3.50447 1.8099 2.03841 3.27595 2.03841 5.08442C2.03841 8.00414 4.28899 11.0135 8.77771 14.0772L8.87166 14.1413L8.96562 14.0772C13.4544 11.0135 15.7051 8.00414 15.7051 5.08442C15.7051 3.27594 14.239 1.8099 12.4306 1.8099C11.3547 1.8099 10.3327 2.2954 9.34116 3.27847Z" fill="transparent"></path>
+                                    </svg>
+                                </button> <!--added-->
+                                <img src="./img/prodcut-img.png" alt="" width="215" height="215">
+                            </a>
+                            <div class="product-preview__content">
+                                <a href="product-page.html" class="product-preview__title h5">Набор из 2х уп. Максиган табл. №20 по спец.цене
+                                </a>
+                                <div class="product-preview__text p3">Лекфарм СООО, Республика Беларусь</div>
+                                <div class="product-preview__status">Без рецепта</div>
+                                <div class="product-preview__list">
+                                    <div class="product-preview__item df df-ai-center p3">
+                                        <span class="title">Тип:</span>
+                                        <div class="value">Лекарственное средство</div>
+                                    </div>
+                                    <div class="product-preview__item df df-ai-center p3">
+                                        <span class="title">Оригинальный препарат:</span>
+                                        <div class="value">Генерик</div>
+                                    </div>
+                                    <div class="product-preview__item df df-ai-center p3">
+                                        <span class="title">Дозировка:</span>
+                                        <div class="value">122мг/50мг</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-preview__right df df-ai-end df-jc-between df-column">
+                            <div class="product-preview__price">
+                                <div class="label p3">Цена от:</div>
+                                <div class="price h2">28.41 р.</div>
+                            </div>
+                            <div class="product-preview__bottom df df-ai-end df-column">
+                                <button class="product-preview__btn btn-main"><!--disable-->
+                                    <svg width="22" height="22">
+                                        <use xlink:href="/img/sprites.svg#icon-cart"></use>
+                                    </svg>
+                                    Купить
+                                </button>
+                                <div class="delivery__text p3">Доставка в <span>612 аптек</span> Минска </div>
+                                <div class="delivery__status p3">Бесплатно</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-preview product-preview--horizontal df df-ai-stretch df-jc-between">
+                        <div class="product-preview__left df df-ai-stretch">
+                            <a href="product-page.html" class="product-preview__img df df-ai-stretch">
+                                <button class="product-preview__heart btn-heart df df-ai-center df-jc-center">
+                                    <svg width="20" height="20" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M8.87175 1.898L8.76603 1.81126C7.68678 0.925726 6.53166 0.476562 5.31295 0.476562C2.7681 0.476562 0.705078 2.53957 0.705078 5.08442C0.705078 8.60367 3.30553 12.0626 8.504 15.4995L8.87159 15.7426L9.23925 15.4995C14.4378 12.0626 17.0384 8.60367 17.0384 5.08442C17.0384 2.53956 14.9754 0.476562 12.4306 0.476562C11.2118 0.476562 10.0567 0.925727 8.97746 1.81126L8.87175 1.898ZM8.87175 3.74382L9.34116 3.27847C10.3327 2.2954 11.3547 1.8099 12.4306 1.8099C14.239 1.8099 15.7051 3.27594 15.7051 5.08442C15.7051 8.00414 13.4544 11.0135 8.96562 14.0772L8.87166 14.1413L8.77771 14.0772C4.28899 11.0135 2.03841 8.00414 2.03841 5.08442C2.03841 3.27595 3.50447 1.8099 5.31295 1.8099C6.38882 1.8099 7.41083 2.2954 8.40242 3.27848L8.87175 3.74382Z" fill="#6E7E96FF"></path>
+                                        <path d="M9.34116 3.27847L8.87175 3.74382L8.40242 3.27848C7.41083 2.2954 6.38882 1.8099 5.31295 1.8099C3.50447 1.8099 2.03841 3.27595 2.03841 5.08442C2.03841 8.00414 4.28899 11.0135 8.77771 14.0772L8.87166 14.1413L8.96562 14.0772C13.4544 11.0135 15.7051 8.00414 15.7051 5.08442C15.7051 3.27594 14.239 1.8099 12.4306 1.8099C11.3547 1.8099 10.3327 2.2954 9.34116 3.27847Z" fill="transparent"></path>
+                                    </svg>
+                                </button> <!--added-->
+                                <img src="./img/prodcut-img.png" alt="" width="215" height="215">
+                            </a>
+                            <div class="product-preview__content">
+                                <a href="product-page.html" class="product-preview__title h5">Набор из 2х уп. Максиган табл. №20 по спец.цене
+                                </a>
+                                <div class="product-preview__text p3">Лекфарм СООО, Республика Беларусь</div>
+                                <div class="product-preview__status">Без рецепта</div>
+                                <div class="product-preview__list">
+                                    <div class="product-preview__item df df-ai-center p3">
+                                        <span class="title">Тип:</span>
+                                        <div class="value">Лекарственное средство</div>
+                                    </div>
+                                    <div class="product-preview__item df df-ai-center p3">
+                                        <span class="title">Оригинальный препарат:</span>
+                                        <div class="value">Генерик</div>
+                                    </div>
+                                    <div class="product-preview__item df df-ai-center p3">
+                                        <span class="title">Дозировка:</span>
+                                        <div class="value">122мг/50мг</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-preview__right df df-ai-end df-jc-between df-column">
+                            <div class="product-preview__price">
+                                <div class="label p3">Цена от:</div>
+                                <div class="price h2">28.41 р.</div>
+                            </div>
+                            <div class="product-preview__bottom df df-ai-end df-column">
+                                <button class="product-preview__btn btn-main"><!--disable-->
+                                    <svg width="22" height="22">
+                                        <use xlink:href="/img/sprites.svg#icon-cart"></use>
+                                    </svg>
+                                    Купить
+                                </button>
+                                <div class="delivery__text p3">Доставка в <span>612 аптек</span> Минска </div>
+                                <div class="delivery__status p3">Бесплатно</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="account-feature__pagination">
+                    <ul class="pagination df df-ai-center df-jc-center">
+                        <li class="pagination__control pagination__control--prev">
+                            <a href="#" class="pagination__btn pagination__btn--disabled df df-ai-center df-jc-center">
+                                <svg width="7" height="10">
+                                    <use xlink:href="/img/sprites.svg#arrow-menu"></use>
+                                </svg>
+                                <svg width="7" height="10">
+                                    <use xlink:href="/img/sprites.svg#arrow-menu"></use>
+                                </svg>
+                            </a>
+                        </li>
+                        <li class="pagination__control pagination__control--prev">
+                            <a href="#" class="pagination__btn pagination__btn--disabled df df-ai-center df-jc-center">
+                                <svg width="7" height="10">
+                                    <use xlink:href="/img/sprites.svg#arrow-menu"></use>
+                                </svg>
+                            </a>
+                        </li>
+                        <li class="pagination__control">
+                            <span class="pagination__item pagination__item--active h6 df df-ai-center df-jc-center">1</span>
+                        </li>
+                        <li class="pagination__control">
+                            <a class="pagination__item h6 df df-ai-center df-jc-center">2</a>
+                        </li>
+                        <li class="pagination__control">
+                            <a class="pagination__item h6 df df-ai-center df-jc-center">2</a>
+                        </li>
+                        <li class="pagination__control">
+                            <a class="pagination__item h6 df df-ai-center df-jc-center">3</a>
+                        </li>
+                        <li class="pagination__control">
+                            <a class="pagination__item h6 df df-ai-center df-jc-center">...</a>
+                        </li>
+                        <li class="pagination__control">
+                            <a class="pagination__item h6 df df-ai-center df-jc-center">25</a>
+                        </li>
+                        <li class="pagination__control pagination__control--next">
+                            <a href="#" class="pagination__btn df df-ai-center df-jc-center">
+                                <svg width="7" height="10">
+                                    <use xlink:href="/img/sprites.svg#arrow-menu"></use>
+                                </svg>
+                            </a>
+                        </li>
+                        <li class="pagination__control pagination__control--next">
+                            <a href="#" class="pagination__btn df df-ai-center df-jc-center ">
+                                <svg width="7" height="10">
+                                    <use xlink:href="/img/sprites.svg#arrow-menu"></use>
+                                </svg>
+                                <svg width="7" height="10">
+                                    <use xlink:href="/img/sprites.svg#arrow-menu"></use>
+                                </svg>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="account-feature__empty account-feature-empty df df-ai-center df-jc-center df-column">
+                    <div class="account-feature-empty__content">
+                        <h1 class="account-feature-empty__title h1">Избранное</h1>
+                        <div class="account-feature-empty__text p3">У вас пока нет избранных товаров. Загляните на главную, чтобы выбрать товары или найдите нужное в поиске</div>
+                        <a href="index.html" class="account-feature-empty__btn btn-main">Вернуться на главную</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+@@include('./global/footer.html')
+<script defer src="./js/swiper-bundle.min.js"></script>
+<script defer src="./lightGallery-master/dist/lightgallery.min.js"></script>
+<script defer src="./lightGallery-master/dist/plugins/thumbnail/lg-thumbnail.min.js"></script>
+<script defer src="./js/index.js"></script>
+</body>
+</html>

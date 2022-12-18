@@ -1103,7 +1103,7 @@ window.addEventListener("load", function () {
 
 
 
-    const regexSubject = /^[а-яёА-Я0-9 .,!?:'"+_&@#*()-]{2,1000}$/iu;
+    const regexSubject = /^[а-яёА-Яa-zA-Z0-9 .,!?:'"+_&@#*()-]{2,1000}$/iu;
     const regexPhone = /^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){9,12}(\s*)?$/;
 
     const feedbackForm = document.getElementById('feedback-form');
@@ -1114,7 +1114,7 @@ window.addEventListener("load", function () {
     const feedbackFormAppeal = document.querySelectorAll('input[name="appeal"]')
 
     if(feedbackForm !== null) {
-        feedbackFormAppeal.forEach(function (input) {
+        /*feedbackFormAppeal.forEach(function (input) {
             input.addEventListener("change", function (el) {
                 if (input.checked) {
                     let parent = input.parentNode.parentNode.parentNode.parentNode;
@@ -1126,7 +1126,7 @@ window.addEventListener("load", function () {
                     }
                 }
             })
-        })
+        })*/
         feedbackFormName.addEventListener('keyup', () => {
             if (regexSubject.test(feedbackFormName.value)) {
                 feedbackFormName.parentNode.classList.remove("error");
@@ -1166,7 +1166,7 @@ window.addEventListener("load", function () {
             }
         })
         feedbackForm.addEventListener('keyup', () => {
-            if(!isEmptyObject(feedbackFormAppeal)) {
+            /*if(!isEmptyObject(feedbackFormAppeal)) {
                 feedbackFormAppeal.forEach(function (el) {
                     if (el.checked) {
                         let parent = el.parentNode.parentNode.parentNode.parentNode;
@@ -1178,19 +1178,19 @@ window.addEventListener("load", function () {
                         }
                     }
                 })
-            }
+            }*/
         });
         feedbackForm.addEventListener('submit', (event) => {
             event.preventDefault();
-            let radioValue = '';
+            /*let radioValue = '';
             if(document.querySelector('input[name="appeal"]') !== null){
                 radioValue = document.querySelector('input[name="appeal"]:checked').value;
-            }
+            }*/
             let feedbackFormCompanyValue;
             if(feedbackFormCompany !== null){
                 feedbackFormCompanyValue = feedbackFormCompany.value
             }
-            if (!regexSubject.test(feedbackFormName.value) || !regexEmail.test(feedbackFormEmail.value) || !regexPhone.test(feedbackFormPhone.value) || radioValue == "Выберете тему обращения" && !regexSubject.test(feedbackFormCompanyValue)) {
+            if (!regexSubject.test(feedbackFormName.value) || !regexEmail.test(feedbackFormEmail.value) || !regexPhone.test(feedbackFormPhone.value) || !regexSubject.test(feedbackFormCompanyValue)) { //|| radioValue == "Выберете тему обращения"
                 if (!regexSubject.test(feedbackFormName.value)) {
                     feedbackFormName.parentNode.classList.add("error");
                 }
@@ -1205,7 +1205,7 @@ window.addEventListener("load", function () {
                 if (!regexPhone.test(feedbackFormPhone.value)) {
                     feedbackFormPhone.parentNode.classList.add("error");
                 }
-                if(!isEmptyObject(feedbackFormAppeal)) {
+                /*if(!isEmptyObject(feedbackFormAppeal)) {
                     feedbackFormAppeal.forEach(function (el) {
                         if (el.checked) {
                             let parent = el.parentNode.parentNode.parentNode.parentNode;
@@ -1217,7 +1217,7 @@ window.addEventListener("load", function () {
                             }
                         }
                     })
-                }
+                }*/
             }
             else {
                 const ajax = async () => {
@@ -1402,20 +1402,20 @@ window.addEventListener("load", function () {
         reviewMessage.addEventListener('keyup', () => {
             let valueMessage = reviewMessage.value.length;
             document.querySelector(".popup-review-form__message .now").innerHTML = valueMessage;
-            if (regexSubject.test(reviewMessage.value)) {
+            /*if (regexSubject.test(reviewMessage.value)) {
                 reviewMessage.classList.remove("error");
                 reviewMessage.classList.add("valid");
             } else {
                 reviewMessage.classList.remove("valid");
                 reviewMessage.classList.add("error");
-            }
+            }*/
         })
         popupReviewForm.addEventListener('submit', (event) => {
             event.preventDefault();
-            if (!regexSubject.test(reviewMessage.value)) {
-                if (!regexEmail.test(reviewMessage.value)) {
+            if (reviewMessage.value) { //!regexSubject.test(reviewMessage.value)
+                /*if (!regexEmail.test(reviewMessage.value)) {
                     reviewMessage.classList.add("error");
-                }
+                }*/
             }
             else {
                 const ajax = async () => {
@@ -1551,4 +1551,16 @@ window.addEventListener("load", function () {
         }
         showImages();
     });
+
+
+    let orderItemBtn = document.querySelectorAll(".order-item__btn-all");
+    if(!isEmptyObject(orderItemBtn)){
+        orderItemBtn.forEach(function (el) {
+            el.addEventListener("click", function () {
+                let parent = el.closest(".order-item")
+                el.classList.toggle("active");
+                parent.classList.toggle("active");
+            })
+        })
+    }
 })

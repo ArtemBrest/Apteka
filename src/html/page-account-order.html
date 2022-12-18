@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>АПТЕКА</title>
+    <link rel="stylesheet" href="./css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="./lightGallery-master/dist/css/lightgallery-bundle.min.css">
+    <link rel="stylesheet" href="./lightGallery-master/dist/css/lg-thumbnail.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/favicon/site.webmanifest">
+    <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#31353b">
+    <meta name="msapplication-TileColor" content="#31353b">
+    <meta name="theme-color" content="#0478E3">
+</head>
+<body class="scroll">
+@@include('./global/header.html')
+<div class="container">
+    <div class="grid-columns grid-columns_left m-20 m-footer">
+        <div class="account-menu-wrapper">
+            @@include('./global/account-menu.html')
+        </div>
+        <div class="content">
+            <section class="account-order">
+                <h1 class="account-order__title h1">История покупок</h1>
+                <div class="account-order__text p3">У вас в истории покупок 3 товара</div>
+                <div class="account-order__filter inner-sorter df df-ai-start df-jc-between ">
+                    <div class="account-order__row df df-ai-center scroll">
+                        <button class="account-order__btn btn-main active">Все (3)</button>
+                        <button class="account-order__btn btn-main">В работе (2)</button>
+                        <button class="account-order__btn btn-main">Готов к выдаче (2)</button>
+                        <button class="account-order__btn btn-main">Отменен (1)</button>
+                        <button class="account-order__btn btn-main">Выполнен (1)</button>
+                        <button class="account-order__btn btn-main" disabled>Архив (0)</button>
+                    </div>
+                    <div class="inner-sorter__right df df-ai-center">
+                        <form method="POST" class="catalog-sorting__form">
+                            <div class="catalog-sorting__select" data-state="">
+                                <div class="catalog-sorting__title df df-ai-center df-jc-between">
+                                    <div class="df df-ai-center">
+                                        <span>По дате</span>
+                                    </div>
+                                    <svg width="9" height="12">
+                                        <use xlink:href="/img/sprites.svg#arrow-menu"></use>
+                                    </svg>
+                                </div>
+                                <div class="catalog-sorting__content">
+                                    <div class="catalog-sorting__row">
+                                        <input id="input-default" class="catalog-sorting__input" type="radio" name="sort" value="ASC" checked="">
+                                        <label for="input-default" tabindex="0" class="catalog-sorting__label">По дате</label>
+                                    </div>
+                                    <div class="catalog-sorting__row">
+                                        <input id="order-max" class="catalog-sorting__input" type="radio" name="sort" value="ASC">
+                                        <label for="order-max" tabindex="0" class="catalog-sorting__label">По цене max</label>
+                                    </div>
+                                    <div class="catalog-sorting__row">
+                                        <input id="order-min" class="catalog-sorting__input" type="radio" name="sort" value="DESC">
+                                        <label for="order-min" tabindex="0" class="catalog-sorting__label">По цене min</label>
+                                    </div>
+                                </div>
+                                <button class="catalog-sorting__btn"></button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="account-order__separator"></div>
+                <div class="account-order__list">
+                    <div class="order-item">
+                        <div class="order-item__row df df-ai-center df-jc-between">
+                            <div class="order-item__left">
+                                <div class="order-item__title h5">Заказ № 256.467.311</div>
+                                <div class="order-item__status order-item__status--green df df-ai-center">
+                                    <div class="date p1">Заказ от 22 сентября 2022</div>
+                                    <div class="value p3 df df-ai-center">Готов к выдаче</div>
+                                </div>
+                            </div>
+                            <div class="order-item__right df df-ai-center">
+                            <div class="order-item__column">
+                                <div class="order-item__price h5">38.40 р.</div>
+                                <div class="order-item__btn-all p3 df df-ai-center">
+                                    Все товары
+                                    <svg width="7" height="10">
+                                        <use xlink:href="./img/sprites.svg#arrow-menu"></use>
+                                    </svg>
+                                </div>
+                            </div>
+                            <a href="page-account-order-pharmacy.html" class="order-item__link btn-default">Подробнее</a>
+                        </div>
+                        </div>
+                        <ul class="pharmacy-profile-order__list order-item__list">
+                            <li class="order__item order-item df df-ai-center df-jc-between">
+                                <div class="order-item__left df df-ai-center">
+                                    <img src="./img/review-mini-photo-1.png" alt="" width="50" height="50" class="order-item__img">
+                                    <div class="order-item__left-content df df-column">
+                                        <span class="order-item__title p1">Набор из 2х уп. Максиган табл. №20 по спец.цене</span>
+                                    </div>
+                                </div>
+                                <span class="order-item__price df df-ai-center h5">8.55 р.</span>
+                            </li>
+                            <li class="order__item order-item df df-ai-center df-jc-between">
+                                <div class="order-item__left df df-ai-center">
+                                    <img src="./img/review-mini-photo-1.png" alt="" width="50" height="50" class="order-item__img">
+                                    <div class="order-item__left-content df df-column">
+                                        <span class="order-item__title p1">Набор из 2х уп. Максиган табл. №20 по спец.цене</span>
+                                    </div>
+                                </div>
+                                <span class="order-item__price df df-ai-center h5">8.55 р.</span>
+                            </li>
+                            <li class="order__item order-item order-item--no-active df df-ai-center df-jc-between">
+                                <div class="order-item__left df df-ai-center">
+                                    <img src="./img/review-mini-photo-1.png" alt="" width="50" height="50" class="order-item__img">
+                                    <div class="order-item__left-content df df-column">
+                                        <span class="order-item__status">Нет в наличии</span>
+                                        <span class="order-item__title p1">Librederm церафавит крем липидовосстанавливающий с церамидами и пребиотиком 75 мл</span>
+                                    </div>
+                                </div>
+                                <span class="order-item__price df df-ai-center h5">&mdash;</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="order-item">
+                        <div class="order-item__row df df-ai-center df-jc-between">
+                            <div class="order-item__left">
+                                <div class="order-item__title h5">Заказ № 256.467.311</div>
+                                <div class="order-item__status order-item__status--blue df df-ai-center">
+                                    <div class="date p1">Заказ от 22 сентября 2022</div>
+                                    <div class="value p3 df df-ai-center">Готов к выдаче</div>
+                                </div>
+                            </div>
+                            <div class="order-item__right df df-ai-center">
+                            <div class="order-item__column">
+                                <div class="order-item__price h5">38.40 р.</div>
+                                <div class="order-item__btn-all p3 df df-ai-center">
+                                    Все товары
+                                    <svg width="7" height="10">
+                                        <use xlink:href="./img/sprites.svg#arrow-menu"></use>
+                                    </svg>
+                                </div>
+                            </div>
+                            <a href="page-account-order-pharmacy.html" class="order-item__link btn-default">Подробнее</a>
+                        </div>
+                        </div>
+                        <ul class="pharmacy-profile-order__list order-item__list">
+                            <li class="order__item order-item df df-ai-center df-jc-between">
+                                <div class="order-item__left df df-ai-center">
+                                    <img src="./img/review-mini-photo-1.png" alt="" width="50" height="50" class="order-item__img">
+                                    <div class="order-item__left-content df df-column">
+                                        <span class="order-item__title p1">Набор из 2х уп. Максиган табл. №20 по спец.цене</span>
+                                    </div>
+                                </div>
+                                <span class="order-item__price df df-ai-center h5">8.55 р.</span>
+                            </li>
+                            <li class="order__item order-item df df-ai-center df-jc-between">
+                                <div class="order-item__left df df-ai-center">
+                                    <img src="./img/review-mini-photo-1.png" alt="" width="50" height="50" class="order-item__img">
+                                    <div class="order-item__left-content df df-column">
+                                        <span class="order-item__title p1">Набор из 2х уп. Максиган табл. №20 по спец.цене</span>
+                                    </div>
+                                </div>
+                                <span class="order-item__price df df-ai-center h5">8.55 р.</span>
+                            </li>
+                            <li class="order__item order-item order-item--no-active df df-ai-center df-jc-between">
+                                <div class="order-item__left df df-ai-center">
+                                    <img src="./img/review-mini-photo-1.png" alt="" width="50" height="50" class="order-item__img">
+                                    <div class="order-item__left-content df df-column">
+                                        <span class="order-item__status">Нет в наличии</span>
+                                        <span class="order-item__title p1">Librederm церафавит крем липидовосстанавливающий с церамидами и пребиотиком 75 мл</span>
+                                    </div>
+                                </div>
+                                <span class="order-item__price df df-ai-center h5">&mdash;</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="order-item">
+                        <div class="order-item__row df df-ai-center df-jc-between">
+                            <div class="order-item__left">
+                                <div class="order-item__title h5">Заказ № 256.467.311</div>
+                                <div class="order-item__status order-item__status--red df df-ai-center">
+                                    <div class="date p1">Заказ от 22 сентября 2022</div>
+                                    <div class="value p3 df df-ai-center">Готов к выдаче</div>
+                                </div>
+                            </div>
+                            <div class="order-item__right df df-ai-center">
+                            <div class="order-item__column">
+                                <div class="order-item__price h5">38.40 р.</div>
+                                <div class="order-item__btn-all p3 df df-ai-center">
+                                    Все товары
+                                    <svg width="7" height="10">
+                                        <use xlink:href="./img/sprites.svg#arrow-menu"></use>
+                                    </svg>
+                                </div>
+                            </div>
+                            <a href="page-account-order-pharmacy.html" class="order-item__link btn-default">Подробнее</a>
+                        </div>
+                        </div>
+                        <ul class="pharmacy-profile-order__list order-item__list">
+                            <li class="order__item order-item df df-ai-center df-jc-between">
+                                <div class="order-item__left df df-ai-center">
+                                    <img src="./img/review-mini-photo-1.png" alt="" width="50" height="50" class="order-item__img">
+                                    <div class="order-item__left-content df df-column">
+                                        <span class="order-item__title p1">Набор из 2х уп. Максиган табл. №20 по спец.цене</span>
+                                    </div>
+                                </div>
+                                <span class="order-item__price df df-ai-center h5">8.55 р.</span>
+                            </li>
+                            <li class="order__item order-item df df-ai-center df-jc-between">
+                                <div class="order-item__left df df-ai-center">
+                                    <img src="./img/review-mini-photo-1.png" alt="" width="50" height="50" class="order-item__img">
+                                    <div class="order-item__left-content df df-column">
+                                        <span class="order-item__title p1">Набор из 2х уп. Максиган табл. №20 по спец.цене</span>
+                                    </div>
+                                </div>
+                                <span class="order-item__price df df-ai-center h5">8.55 р.</span>
+                            </li>
+                            <li class="order__item order-item order-item--no-active df df-ai-center df-jc-between">
+                                <div class="order-item__left df df-ai-center">
+                                    <img src="./img/review-mini-photo-1.png" alt="" width="50" height="50" class="order-item__img">
+                                    <div class="order-item__left-content df df-column">
+                                        <span class="order-item__status">Нет в наличии</span>
+                                        <span class="order-item__title p1">Librederm церафавит крем липидовосстанавливающий с церамидами и пребиотиком 75 мл</span>
+                                    </div>
+                                </div>
+                                <span class="order-item__price df df-ai-center h5">&mdash;</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="order-item">
+                        <div class="order-item__row df df-ai-center df-jc-between">
+                            <div class="order-item__left">
+                                <div class="order-item__title h5">Заказ № 256.467.311</div>
+                                <div class="order-item__status df df-ai-center">
+                                    <div class="date p1">Заказ от 22 сентября 2022</div>
+                                    <div class="value p3 df df-ai-center">Готов к выдаче</div>
+                                </div>
+                            </div>
+                            <div class="order-item__right df df-ai-center">
+                                <div class="order-item__column">
+                                    <div class="order-item__price h5">38.40 р.</div>
+                                    <div class="order-item__btn-all p3 df df-ai-center">
+                                        Все товары
+                                        <svg width="7" height="10">
+                                            <use xlink:href="./img/sprites.svg#arrow-menu"></use>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <a href="page-account-order-pharmacy.html" class="order-item__link btn-default">Подробнее</a>
+                            </div>
+                        </div>
+                        <ul class="pharmacy-profile-order__list order-item__list">
+                            <li class="order__item order-item df df-ai-center df-jc-between">
+                                <div class="order-item__left df df-ai-center">
+                                    <img src="./img/review-mini-photo-1.png" alt="" width="50" height="50" class="order-item__img">
+                                    <div class="order-item__left-content df df-column">
+                                        <span class="order-item__title p1">Набор из 2х уп. Максиган табл. №20 по спец.цене</span>
+                                    </div>
+                                </div>
+                                <span class="order-item__price df df-ai-center h5">8.55 р.</span>
+                            </li>
+                            <li class="order__item order-item df df-ai-center df-jc-between">
+                                <div class="order-item__left df df-ai-center">
+                                    <img src="./img/review-mini-photo-1.png" alt="" width="50" height="50" class="order-item__img">
+                                    <div class="order-item__left-content df df-column">
+                                        <span class="order-item__title p1">Набор из 2х уп. Максиган табл. №20 по спец.цене</span>
+                                    </div>
+                                </div>
+                                <span class="order-item__price df df-ai-center h5">8.55 р.</span>
+                            </li>
+                            <li class="order__item order-item order-item--no-active df df-ai-center df-jc-between">
+                                <div class="order-item__left df df-ai-center">
+                                    <img src="./img/review-mini-photo-1.png" alt="" width="50" height="50" class="order-item__img">
+                                    <div class="order-item__left-content df df-column">
+                                        <span class="order-item__status">Нет в наличии</span>
+                                        <span class="order-item__title p1">Librederm церафавит крем липидовосстанавливающий с церамидами и пребиотиком 75 мл</span>
+                                    </div>
+                                </div>
+                                <span class="order-item__price df df-ai-center h5">&mdash;</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="account-order-empty df df-ai-center df-jc-center df-column">
+                    <div class="account-order-empty__content">
+                        <h1 class="account-order-empty__title h1">История покупок</h1>
+                        <div class="account-order-empty__text p3">У вас пока нет заказов. Загляните на главную, чтобы выбрать товары или найдите нужное в поиске</div>
+                        <a href="index.html" class="account-order-empty__btn btn-main">Вернуться на главную</a>
+                    </div>
+                </div>
+            </section>
+            <section class="pharmacy-banner df df-ai-center df-jc-between">
+                <img src="./img/pharmacy-profile-img.jpg" alt="" class="pharmacy-banner__img">
+                <div class="pharmacy-banner__info">
+                    <div class="pharmacy-banner__title h2">Сэкономьте до <span>20 %</span></div>
+                    <div class="pharmacy-banner__text p1">Оформляя заказ на нашем сайте, вы экономите</div>
+                </div>
+                <div class="pharmacy-banner__faq">
+                    <svg class="icon" width="18" height="18">
+                        <use xlink:href="/img/sprites.svg#icon-i"></use>
+                    </svg>
+                    <div class="hint p3">В своём стремлении улучшить пользовательский опыт мы упускаем, что интерактивные прототипы формируют глобальную экономическую сеть и при этом —  рассмотрены исключительно в разрезе маркетинговых и финансовых предпосылок.</div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+@@include('./global/footer.html')
+<script defer src="./js/swiper-bundle.min.js"></script>
+<script defer src="./lightGallery-master/dist/lightgallery.min.js"></script>
+<script defer src="./lightGallery-master/dist/plugins/thumbnail/lg-thumbnail.min.js"></script>
+<script defer src="./js/index.js"></script>
+</body>
+</html>
