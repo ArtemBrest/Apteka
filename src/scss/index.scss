@@ -4008,7 +4008,7 @@ p{
       border: none;
       font-weight: 700;
       color: $blue;
-      font-size: 15px;
+      /*font-size: 15px;*/
       @include media("min", "lg") {
         &:hover {
           color: 1px solid $blueHover;
@@ -6272,6 +6272,396 @@ p{
   &__btn{
     display: flex;
     margin: auto 0 0;
+  }
+}
+.account{
+  background: $white;
+  box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.02);
+  border-radius: 8px;
+  padding: 20px;
+  @include media("max", "lg") {
+    margin: 10px -10px!important;
+    padding: 20px 10px;
+    border-radius: 0;
+  }
+  &__title{
+    margin-bottom: 8px;
+    color: $black;
+    @include media("max", "lg"){
+      margin-bottom: 6px;
+    }
+  }
+  &__row{
+    margin-bottom: 16px;
+    @include media("max", "lg"){
+      margin-bottom: 12px;
+    }
+  }
+  &__text{
+    color: $grayText;
+  }
+  &-calendar{
+    display: none;
+    width: 280px;
+    padding: 20px 13px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.06), 0px 0px 3px rgba(0, 0, 0, 0.06);
+    border-radius: 8px;
+    background: $white;
+    position: absolute;
+    z-index: 99;
+    top: 100%;
+    right: 0;
+    @include media("max", "lg"){
+      left: 0;
+    }
+    &.account-calendar--open{
+      display: block;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      color: $black;
+      thead{
+        td {
+          font-weight: 700;
+          font-size: 14px;
+          line-height: 130%;
+          text-align: center;
+          padding: 8px 0;
+        }
+      }
+      tbody{
+         tr{
+           &.days{
+             td {
+               color: $grayText;
+             }
+           }
+           td {
+             font-weight: 400;
+             font-size: 12px;
+             line-height: 130%;
+             height: 36px;
+             min-width: 36px;
+             text-align: center;
+             vertical-align: middle;
+             border-radius: 50%;
+             cursor: pointer;
+             &.not-current {
+               color: $grayText;
+               opacity: 0;
+             }
+             &.today {
+               font-weight: 700;
+               color: $white;
+               background: $blue;
+             }
+             &.normal:hover{
+               background: $grayBg;
+             }
+           }
+         }
+      }
+    }
+    #btnPrev,
+    #btnNext {
+      width: 28px;
+      height: 28px;
+      border: none;
+      outline: none;
+      color: $black;
+      background: #FFFFFF;
+      box-shadow: 0px 3.68421px 7.36842px rgba(26, 54, 95, 0.05);
+      border-radius: 50%;
+      position: absolute;
+      top: 22px;
+      @include media("min", "lg") {
+        &:hover {
+          color: $blueHover;
+        }
+      }
+      &:focus,
+      &:active{
+        color: $blueAccent;
+      }
+    }
+    #btnPrev{
+      left: 12px;
+      svg{
+        transform: rotate(180deg);
+      }
+    }
+    #btnNext{
+      right: 12px;
+    }
+  }
+  &-information{
+    margin-bottom: 40px;
+    @include media("max", "lg"){
+      margin-bottom: 20px;
+      & > .account-information__row:first-child{
+        margin-bottom: 0;
+      }
+    }
+    &__row{
+      margin-bottom: 16px;
+      @include media("max", "lg"){
+        flex-flow: row wrap;
+      }
+    }
+    &__item{
+      flex: 1 1 auto;
+      position: relative;
+      @include media("max", "lg"){
+        flex: 1 1 100%;
+      }
+      &.account-information__item--short{
+        flex: 0 0 14%;
+        @include media("max", "lg"){
+          flex: 0 0 48%;
+        }
+      }
+      &:not(:last-child){
+        margin-right: 16px;
+        @include media("max", "lg"){
+          margin: 0 0 12px;
+        }
+      }
+      &.error{
+        .account-information__label{
+          display: block;
+          color: $pink;
+        }
+        .account-information__input{
+          border: 1px solid $pink;
+        }
+      }
+      &.valid{
+        .account-information__label{
+          color: $green;
+        }
+        .account-information__input{
+          border: 1px solid $green;
+        }
+      }
+    }
+    &__label{
+      display: block;
+      color: $grayText;
+      margin-bottom: 6px;
+    }
+    &__input{
+      display: block;
+      background: $white;
+      border: 1px solid $grayLine;
+      border-radius: 6px;
+      padding-left: 12px;
+      font-size: 14px;
+      line-height: 150%;
+      color: $black;
+      width: 100%;
+      height: 40px;
+      cursor: pointer;
+      /*@include media("min", "lg") {
+        &:hover, {
+          border: 1px solid $blueHover;
+        }
+      }*/
+      &:focus,
+      &:active{
+        border: 1px solid $blueAccent;
+      }
+    }
+    .inner-sorter{
+      .catalog-sorting{
+        &__select{
+          width: 100%;
+          height: 40px;
+          margin: 0;
+        }
+        &__title{
+          color: $grayText;
+          border: 1px solid $grayLine;
+          span{
+            font-weight: 400;
+          }
+        }
+      }
+    }
+    &__icon{
+      position: absolute;
+      right: 12px;
+      bottom: 12px;
+      color: $grayIcon;
+      opacity: 0.5;
+      @include media("min", "lg") {
+        &:hover {
+          color: $blueHover;
+          opacity: 1;
+        }
+      }
+      &:focus,
+      &:active{
+        color: $blueAccent;
+        opacity: 1;
+      }
+    }
+    &__btn{
+      flex-shrink: 0;
+      background: transparent;
+      border: 1px solid $blue;
+      color: $blue;
+      @include media("max", "lg"){
+        width: 100%;
+      }
+      @include media("min", "lg") {
+        &:not(:disabled):hover {
+          background: $blueHover;
+          border: 1px solid $blueHover;
+          color: $white;
+        }
+      }
+      &:not(:disabled):focus,
+      &:not(:disabled):active{
+        background: $blueAccent;
+        border: 1px solid $blueAccent;
+        color: $white;
+      }
+    }
+  }
+  &-password{
+    &__row{
+      margin-bottom: 16px;
+      @include media("max", "lg"){
+        flex-flow: column;
+      }
+    }
+    &__item{
+      flex: 1 1 auto;
+      position: relative;
+      &:not(:last-child){
+        margin-right: 16px;
+        @include media("max", "lg"){
+          margin: 0 0 12px;
+        }
+      }
+      &.error{
+        .account-password__label{
+          display: block;
+          color: $pink;
+        }
+        .account-password__input{
+          border: 1px solid $pink;
+        }
+      }
+      &.valid{
+        .account-password__label{
+          color: $green;
+        }
+        .account-password__input{
+          border: 1px solid $green;
+        }
+      }
+    }
+    &__label{
+      display: block;
+      color: $grayText;
+      margin-bottom: 6px;
+    }
+    &__input{
+      display: block;
+      background: $white;
+      border: 1px solid $grayLine;
+      border-radius: 6px;
+      padding-left: 12px;
+      font-size: 14px;
+      line-height: 150%;
+      color: $black;
+      width: 100%;
+      height: 40px;
+      cursor: pointer;
+      /*@include media("min", "lg") {
+        &:hover, {
+          border: 1px solid $blueHover;
+        }
+      }*/
+      &:focus,
+      &:active{
+        border: 1px solid $blueAccent;
+      }
+    }
+    &__icon-password{
+      position: absolute;
+      right: 12px;
+      bottom: 12px;
+      color: $grayIcon;
+      opacity: 0.5;
+      &.hidden{
+        display: none;
+      }
+      @include media("min", "lg") {
+        &:hover {
+          color: $blueHover;
+          opacity: 1;
+        }
+      }
+      &:focus,
+      &:active{
+        color: $blueAccent;
+        opacity: 1;
+      }
+    }
+    &__btn{
+      flex-shrink: 0;
+      background: transparent;
+      border: 1px solid $blue;
+      color: $blue;
+      @include media("max", "lg"){
+        width: 100%;
+      }
+      @include media("min", "lg") {
+        &:not(:disabled):hover {
+          background: $blueHover;
+          border: 1px solid $blueHover;
+          color: $white;
+        }
+      }
+      &:not(:disabled):focus,
+      &:not(:disabled):active{
+        background: $blueAccent;
+        border: 1px solid $blueAccent;
+        color: $white;
+      }
+    }
+  }
+  &__separator{
+    height: 4px;
+    background: $grayBg;
+    margin: 20px -20px;
+    @include media("max", "lg"){
+      margin: 16px -10px 10px;
+    }
+  }
+  &__btn-remove{
+    color: $blue;
+    font-weight: 700;
+    background: transparent;
+    border: none;
+    @include media("min", "lg") {
+      &:hover {
+        color: $blueHover;
+      }
+    }
+    &:focus,
+    &:active{
+      color: $blueAccent;
+    }
+  }
+  &__btn{
+    width: fit-content;
+    @include media("max", "lg"){
+      width: 100%;
+    }
   }
 }
 .account-order{

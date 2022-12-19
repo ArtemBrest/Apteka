@@ -23,7 +23,122 @@
         <div class="account-menu-wrapper">
             @@include('./global/account-menu.html')
         </div>
-        <div class="content"></div>
+        <div class="content">
+            <section class="account">
+                <h1 class="account__title h1">Личные данные</h1>
+                <div class="account__row df df-ai-center df-jc-between">
+                    <div class="account__text p3">Здесь вы можете отредактировать информацию о себе и добавить недостающую</div>
+                </div>
+                <div class="account-information">
+                    <div class="account-information__row df df-ai-stretch df-jc-between">
+                        <div class="account-information__item">
+                            <label for="name-input" class="account-information__label p3">Фамилия Имя Отчество</label>
+                            <input type="text" name="name" id="name-input" class="account-information__input">
+                        </div>
+                        <div class="account-information__item account-information__item--short account-information__item--date">
+                            <div class="account-information__label p3">Дата рождения</div>
+                            <input type="text" name="date" id="date-input" class="account-information__input" placeholder="Не указано">
+                            <div class="account-calendar" id="account-calendar">
+                                <button id="btnPrev" class="df df-ai-center df-jc-center">
+                                    <svg width="7" height="10">
+                                        <use xlink:href="/img/sprites.svg#arrow-menu"></use>
+                                    </svg>
+                                </button>
+                                <button id="btnNext" class="df df-ai-center df-jc-center">
+                                    <svg width="7" height="10">
+                                        <use xlink:href="/img/sprites.svg#arrow-menu"></use>
+                                    </svg>
+                                </button>
+                                <div id="divCal"></div>
+                            </div>
+                        </div>
+                        <div class="account-information__item account-information__item--short inner-sorter">
+                            <div class="account-information__label p3">Пол</div>
+                            <div class="catalog-sorting__select" data-state="">
+                                <div class="catalog-sorting__title df df-ai-center df-jc-between">
+                                    <div class="df df-ai-center">
+                                        <span>Не указано</span>
+                                    </div>
+                                    <svg width="9" height="12">
+                                        <use xlink:href="/img/sprites.svg#arrow-menu"></use>
+                                    </svg>
+                                </div>
+                                <div class="catalog-sorting__content">
+                                    <div class="catalog-sorting__row">
+                                        <input id="input-default" class="catalog-sorting__input" type="radio" name="sort" value="ASC" checked="">
+                                        <label for="input-default" tabindex="0" class="catalog-sorting__label">Мужчина</label>
+                                    </div>
+                                    <div class="catalog-sorting__row">
+                                        <input id="order-max" class="catalog-sorting__input" type="radio" name="sort" value="ASC">
+                                        <label for="order-max" tabindex="0" class="catalog-sorting__label">Женщина</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="account-information__row df df-ai-stretch df-jc-between">
+                        <div class="account-information__item">
+                            <label for="email-input" class="account-information__label p3">Электронная почта</label>
+                            <input type="text" name="email" id="email-input" class="account-information__input account-information__input--readonly" value="thehonorific@gmail.com" readonly>
+                            <svg width="18" height="18" class="account-information__icon">
+                                <use xlink:href="/img/sprites.svg#icon-edit"></use>
+                            </svg>
+                        </div>
+                        <div class="account-information__item">
+                            <label for="phone-input" class="account-information__label p3">Мобильный телефон</label>
+                            <input type="text" name="phone" id="phone-input" class="account-information__input account-information__input--readonly" value="+375 (44) 799 - 97 -20" readonly>
+                            <svg width="18" height="18" class="account-information__icon">
+                                <use xlink:href="/img/sprites.svg#icon-edit"></use>
+                            </svg>
+                        </div>
+                    </div>
+                    <button class="account-information__btn btn-main">Сохранить</button>
+                </div>
+                <h2 class="account__title h1">Изменить пароль</h2>
+                <div class="account-password">
+                    <div class="account-password__row df df-ai-stretch df-jc-between">
+                        <div class="account-password__item">
+                            <label for="old-password" class="account-password__label p3">Страрый пароль</label>
+                            <input type="password" name="email" id="old-password" class="account-password__input">
+                            <svg class="account-password__icon-password password-btn-close" width="18" height="18">
+                                <use xlink:href="/img/sprites.svg#icon-password-close"></use>
+                            </svg>
+                            <svg class="account-password__icon-password hidden password-btn-open" width="18" height="18">
+                                <use xlink:href="/img/sprites.svg#icon-password-open"></use>
+                            </svg>
+                        </div>
+                        <div class="account-password__item">
+                            <label for="new-password" class="account-password__label p3">Страрый пароль</label>
+                            <input type="password" name="email" id="new-password" class="account-password__input">
+                            <svg class="account-password__icon-password password-btn-close" width="18" height="18">
+                                <use xlink:href="/img/sprites.svg#icon-password-close"></use>
+                            </svg>
+                            <svg class="account-password__icon-password hidden password-btn-open" width="18" height="18">
+                                <use xlink:href="/img/sprites.svg#icon-password-open"></use>
+                            </svg>
+                        </div>
+                        <div class="account-password__item">
+                            <label for="confirm-password" class="account-password__label p3">Страрый пароль</label>
+                            <input type="password" name="email" id="confirm-password" class="account-password__input">
+                            <svg class="account-password__icon-password password-btn-close" width="18" height="18">
+                                <use xlink:href="/img/sprites.svg#icon-password-close"></use>
+                            </svg>
+                            <svg class="account-password__icon-password hidden password-btn-open" width="18" height="18">
+                                <use xlink:href="/img/sprites.svg#icon-password-open"></use>
+                            </svg>
+                        </div>
+                    </div>
+                    <button class="account-password__btn btn-main">Изменить пароль</button>
+                </div>
+                <div class="account__separator"></div>
+                <h2 class="account__title h1">Управление аккаунтом</h2>
+                <div class="account__row df df-ai-center df-jc-between">
+                    <div class="account__text p3">Вы с нами с 11 Ноября 2021 года</div>
+                    <button class="account__btn-remove">Удалить аккаунт</button>
+                </div>
+                <a href="#" class="account__btn btn-default">Выйти из аккаунта</a>
+            </section>
+        </div>
     </div>
 </div>
 @@include('./global/footer.html')
