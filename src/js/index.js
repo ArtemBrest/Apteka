@@ -1672,9 +1672,9 @@ window.addEventListener("load", function () {
         this.Months =['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'];
         //Устанавливаем текущий месяц, год
         let d = new Date();
-        this.currMonth = d.getMonth('9');
-        this.currYear = d.getFullYear('22');
-        this.currDay = d.getDate('3');
+        this.currMonth = d.getMonth('1');
+        this.currYear = d.getFullYear('20');
+        this.currDay = d.getDate('1');
     };
     // Переход к следующему месяцу
     Cal.prototype.nextMonth = function() {
@@ -1769,19 +1769,64 @@ window.addEventListener("load", function () {
         document.getElementById(this.divId).innerHTML = html;
     };
     // Начать календарь
-    let c = new Cal("divCal");
-    c.showcurr();
-    // Привязываем кнопки «Следующий» и «Предыдущий»
-    document.getElementById('btnNext').onclick = function() {
-        c.nextMonth();
-    };
-    document.getElementById('btnPrev').onclick = function() {
-        c.previousMonth();
-    };
+    if(document.getElementById("divCal")){
+        let c = new Cal("divCal");
+        c.showcurr();
+        // Привязываем кнопки «Следующий» и «Предыдущий»
+        document.getElementById('btnNext').onclick = function() {
+            c.nextMonth();
+        };
+        document.getElementById('btnPrev').onclick = function() {
+            c.previousMonth();
+        };
+    }
     let calendarTable = document.getElementById("account-calendar");
     let dateInput = document.getElementById("date-input");
     let accountInfoItemDate = document.querySelector(".account-information__item--date")
     if(calendarTable !== null && dateInput !== null){
+        function doFormat(x, pattern, mask) {
+            var strippedValue = x.replace(/[^0-9]/g, "");
+            var chars = strippedValue.split('');
+            var count = 0;
+            var formatted = '';
+            for (var i=0; i<pattern.length; i++) {
+                const c = pattern[i];
+                if (chars[count]) {
+                    if (/\*/.test(c)) {
+                        formatted += chars[count];
+                        count++;
+                    } else {
+                        formatted += c;
+                    }
+                } else if (mask) {
+                    if (mask.split('')[i])
+                        formatted += mask.split('')[i];
+                }
+            }
+            return formatted;
+        }
+        document.querySelectorAll('[data-mask]').forEach(function(e) {
+            function format(elem) {
+                const val = doFormat(elem.value, elem.getAttribute('data-format'));
+                elem.value = doFormat(elem.value, elem.getAttribute('data-format'), elem.getAttribute('data-mask'));
+                if (elem.createTextRange) {
+                    var range = elem.createTextRange();
+                    range.move('character', val.length);
+                    range.select();
+                } else if (elem.selectionStart) {
+                    elem.focus();
+                    elem.setSelectionRange(val.length, val.length);
+                }
+            }
+            e.addEventListener('keyup', function() {
+                format(e);
+            });
+            e.addEventListener('keydown', function() {
+                format(e);
+            });
+            format(e)
+        });
+
         document.body.addEventListener("click", function (e) {
             let target = e.target.closest('.calendar-day');
             if(target !== null){
