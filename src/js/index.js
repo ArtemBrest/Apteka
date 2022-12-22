@@ -1843,4 +1843,46 @@ window.addEventListener("load", function () {
             }
         })
     }
+
+
+    let addProductBtn = document.querySelectorAll(".add-product-btn");
+    let addProductPopup = document.getElementById("popup-add-cart");
+    if(!isEmptyObject(addProductBtn) && addProductPopup !== null){
+        addProductBtn.forEach(function (btn) {
+            btn.addEventListener("click",function (e) {
+                addProductPopup.classList.add("popup-add-cart--open");
+                setTimeout(() => {
+                    addProductPopup.classList.remove("popup-add-cart--open");
+                }, 5000);
+            })
+        })
+    }
+
+
+    let emailOrderInput = document.getElementById("email-order-input");
+    if(emailOrderInput !== null){
+        emailOrderInput.addEventListener('keyup', () => {
+            let parent = emailOrderInput.parentNode;
+            if (regexEmail.test(emailOrderInput.value)) {
+                parent.classList.remove("error");
+                parent.classList.add("valid");
+            } else {
+                parent.classList.remove("valid");
+                parent.classList.add("error");
+            }
+        });
+    }
+    let phoneOrderInput = document.getElementById("phone-order-input");
+    if(phoneOrderInput !== null){
+        phoneOrderInput.addEventListener('keyup', () => {
+            let parent = phoneOrderInput.parentNode;
+            if (regexPhone.test(phoneOrderInput.value)) {
+                parent.classList.remove("error");
+                parent.classList.add("valid");
+            } else {
+                parent.classList.remove("valid");
+                parent.classList.add("error");
+            }
+        });
+    }
 })

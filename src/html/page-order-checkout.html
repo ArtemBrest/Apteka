@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>АПТЕКА</title>
+    <link rel="stylesheet" href="./css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="./lightGallery-master/dist/css/lightgallery-bundle.min.css">
+    <link rel="stylesheet" href="./lightGallery-master/dist/css/lg-thumbnail.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/favicon/site.webmanifest">
+    <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#31353b">
+    <meta name="msapplication-TileColor" content="#31353b">
+    <meta name="theme-color" content="#0478E3">
+</head>
+<body class="scroll">
+@@include('./global/header.html')
+<div class="container">
+    <div class="grid-columns grid-columns_left m-20 m-footer">
+        <div class="account-menu-wrapper">
+            @@include('./global/aside-menu.html')
+        </div>
+        <div class="content">
+            <div class="grid-columns grid-columns_right m-20">
+                <div class="content">
+                    <section class="account">
+                        <h1 class="account__title h1">Оформление заказа</h1>
+                        <div class="account__row df df-ai-center df-jc-between">
+                            <div class="account__text p3">Увас в корзине 3 товара</div>
+                            <a href="#" class="account__edit-order p3">Редактировать заказ</a>
+                        </div>
+                        <div class="account__separator"></div>
+                        <div class="account-information">
+                            <div class="account-information__title h3">Контактные данные</div>
+                            <div class="account-information__text p1">Введите ваш номер телефона, чтобы мы могли сообщить вам о статусе заказа</div>
+                            <div class="account-information__row df df-ai-stretch df-jc-between">
+                                <div class="account-information__item">
+                                    <label for="email-order-input" class="account-information__label p3">Электронная почта</label>
+                                    <input type="text" name="email" id="email-order-input" class="account-information__input" placeholder="Email">
+                                </div>
+                                <div class="account-information__item">
+                                    <label for="phone-order-input" class="account-information__label p3">Мобильный телефон</label>
+                                    <input type="text" name="phone" id="phone-order-input" class="account-information__input" placeholder="+375 (__) ___ - __ - __">
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="order-checkout">
+                        <div class="order-checkout__title h3">Подробнее о заказе</div>
+                        <div class="order-checkout__text p1">В вашем заказе 3 товара</div>
+                        <div class="order-checkout__separator"></div>
+                        <ul class="order-checkout__list">
+                            <li class="order__item order-item df df-ai-center df-jc-between">
+                                <div class="order-item__left df df-ai-center">
+                                    <img src="./img/review-mini-photo-1.png" alt="" width="80" height="80" class="order-item__img">
+                                    <div class="order-item__left-content df df-column">
+                                        <span class="order-item__title p1">Librederm церафавит крем липидовосстанавливающий с церамидами и пребиотиком 75 мл</span>
+                                        <span class="order-item__text p3">Лекфарм СООО, Республика Беларусь</span>
+                                    </div>
+                                </div>
+                                <div class="order-item__right df df-column df-jc-center df-ai-end">
+                                    <div class="order-item__title-price p3">Цена:</div>
+                                    <span class="order-item__row df df-ai-end p3">1 × <span class="order-item__price h3"> 8.55 р.</span></span>
+                                </div>
+                            </li>
+                            <li class="order__item order-item df df-ai-center df-jc-between">
+                                <div class="order-item__left df df-ai-center">
+                                    <img src="./img/review-mini-photo-1.png" alt="" width="80" height="80" class="order-item__img">
+                                    <div class="order-item__left-content df df-column">
+                                        <span class="order-item__title p1">СПАЗГАН</span>
+                                        <span class="order-item__text p3">Лекфарм СООО, Республика Беларусь</span>
+                                    </div>
+                                </div>
+                                <div class="order-item__right df df-column df-jc-center df-ai-end">
+                                    <div class="order-item__title-price p3">Цена:</div>
+                                    <span class="order-item__row df df-ai-end p3">1 × <span class="order-item__price h3"> 8.55 р.</span></span>
+                                </div>
+                            </li>
+                            <li class="order__item order-item df df-ai-center df-jc-between">
+                                <div class="order-item__left df df-ai-center">
+                                    <img src="./img/review-mini-photo-1.png" alt="" width="80" height="80" class="order-item__img">
+                                    <div class="order-item__left-content df df-column">
+                                        <span class="order-item__title p1">Набор из 2х уп. Максиган табл. №20 по спец.цене</span>
+                                        <span class="order-item__text p3">Лекфарм СООО, Республика Беларусь</span>
+                                    </div>
+                                </div>
+                                <div class="order-item__right df df-column df-jc-center df-ai-end">
+                                    <div class="order-item__title-price p3">Цена:</div>
+                                    <span class="order-item__row p3 df df-ai-end">1 × <span class="order-item__price h3"> 8.55 р.</span></span>
+                                </div>
+                            </li>
+                        </ul>
+                    </section>
+                    <section class="pharmacy-banner df df-ai-center df-jc-between">
+                        <img src="./img/pharmacy-profile-img.jpg" alt="" class="pharmacy-banner__img">
+                        <div class="pharmacy-banner__info">
+                            <div class="pharmacy-banner__title h2">Сэкономьте до <span>20 %</span></div>
+                            <div class="pharmacy-banner__text p1">Оформляя заказ на нашем сайте, вы экономите</div>
+                        </div>
+                        <div class="pharmacy-banner__faq">
+                            <svg class="icon" width="18" height="18">
+                                <use xlink:href="/img/sprites.svg#icon-i"></use>
+                            </svg>
+                            <div class="hint p3">В своём стремлении улучшить пользовательский опыт мы упускаем, что интерактивные прототипы формируют глобальную экономическую сеть и при этом —  рассмотрены исключительно в разрезе маркетинговых и финансовых предпосылок.</div>
+                        </div>
+                    </section>
+                </div>
+                <div>
+                    <aside class="aside-point-issue">
+                        <div class="aside-point-issue__head df df-ai-center df-jc-between">
+                            <div class="aside-point-issue__title h3">Пункт выдачи</div>
+                            <a href="#" class="aside-point-issue__link p3">Изменить</a>
+                        </div>
+                        <div class="aside-point-issue__location h6 df df-ai-center">
+                            <svg width="18" height="18">
+                                <use xlink:href="/img/sprites.svg#icon-location"></use>
+                            </svg>
+                            Алладин-458
+                        </div>
+                        <div class="aside-point-issue__address p3">Молодежная ул, 10В, Климовск мкр, Подольск, МО</div>
+                    </aside>
+                    <aside class="aside-order">
+                        <div class="aside-order__title h3">Ваш заказ</div>
+                        <div class="aside-order__status df df-ai-center df-jc-between">
+                            <div class="name p3">В заказе товаров</div>
+                            <div class="count p3">(1)</div>
+                        </div>
+                        <div class="aside-order__sale df df-ai-center df-jc-between">
+                            <div class="name p3">Выгода</div>
+                            <div class="value p3 df df-ai-center">
+                                8.75 р.
+                                <svg class="icon" width="12" height="12">
+                                    <use xlink:href="/img/sprites.svg#icon-i"></use>
+                                </svg>
+                                <div class="hint p3">Oтносительно средних цен товаров из заказа</div>
+                            </div>
+                        </div>
+                        <div class="aside-order__title-sub h5">Общая стоимость</div>
+                        <div class="aside-order__price df df-ai-end df-jc-between">
+                            <div class="name p3">Итого</div>
+                            <div class="value h2">39.25 р.</div>
+                        </div>
+                        <button class="aside-order__btn btn-main">Повторить заказ</button>
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@@include('./global/footer.html')
+<script defer src="./js/swiper-bundle.min.js"></script>
+<script defer src="./lightGallery-master/dist/lightgallery.min.js"></script>
+<script defer src="./lightGallery-master/dist/plugins/thumbnail/lg-thumbnail.min.js"></script>
+<script defer src="./js/index.js"></script>
+</body>
+</html>

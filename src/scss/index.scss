@@ -2542,27 +2542,34 @@ p{
       }*/
       .rating {
         display: inline-flex;
+        margin: 0 0 0 -5px;
         &__icon {
           pointer-events: none;
+          &--none {
+            padding: 0;
+          }
         }
         &__input {
           position: absolute !important;
           left: -9999px !important;
         }
         &__label {
+          width: 16px;
+          height: 16px;
           cursor: pointer;
           padding: 0 2px;
           color: $yellow;
-        }
-        &__label--half {
-          width: 16px;
-          overflow: hidden;
-          padding-right: 0;
-          margin-right: -16px;
-          z-index: 2;
-        }
-        &__icon--none {
-          padding: 0;
+          &--empty{
+            width: auto;
+            height: auto;
+          }
+          &--half {
+            width: 10px;
+            overflow: hidden;
+            padding-right: 0;
+            margin-right: -10px;
+            z-index: 2;
+          }
         }
         &__input:checked ~ .rating__label {
           color: #E2E5EA;
@@ -2901,6 +2908,58 @@ p{
   &__text{
     color: $black;
     text-align: center;
+  }
+}
+.popup-add-cart{
+  display: none;
+  background: $white;
+  box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.05);
+  border-radius: 8px;
+  padding: 8px;
+  width: 300px;
+  height: 65px;
+  position: fixed;
+  z-index: 9999;
+  right: 20px;
+  bottom: 20px;
+  &.popup-add-cart--open{
+    display: flex;
+  }
+  @include media("max", "lg") {
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: unset;
+    bottom: unset;
+  }
+  &__img{
+    border-radius: 6px;
+    margin-right: 12px;
+    flex-shrink: 0;
+  }
+  &__text{
+    max-width: 120px;
+    margin-right: 12px;
+    @include media("max", "lg") {
+      max-width: 100%;
+    }
+  }
+  &__btn{
+    background: $pink;
+    border: 1px solid $pink;
+    margin: 0 0 0 auto;
+    flex-shrink: 0;
+    @include media("min", "lg") {
+      &:not(:disabled):hover, {
+        background: $pink;
+        border: 1px solid $pink;
+      }
+    }
+    &:not(:disabled):focus,
+    &:not(:disabled):active{
+      background: $pink;
+      border: 1px solid $pink;
+    }
   }
 }
 .cms-description-text{
@@ -6320,7 +6379,7 @@ p{
   padding: 20px;
   @include media("max", "lg") {
     margin: 10px -10px!important;
-    padding: 20px 10px;
+    padding: 12px 10px;
     border-radius: 0;
   }
   &__title{
@@ -6338,6 +6397,19 @@ p{
   }
   &__text{
     color: $grayText;
+  }
+  &__edit-order{
+    color: $blue;
+    font-weight: 700;
+    @include media("min", "lg"){
+      &:hover{
+        color: $blueHover;
+      }
+    }
+    &:active,
+    &:focus{
+      color: $blueAccent;
+    }
   }
   &-calendar{
     display: none;
@@ -6442,6 +6514,12 @@ p{
         margin-bottom: 0;
       }
     }
+    &__title{
+      margin-bottom: 8px;
+    }
+    &__text{
+      margin-bottom: 20px;
+    }
     &__row{
       margin-bottom: 16px;
       @include media("max", "lg"){
@@ -6502,7 +6580,7 @@ p{
       height: 40px;
       cursor: pointer;
       &::placeholder{
-        color: $black;
+        //color: $black;
       }
       /*@include media("min", "lg") {
         &:hover, {
@@ -6934,16 +7012,13 @@ p{
   }
   @include media("max", "lg") {
     margin: 10px -10px!important;
-    padding: 20px 10px;
+    padding: 12px 10px;
     border-radius: 0;
   }
   &__title{
     margin-bottom: 8px;
   }
   &__status{
-    border-bottom: 1px solid $grayLine;
-    padding-bottom: 16px;
-    margin-bottom: 16px;
     .name{
       color: $grayText;
     }
@@ -6951,9 +7026,55 @@ p{
       color: $blue;
       font-weight: 700;
     }
+    .count{
+      font-weight: 700;
+    }
+  }
+  &__sale{
+    margin-top: 4px;
+    .name{
+      color: $grayText;
+    }
+    .value{
+      position: relative;
+      color: $green;
+      svg{
+        cursor: help;
+        margin-left: 5px;
+        &:hover ~ .hint{
+          display: block;
+        }
+      }
+      .hint{
+        display: none;
+        position: absolute;
+        right: 0;
+        bottom: 130%;
+        min-height: 55px;
+        width: 190px;
+        background: $white;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.06), 0px 0px 3px rgba(0, 0, 0, 0.06);
+        border-radius: 8px;
+        color: $black;
+        padding: 10px;
+        &:before {
+          background: url(../img/polygon.svg);
+          content: "";
+          position: absolute;
+          bottom: -6px;
+          right: 15px;
+          z-index: 1;
+          display: block;
+          width: 16px;
+          height: 10px;
+        }
+      }
+    }
   }
   &__title-sub{
-    margin-bottom: 8px;
+    border-top: 1px solid $grayLine;
+    padding-top: 16px;
+    margin: 16px 0 8px;
   }
   &__price{
     margin-bottom: 16px;
@@ -7087,6 +7208,160 @@ p{
     &__btn{
       margin: 0 auto;
       width: fit-content;
+    }
+  }
+}
+
+/* CHECKOUT SECTION */
+.order-banner{
+  position: relative;
+  background: $white;
+  box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.05);
+  border-radius: 8px;
+  padding: 17px 20px;
+  @include media("max", "lg"){
+    margin: 0 -10px;
+    border-radius: 0;
+    padding: 12px 15px;
+  }
+  &__img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 35px;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    @include media("max", "lg"){
+      border-radius: 0;
+    }
+  }
+  &__info{
+    padding: 0 20px 0 30px;
+    @include media("max", "lg"){
+      padding: 0 0 0 35px;
+    }
+  }
+  &__title{
+    margin-bottom: 8px;
+  }
+  &__text{
+    margin-bottom: 16px;
+  }
+  &__btn{
+    width: fit-content;
+  }
+}
+.order-checkout{
+  background: $white;
+  box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.02);
+  border-radius: 8px;
+  padding: 20px;
+  margin: 20px 0;
+  @include media("max", "lg") {
+    margin: 10px -10px 10px!important;
+    padding: 12px 10px;
+    border-radius: 0;
+  }
+  &__title {
+    margin-bottom: 8px;
+  }
+  &__text{
+    margin-bottom: 20px;
+    color: $grayText;
+  }
+  &__separator{
+    background: $grayBg;
+    height: 4px;
+    margin: 20px -20px 0;
+    @include media("max", "lg"){
+      margin: 20px -10px 0;
+    }
+  }
+  &__list{
+    @include media("max", "lg"){
+      margin: 0 -10px;
+    }
+    .order-item{
+      padding: 18px 0;
+      border-bottom: 1px solid $grayLine;
+      @include media("max", "lg"){
+        align-items: flex-start;
+        padding: 10px 10px;
+      }
+      &__left{
+        @include media("max", "lg"){
+          align-items: flex-start;
+        }
+      }
+      &__img{
+        flex-shrink: 0;
+        margin-right: 16px;
+        @include media("max", "lg"){
+          width: 50px;
+          height: 50px;
+          margin-right: 12px;
+        }
+      }
+      &__title{
+        margin-bottom: 6px;
+        max-width: 540px;
+        @include media("max", "lg"){
+          margin-bottom: 4px;
+        }
+      }
+      &__text{
+        color: $grayText;
+      }
+      &__right{
+        flex-shrink: 0;
+      }
+      &__title-price{
+        color: $grayText;
+        margin-bottom: 2px;
+      }
+      &__row{
+        color: $grayText;
+        line-height: 130%;
+        span{
+          line-height: 100%;
+          color: $black;
+          margin-left: 6px;
+        }
+      }
+    }
+  }
+}
+.aside-point-issue{
+  background: $white;
+  box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.02);
+  border-radius: 8px;
+  padding: 20px;
+  color: $black;
+  margin-bottom: 20px;
+  @include media("max", "xl") {
+    margin: 20px 0;
+  }
+  @include media("max", "lg") {
+    margin: 10px -10px!important;
+    padding: 12px 10px;
+    border-radius: 0;
+  }
+  &__head{
+    margin-bottom: 16px;
+  }
+  &__link{
+    display: block;
+    color: $grayText;
+    border-bottom: 1px dashed $grayText;
+  }
+  &__location{
+    color: $blue;
+    margin-bottom: 4px;
+    svg{
+      margin-right: 4px;
     }
   }
 }

@@ -240,7 +240,7 @@
             <span class="name">Цена от:</span>
             <span class="value h4">28.55 р.</span>
         </div>-->
-        <button class="add-product-cart-mob__btn btn-main"><!-- disable added -->
+        <button class="add-product-cart-mob__btn btn-main add-product-btn"><!-- disable added -->
             <svg width="22" height="22">
                 <use xlink:href="/img/sprites.svg#icon-cart"></use>
             </svg>
@@ -298,63 +298,63 @@
             </div>-->
             <div class="rating">
                 <input class="rating__input rating__input--none" checked name="rating" id="rating-0" value="0" type="radio">
-                <label aria-label="0 stars" class="rating__label" for="rating-0"></label>
+                <label aria-label="0 stars" class="rating__label rating__label--empty" for="rating-0"></label>
                 <label aria-label="0.5 stars" class="rating__label rating__label--half" for="rating-05">
-                    <svg width="32" height="32" class="rating__icon rating__icon--star">
+                    <svg width="8" height="16" class="rating__icon rating__icon--star">
                         <use xlink:href="./img/sprites.svg#icon-star-half"></use>
                     </svg>
                 </label>
                 <input class="rating__input" name="rating" id="rating-05" value="0.5" type="radio">
                 <label aria-label="1 star" class="rating__label" for="rating-10">
-                    <svg width="32" height="32" class="rating__icon rating__icon--star">
+                    <svg width="16" height="16" class="rating__icon rating__icon--star">
                         <use xlink:href="./img/sprites.svg#icon-star"></use>
                     </svg>
                 </label>
                 <input class="rating__input" name="rating" id="rating-10" value="1" type="radio">
                 <label aria-label="1.5 stars" class="rating__label rating__label--half" for="rating-15">
-                    <svg width="32" height="32" class="rating__icon rating__icon--star">
+                    <svg width="8" height="16" class="rating__icon rating__icon--star">
                         <use xlink:href="./img/sprites.svg#icon-star-half"></use>
                     </svg>
                 </label>
                 <input class="rating__input" name="rating" id="rating-15" value="1.5" type="radio">
                 <label aria-label="2 stars" class="rating__label" for="rating-20">
-                    <svg width="32" height="32" class="rating__icon rating__icon--star">
+                    <svg width="16" height="16" class="rating__icon rating__icon--star">
                         <use xlink:href="./img/sprites.svg#icon-star"></use>
                     </svg>
                 </label>
                 <input class="rating__input" name="rating" id="rating-20" value="2" type="radio">
                 <label aria-label="2.5 stars" class="rating__label rating__label--half" for="rating-25">
-                    <svg width="32" height="32" class="rating__icon rating__icon--star">
+                    <svg width="8" height="16" class="rating__icon rating__icon--star">
                         <use xlink:href="./img/sprites.svg#icon-star-half"></use>
                     </svg>
                 </label>
-                <input class="rating__input" name="rating" id="rating-25" value="2.5" type="radio" checked>
+                <input class="rating__input" name="rating" id="rating-25" value="2.5" type="radio">
                 <label aria-label="3 stars" class="rating__label" for="rating-30">
-                    <svg width="32" height="32" class="rating__icon rating__icon--star">
+                    <svg width="16" height="16" class="rating__icon rating__icon--star">
                         <use xlink:href="./img/sprites.svg#icon-star"></use>
                     </svg>
                 </label>
                 <input class="rating__input" name="rating" id="rating-30" value="3" type="radio">
                 <label aria-label="3.5 stars" class="rating__label rating__label--half" for="rating-35">
-                    <svg width="32" height="32" class="rating__icon rating__icon--star">
+                    <svg width="8" height="16" class="rating__icon rating__icon--star">
                         <use xlink:href="./img/sprites.svg#icon-star-half"></use>
                     </svg>
                 </label>
                 <input class="rating__input" name="rating" id="rating-35" value="3.5" type="radio">
                 <label aria-label="4 stars" class="rating__label" for="rating-40">
-                    <svg width="32" height="32" class="rating__icon rating__icon--star">
+                    <svg width="16" height="16" class="rating__icon rating__icon--star">
                         <use xlink:href="./img/sprites.svg#icon-star"></use>
                     </svg>
                 </label>
                 <input class="rating__input" name="rating" id="rating-40" value="4" type="radio">
                 <label aria-label="4.5 stars" class="rating__label rating__label--half" for="rating-45">
-                    <svg width="32" height="32" class="rating__icon rating__icon--star">
+                    <svg width="8" height="16" class="rating__icon rating__icon--star">
                         <use xlink:href="./img/sprites.svg#icon-star-half"></use>
                     </svg>
                 </label>
                 <input class="rating__input" name="rating" id="rating-45" value="4.5" type="radio">
                 <label aria-label="5 stars" class="rating__label" for="rating-50">
-                    <svg width="32" height="32" class="rating__icon rating__icon--star">
+                    <svg width="16" height="16" class="rating__icon rating__icon--star">
                         <use xlink:href="./img/sprites.svg#icon-star"></use>
                     </svg>
                 </label>
@@ -436,4 +436,12 @@
 <div class="sizes-popup-error" id="sizes-popup-error">
     <div class="sizes-popup-error__title p1">Размер файла не должен превышать 10 Mb.</div>
     <button class="sizes-popup-error__btn btn-main">Закрыть</button>
+</div>
+
+<div class="popup-add-cart df df-ai-center" id="popup-add-cart">
+    <div class="popup-add-cart__img df df-ai-stretch">
+        <img src="./img/prodcut-img.png" width="50" height="50">
+    </div>
+    <div class="popup-add-cart__text p1">Товар добавлен в корзину</div>
+    <a href="page-order.html" class="popup-add-cart__btn btn-main">Перейти</a>
 </div>
