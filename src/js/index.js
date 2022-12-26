@@ -1447,20 +1447,14 @@ window.addEventListener("load", function () {
             }
         });
     }
-
-
-
-
     let files = [],
         dragArea = document.querySelector('.drag-area'),
         input = document.querySelector('.drag-area input'),
         //button = document.querySelector('.card button'),
         dragAreaSelect = document.querySelector('.drag-area .drag-area__select'),
         container = document.getElementById('container');
-
-    /** CLICK LISTENER */
+    /* CLICK LISTENER */
     dragAreaSelect.addEventListener('click', () => input.click());
-
     /* INPUT CHANGE EVENT */
     let sizes = 0, sizesAll = 0;
     input.addEventListener('change', () => {
@@ -1471,10 +1465,6 @@ window.addEventListener("load", function () {
         files.forEach(function (el, index) {
             sizesAll += el.size;
         })
-        /*for(let j = 0; files.length; j++) {
-
-
-        }*/
         // if user select no image
         if (file.length == 0) return;
         else if (sizes >= 10485760 || sizesAll >= 10485760){
@@ -1499,8 +1489,7 @@ window.addEventListener("load", function () {
         }
         console.log(files)
     });
-
-    /** SHOW IMAGES */
+    /* SHOW IMAGES */
     function showImages() {
         container.innerHTML = files.reduce((prev, curr, index) => {
             return `${prev}
@@ -1518,7 +1507,6 @@ window.addEventListener("load", function () {
             });
         })
     }
-
     /* DELETE IMAGE */
     /*function delImage(index) {
         files.splice(index, 1);
@@ -1529,13 +1517,11 @@ window.addEventListener("load", function () {
         e.preventDefault()
         dragArea.classList.add('dragover')
     })
-
     /* DRAG LEAVE */
     dragArea.addEventListener('dragleave', e => {
         e.preventDefault()
         dragArea.classList.remove('dragover')
     });
-
     /* DROP EVENT */
     dragArea.addEventListener('drop', e => {
         e.preventDefault()
@@ -1550,8 +1536,6 @@ window.addEventListener("load", function () {
         }
         showImages();
     });
-
-
     let orderItemBtn = document.querySelectorAll(".order-item__btn-all");
     if(!isEmptyObject(orderItemBtn)){
         orderItemBtn.forEach(function (el) {
@@ -1562,7 +1546,6 @@ window.addEventListener("load", function () {
             })
         })
     }
-
     let accountInfoInput = document.querySelectorAll(".account-information__input--readonly");
     if(!isEmptyObject(accountInfoInput)){
         accountInfoInput.forEach(function (input) {
@@ -1607,9 +1590,6 @@ window.addEventListener("load", function () {
                 parent.classList.add("error");
             }
         });
-        /*document.querySelector(".account-information__btn").addEventListener("click",function (e) {
-
-        })*/
     }
     let accountPasswordInput = document.querySelectorAll(".account-password__input");
     if(!isEmptyObject(accountPasswordInput)){
@@ -1652,199 +1632,6 @@ window.addEventListener("load", function () {
             })
         })
     }
-
-
-    /// calendar
-    let Cal = function(divId) {
-        //Сохраняем идентификатор div
-        this.divId = divId;
-        // Дни недели с понедельника
-        this.DaysOfWeek = [
-            'Пн',
-            'Вт',
-            'Ср',
-            'Чт',
-            'Пт',
-            'Сб',
-            'Вс'
-        ];
-        // Месяцы начиная с января
-        this.Months =['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'];
-        //Устанавливаем текущий месяц, год
-        let d = new Date();
-        this.currMonth = d.getMonth('1');
-        this.currYear = d.getFullYear('20');
-        this.currDay = d.getDate('1');
-    };
-    // Переход к следующему месяцу
-    Cal.prototype.nextMonth = function() {
-        if ( this.currMonth == 11 ) {
-            this.currMonth = 0;
-            this.currYear = this.currYear + 1;
-        }
-        else {
-            this.currMonth = this.currMonth + 1;
-        }
-        this.showcurr();
-    };
-    // Переход к предыдущему месяцу
-    Cal.prototype.previousMonth = function() {
-        if ( this.currMonth == 0 ) {
-            this.currMonth = 11;
-            this.currYear = this.currYear - 1;
-        }
-        else {
-            this.currMonth = this.currMonth - 1;
-        }
-        this.showcurr();
-    };
-    // Показать текущий месяц
-    Cal.prototype.showcurr = function() {
-        this.showMonth(this.currYear, this.currMonth);
-    };
-    // Показать месяц (год, месяц)
-    Cal.prototype.showMonth = function(y, m) {
-        let d = new Date()
-            // Первый день недели в выбранном месяце
-            , firstDayOfMonth = new Date(y, m, 7).getDay()
-            // Последний день выбранного месяца
-            , lastDateOfMonth =  new Date(y, m+1, 0).getDate()
-            // Последний день предыдущего месяца
-            , lastDayOfLastMonth = m == 0 ? new Date(y-1, 11, 0).getDate() : new Date(y, m, 0).getDate();
-        let html = '<table>';
-        // Запись выбранного месяца и года
-        html += '<thead><tr>';
-        html += '<td colspan="7">' + this.Months[m] + ' ' + y + '</td>';
-        html += '</tr></thead>';
-        // заголовок дней недели
-        html += '<tr class="days">';
-        for(let i = 0; i < this.DaysOfWeek.length; i++) {
-            html += '<td>' + this.DaysOfWeek[i] + '</td>';
-        }
-        html += '</tr>';
-        // Записываем дни
-        let i =1;
-        do {
-            let dow = new Date(y, m, i).getDay();
-            // Начать новую строку в понедельник
-            if ( dow == 1 ) {
-                html += '<tr>';
-            }
-            // Если первый день недели не понедельник показать последние дни предидущего месяца
-            else if ( i == 1 ) {
-                html += '<tr>';
-                let k = lastDayOfLastMonth - firstDayOfMonth+1;
-                for(let j = 0; j < firstDayOfMonth; j++) {
-                    html += '<td class="not-current">' + k + '</td>';
-                    k++;
-                }
-            }
-            // Записываем текущий день в цикл
-            let chk = new Date();
-            let chkY = chk.getFullYear();
-            let chkM = chk.getMonth();
-            if (chkY == this.currYear && chkM == this.currMonth && i == this.currDay) {
-                html += '<td data-date="' + i + '.'+ Number(1 +  m) +'.'+ y +'" class="today calendar-day">' + i + '</td>';
-            } else {
-                html += '<td data-date="' + i + '.'+ Number(1 + m) +'.'+ y +'" class="normal calendar-day">' + i + '</td>';
-            }
-            // закрыть строку в воскресенье
-            if ( dow == 0 ) {
-                html += '</tr>';
-            }
-            // Если последний день месяца не воскресенье, показать первые дни следующего месяца
-            else if ( i == lastDateOfMonth ) {
-                let k = 1;
-                for(dow; dow < 7; dow++) {
-                    html += '<td class="not-current">' + k + '</td>';
-                    k++;
-                }
-            }
-            i++;
-        }
-        while(i <= lastDateOfMonth);
-        // Конец таблицы
-        html += '</table>';
-        // Записываем HTML в div
-        document.getElementById(this.divId).innerHTML = html;
-    };
-    // Начать календарь
-    if(document.getElementById("divCal")){
-        let c = new Cal("divCal");
-        c.showcurr();
-        // Привязываем кнопки «Следующий» и «Предыдущий»
-        document.getElementById('btnNext').onclick = function() {
-            c.nextMonth();
-        };
-        document.getElementById('btnPrev').onclick = function() {
-            c.previousMonth();
-        };
-    }
-    let calendarTable = document.getElementById("account-calendar");
-    let dateInput = document.getElementById("date-input");
-    let accountInfoItemDate = document.querySelector(".account-information__item--date")
-    if(calendarTable !== null && dateInput !== null){
-        function doFormat(x, pattern, mask) {
-            var strippedValue = x.replace(/[^0-9]/g, "");
-            var chars = strippedValue.split('');
-            var count = 0;
-            var formatted = '';
-            for (var i=0; i<pattern.length; i++) {
-                const c = pattern[i];
-                if (chars[count]) {
-                    if (/\*/.test(c)) {
-                        formatted += chars[count];
-                        count++;
-                    } else {
-                        formatted += c;
-                    }
-                } else if (mask) {
-                    if (mask.split('')[i])
-                        formatted += mask.split('')[i];
-                }
-            }
-            return formatted;
-        }
-        document.querySelectorAll('[data-mask]').forEach(function(e) {
-            function format(elem) {
-                const val = doFormat(elem.value, elem.getAttribute('data-format'));
-                elem.value = doFormat(elem.value, elem.getAttribute('data-format'), elem.getAttribute('data-mask'));
-                if (elem.createTextRange) {
-                    var range = elem.createTextRange();
-                    range.move('character', val.length);
-                    range.select();
-                } else if (elem.selectionStart) {
-                    elem.focus();
-                    elem.setSelectionRange(val.length, val.length);
-                }
-            }
-            e.addEventListener('keyup', function() {
-                format(e);
-            });
-            e.addEventListener('keydown', function() {
-                format(e);
-            });
-            format(e)
-        });
-
-        document.body.addEventListener("click", function (e) {
-            let target = e.target.closest('.calendar-day');
-            if(target !== null){
-                let curDate = target.getAttribute("data-date");
-                dateInput.value = curDate;
-            }
-        })
-        accountInfoItemDate.addEventListener("click", function (e) {
-            if(e.target.closest("#btnPrev, #btnNext")){
-                return;
-            }
-            else{
-                calendarTable.classList.toggle("account-calendar--open")
-            }
-        })
-    }
-
-
     let addProductBtn = document.querySelectorAll(".add-product-btn");
     let addProductPopup = document.getElementById("popup-add-cart");
     if(!isEmptyObject(addProductBtn) && addProductPopup !== null){
@@ -1884,5 +1671,48 @@ window.addEventListener("load", function () {
                 parent.classList.add("error");
             }
         });
+    }
+
+    let orderItemCount = document.querySelector(".order-item-count");
+    if(orderItemCount !== null){
+        let btnMinus = orderItemCount.querySelector(".order-item-count__minus");
+        btnMinus.addEventListener("click", function (e) {
+            let input = orderItemCount.querySelector(".order-item-count__input");
+            let value = Number(input.value)
+            if(input.value == 0){
+                return;
+            }
+            else{
+                input.value = value - 1;
+                value--;
+            }
+        })
+        let btnPlus = orderItemCount.querySelector(".order-item-count__plus");
+        btnPlus.addEventListener("click", function (e) {
+            let input = orderItemCount.querySelector(".order-item-count__input");
+            let value = Number(input.value)
+
+            input.value = value + 1;
+            value++;
+        })
+    }
+
+    let inputsDateMask = document.querySelectorAll('input[name="date"]');
+    if(!isEmptyObject(inputsDateMask)){
+        inputsDateMask.forEach(function (input) {
+            let dateMask = IMask(input, {
+                mask: Date,
+                min: new Date(1920, 0, 1),
+                max: new Date(2050, 0, 1),
+            });
+        })
+    }
+    let inputsPhoneMask = document.querySelectorAll('input[name="phone"]');
+    if(!isEmptyObject(inputsPhoneMask)){
+        inputsPhoneMask.forEach(function (input) {
+            let phoneMask = IMask(input, {
+                mask: '+375(00)000-00-00',
+            });
+        })
     }
 })

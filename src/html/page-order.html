@@ -1,10 +1,263 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>АПТЕКА</title>
+    <link rel="stylesheet" href="./css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="./lightGallery-master/dist/css/lightgallery-bundle.min.css">
+    <link rel="stylesheet" href="./lightGallery-master/dist/css/lg-thumbnail.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/favicon/site.webmanifest">
+    <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#31353b">
+    <meta name="msapplication-TileColor" content="#31353b">
+    <meta name="theme-color" content="#0478E3">
 </head>
-<body>
+<body class="scroll">
+@@include('./global/header.html')
+<div class="container">
+    <div class="grid-columns grid-columns_left m-20 m-footer">
+        <div class="account-menu-wrapper">
+            @@include('./global/aside-menu.html')
+        </div>
+        <div class="content">
+            <div class="grid-columns grid-columns_right m-20">
+                <div class="content">
+                    <section class="order">
+                        <h1 class="order__title h1">Корзина</h1>
+                        <div class="order__row df df-ai-center df-jc-between">
+                            <div class="order__text p3">Увас в корзине 3 товара</div>
+                            <a href="#" class="order__edit-order p3">Очистить</a>
+                        </div>
+                        <div class="order__separator"></div>
+                        <div class="order__list">
+                            <div class="order__item order-item">
+                                <div class="order-item__top df df-ai-start">
+                                    <label class="order-item-checkbox df df-ai-center">
+                                        <input type="checkbox" name="product" value="product 1" class="order-item-checkbox__input">
+                                        <span class="order-item-checkbox__control df df-ai-center df-jc-center">
+                                            <svg width="14" height="14">
+                                                <use xlink:href="/img/sprites.svg#icon-check"></use>
+                                            </svg>
+                                        </span>
+                                    </label>
+                                    <div class="order-item__left df df-ai-start">
+                                        <img src="./img/review-mini-photo-1.png" alt="" width="80" height="80" class="order-item__img">
+                                        <div class="order-item__left-content df df-column">
+                                            <span class="order-item__title p1">Librederm церафавит крем липидовосстанавливающий с церамидами и пребиотиком 75 мл</span>
+                                            <span class="order-item__text p3">Лекфарм СООО, Республика Беларусь</span>
+                                        </div>
+                                    </div>
+                                    <div class="order-item__right df df-column df-jc-start df-ai-end">
+                                        <div class="order-item__title-price p3">Цена от:</div>
+                                        <div class="order-item__price h3">8.55 р.</div>
 
+                                    </div>
+                                    <button class="order-item__remove order-item__remove--mob df df-ai-center df-jc-center">
+                                        <svg width="14" height="15" class="order-item__trash">
+                                            <use xlink:href="/img/sprites.svg#icon-trash"></use>
+                                        </svg>
+                                    </button>
+                                </div>
+                                <div class="order-item__bottom df df-ai-center df-jc-end">
+                                    <div class="order-item__group df df-ai-center df-jc-end">
+                                        <div class="order-item__bottom-price p3 df df-ai-center">Цена за 1 ед.: <span>18.5 р. — 20.5 р.</span></div>
+                                        <div class="order-item-count df df-ai-center df-jc-center">
+                                            <button class="order-item-count__btn order-item-count__minus df df-ai-center df-jc-center">
+                                                <svg width="16" height="16">
+                                                    <use xlink:href="/img/sprites.svg#icon-minus"></use>
+                                                </svg>
+                                            </button>
+                                            <input type="number" value="1" class="order-item-count__input">
+                                            <button class="order-item-count__btn order-item-count__plus df df-ai-center df-jc-center">
+                                                <svg width="16" height="16">
+                                                    <use xlink:href="/img/sprites.svg#icon-plus"></use>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                        <button class="order-item__remove df df-ai-center df-jc-center">
+                                        <svg width="14" height="15" class="order-item__trash">
+                                            <use xlink:href="/img/sprites.svg#icon-trash"></use>
+                                        </svg>
+                                    </button>
+                                    </div>
+                                    <div class="order-item__right order-item__right--mob df df-column df-jc-start df-ai-end">
+                                        <div class="order-item__title-price p3">Цена от:</div>
+                                        <div class="order-item__price h3">8.55 р.</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="order__item order-item">
+                                <div class="order-item__top df df-ai-start">
+                                    <label class="order-item-checkbox df df-ai-center">
+                                        <input type="checkbox" name="product" value="product 1" class="order-item-checkbox__input">
+                                        <span class="order-item-checkbox__control df df-ai-center df-jc-center">
+                                            <svg width="14" height="14">
+                                                <use xlink:href="/img/sprites.svg#icon-check"></use>
+                                            </svg>
+                                        </span>
+                                    </label>
+                                    <div class="order-item__left df df-ai-start">
+                                        <img src="./img/review-mini-photo-1.png" alt="" width="80" height="80" class="order-item__img">
+                                        <div class="order-item__left-content df df-column">
+                                            <span class="order-item__title p1">Набор из 2х уп. Максиган табл. №20 по спец.цене</span>
+                                            <span class="order-item__text p3">Лекфарм СООО, Республика Беларусь</span>
+                                        </div>
+                                    </div>
+                                    <div class="order-item__right df df-column df-jc-start df-ai-end">
+                                        <div class="order-item__title-price p3">Цена от:</div>
+                                        <div class="order-item__price h3">8.55 р.</div>
+
+                                    </div>
+                                    <button class="order-item__remove order-item__remove--mob df df-ai-center df-jc-center">
+                                        <svg width="14" height="15" class="order-item__trash">
+                                            <use xlink:href="/img/sprites.svg#icon-trash"></use>
+                                        </svg>
+                                    </button>
+                                </div>
+                                <div class="order-item__bottom df df-ai-center df-jc-end">
+                                    <div class="order-item__group df df-ai-center df-jc-end">
+                                        <div class="order-item__bottom-price p3 df df-ai-center">Цена за 1 ед.: <span>18.5 р. — 20.5 р.</span></div>
+                                        <div class="order-item-count df df-ai-center df-jc-center">
+                                            <button class="order-item-count__btn order-item-count__minus df df-ai-center df-jc-center">
+                                                <svg width="16" height="16">
+                                                    <use xlink:href="/img/sprites.svg#icon-minus"></use>
+                                                </svg>
+                                            </button>
+                                            <input type="number" value="1" class="order-item-count__input">
+                                            <button class="order-item-count__btn order-item-count__plus df df-ai-center df-jc-center">
+                                                <svg width="16" height="16">
+                                                    <use xlink:href="/img/sprites.svg#icon-plus"></use>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                        <button class="order-item__remove df df-ai-center df-jc-center">
+                                            <svg width="14" height="15" class="order-item__trash">
+                                                <use xlink:href="/img/sprites.svg#icon-trash"></use>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    <div class="order-item__right order-item__right--mob df df-column df-jc-start df-ai-end">
+                                        <div class="order-item__title-price p3">Цена от:</div>
+                                        <div class="order-item__price h3">8.55 р.</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="order__item order-item">
+                                <div class="order-item__top df df-ai-start">
+                                    <label class="order-item-checkbox df df-ai-center">
+                                        <input type="checkbox" name="product" value="product 1" class="order-item-checkbox__input">
+                                        <span class="order-item-checkbox__control df df-ai-center df-jc-center">
+                                            <svg width="14" height="14">
+                                                <use xlink:href="/img/sprites.svg#icon-check"></use>
+                                            </svg>
+                                        </span>
+                                    </label>
+                                    <div class="order-item__left df df-ai-start">
+                                        <img src="./img/review-mini-photo-1.png" alt="" width="80" height="80" class="order-item__img">
+                                        <div class="order-item__left-content df df-column">
+                                            <span class="order-item__title p1">СПАЗГАН</span>
+                                            <span class="order-item__text p3">Лекфарм СООО, Республика Беларусь</span>
+                                        </div>
+                                    </div>
+                                    <div class="order-item__right df df-column df-jc-start df-ai-end">
+                                        <div class="order-item__title-price p3">Цена от:</div>
+                                        <div class="order-item__price h3">8.55 р.</div>
+
+                                    </div>
+                                    <button class="order-item__remove order-item__remove--mob df df-ai-center df-jc-center">
+                                        <svg width="14" height="15" class="order-item__trash">
+                                            <use xlink:href="/img/sprites.svg#icon-trash"></use>
+                                        </svg>
+                                    </button>
+                                </div>
+                                <div class="order-item__bottom df df-ai-center df-jc-end">
+                                    <div class="order-item__group df df-ai-center df-jc-end">
+                                        <div class="order-item__bottom-price p3 df df-ai-center">Цена за 1 ед.: <span>18.5 р. — 20.5 р.</span></div>
+                                        <div class="order-item-count df df-ai-center df-jc-center">
+                                            <button class="order-item-count__btn order-item-count__minus df df-ai-center df-jc-center">
+                                                <svg width="16" height="16">
+                                                    <use xlink:href="/img/sprites.svg#icon-minus"></use>
+                                                </svg>
+                                            </button>
+                                            <input type="number" value="1" class="order-item-count__input">
+                                            <button class="order-item-count__btn order-item-count__plus df df-ai-center df-jc-center">
+                                                <svg width="16" height="16">
+                                                    <use xlink:href="/img/sprites.svg#icon-plus"></use>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                        <button class="order-item__remove df df-ai-center df-jc-center">
+                                            <svg width="14" height="15" class="order-item__trash">
+                                                <use xlink:href="/img/sprites.svg#icon-trash"></use>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    <div class="order-item__right order-item__right--mob df df-column df-jc-start df-ai-end">
+                                        <div class="order-item__title-price p3">Цена от:</div>
+                                        <div class="order-item__price h3">8.55 р.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="order__empty order-empty df df-ai-center df-jc-center df-column">
+                            <div class="order-empty__content">
+                                <h1 class="order-empty__title h1">В корзине пока пусто</h1>
+                                <div class="order-empty__text p3">Загляните на главную, чтобы выбрать товары или найдите нужное в поиске</div>
+                                <a href="index.html" class="order-empty__btn btn-main">Вернуться на главную</a>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="order-banner df df-ai-center">
+                        <img src="./img/pharmacy-profile-img.jpg" alt="" class="order-banner__img order-banner__img--small">
+                        <div class="order-banner__faq df df-ai-center">
+                            <svg class="icon" width="18" height="18">
+                                <use xlink:href="/img/sprites.svg#icon-i"></use>
+                            </svg>
+                            <div class="order-banner__text p1">Окончательная стоимость товаров зависит от выбранной аптеки</div>
+                        </div>
+                    </section>
+                    <!--<section class="pharmacy-banner df df-ai-center df-jc-between">
+                        <img src="./img/pharmacy-profile-img.jpg" alt="" class="pharmacy-banner__img">
+                        <div class="pharmacy-banner__info">
+                            <div class="pharmacy-banner__title h2">Сэкономьте до <span>20 %</span></div>
+                            <div class="pharmacy-banner__text p1">Оформляя заказ на нашем сайте, вы экономите</div>
+                        </div>
+                        <div class="pharmacy-banner__faq">
+                            <svg class="icon" width="18" height="18">
+                                <use xlink:href="/img/sprites.svg#icon-i"></use>
+                            </svg>
+                            <div class="hint p3">В своём стремлении улучшить пользовательский опыт мы упускаем, что интерактивные прототипы формируют глобальную экономическую сеть и при этом —  рассмотрены исключительно в разрезе маркетинговых и финансовых предпосылок.</div>
+                        </div>
+                    </section>-->
+                </div>
+                <div>
+                    <aside class="aside-order">
+                        <div class="aside-order__title h3">Ваш заказ</div>
+                        <div class="aside-order__status df df-ai-center df-jc-between">
+                            <div class="name p3">В заказе товаров</div>
+                            <div class="count p3">(1)</div>
+                        </div>
+                        <div class="aside-order__title-sub h5">Общая стоимость</div>
+                        <div class="aside-order__price df df-ai-end df-jc-between">
+                            <div class="name p3">Итого</div>
+                            <div class="value h2">39.25 р.</div>
+                        </div>
+                        <button class="aside-order__btn btn-main">Повторить заказ</button>
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@@include('./global/footer.html')
+<script defer src="./js/imask.min.js"></script>
+<script defer src="./js/swiper-bundle.min.js"></script>
+<script defer src="./lightGallery-master/dist/lightgallery.min.js"></script>
+<script defer src="./lightGallery-master/dist/plugins/thumbnail/lg-thumbnail.min.js"></script>
+<script defer src="./js/index.js"></script>
 </body>
 </html>

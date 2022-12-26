@@ -60,6 +60,11 @@ svg {
 button, input{
   outline: none;
 }
+input{
+  &::placeholder{
+    color: initial;
+  }
+}
 /* clears the 'X' from Internet Explorer */
 input[type=search]::-ms-clear,
 input[type=search]::-ms-reveal {
@@ -2506,7 +2511,7 @@ p{
     }
     &__rating{
       margin-bottom: 20px;
-      /*.stars{
+      .stars{
         height: 21px;
         width: fit-content;
         &:not(:checked) > input {
@@ -2538,52 +2543,6 @@ p{
         & > label:hover ~ input:checked ~ label {
           color: $yellow;
           opacity: 1;
-        }
-      }*/
-      .rating {
-        display: inline-flex;
-        margin: 0 0 0 -5px;
-        &__icon {
-          pointer-events: none;
-          &--none {
-            padding: 0;
-          }
-        }
-        &__input {
-          position: absolute !important;
-          left: -9999px !important;
-        }
-        &__label {
-          width: 16px;
-          height: 16px;
-          cursor: pointer;
-          padding: 0 2px;
-          color: $yellow;
-          &--empty{
-            width: auto;
-            height: auto;
-          }
-          &--half {
-            width: 10px;
-            overflow: hidden;
-            padding-right: 0;
-            margin-right: -10px;
-            z-index: 2;
-          }
-        }
-        &__input:checked ~ .rating__label {
-          color: #E2E5EA;
-        }
-        &:hover .rating__label,
-        &:hover .rating__label--half {
-          color: $yellow;
-        }
-        &__input:hover ~ .rating__label,
-        &__input:hover ~ .rating__label--half{
-          color: #E2E5EA;
-        }
-        &__input:hover .rating__input--none:not(:hover) + .rating__label {
-          color: #E2E5EA;
         }
       }
     }
@@ -4425,6 +4384,26 @@ p{
     border-bottom: 1px solid $grayLine;
     margin-bottom: 12px;
   }
+  .rating {
+    position: relative;
+    width: 80px;
+    height: 16px;
+    &:before{
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAqCAMAAADyHTlpAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAACQUExURUdwTP+we//q3P+6jP+lav/awf/x5/+SSf+qcv/17//fyv/RtP+3h/+gYP/EnP+6jf+sdP/StP+YVP/LqP/bv/+/v//Jpf/Gof/Qsf+9kf/Tt/++k//Mqf/Iov/Dmv/48//fv//Yv//Orv/QsP+9kv////98I/+JO/+FNP+NQf90F/9nAv/69/+BLP9vDv/CmX0rxdIAAAAldFJOUwDu+/35/P3+8/z4/eH6vNn7Xfz8CQSirm3UStCVqfTqEBR+cvK0X6IEAAABaUlEQVQ4y63VaXOCMBAG4IUkhAhY8NZqbxMSDv//vyuH2ihrw0y73xge3gmbLMBxdMEfKWOjqVZjKVOajaR8+6zH0UkOoNgoyp8AsFhAQ9FYQEMBttxNJ8WypZAzJ+VxJ+GJu+gltImdOOjsHIrE2rT0I69YXOiy8OZ+eU8bQyiXheRhBtfKQl4VUlMS9U/AkXSGxtPNAga12EzjPoQ01JfeOzjqzZN+u4BAei7aym6tQRWOkP1rOWxYBT/NEnnolJe+CvXQhrm43QKh6AOpxP1ulZr+Lq2NFRxZg6dfsTMg6iE1AXpc+km5LXtuLPqSDGlyQmmK7G9MUcqnQ7rWKDXZkO4MRq0GrA5YC8D6qJ3vTrlS18XoCKFffQMOs6q5G+WzdXdJCUJpO6v7RM77y7lM9u3cJghVa/ikxurjSdIPWOUINbvQEHuYjyUxYVYPaWDqVNx/e0pSd7NyS1kaYD8AkbL/+hnh9Q3OHatqVGOt0wAAAABJRU5ErkJggg==) repeat-x;
+      background-size: auto 100%;
+    }
+    .rate-ico{
+      display: block;
+      height: 100%;
+      background-color: $yellow;
+    }
+  }
   &__list{
     display: grid;
     grid-template-columns: 1fr;
@@ -5943,7 +5922,7 @@ p{
         border: 1px solid $grayLine;
         border-radius: 6px;
         padding: 0 12px;
-        color: $grayText;
+        color: $black;
         cursor: pointer;
         /*gap: 8px;*/
         /*@include media("min", "lg") {
@@ -6034,7 +6013,7 @@ p{
       border: 1px solid $grayLine;
       border-radius: 6px;
       padding-left: 12px;
-      color: $grayText;
+      color: $black;
       font-size: 14px;
       line-height: 150%;
       cursor: pointer;
@@ -6409,101 +6388,6 @@ p{
     &:active,
     &:focus{
       color: $blueAccent;
-    }
-  }
-  &-calendar{
-    display: none;
-    width: 280px;
-    padding: 20px 13px;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.06), 0px 0px 3px rgba(0, 0, 0, 0.06);
-    border-radius: 8px;
-    background: $white;
-    position: absolute;
-    z-index: 99;
-    top: 100%;
-    right: 0;
-    @include media("max", "lg"){
-      left: 0;
-    }
-    &.account-calendar--open{
-      display: block;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      color: $black;
-      thead{
-        td {
-          font-weight: 700;
-          font-size: 14px;
-          line-height: 130%;
-          text-align: center;
-          padding: 8px 0;
-        }
-      }
-      tbody{
-         tr{
-           &.days{
-             td {
-               color: $grayText;
-             }
-           }
-           td {
-             font-weight: 400;
-             font-size: 12px;
-             line-height: 130%;
-             height: 36px;
-             min-width: 36px;
-             text-align: center;
-             vertical-align: middle;
-             border-radius: 50%;
-             cursor: pointer;
-             &.not-current {
-               color: $grayText;
-               opacity: 0;
-             }
-             &.today {
-               font-weight: 700;
-               color: $white;
-               background: $blue;
-             }
-             &.normal:hover{
-               background: $grayBg;
-             }
-           }
-         }
-      }
-    }
-    #btnPrev,
-    #btnNext {
-      width: 28px;
-      height: 28px;
-      border: none;
-      outline: none;
-      color: $black;
-      background: #FFFFFF;
-      box-shadow: 0px 3.68421px 7.36842px rgba(26, 54, 95, 0.05);
-      border-radius: 50%;
-      position: absolute;
-      top: 22px;
-      @include media("min", "lg") {
-        &:hover {
-          color: $blueHover;
-        }
-      }
-      &:focus,
-      &:active{
-        color: $blueAccent;
-      }
-    }
-    #btnPrev{
-      left: 12px;
-      svg{
-        transform: rotate(180deg);
-      }
-    }
-    #btnNext{
-      right: 12px;
     }
   }
   &-information{
@@ -7212,7 +7096,318 @@ p{
   }
 }
 
+.datepicker {
+  color: $black;
+  left: unset!important;
+  &.active{
+    right: 0!important;
+    @include media("max", "lg"){
+      left: 0!important;
+    }
+    top: 75px!important;
+  }
+  &-picker{
+    padding: 20px 13px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.06), 0px 0px 3px rgba(0, 0, 0, 0.06);
+    border-radius: 8px;
+    background: $white;
+  }
+  &-view{
+    .dow{
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 130%;
+      text-align: center;
+      padding: 8px 0;
+      height: 36px;
+    }
+    &.datepicker-grid{
+      .datepicker-cell{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 63px;
+        line-height: 100%;
+        border-radius: 50%;
+        &.focused:not(.selected){
+          background: transparent;
+        }
+      }
+    }
+  }
+  &-cell{
+    &.day{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 130%;
+      height: 36px;
+      width: 36px;
+      text-align: center;
+      border-radius: 50%;
+      cursor: pointer;
+      &:hover{
+        background: $grayBg;
+      }
+      &.next,
+      &.prev{
+        color: $grayText;
+      }
+      &.selected.focused {
+        font-weight: 700;
+        color: $white;
+        background: $blue;
+        border-radius: 50%;
+      }
+      &.focused:not(.selected){
+        background: transparent;
+      }
+    }
+  }
+}
+
 /* CHECKOUT SECTION */
+.order{
+  background: $white;
+  box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.02);
+  border-radius: 8px;
+  padding: 20px;
+  margin: 20px 0;
+  &.order--empty{
+    .order-empty{
+      display: flex;
+    }
+  }
+  @include media("max", "lg") {
+    margin: 10px -10px!important;
+    padding: 12px 10px;
+    border-radius: 0;
+  }
+  &__title{
+    margin-bottom: 8px;
+    color: $black;
+    @include media("max", "lg"){
+      margin-bottom: 6px;
+    }
+  }
+  &__row{
+    margin-bottom: 16px;
+    @include media("max", "lg"){
+      margin-bottom: 12px;
+    }
+  }
+  &__text{
+    color: $grayText;
+  }
+  &__edit-order{
+    color: $blue;
+    font-weight: 700;
+    @include media("min", "lg"){
+      &:hover{
+        color: $blueHover;
+      }
+    }
+    &:active,
+    &:focus{
+      color: $blueAccent;
+    }
+  }
+  &__separator{
+    height: 4px;
+    background: $grayBg;
+    margin: 20px -20px 0  ;
+    @include media("max", "lg"){
+      margin: 16px -10px 0;
+    }
+  }
+  &__list{
+    @include media("max", "lg"){
+      margin: 0 -10px;
+    }
+    .order-item{
+      padding: 18px 0;
+      border-bottom: 1px solid $grayLine;
+      position: relative;
+      @include media("max", "lg"){
+        align-items: flex-start;
+        padding: 10px 10px;
+      }
+      &__left{
+        @include media("max", "lg"){
+          align-items: flex-start;
+        }
+      }
+      &-checkbox{
+        margin: auto 12px auto 0;
+        @include media("max", "lg"){
+          margin: 15px 12px 0 0;
+        }
+        &__input{
+          position: absolute;
+          visibility: hidden;
+          &:checked ~ .order-item-checkbox__control {
+            background: $blue;
+            border: 1.5px solid $blue;
+          }
+        }
+        &__control {
+          width: 20px;
+          height: 20px;
+          background: $white;
+          border: 1.5px solid $grayLine;
+          border-radius: 5px;
+          color: $white;
+          padding: 2px;
+          cursor: pointer;
+          @include media("min", "lg") {
+            &:hover {
+              border: 1.5px solid $blueHover;
+            }
+          }
+        }
+      }
+      &__img{
+        flex-shrink: 0;
+        margin-right: 16px;
+        @include media("max", "lg"){
+          width: 50px;
+          height: 50px;
+          margin-right: 12px;
+        }
+      }
+      &__title{
+        margin-bottom: 6px;
+        max-width: 540px;
+        @include media("max", "lg"){
+          margin-bottom: 4px;
+        }
+      }
+      &__text{
+        color: $grayText;
+      }
+      &__right{
+        flex-shrink: 0;
+        margin: 0 0 0 auto;
+        &.order-item__right--mob{
+          display: none;
+        }
+        @include media("max", "lg"){
+          display: none;
+          &.order-item__right--mob{
+            display: flex;
+          }
+        }
+      }
+      &__title-price{
+        color: $grayText;
+        margin-bottom: 2px;
+      }
+      &__bottom{
+        padding: 15px 0 0;
+        @include media("max", "lg"){
+          justify-content: space-between;
+        }
+        &-price{
+          span{
+            display: block;
+            margin: 0 0 0 4px;
+            font-weight: 700;
+          }
+        }
+
+      }
+      &__group{
+        @include media("max", "lg"){
+          flex-flow: column;
+          align-items: flex-start;
+          justify-content: flex-start;
+        }
+      }
+      &-count{
+        border: 1px solid $grayLine;
+        border-radius: 5px;
+        padding: 4px;
+        width: 90px;
+        height: 25px;
+        margin: 0 16px;
+        @include media("max", "lg"){
+          margin: 4px 0 0;
+        }
+        &__btn{
+          background: transparent;
+          border: none;
+        }
+        &__input{
+          background: transparent;
+          border: none;
+          text-align: center;
+          height: 100%;
+          width: calc(100% - 40px);
+          font-size: 12px;
+          line-height: 150%;
+          color: $black;
+        }
+      }
+      &__remove{
+        width: 18px;
+        height: 18px;
+        border: none;
+        background: transparent;
+        color: $grayIcon;
+        &.order-item__remove--mob{
+          display: none;
+          margin: 0 0 0 auto;
+        }
+        @include media("max", "lg"){
+          display: none;
+          &.order-item__remove--mob{
+            display: flex;
+          }
+        }
+        @include media("min", "lg"){
+          &:hover{
+            color: $pink;
+          }
+        }
+        &:active,
+        &:focus{
+          color: $pink;
+        }
+      }
+    }
+  }
+  &-empty{
+    display: none;
+    background: $white;
+    box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.02);
+    border-radius: 8px;
+    padding: 20px;
+    min-height: 525px;
+    @include media("max", "lg") {
+      margin: 10px -10px!important;
+      padding: 20px 10px;
+      border-radius: 0;
+      min-height: 165px;
+    }
+    &__content{
+      max-width: 370px;
+      text-align: center;
+    }
+    &__title{
+      margin-bottom: 8px;
+    }
+    &__text{
+      color: $grayText;
+      margin-bottom: 16px;
+    }
+    &__btn{
+      margin: 0 auto;
+      width: fit-content;
+    }
+  }
+}
 .order-banner{
   position: relative;
   background: $white;
@@ -7234,6 +7429,9 @@ p{
     border-radius: 0;
     border-top-left-radius: 8px;
     border-bottom-left-radius: 8px;
+    &.order-banner__img--small{
+      width: 4px;
+    }
     @include media("max", "lg"){
       border-radius: 0;
     }
@@ -7247,11 +7445,19 @@ p{
   &__title{
     margin-bottom: 8px;
   }
-  &__text{
-    margin-bottom: 16px;
-  }
   &__btn{
+    margin-top: 16px;
     width: fit-content;
+  }
+
+  &__faq{
+    position: relative;
+    .icon{
+      color: $blue;
+      border-radius: 50%;
+      margin-right: 15px;
+      box-shadow: 0px 0px 0px 4.50001px rgba(5, 110, 207, 0.05);
+    }
   }
 }
 .order-checkout{
@@ -7288,6 +7494,7 @@ p{
       padding: 18px 0;
       border-bottom: 1px solid $grayLine;
       @include media("max", "lg"){
+        flex-flow: column;
         align-items: flex-start;
         padding: 10px 10px;
       }
@@ -7317,10 +7524,20 @@ p{
       }
       &__right{
         flex-shrink: 0;
+        @include media("max", "lg"){
+          margin-left: 62px;
+          margin-top: 8px;
+          flex-flow: row;
+          align-items: center;
+        }
       }
       &__title-price{
         color: $grayText;
         margin-bottom: 2px;
+        @include media("max", "lg"){
+          margin-bottom: 0;
+          margin-right: 4px;
+        }
       }
       &__row{
         color: $grayText;

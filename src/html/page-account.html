@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <title>АПТЕКА</title>
+    <link rel="stylesheet" href="./css/datepicker.min.css">
     <link rel="stylesheet" href="./css/swiper-bundle.min.css">
     <link rel="stylesheet" href="./lightGallery-master/dist/css/lightgallery-bundle.min.css">
     <link rel="stylesheet" href="./lightGallery-master/dist/css/lg-thumbnail.css">
@@ -37,20 +38,7 @@
                         </div>
                         <div class="account-information__item account-information__item--short account-information__item--date">
                             <label for="date-input" class="account-information__label p3">Дата рождения</label>
-                            <input type="text" name="date" id="date-input" class="account-information__input" placeholder="Не указано" data-format="**.**.****" data-mask="чч.мм.гггг">
-                            <div class="account-calendar" id="account-calendar">
-                                <button id="btnPrev" class="df df-ai-center df-jc-center">
-                                    <svg width="7" height="10">
-                                        <use xlink:href="/img/sprites.svg#arrow-menu"></use>
-                                    </svg>
-                                </button>
-                                <button id="btnNext" class="df df-ai-center df-jc-center">
-                                    <svg width="7" height="10">
-                                        <use xlink:href="/img/sprites.svg#arrow-menu"></use>
-                                    </svg>
-                                </button>
-                                <div id="divCal"></div>
-                            </div>
+                            <input type="text" name="date" id="date-input" class="account-information__input date datepicker-input" placeholder="Не указано">
                         </div>
                         <div class="account-information__item account-information__item--short inner-sorter">
                             <div class="account-information__label p3">Пол</div>
@@ -142,9 +130,27 @@
     </div>
 </div>
 @@include('./global/footer.html')
+<script defer src="./js/imask.min.js"></script>
 <script defer src="./js/swiper-bundle.min.js"></script>
 <script defer src="./lightGallery-master/dist/lightgallery.min.js"></script>
 <script defer src="./lightGallery-master/dist/plugins/thumbnail/lg-thumbnail.min.js"></script>
 <script defer src="./js/index.js"></script>
+
+<script src="./js/datepicker-full.min.js"></script>
+<script src="./js/ru.js"></script>
+<script>
+    window.addEventListener("load", function () {
+        let accountInfoItemDate = document.querySelector("#date-input") //.account-information__item--date
+        if (accountInfoItemDate !== null) {
+            const datepicker = new Datepicker(accountInfoItemDate, {
+                weekStart: 1,
+                language: 'ru',
+                format: 'dd.mm.yyyy',
+                type: 'input',
+            });
+            datepicker.input
+        }
+    })
+</script>
 </body>
 </html>
