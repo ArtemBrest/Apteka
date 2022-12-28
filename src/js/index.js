@@ -1546,18 +1546,21 @@ window.addEventListener("load", function () {
             })
         })
     }
-    let accountInfoInput = document.querySelectorAll(".account-information__input--readonly");
-    if(!isEmptyObject(accountInfoInput)){
-        accountInfoInput.forEach(function (input) {
-            let parent = input.parentNode;
-            let icon = parent.querySelector(".account-information__icon");
-            icon.addEventListener("click", function (e){
-                parent.classList.add("change");
+    //let accountInfoInput = document.querySelectorAll(".account-information__input--readonly");
+    let accountNameInput = document.getElementById("name-input");
+    let accountEmailInput = document.getElementById("email-input");
+    let accountPhoneInput = document.getElementById("phone-input");
+    if(accountNameInput !== null && accountEmailInput !== null && accountPhoneInput !== null){
+        /*accountInfoInput.forEach(function (input) {
+            //let parent = input.parentNode;
+            //let icon = parent.querySelector(".account-information__icon");
+            input.addEventListener("click", function (e){
+                //parent.classList.add("change");
                 input.removeAttribute("readonly");
                 input.focus();
             })
-        })
-        let accountNameInput = document.getElementById("name-input");
+        })*/
+
         accountNameInput.addEventListener('keyup', () => {
             let parent = accountNameInput.parentNode;
             if (regexSubject.test(accountNameInput.value)) {
@@ -1568,7 +1571,6 @@ window.addEventListener("load", function () {
                 parent.classList.add("error");
             }
         });
-        let accountEmailInput = document.getElementById("email-input");
         accountEmailInput.addEventListener('keyup', () => {
             let parent = accountEmailInput.parentNode;
             if (regexEmail.test(accountEmailInput.value)) {
@@ -1579,7 +1581,6 @@ window.addEventListener("load", function () {
                 parent.classList.add("error");
             }
         });
-        let accountPhoneInput = document.getElementById("phone-input");
         accountPhoneInput.addEventListener('keyup', () => {
             let parent = accountPhoneInput.parentNode;
             if (regexPhone.test(accountPhoneInput.value)) {
@@ -1673,27 +1674,28 @@ window.addEventListener("load", function () {
         });
     }
 
-    let orderItemCount = document.querySelector(".order-item-count");
-    if(orderItemCount !== null){
-        let btnMinus = orderItemCount.querySelector(".order-item-count__minus");
-        btnMinus.addEventListener("click", function (e) {
-            let input = orderItemCount.querySelector(".order-item-count__input");
-            let value = Number(input.value)
-            if(input.value == 0){
-                return;
-            }
-            else{
-                input.value = value - 1;
-                value--;
-            }
-        })
-        let btnPlus = orderItemCount.querySelector(".order-item-count__plus");
-        btnPlus.addEventListener("click", function (e) {
-            let input = orderItemCount.querySelector(".order-item-count__input");
-            let value = Number(input.value)
-
-            input.value = value + 1;
-            value++;
+    let orderItemCount = document.querySelectorAll(".order-item-count");
+    if(!isEmptyObject(orderItemCount)){
+        orderItemCount.forEach(function (item){
+            let btnMinus = item.querySelector(".order-item-count__minus");
+            btnMinus.addEventListener("click", function (e) {
+                let input = item.querySelector(".order-item-count__input");
+                let value = Number(input.value)
+                if(input.value == 0){
+                    return;
+                }
+                else{
+                    input.value = value - 1;
+                    value--;
+                }
+            })
+            let btnPlus = item.querySelector(".order-item-count__plus");
+            btnPlus.addEventListener("click", function (e) {
+                let input = item.querySelector(".order-item-count__input");
+                let value = Number(input.value)
+                input.value = value + 1;
+                value++;
+            })
         })
     }
 
