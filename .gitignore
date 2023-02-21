@@ -1,8 +1,4 @@
 .idea/
-/old/.idea/
 /node_modules/*
-/old/node_modules/*
 /dist/*
-/old/dist/*
 package-lock.json
-/old/package-lock.json
