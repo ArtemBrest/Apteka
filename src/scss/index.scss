@@ -612,7 +612,7 @@ p{
       width: 12px;
       height: 1px;
       background: $blue;
-      border-radius: 8px;
+      border-radius: 6px;
       &:last-child{
         transform: rotate(90deg);
       }
@@ -1299,7 +1299,7 @@ p{
             /*gap: 8px*/;
             padding: 5px 8px;
             color: $black;
-            border-radius: 8px;
+            border-radius: 6px;
             cursor: pointer;
             & > *:first-child{
               margin-right: 8px;
@@ -1350,7 +1350,7 @@ p{
           padding: 5px 8px;
           color: $black;
           cursor: pointer;
-          border-radius: 8px;
+          border-radius: 6px;
           transition: all 0.3s;
           @include media("max", "sm") {
             align-items: flex-start;
@@ -1420,7 +1420,7 @@ p{
           padding: 5px 8px;
           line-height: 130%;
           color: $black;
-          border-radius: 8px;
+          border-radius: 6px;
           @include media("max", "lg") {
             /*padding: 5px 0;*/
           }
@@ -1475,7 +1475,7 @@ p{
 }
 .aside-menu{
   background: $white;
-  border-radius: 8px;
+  border-radius: 6px;
   width: 230px;
   position: sticky;
   top: 80px;
@@ -1870,7 +1870,7 @@ p{
 }
 .error-page{
   background: $white;
-  border-radius: 8px;
+  border-radius: 6px;
   margin: 20px 0 30px;
   padding: 85px 0;
   @include media("max", "lg"){
@@ -1986,7 +1986,7 @@ p{
 .city-popup{
   display: none;
   background: $white;
-  border-radius: 8px;
+  border-radius: 6px;
   padding: 20px;
   z-index: 99;
   width: 360px;
@@ -2034,7 +2034,7 @@ p{
     width: 100%;
     height: 40px;
     border: 1px solid $grayLine;
-    border-radius: 8px;
+    border-radius: 6px;
     background: transparent;
     padding: 0 0 0 15px;
     color: $black;
@@ -2058,7 +2058,7 @@ p{
     border: 1px solid $grayLine;
     overflow: hidden;
     overflow-y: auto;
-    border-radius: 8px;
+    border-radius: 6px;
   }
   &__list{
     max-height: 230px;
@@ -2092,7 +2092,7 @@ p{
 .popup{
   display: none;
   background: $white;
-  border-radius: 8px;
+  border-radius: 6px;
   padding: 20px;
   z-index: 200;
   width: 360px;
@@ -2285,7 +2285,7 @@ p{
 .popup-success{
   display: none;
   background: $white;
-  border-radius: 8px;
+  border-radius: 6px;
   padding: 20px;
   z-index: 200;
   width: 360px;
@@ -2323,7 +2323,7 @@ p{
     margin: 0 auto 16px;
     background: $blue;
     border: 5.5px solid #E6F0FA;
-    border-radius: 8px;
+    border-radius: 6px;
     color: $white;
     box-sizing: content-box;
   }
@@ -2373,7 +2373,7 @@ p{
       &:checked + label::before {
         opacity: 1;
         border: 1px solid $blue;
-        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-5 -5 10 10'%3e%3ccircle r='3' fill='%23056ECF'/%3e%3c/svg%3e");
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-5 -5 10 10'%3e%3ccircle r='3' fill='%23327cff'/%3e%3c/svg%3e");
       }
       & + label::before {
         content: '';
@@ -2407,7 +2407,7 @@ p{
   display: none;
   background: $white;
   box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.02);
-  border-radius: 8px;
+  border-radius: 6px;
   padding: 20px 16px;
   z-index: 200;
   width: 260px;
@@ -2430,7 +2430,7 @@ p{
   display: none;
   background: $white;
   box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.02);
-  border-radius: 8px;
+  border-radius: 6px;
   padding: 20px 16px;
   z-index: 200;
   width: 260px;
@@ -2452,7 +2452,7 @@ p{
 .popup-review{
   display: none;
   background: $white;
-  border-radius: 8px;
+  border-radius: 6px;
   padding: 20px;
   z-index: 200;
   width: 850px;
@@ -2554,7 +2554,7 @@ p{
     &__textarea{
       background: transparent;
       border: 1px solid $grayLine;
-      border-radius: 8px;
+      border-radius: 6px;
       padding: 10px 0 0 14px;
       font-size: 14px;
       line-height: 150%;
@@ -2684,7 +2684,7 @@ p{
   display: none;
   background: $white;
   box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.05);
-  border-radius: 8px;
+  border-radius: 6px;
   padding: 20px 16px;
   z-index: 200;
   width: 260px;
@@ -2724,7 +2724,7 @@ p{
   top: 80px;
   background: $white;
   box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.02);
-  border-radius: 8px;
+  border-radius: 6px;
   padding: 20px;
   @include media("max", "xl") {
     display: none;
@@ -2872,7 +2872,7 @@ p{
   display: none;
   background: $white;
   box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.05);
-  border-radius: 8px;
+  border-radius: 6px;
   padding: 8px;
   width: 300px;
   height: 65px;
@@ -3077,7 +3077,7 @@ p{
     max-width: 100%;
     height: auto;
     object-fit: cover;
-    border-radius: 8px;
+    border-radius: 6px;
     &:last-child{
       margin-bottom: 0;
     }
@@ -3086,7 +3086,7 @@ p{
 .product-preview{
   background: $white;
   box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.05);
-  border-radius: 8px;
+  border-radius: 6px;
   width: 215px;
   position: relative;
   &.product-preview--horizontal{
@@ -3218,7 +3218,7 @@ p{
     }
   }
   &__img{
-    border-radius: 8px;
+    border-radius: 6px;
     flex-shrink: 0;
     position: relative;
     max-height: 215px;
@@ -3226,7 +3226,7 @@ p{
       position: static;
     }
     img{
-      border-radius: 8px;
+      border-radius: 6px;
     }
   }
   &__heart{
@@ -3341,7 +3341,7 @@ p{
   &__wrapper{
     background: rgba(110, 126, 150, 0.9);
     box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.02);
-    border-radius: 8px;
+    border-radius: 6px;
     /*gap: 20px;*/
     min-height: 60px;
     padding: 16px;
@@ -3445,8 +3445,29 @@ p{
   &__title{
     margin-bottom: 8px;
   }
-  &-rating{
-    /*gap: 2px;*/
+  &-rating {
+    position: relative;
+    width: 80px;
+    height: 16px;
+    background: $grayBg;
+    &:before{
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: transparent url(data:image/png;base64,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) repeat-x;
+      background-size: auto 100%;
+    }
+    .rate-ico{
+      display: block;
+      height: 100%;
+      background-color: $yellow;
+    }
+  }
+  /*&-rating{
+    !*gap: 2px;*!
     flex-shrink: 0;
     & > *{
       margin-right: 2px;
@@ -3469,7 +3490,7 @@ p{
       color: $grayText;
       border-bottom: 1px dashed $grayText;
     }
-  }
+  }*/
   &__row{
     /*gap: 6px;*/
     margin-bottom: 20px;
@@ -3500,7 +3521,7 @@ p{
   &-wrapper{
     padding: 10px 20px 20px;
     background: $white;
-    border-radius: 8px;
+    border-radius: 6px;
     @include media("max", "lg") {
       padding: 12px 10px 15px;
       margin: 0 -10px!important;
@@ -3776,7 +3797,7 @@ p{
 }
 .how-to-work{
   background: $white;
-  border-radius: 8px;
+  border-radius: 6px;
   padding: 20px;
   @include media("max", "lg") {
     padding: 12px 10px;
@@ -3836,7 +3857,7 @@ p{
 }
 .product-block-description{
   background: $white;
-  border-radius: 8px;
+  border-radius: 6px;
   padding: 20px;
   @include media("max", "lg") {
     padding: 12px 10px;
@@ -3937,7 +3958,7 @@ p{
 .product-block-disclaimer{
   background: $white;
   box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.02);
-  border-radius: 8px;
+  border-radius: 6px;
   padding: 20px;
   @include media("max", "lg") {
     padding: 12px 10px;
@@ -3978,7 +3999,7 @@ p{
 .review{
   background: $white;
   box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.02);
-  border-radius: 8px;
+  border-radius: 6px;
   padding: 20px;
   &.review--empty{
     display: flex;
@@ -4213,7 +4234,7 @@ p{
       display: none;
       background: $white;
       box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.06), 0px 0px 3px rgba(0, 0, 0, 0.06);
-      border-radius: 8px;
+      border-radius: 6px;
       padding: 10px 8px;
       width: 110px;
       position: absolute;
@@ -4355,7 +4376,7 @@ p{
   top: 80px;
   background: $white;
   box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.02);
-  border-radius: 8px;
+  border-radius: 6px;
   padding: 20px;
   @include media("max", "xl") {
     display: none;
@@ -4518,7 +4539,7 @@ p{
   &__wrapper{
     background: $white;
     box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.02);
-    border-radius: 8px;
+    border-radius: 6px;
     padding: 20px;
     & > *:first-child{
       margin-top: 0!important;
@@ -4559,7 +4580,7 @@ p{
       justify-content: center;
       text-align: center;
       background: $grayBg;
-      border-radius: 8px;
+      border-radius: 6px;
       min-height: 65px;
       padding: 15px;
       @include media("max", "lg") {
@@ -4622,7 +4643,7 @@ p{
       .card{
         /*gap: 12px;*/
         border: 1px solid $grayLine;
-        border-radius: 8px;
+        border-radius: 6px;
         padding: 15px;
         @include media("max", "lg") {
           padding: 15px 12px;
@@ -4686,7 +4707,7 @@ p{
     margin-bottom: 20px;
     background: $white;
     box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.02);
-    border-radius: 8px;
+    border-radius: 6px;
     @include media("max", "lg"){
       flex-flow: column;
       margin: 0 -10px 10px;
@@ -4954,7 +4975,7 @@ p{
       &:checked + label::after {
         opacity: 1;
         border: 1px solid $blue;
-        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-5 -5 10 10'%3e%3ccircle r='3' fill='%23056ECF'/%3e%3c/svg%3e");
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-5 -5 10 10'%3e%3ccircle r='3' fill='%23327cff'/%3e%3c/svg%3e");
       }
       & + label::after {
         content: '';
@@ -5100,7 +5121,7 @@ p{
     margin: 20px 0 0;
     background: $white;
     box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.02);
-    border-radius: 8px;
+    border-radius: 6px;
     padding: 20px;
     min-height: 330px;
     @include media("max", "lg"){
@@ -5155,7 +5176,7 @@ p{
 .pharmacy-profile{
   background: $white;
   box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.02);
-  border-radius: 8px;
+  border-radius: 6px;
   padding: 20px;
   margin-bottom: 20px;
   @include media("max", "lg"){
@@ -5184,7 +5205,7 @@ p{
       grid-template-columns: 1fr;
       grid-gap: 12px;
       background: #FAFBFD;
-      border-radius: 8px;
+      border-radius: 6px;
       padding: 12px;
       margin-top: 16px;
       @include media("max", "lg") {
@@ -5379,7 +5400,7 @@ p{
   position: relative;
   background: $white;
   box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.05);
-  border-radius: 8px;
+  border-radius: 6px;
   padding: 17px 20px;
   @include media("max", "lg"){
     margin: 0 -10px;
@@ -5432,7 +5453,7 @@ p{
       width: 545px;
       background: $white;
       box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.06), 0px 0px 3px rgba(0, 0, 0, 0.06);
-      border-radius: 8px;
+      border-radius: 6px;
       padding: 8px 10px;
       color: $black;
       @include media("max", "lg"){
@@ -5492,7 +5513,7 @@ p{
     .card{
       background: $white;
       box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.05);
-      border-radius: 8px;
+      border-radius: 6px;
       height: 120px;
       color: $grayIcon;
       padding: 12px;
@@ -5550,7 +5571,7 @@ p{
   &__wrapper{
     background: $white;
     box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.02);
-    border-radius: 8px;
+    border-radius: 6px;
     padding: 16px 20px 20px;
     position: relative;
     @include media("max", "lg") {
@@ -5675,7 +5696,7 @@ p{
       top: 80px;
       padding: 14px 14px 16px 10px;
       border: 1px solid $grayLine;
-      border-radius: 8px;
+      border-radius: 6px;
       height: max-content;
       display: grid;
       grid-template-columns: 1fr;
@@ -5706,7 +5727,7 @@ p{
 .page-about{
   background: $white;
   box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.02);
-  border-radius: 8px;
+  border-radius: 6px;
   padding: 20px;
   @include media("max", "lg"){
     margin: 0 -10px;
@@ -5723,7 +5744,7 @@ p{
 .page-how-make{
   background: $white;
   box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.02);
-  border-radius: 8px;
+  border-radius: 6px;
   padding: 20px;
   @include media("max", "lg"){
     margin: 0 -10px;
@@ -5734,7 +5755,7 @@ p{
 .page-contact{
   background: $white;
   box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.02);
-  border-radius: 8px;
+  border-radius: 6px;
   padding: 20px;
   @include media("max", "lg"){
     margin: 0 -10px;
@@ -5813,7 +5834,7 @@ p{
 .feedback{
   background: $white;
   box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.02);
-  border-radius: 8px;
+  border-radius: 6px;
   padding: 20px;
   @include media("max", "lg") {
     margin: 10px -10px 0!important;
@@ -5971,7 +5992,7 @@ p{
         &:checked + label::after {
           opacity: 1;
           border: 1px solid $blue;
-          background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-5 -5 10 10'%3e%3ccircle r='3' fill='%23056ECF'/%3e%3c/svg%3e");
+          background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-5 -5 10 10'%3e%3ccircle r='3' fill='%23327cff'/%3e%3c/svg%3e");
         }
         & + label::after {
           content: '';
@@ -6065,7 +6086,7 @@ p{
   background-position: center;
   background-repeat: no-repeat;
   box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.02);
-  border-radius: 8px;
+  border-radius: 6px;
   @include media("max", "lg") {
     padding: 16px 16px 0;
     margin: 0 -10px -10px!important;
@@ -6111,7 +6132,7 @@ p{
 .brand-profile{
   background: $white;
   box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.02);
-  border-radius: 8px;
+  border-radius: 6px;
   padding: 20px;
   @include media("max", "lg") {
     margin: 10px -10px!important;
@@ -6292,7 +6313,7 @@ p{
 }
 .account-menu{
   background: $white;
-  border-radius: 8px;
+  border-radius: 6px;
   width: 230px;
   position: sticky;
   top: 80px;
@@ -6354,7 +6375,7 @@ p{
 .account{
   background: $white;
   box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.02);
-  border-radius: 8px;
+  border-radius: 6px;
   padding: 20px;
   @include media("max", "lg") {
     margin: 10px -10px!important;
@@ -6683,7 +6704,7 @@ p{
     display: none;
     background: $white;
     box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.02);
-    border-radius: 8px;
+    border-radius: 6px;
     padding: 20px;
     min-height: 525px;
     @include media("max", "lg") {
@@ -6710,7 +6731,7 @@ p{
   }
   background: $white;
   box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.02);
-  border-radius: 8px;
+  border-radius: 6px;
   padding: 20px;
   margin: 20px 0;
   @include media("max", "lg") {
@@ -6883,7 +6904,7 @@ p{
 .aside-order{
   background: $white;
   box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.02);
-  border-radius: 8px;
+  border-radius: 6px;
   position: sticky;
   top: 80px;
   z-index: 99;
@@ -6938,7 +6959,7 @@ p{
         width: 190px;
         background: $white;
         box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.06), 0px 0px 3px rgba(0, 0, 0, 0.06);
-        border-radius: 8px;
+        border-radius: 6px;
         color: $black;
         padding: 10px;
         &:before {
@@ -7009,7 +7030,7 @@ p{
     display: none;
     background: $white;
     box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.02);
-    border-radius: 8px;
+    border-radius: 6px;
     padding: 20px;
     min-height: 525px;
     @include media("max", "lg") {
@@ -7069,7 +7090,7 @@ p{
     display: none;
     background: $white;
     box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.02);
-    border-radius: 8px;
+    border-radius: 6px;
     padding: 20px;
     min-height: 525px;
     @include media("max", "lg") {
@@ -7109,7 +7130,7 @@ p{
   &-picker{
     padding: 20px 13px;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.06), 0px 0px 3px rgba(0, 0, 0, 0.06);
-    border-radius: 8px;
+    border-radius: 6px;
     background: $white;
   }
   &-view{
@@ -7172,7 +7193,7 @@ p{
 .order{
   background: $white;
   box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.02);
-  border-radius: 8px;
+  border-radius: 6px;
   padding: 20px;
   margin: 20px 0;
   &.order--empty{
@@ -7383,7 +7404,7 @@ p{
     display: none;
     background: $white;
     box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.02);
-    border-radius: 8px;
+    border-radius: 6px;
     padding: 20px;
     min-height: 525px;
     @include media("max", "lg") {
@@ -7413,7 +7434,7 @@ p{
   position: relative;
   background: $white;
   box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.05);
-  border-radius: 8px;
+  border-radius: 6px;
   padding: 17px 20px;
   @include media("max", "lg"){
     margin: 0 -10px;
@@ -7464,7 +7485,7 @@ p{
 .order-checkout{
   background: $white;
   box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.02);
-  border-radius: 8px;
+  border-radius: 6px;
   padding: 20px;
   margin: 20px 0;
   @include media("max", "lg") {
@@ -7555,7 +7576,7 @@ p{
 .aside-point-issue{
   background: $white;
   box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.02);
-  border-radius: 8px;
+  border-radius: 6px;
   padding: 20px;
   color: $black;
   margin-bottom: 20px;
@@ -7580,6 +7601,218 @@ p{
     margin-bottom: 4px;
     svg{
       margin-right: 4px;
+    }
+  }
+}
+
+
+/* MAP SECTION  MODULE */
+.map{
+  width: 100vw;
+  height: 100vh;
+  &-header{
+    width: 100%;
+    background: $white;
+    z-index: 100;
+    box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.05);
+    padding: 15px 20px;
+    &__title{
+      margin-right: 20px;
+    }
+    &__input{
+      background: $white;
+      border: 1px solid $grayLine;
+      border-radius: 6px;
+      padding: 9px 15px;
+      min-width: 130px;
+      font-weight: 600;
+      cursor: pointer;
+      &:not(:last-child){
+        margin-right: 12px;
+      }
+      @include media("min", "lg"){
+        &:hover:not(.active){
+          border: 1px solid $blueHover;
+          color: $blueHover;
+        }
+      }
+      input{
+        position: absolute;
+        left: -9999px;
+        opacity: 0;
+      }
+      &.active{
+        border: 1px solid $blue;
+        background: $blue;
+        color: $white;
+      }
+    }
+    &__buttons{
+      border: 1px solid $grayLine;
+      border-radius: 6px;
+      overflow: hidden;
+      margin-right: 18px;
+    }
+    &__btn{
+      background: $white;
+      border: none;
+      border-radius: 6px;
+      padding: 9px 15px;
+      font-weight: 600;
+      min-width: 90px;
+      &.active{
+        background: $blue;
+        color: $white;
+      }
+    }
+    &__close{
+      color: $grayIcon;
+    }
+  }
+  &__wrapper{
+    position: relative;
+    width: 100%;
+    height: calc(100% - 70px);
+  }
+  &__container{
+    width: 100%;
+    min-height: 100%;
+  }
+  &__pharmacy-list{
+    max-width: 1400px;
+    background: $white;
+    margin: 20px auto;
+    padding: 20px;
+  }
+
+  .checkout-pickup-picker-page__pharmacy{
+    position: absolute;
+    top: 0;
+    right: auto;
+    width: 360px;
+    height: 100%;
+    background: $grayBg;
+    box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.05);
+    max-height: 100%;
+    overflow-y: auto;
+  }
+  .pickup-picker{
+    &-pharmacy-popup{
+      border-top: 4px solid $grayBg;
+      background: $white;
+      box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.02);
+      &__close{
+        color: $grayIcon;
+        cursor: pointer;
+      }
+      &-info{
+        padding: 12px 10px;
+        &__header{
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin-bottom: 8px;
+        }
+        &__title{
+          font-weight: 700;
+          color: $blue;
+        }
+        &__address{
+          max-width: 250px;
+          margin-bottom: 16px;
+        }
+        &__contact{
+          margin-bottom: 16px;
+        }
+        &__working-hours{
+          margin-top: 8px;
+        }
+        &__phone,
+        &__working-hours{
+          display: flex;
+          align-items: center;
+          svg{
+            margin-right: 6px;
+            color: $blue;
+          }
+        }
+
+        &-option{
+          &.pickup-picker-pharmacy-popup-info-option--opened{
+            .pickup-picker-pharmacy-popup-info-option__arrow{
+              transform: rotate(-90deg);
+            }
+          }
+          &__inner{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+          }
+          &__toggle{
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+          }
+          &__arrow{
+            color: $grayIcon;
+            transform: rotate(90deg);
+          }
+          &__total{
+            margin-left: 10px;
+            .status{
+              color: $grayText;
+            }
+          }
+        }
+      }
+      &__options{
+        display: none;
+        border-top: 4px solid $grayBg;
+      }
+    }
+    &-option-cart{
+      &-product{
+        display: flex;
+        align-items: center;
+        padding: 12px 10px;
+        &:not(:first-child){
+          border-top: 1px solid $grayLine;
+        }
+        &__image{
+          display: flex;
+          align-items: stretch;
+          width: 50px;
+          height: 50px;
+          margin-right: 12px;
+          flex-shrink: 0;
+        }
+        &__info{
+          max-width: 190px;
+          margin-right: 16px;
+        }
+        &__total{
+          display: flex;
+          flex-flow: column;
+          align-items: flex-end;
+          flex-shrink: 0;
+          .sale{
+            display: flex;
+            align-items: center;
+            font-size: 10px;
+            line-height: 150%;
+            .old-price{
+              color: $grayText;
+            }
+            .percent{
+              font-weight: 700;
+              background: rgba(255, 60, 107, 0.05);
+              border-radius: 4px;
+              padding: 0 4px;
+              color: $pink;
+            }
+          }
+        }
+      }
     }
   }
 }

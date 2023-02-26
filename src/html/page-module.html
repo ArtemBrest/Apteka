@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>АПТЕКА</title>
+    <link rel="stylesheet" href="./css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="./lightGallery-master/dist/css/lightgallery-bundle.min.css">
+    <link rel="stylesheet" href="./lightGallery-master/dist/css/lg-thumbnail.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/favicon/site.webmanifest">
+    <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#31353b">
+    <meta name="msapplication-TileColor" content="#31353b">
+    <meta name="theme-color" content="#0478E3">
+</head>
+<body class="">
+<section class="map">
+    <div class="map__header map-header df df-ai-center df-jc-between">
+        <div class="map-header__left df df-ai-center">
+            <div class="map-header__title h1">Пункты выдачи</div>
+            <div class="map-header__filters df df-ai-center">
+                <label class="map-header__input p3 df df-ai-center df-jc-center">
+                    <input class="" type="checkbox" id="input-open">
+                    Открыто сейчас
+                </label>
+                <label class="map-header__input p3 df df-ai-center df-jc-center">
+                    <input class="" type="checkbox" id="input-clock">
+                    Круглосуточно
+                </label>
+                <label class="map-header__input p3 df df-ai-center df-jc-center">
+                    <input class="" type="checkbox" id="input-stock">
+                    Все в наличии
+                </label>
+            </div>
+        </div>
+        <div class="map-header__right df df-ai-center">
+            <div class="map-header__buttons df df-ai-center">
+                <button class="map-header__btn map-header__btn--list df df-ai-center df-jc-center p3">
+                    <svg width="18" height="18">
+                        <use xlink:href="/img/sprites.svg#icon-list"></use>
+                    </svg>
+                    Список
+                </button>
+                <button class="map-header__btn map-header__btn--map df df-ai-center df-jc-center p3 active">
+                    <svg width="18" height="18">
+                        <use xlink:href="/img/sprites.svg#icon-location"></use>
+                    </svg>
+                    Карта
+                </button>
+            </div>
+            <svg width="18" height="18" class="map-header__close">
+                <use xlink:href="/img/sprites.svg#icon-close"></use>
+            </svg>
+        </div>
+    </div>
+    <div class="map__wrapper">
+        <div class="map__container" id="map-container"></div>
+        <div class="checkout-pickup-picker-page__pharmacy scroll">
+            <div data-test="pharmacy-popup" class="pickup-picker-pharmacy-popup">
+                <div class="pickup-picker-pharmacy-popup__inner">
+                    <div data-test="pharmacy-popup-info" class="pickup-picker-pharmacy-popup-info">
+                        <div class="pickup-picker-pharmacy-popup-info__header">
+                            <div data-test="title" class="pickup-picker-pharmacy-popup-info__title p2">Алладин-458</div>
+                            <svg data-test="close" class="pickup-picker-pharmacy-popup__close" width="14" height="14">
+                                <use xlink:href="/img/sprites.svg#icon-close"></use>
+                            </svg>
+                        </div>
+                        <div data-test="address" class="pickup-picker-pharmacy-popup-info__address p3">Молодежная ул, 10В, Климовск мкр, Подольск, МО</div>
+                        <div class="pickup-picker-pharmacy-popup-info__contact">
+                            <div data-test="phone" class="pickup-picker-pharmacy-popup-info__phone">
+                                <svg width="16" height="16">
+                                    <use xlink:href="/img/sprites.svg#icon-phone"></use>
+                                </svg>
+                                <span class="p2">+375 44 799-97-20</span>
+                            </div>
+                            <div data-test="hours" class="pickup-picker-pharmacy-popup-info__working-hours">
+                                <svg width="16" height="16">
+                                    <use xlink:href="/img/sprites.svg#icon-clock"></use>
+                                </svg>
+                                <span class="p2">Открыто до 22:00</span>
+                            </div>
+                        </div>
+                        <div class="pickup-picker-pharmacy-popup-info-option">
+                            <div class="pickup-picker-pharmacy-popup-info-option__inner">
+                                <div class="pickup-picker-pharmacy-popup-info-option__toggle">
+                                    <svg width="7" height="10" class="pickup-picker-pharmacy-popup-info-option__arrow">
+                                        <use xlink:href="./img/sprites.svg#arrow-menu"></use>
+                                    </svg>
+                                    <div class="pickup-picker-pharmacy-popup-info-option__total">
+                                        <div data-test="price" class="price h6">38.40 р.</div>
+                                        <div data-test="total" class="status p3">Есть в наличии</div>
+                                    </div>
+                                </div>
+                                <button data-test="button" class="pickup-picker-pharmacy-popup-info-option__button btn-main">Забронировать</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div data-test="pharmacy-popup" class="pickup-picker-pharmacy-popup__options">
+                        <div class="pickup-picker-option-cart" data-pharmacy-id="54505">
+                            <div class="pickup-picker-option-cart__panel">
+                                <div class="pickup-picker-option-cart__product-preview pickup-picker-option-cart-product">
+                                    <div class="pickup-picker-option-cart-product__image">
+                                        <img src="./img/prodcut-img.png" alt="" width="50" height="50">
+                                    </div>
+                                    <div class="pickup-picker-option-cart-product__info">
+                                        <div class="pickup-picker-option-cart-product__title p3">Набор из 2х уп. Максиган табл. №20 по спец.цене</div>
+                                    </div>
+                                    <div data-test="ui-price" class="pickup-picker-option-cart-product__total">
+                                        <div class="price h6">8.14 р.</div>
+                                        <div class="sale"><div class="old-price">38.55 р.</div><div class="percent">75%</div></div>
+                                    </div>
+                                </div>
+                                <div class="pickup-picker-option-cart__product-preview pickup-picker-option-cart-product">
+                                    <div class="pickup-picker-option-cart-product__image">
+                                        <img src="./img/prodcut-img.png" alt="" width="50" height="50">
+                                    </div>
+                                    <div class="pickup-picker-option-cart-product__info">
+                                        <div class="pickup-picker-option-cart-product__title p3">Набор из 2х уп. Максиган табл. №20 по спец.цене</div>
+                                    </div>
+                                    <div data-test="ui-price" class="pickup-picker-option-cart-product__total">
+                                        <div class="price h6">16.20 р.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--<div class="map__pharmacy-list pharmacy-list">
+            <div class="pharmacy-list__row">
+                <div class="pharmacy-list__top df df-ai-center df-jc-between">
+                    <div class="pharmacy-list__card">
+                        <a href="page-pharmacy-profile.html" class="pharmacy-list__name h6">Алоэ</a>
+                        <div class="pharmacy-list__address p1">Молодежная ул, 10В, Климовск мкр, Подольск, МО</div>
+                    </div>
+                    <div class="pharmacy-list__card">
+                        <div class="pharmacy-list__contact df df-ai-center">
+                            <svg width="16" height="16">
+                                <use xlink:href="/img/sprites.svg#icon-phone"></use>
+                            </svg>
+                            <a href="tel:+375447999720" class="text p3">+375 44 799-97-20</a>
+                        </div>
+                        <div class="pharmacy-list__contact df df-ai-center">
+                            <svg width="16" height="16">
+                                <use xlink:href="/img/sprites.svg#icon-clock"></use>
+                            </svg>
+                            <div class="text p3">Открыто до 22:00</div>
+                        </div>
+                    </div>
+                    <a href="page-pharmacy-profile.html" class="pharmacy-list__btn btn-main">Забронировать</a>
+                </div>
+                <div class="pharmacy-list__products"></div>
+            </div>
+            <div class="pharmacy-list__row df df-ai-center df-jc-between">
+                <div class="pharmacy-list__card">
+                    <a href="page-pharmacy-profile.html" class="pharmacy-list__name h6">Алоэ</a>
+                    <div class="pharmacy-list__address p1">Молодежная ул, 10В, Климовск мкр, Подольск, МО</div>
+                </div>
+                <div class="pharmacy-list__card">
+                    <div class="pharmacy-list__contact df df-ai-center">
+                        <svg width="16" height="16">
+                            <use xlink:href="/img/sprites.svg#icon-phone"></use>
+                        </svg>
+                        <a href="tel:+375447999720" class="text p3">+375 44 799-97-20</a>
+                    </div>
+                    <div class="pharmacy-list__contact df df-ai-center">
+                        <svg width="16" height="16">
+                            <use xlink:href="/img/sprites.svg#icon-clock"></use>
+                        </svg>
+                        <div class="text p3">Открыто до 22:00</div>
+                    </div>
+                </div>
+                <a href="page-pharmacy-profile.html" class="pharmacy-list__btn btn-main">Подробнее</a>
+            </div>
+            <div class="pharmacy-list__row df df-ai-center df-jc-between">
+                <div class="pharmacy-list__card">
+                    <a href="page-pharmacy-profile.html" class="pharmacy-list__name h6">Алоэ</a>
+                    <div class="pharmacy-list__address p1">Молодежная ул, 10В, Климовск мкр, Подольск, МО</div>
+                </div>
+                <div class="pharmacy-list__card">
+                    <div class="pharmacy-list__contact df df-ai-center">
+                        <svg width="16" height="16">
+                            <use xlink:href="/img/sprites.svg#icon-phone"></use>
+                        </svg>
+                        <a href="tel:+375447999720" class="text p3">+375 44 799-97-20</a>
+                    </div>
+                    <div class="pharmacy-list__contact df df-ai-center">
+                        <svg width="16" height="16">
+                            <use xlink:href="/img/sprites.svg#icon-clock"></use>
+                        </svg>
+                        <div class="text p3">Открыто до 22:00</div>
+                    </div>
+                </div>
+                <a href="page-pharmacy-profile.html" class="pharmacy-list__btn btn-main">Подробнее</a>
+            </div>
+            <div class="pharmacy-list__row df df-ai-center df-jc-between">
+                <div class="pharmacy-list__card">
+                    <a href="page-pharmacy-profile.html" class="pharmacy-list__name h6">Алоэ</a>
+                    <div class="pharmacy-list__address p1">Молодежная ул, 10В, Климовск мкр, Подольск, МО</div>
+                </div>
+                <div class="pharmacy-list__card">
+                    <div class="pharmacy-list__contact df df-ai-center">
+                        <svg width="16" height="16">
+                            <use xlink:href="/img/sprites.svg#icon-phone"></use>
+                        </svg>
+                        <a href="tel:+375447999720" class="text p3">+375 44 799-97-20</a>
+                    </div>
+                    <div class="pharmacy-list__contact df df-ai-center">
+                        <svg width="16" height="16">
+                            <use xlink:href="/img/sprites.svg#icon-clock"></use>
+                        </svg>
+                        <div class="text p3">Открыто до 22:00</div>
+                    </div>
+                </div>
+                <a href="page-pharmacy-profile.html" class="pharmacy-list__btn btn-main">Подробнее</a>
+            </div>
+            <div class="pharmacy-list__row df df-ai-center df-jc-between">
+                <div class="pharmacy-list__card">
+                    <a href="page-pharmacy-profile.html" class="pharmacy-list__name h6">Алоэ</a>
+                    <div class="pharmacy-list__address p1">Молодежная ул, 10В, Климовск мкр, Подольск, МО</div>
+                </div>
+                <div class="pharmacy-list__card">
+                    <div class="pharmacy-list__contact df df-ai-center">
+                        <svg width="16" height="16">
+                            <use xlink:href="/img/sprites.svg#icon-phone"></use>
+                        </svg>
+                        <a href="tel:+375447999720" class="text p3">+375 44 799-97-20</a>
+                    </div>
+                    <div class="pharmacy-list__contact df df-ai-center">
+                        <svg width="16" height="16">
+                            <use xlink:href="/img/sprites.svg#icon-clock"></use>
+                        </svg>
+                        <div class="text p3">Открыто до 22:00</div>
+                    </div>
+                </div>
+                <a href="page-pharmacy-profile.html" class="pharmacy-list__btn btn-main">Подробнее</a>
+            </div>
+            <div class="pharmacy-list__row df df-ai-center df-jc-between">
+                <div class="pharmacy-list__card">
+                    <a href="page-pharmacy-profile.html" class="pharmacy-list__name h6">Алоэ</a>
+                    <div class="pharmacy-list__address p1">Молодежная ул, 10В, Климовск мкр, Подольск, МО</div>
+                </div>
+                <div class="pharmacy-list__card">
+                    <div class="pharmacy-list__contact df df-ai-center">
+                        <svg width="16" height="16">
+                            <use xlink:href="/img/sprites.svg#icon-phone"></use>
+                        </svg>
+                        <a href="tel:+375447999720" class="text p3">+375 44 799-97-20</a>
+                    </div>
+                    <div class="pharmacy-list__contact df df-ai-center">
+                        <svg width="16" height="16">
+                            <use xlink:href="/img/sprites.svg#icon-clock"></use>
+                        </svg>
+                        <div class="text p3">Открыто до 22:00</div>
+                    </div>
+                </div>
+                <a href="page-pharmacy-profile.html" class="pharmacy-list__btn btn-main">Подробнее</a>
+            </div>
+        </div>-->
+    </div>
+</section>
+<script defer src="./js/imask.min.js"></script>
+<script defer src="./js/swiper-bundle.min.js"></script>
+<script defer src="./lightGallery-master/dist/lightgallery.min.js"></script>
+<script defer src="./lightGallery-master/dist/plugins/thumbnail/lg-thumbnail.min.js"></script>
+<!--<script defer src="./js/index.js"></script>-->
+<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=2217d214-6b1d-4cb4-9e32-0bb75f87df86"
+        type="text/javascript"></script>
+<!--<script>!function(e,t){"object"==typeof exports&&"object"==typeof module?module.exports=t():"function"==typeof define&&define.amd?define([],t):"object"==typeof exports?exports.ymapsTouchScroll=t():e.ymapsTouchScroll=t()}(window,function(){return function(e){var t={};function n(o){if(t[o])return t[o].exports;var r=t[o]={i:o,l:!1,exports:{}};return e[o].call(r.exports,r,r.exports,n),r.l=!0,r.exports}return n.m=e,n.c=t,n.d=function(e,t,o){n.o(e,t)||Object.defineProperty(e,t,{enumerable:!0,get:o})},n.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},n.t=function(e,t){if(1&t&&(e=n(e)),8&t)return e;if(4&t&&"object"==typeof e&&e&&e.__esModule)return e;var o=Object.create(null);if(n.r(o),Object.defineProperty(o,"default",{enumerable:!0,value:e}),2&t&&"string"!=typeof e)for(var r in e)n.d(o,r,function(t){return e[t]}.bind(null,r));return o},n.n=function(e){var t=e&&e.__esModule?function(){return e.default}:function(){return e};return n.d(t,"a",t),t},n.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},n.p="",n(n.s=0)}([function(e,t,n){"use strict";function o(e){return(o="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e})(e)}n.r(t);t.default=function(e){var t=arguments.length>1&&void 0!==arguments[1]?arguments[1]:{},n=t.preventScroll,r=void 0===n||n,u=t.preventTouch,i=void 0===u||u,c=t.textScroll,f=void 0===c?"Чтобы изменить масштаб, прокручивайте карту, удерживая клавишу Ctrl":c,d=t.textTouch,a=void 0===d?"Чтобы переместить карту проведите по ней двумя пальцами":d;if("undefined"!=typeof window&&"object"===o(e)&&(r||i)&&"string"==typeof f&&"string"==typeof a){var l=/Mobi/i.test(navigator.userAgent)||/Android/i.test(navigator.userAgent),s=e.panes.get("events"),p=s.getElement(),y=l?a:f,b={alignItems:"center",boxSizing:"border-box",color:"#fff",display:"flex",justifyContent:"center",padding:"40px",textAlign:"center",transition:"background .2s",touchAction:"auto"};Object.keys(b).forEach(function(e){p.style[e]=b[e]});var v=function(e){p.style.background="rgba(0, 0, 0, ".concat(e?".6":"0",")"),p.textContent=e?y:""};if(i&&l&&(e.behaviors.disable("drag"),ymaps.domEvent.manager.add(p,"touchmove",function(e){v(1===e.get("touches").length)}),ymaps.domEvent.manager.add(p,"touchend",function(){v(!1)})),r&&!l){var m=function(t){t?e.behaviors.enable("scrollZoom"):e.behaviors.disable("scrollZoom")},g=!1,x=!1;m(!1),s.events.add("wheel",function(){g&&(m(x),v(!x))}),s.events.add("mousedown",function(){v(!1)}),s.events.add("mouseenter",function(){g=!0}),s.events.add("mouseleave",function(){g=!1,v(!1)}),document.addEventListener("keydown",function(e){(x=e.ctrlKey)&&v(!1)}),document.addEventListener("keyup",function(){x=!1})}}}}]).default});</script>-->
+<script>
+    /*
+
+    */
+
+    ymaps.ready(init);
+
+    function init() {
+        var Map = new ymaps.Map('map-container', {
+                center: [53.902287, 27.561824],
+                zoom: 10,
+                controls: ['zoomControl'],
+            }, {
+                searchControlProvider: 'yandex#search'
+            }),
+            objectManager = new ymaps.ObjectManager({
+                /*iconLayout: 'img/clusterer.svg',
+                iconImageHref: 'img/clusterer.svg',
+                iconImageSize: [32, 32],
+                iconImageOffset: [-16, -16],*/
+                clusterize: true,
+                gridSize: 32,
+                //clusterDisableClickZoom: true,
+                //geoObjectOpenBalloonOnClick: false,
+                clusterOpenBalloonOnClick: false,
+                clusterIcons: [
+                    {
+                        href: 'img/clusterer.svg',
+                        size: [32, 32],
+                        offset: [-16, -16]
+                    }
+                ],
+                properties: {
+                    // Контент метки.
+                    iconContent: 'Я тащусь',
+                    hintContent: 'Ну давай уже тащи'
+                }
+            }, {
+                preset: 'islands#blackStretchyIcon',
+                draggable: true
+            });
+
+        // Отберем объекты по цвету.
+        function checkState() {
+            let byColor = new ymaps.GeoQueryResult(), shownObjects;
+            if (document.querySelector("#input-open").checked) {
+                document.querySelector("#input-open").parentNode.classList.add("active")
+                objectManager.setFilter('properties.filter_open == "on"');
+            } else {
+                document.querySelector("#input-open").parentNode.classList.remove("active")
+            }
+
+            if (document.querySelector("#input-clock").checked) {
+                document.querySelector("#input-clock").parentNode.classList.add("active")
+                objectManager.setFilter('properties.filter_clock == "on"');
+            } else {
+                document.querySelector("#input-clock").parentNode.classList.remove("active")
+            }
+
+            if (document.querySelector("#input-stock").checked) {
+                document.querySelector("#input-stock").parentNode.classList.add("active")
+                objectManager.setFilter('properties.filter_stock == "on"');
+            } else {
+                document.querySelector("#input-stock").parentNode.classList.remove("active")
+            }
+            //shownObjects = byColor.addToMap(Map);
+            //objectManager.remove(shownObjects).removeFromMap(Map);
+
+        }
+
+        document.querySelector("#input-open").addEventListener("click", checkState);
+        document.querySelector("#input-clock").addEventListener("click", checkState);
+        document.querySelector("#input-stock").addEventListener("click", checkState);
+
+        Map.geoObjects.add(objectManager);
+        fetch("./data.json")
+            .then(response => response.json())
+            .then(data => objectManager.add(data))
+            .catch(error => console.log(error));
+
+        Map.geoObjects.events.add('click', function (e) {
+            var objectId = e.get('objectId');
+            objectManager.objects.gettObjectOptions(objectId, {
+                balloonContentHeader: objectId;
+            });
+            console.log(objectId);
+        });
+
+        function onObjectEvent(e) {
+            var objectId = e.get('objectId');
+            if (e.get('type') == 'mouseenter') {
+                // Метод setObjectOptions позволяет задавать опции объекта "на лету".
+                objectManager.objects.setObjectOptions(objectId, {
+                    //preset: 'islands#blueIcon'
+                });
+            } else {
+                objectManager.objects.setObjectOptions(objectId, {
+                    //preset: 'islands#blueIcon'
+                });
+            }
+        }
+
+        function onClusterEvent(e) {
+            var objectId = e.get('objectId');
+            if (e.get('type') == 'mouseenter') {
+                objectManager.clusters.setClusterOptions(objectId, {
+                    //preset: 'islands#blueClusterIcons'
+                });
+            } else {
+                objectManager.clusters.setClusterOptions(objectId, {
+                    //preset: 'islands#blueClusterIcons'
+                });
+            }
+        }
+
+        objectManager.objects.events.add(['mouseenter', 'mouseleave'], onObjectEvent);
+        objectManager.clusters.events.add(['mouseenter', 'mouseleave'], onClusterEvent);
+    }
+    let pharmacyPopup = document.querySelector(".checkout-pickup-picker-page__pharmacy");
+    let pharmacyPopupClose = document.querySelector(".pickup-picker-pharmacy-popup__close");
+    if(pharmacyPopup !== null && pharmacyPopupClose !== null){
+        pharmacyPopupClose.addEventListener("click",function (e) {
+            pharmacyPopup.style.display = "none";
+        })
+        let optionParent = document.querySelector(".pickup-picker-pharmacy-popup-info-option")
+        let optionToggle = document.querySelector(".pickup-picker-pharmacy-popup-info-option__toggle");
+        let optionPopup = document.querySelector(".pickup-picker-pharmacy-popup__options");
+        if(optionParent !== null && optionToggle !== null && optionPopup !== null){
+            optionToggle.addEventListener("click",function (e) {
+                if(optionParent.classList.contains("pickup-picker-pharmacy-popup-info-option--opened")){
+                    optionParent.classList.remove("pickup-picker-pharmacy-popup-info-option--opened");
+                    optionPopup.style.display = "none";
+                }
+                else{
+                    optionParent.classList.add("pickup-picker-pharmacy-popup-info-option--opened");
+                    optionPopup.style.display = "block";
+                }
+            })
+        }
+    }
+</script>
+<style>
+    .ymaps-2-1-79-controls__control {
+        inset: unset !important;
+        position: absolute !important;
+        top: calc(50vh / 2) !important;
+        right: 20px !important;
+    }
+
+    .ymaps-2-1-79-balloon_layout_panel {
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+    }
+</style>
+</body>
+</html>
