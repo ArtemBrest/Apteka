@@ -105,7 +105,18 @@ input[type=number] {
 /* Safari*/
 input[type=search] {
   -webkit-appearance: none;
-  border-radius: 6px;
+  border-radius: 8px;
+}
+
+#phone-order-input::placeholder,
+#feedback-name::placeholder,
+#feedback-email::placeholder,
+#feedback-email::placeholder,
+#feedback-phone::placeholder,
+#feedback-message::placeholder,
+#feedback-company::placeholder,
+#date-input::placeholder{
+  color: $grayText;
 }
 .container{
   width: 1430px;
@@ -251,12 +262,12 @@ input[type=search] {
     margin-bottom: 0 !important;
   }
 }
-.shadow-block{
+/*.shadow-block{
   box-shadow: 0 5px 10px rgba(26, 54, 95, 0.02);
 }
 .shadow-product{
   box-shadow: 0 5px 10px rgba(26, 54, 95, 0.05);
-}
+}*/
 .shadow-filter{
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06), 0 0 3px rgba(0, 0, 0, 0.06);
 }
@@ -304,7 +315,7 @@ input[type=search] {
   display: none;
 }
 .lg-outer .lg-object{
-  border-radius: 6px;
+  border-radius: 8px;
 }
 .lg-outer .lg-thumb{
   display: flex;
@@ -324,7 +335,7 @@ input[type=search] {
   justify-content: stretch;
   float: none;
   border: 1px solid transparent;
-  border-radius: 6px;
+  border-radius: 8px;
   margin: 0 10px 0 0!important;
   flex-shrink: 0;
   &:last-child{
@@ -429,7 +440,7 @@ h4, .h4 {
   }
 }
 h5, .h5 {
-  font-size: 16px;
+  font-size: 18px;
   line-height: 130%;
 }
 h6, .h6 {
@@ -473,15 +484,14 @@ p{
   display: flex;
   align-items: center;
   justify-content: center;
-  /*gap: 10px;*/
   background: $blue;
-  border-radius: 6px;
+  border-radius: 8px;
   border: 1px solid $blue;
   color: $white;
   font-weight: 600;
   font-size: 14px;
   line-height: 150%;
-  padding: 6px 15px;
+  padding: 6px 12px;
   min-height: 40px;
   @include media("min", "lg") {
     &:not(:disabled):hover, {
@@ -514,11 +524,11 @@ p{
   justify-content: center;
   /*gap: 5px;*/
   background: $grayBg;
-  border-radius: 6px;
+  border-radius: 8px;
   border: 1px solid $grayBg;
   color: $grayIcon;
   font-weight: 600;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 150%;
   padding: 8px 14px;
   @include media("min", "lg") {
@@ -537,7 +547,7 @@ p{
     opacity: 0.5;
   }
   svg{
-    margin-right: 5px;
+    margin-right: 8px;
   }
 }
 .m-20{
@@ -547,7 +557,7 @@ p{
   }
 }
 .m-footer{
-  margin-bottom: 90px!important;
+  margin-bottom: 60px!important;
   @include media("max", "md") {
     margin-bottom: 30px!important;
   }
@@ -571,7 +581,7 @@ p{
     }
   }
   &__toggle{
-    margin-bottom: 10px;
+    margin-bottom: 16px;
     @include media("max", "lg") {
       cursor: pointer;
     }
@@ -612,7 +622,7 @@ p{
       width: 12px;
       height: 1px;
       background: $blue;
-      border-radius: 6px;
+      border-radius: 8px;
       &:last-child{
         transform: rotate(90deg);
       }
@@ -626,7 +636,11 @@ p{
   &-item{
     cursor: pointer;
     &.ui-tab-item--active{
-      color: $blueAccent;
+      background: $blue;
+      color: $white;
+      &:hover {
+        color: $white;
+      }
     }
   }
   &-content{
@@ -642,7 +656,7 @@ p{
   width: 100%;
   background: $white;
   z-index: 100;
-  box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.05);
+  box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.03);
   &.header--front-page{
     background: $grayBg;
     box-shadow: none;
@@ -816,23 +830,22 @@ p{
       color: $blueAccent;
     }
     &__value{
-      display: block;
-      font-weight: 600;
-      font-size: 12px;
-      line-height: 14px;
-      text-align: center;
-      color: $white;
       position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       top: -4px;
       right: -4px;
-      width: 18px;
-      height: 18px;
-      min-width: 15px;
-      min-height: 15px;
-      background: $pink;
-      border: 1.5px solid $white;
-      flex-shrink: 0;
-      border-radius: 50%;
+      background-color: $pink;
+      border-radius: 20px;
+      font-size: 12px;
+      padding: 0 4px;
+      text-align: center;
+      line-height: normal;
+      min-width: 16px;
+      min-height: 16px;
+      color: #FFFFFF;
+      font-weight: 600;
     }
   }
   &__profile{
@@ -1041,7 +1054,7 @@ p{
         /*gap: 8px;*/
         padding: 8px;
         background: $grayBg;
-        border-radius: 6px;
+        border-radius: 8px;
         min-height: 40px;
         cursor: pointer;
         svg {
@@ -1107,14 +1120,14 @@ p{
   width: 100%;
   position: relative;
   background: $blue;
-  border-radius: 6px;
+  border-radius: 8px;
   &__input{
     display: block;
     width: 100%;
     height: 40px;
     background: $white;
     border: 1px solid $blue;
-    border-radius: 6px!important;
+    border-radius: 8px!important;
     padding-left: 160px;
     color: $black;
     cursor: pointer;
@@ -1183,7 +1196,7 @@ p{
 
     &__content{
       background: $white;
-      border-radius: 6px;
+      border-radius: 8px;
       padding: 15px 12px;
       @include media("max", "lg") {
         padding: 15px 0;
@@ -1211,7 +1224,7 @@ p{
           height: 40px;
           background: $white;
           border: 1px solid $blue;
-          border-radius: 6px!important;
+          border-radius: 8px!important;
           padding-left: 15px;
           color: $black;
           cursor: pointer;
@@ -1299,7 +1312,7 @@ p{
             /*gap: 8px*/;
             padding: 5px 8px;
             color: $black;
-            border-radius: 6px;
+            border-radius: 8px;
             cursor: pointer;
             & > *:first-child{
               margin-right: 8px;
@@ -1350,7 +1363,7 @@ p{
           padding: 5px 8px;
           color: $black;
           cursor: pointer;
-          border-radius: 6px;
+          border-radius: 8px;
           transition: all 0.3s;
           @include media("max", "sm") {
             align-items: flex-start;
@@ -1417,10 +1430,10 @@ p{
       .autocomplete{
         &__link{
           display: block;
-          padding: 5px 8px;
+          padding: 5px 12px;
           line-height: 130%;
           color: $black;
-          border-radius: 6px;
+          border-radius: 8px;
           @include media("max", "lg") {
             /*padding: 5px 0;*/
           }
@@ -1475,13 +1488,14 @@ p{
 }
 .aside-menu{
   background: $white;
-  border-radius: 6px;
+  border-radius: 8px;
   width: 230px;
   position: sticky;
   top: 80px;
   z-index: 99;
-  /*box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);*/
+  /*box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
   box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.06);
+  box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.03);*/
   &__wrapper{
     position: relative;
     padding: 8px 0 12px;
@@ -1489,13 +1503,13 @@ p{
   &__list{
     display: grid;
     grid-template-columns: 1fr;
-    grid-gap: 8px;
+    /*grid-gap: 8px;*/
     .sub-menu{
       /*height: calc(100% - 50px);*/
-      margin-top: 50px;
+      margin-top: 16px;
       display: grid;
       grid-template-columns: 1fr;
-      grid-gap: 8px;
+      /*grid-gap: 8px;*/
       z-index: 2;
       &:after{
         content: "";
@@ -1585,9 +1599,9 @@ p{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 8px;
+    padding: 8px 10px;
     /*gap: 8px;*/
-    border-radius: 6px;
+    border-radius: 8px;
     cursor: pointer;
   }
   &__link{
@@ -1603,7 +1617,7 @@ p{
   &-parent{
     padding: 8px 6px;
     background: $grayBg;
-    border-radius: 6px;
+    border-radius: 8px;
     /*gap: 8px;*/
     color: $black;
     svg{
@@ -1649,6 +1663,7 @@ p{
       color: $blue;
       cursor: pointer;
       margin-top: 10px;
+      font-size: 12px;
       @include media("min", "lg") {
         &:hover {
           color: $blueHover;
@@ -1688,7 +1703,7 @@ p{
       }
     }
     &__head{
-      padding: 15px 10px;
+      padding: 20px 10px;
       background: $white;
       box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.05);
       display: none;
@@ -1734,7 +1749,7 @@ p{
         flex-flow: row;
       }
       .btn-default{
-        display: none;
+        /*display: none;*/
         padding: 9px 0;
         color: $black;
         flex: 0 0 49%;
@@ -1781,18 +1796,20 @@ p{
         }
         &:disabled ~ .filter-checkbox__control {
           pointer-events: none;
-          background: rgba(234, 238, 244, 0.2);
+          background: rgba(234, 238, 244, 0.8);
+          border: 1px solid rgba(234, 238, 244, 0.8);
         }
         &:disabled ~ .filter-checkbox__label{
           opacity: 0.5;
+          color: $grayText;
         }
       }
       &__control {
-        width: 20px;
-        height: 20px;
+        width: 18px;
+        height: 18px;
         background: $white;
-        border: 1.5px solid $grayLine;
-        border-radius: 5px;
+        border: 1px solid rgba(145, 156, 175, 0.4);
+        border-radius: 4px;
         color: $white;
         margin-right: 8px;
         padding: 2px;
@@ -1821,8 +1838,8 @@ p{
       &__input{
         cursor: pointer;
         background: $white;
-        border: 1px solid $grayLine;
-        border-radius: 6px;
+        border: 1px solid rgba(145, 156, 175, 0.4);
+        border-radius: 8px;
         width: 48%;
         padding-left: 8px;
         font-size: 14px;
@@ -1870,7 +1887,7 @@ p{
 }
 .error-page{
   background: $white;
-  border-radius: 6px;
+  border-radius: 8px;
   margin: 20px 0 30px;
   padding: 85px 0;
   @include media("max", "lg"){
@@ -1908,10 +1925,10 @@ p{
     padding: 0;
   }
   &-menu{
-    padding: 30px 0;
+    padding: 50px 0;
     display: grid;
     grid-template-columns: repeat(4,1fr);
-    grid-gap: 15px 30px;
+    grid-gap: 16px 30px;
     @include media("max", "lg") {
       grid-template-columns: repeat(2,1fr);
       padding: 30px 0 15px;
@@ -1922,7 +1939,7 @@ p{
     &__item{
       display: grid;
       grid-template-columns: 1fr;
-      grid-gap: 12px;
+      grid-gap: 16px;
       align-items: start;
       height: max-content;
       .menu-sub{
@@ -1963,30 +1980,30 @@ p{
   &__info{
     /*gap: 6px;*/
     margin-right: 15px;
-    margin-bottom: 15px;
+    margin-bottom: 8px;
     @include media("max", "lg") {
       margin-right: 0;
     }
   }
   &__logo{
-    margin-bottom: 6px;
+    margin-bottom: 8px;
   }
   &__text{
     line-height: 130%;
     color: $grayText;
-    margin-bottom: 6px;
+    margin-bottom: 8px;
     &:last-child{
       margin-bottom: 0;
     }
     &.footer__text--last{
-      margin-bottom: 15px;
+      margin-bottom: 8px;
     }
   }
 }
 .city-popup{
   display: none;
   background: $white;
-  border-radius: 6px;
+  border-radius: 8px;
   padding: 20px;
   z-index: 99;
   width: 360px;
@@ -2034,7 +2051,7 @@ p{
     width: 100%;
     height: 40px;
     border: 1px solid $grayLine;
-    border-radius: 6px;
+    border-radius: 8px;
     background: transparent;
     padding: 0 0 0 15px;
     color: $black;
@@ -2058,7 +2075,7 @@ p{
     border: 1px solid $grayLine;
     overflow: hidden;
     overflow-y: auto;
-    border-radius: 6px;
+    border-radius: 8px;
   }
   &__list{
     max-height: 230px;
@@ -2092,7 +2109,7 @@ p{
 .popup{
   display: none;
   background: $white;
-  border-radius: 6px;
+  border-radius: 8px;
   padding: 20px;
   z-index: 200;
   width: 360px;
@@ -2171,7 +2188,7 @@ p{
       display: block;
       background: $white;
       border: 1px solid $grayLine;
-      border-radius: 6px;
+      border-radius: 8px;
       padding-left: 12px;
       font-size: 14px;
       line-height: 150%;
@@ -2285,7 +2302,7 @@ p{
 .popup-success{
   display: none;
   background: $white;
-  border-radius: 6px;
+  border-radius: 8px;
   padding: 20px;
   z-index: 200;
   width: 360px;
@@ -2323,7 +2340,7 @@ p{
     margin: 0 auto 16px;
     background: $blue;
     border: 5.5px solid #E6F0FA;
-    border-radius: 6px;
+    border-radius: 8px;
     color: $white;
     box-sizing: content-box;
   }
@@ -2407,7 +2424,7 @@ p{
   display: none;
   background: $white;
   box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.02);
-  border-radius: 6px;
+  border-radius: 8px;
   padding: 20px 16px;
   z-index: 200;
   width: 260px;
@@ -2430,7 +2447,7 @@ p{
   display: none;
   background: $white;
   box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.02);
-  border-radius: 6px;
+  border-radius: 8px;
   padding: 20px 16px;
   z-index: 200;
   width: 260px;
@@ -2452,7 +2469,7 @@ p{
 .popup-review{
   display: none;
   background: $white;
-  border-radius: 6px;
+  border-radius: 8px;
   padding: 20px;
   z-index: 200;
   width: 850px;
@@ -2554,7 +2571,7 @@ p{
     &__textarea{
       background: transparent;
       border: 1px solid $grayLine;
-      border-radius: 6px;
+      border-radius: 8px;
       padding: 10px 0 0 14px;
       font-size: 14px;
       line-height: 150%;
@@ -2608,7 +2625,7 @@ p{
       &__select {
         width: 80px;
         height: 80px;
-        border-radius: 6px;
+        border-radius: 8px;
         border: 1px solid $grayLine;
         margin-right: 16px;
         flex-shrink: 0 ;
@@ -2649,7 +2666,7 @@ p{
           width: 100%;
           height: 100%;
           object-fit: cover;
-          border-radius: 6px;
+          border-radius: 8px;
         }
         span {
           box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.02);
@@ -2684,7 +2701,7 @@ p{
   display: none;
   background: $white;
   box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.05);
-  border-radius: 6px;
+  border-radius: 8px;
   padding: 20px 16px;
   z-index: 200;
   width: 260px;
@@ -2711,26 +2728,32 @@ p{
 }
 
 .page-title{
-  margin-bottom: 8px;
+  margin-bottom: 12px;
   &.page-title--catalog{
     margin-bottom: 20px;
     @include media("max", "lg") {
       margin-bottom: 12px;
     }
   }
+  &__pharma {
+    margin-bottom: 0;
+  }
+}
+.price__text {
+  font-size: 20px;
 }
 .add-product-cart{
   position: sticky;
   top: 80px;
   background: $white;
   box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.02);
-  border-radius: 6px;
+  border-radius: 8px;
   padding: 20px;
   @include media("max", "xl") {
     display: none;
   }
   &__top{
-    margin-bottom: 15px;
+    margin-bottom: 14px;
   }
   &__price{
     .label{
@@ -2757,15 +2780,16 @@ p{
         line-height: 130%;
       }
       span{
-        font-weight: 700;
+        font-weight: 600;
         color: $black;
       }
     }
   }
   &__heart{
-    width: 22px;
-    height: 22px;
-    background: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: $white;
     border: none;
     @include media("min", "lg") {
       &:hover svg path:first-child {
@@ -2782,7 +2806,7 @@ p{
   }
   &__btn{
     width: 100%;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
     &.second{
       background: transparent;
       color: $blue;
@@ -2795,21 +2819,22 @@ p{
       }
       &:active,
       &:focus{
+        background: transparent;
         color: $blueAccent;
-        border: 1px solid $blueAccent;
       }
     }
   }
   &__text{
     color: $grayText;
     font-size: 12px;
-    line-height: 150% ;
+    line-height: 150%;
     span{
       font-weight: 600;
-      color: $blue;
+      color: $black;
     }
     &:not(:last-child){
-      margin-bottom: 4px;
+      margin-bottom: 2px;
+      margin-top: 14px;
     }
   }
 }
@@ -2851,7 +2876,7 @@ p{
     &.second{
       background: transparent;
       color: $blue;
-      margin-left: 10px;
+      margin-left: 8px;
       &:active,
       &:focus{
         color: $blueAccent;
@@ -2866,15 +2891,19 @@ p{
   &__text{
     color: $black;
     text-align: center;
+    span {
+      font-weight: 600;
+    }
   }
 }
 .popup-add-cart{
   display: none;
-  background: $white;
+  background: rgba(23, 24, 27, 0.9);
   box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.05);
-  border-radius: 6px;
+  border-radius: 8px;
+  color: $white;
   padding: 8px;
-  width: 300px;
+  width: 500px;
   height: 65px;
   position: fixed;
   z-index: 9999;
@@ -2891,18 +2920,22 @@ p{
     bottom: unset;
   }
   &__img{
-    border-radius: 6px;
+    border-radius: 8px;
     margin-right: 12px;
     flex-shrink: 0;
   }
-  &__text{
+  /*&__text{
     max-width: 120px;
     margin-right: 12px;
     @include media("max", "lg") {
       max-width: 100%;
     }
+  }*/
+  &__span {
+    color: #f55b19;
+    font-weight: 600;
   }
-  &__btn{
+  /*&__btn{
     background: $pink;
     border: 1px solid $pink;
     margin: 0 0 0 auto;
@@ -2918,11 +2951,11 @@ p{
       background: $pink;
       border: 1px solid $pink;
     }
-  }
+  }*/
 }
 .cms-description-text{
   & > * {
-    margin: 8px 0;
+    margin: 12px 0;
   }
   & > *:not(div):first-child{
     margin: 0;
@@ -3011,7 +3044,7 @@ p{
     width: 100%;
     border-spacing: 0;
     border: 1px solid $grayLine;
-    border-radius: 6px;
+    border-radius: 8px;
     text-align: left;
     @include media("max", "md") {
       width: 768px;
@@ -3077,7 +3110,7 @@ p{
     max-width: 100%;
     height: auto;
     object-fit: cover;
-    border-radius: 6px;
+    border-radius: 8px;
     &:last-child{
       margin-bottom: 0;
     }
@@ -3085,17 +3118,22 @@ p{
 }
 .product-preview{
   background: $white;
-  box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.05);
-  border-radius: 6px;
+  /*box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.03);*/
+  border-radius: 8px;
   width: 215px;
   position: relative;
+  &:hover {
+    box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.08);
+    transition: 0.4s;
+  }
   &.product-preview--horizontal{
+    width: 100%;
+    padding: 10px;
     @include media("max", "lg"){
       flex-flow: column;
       align-items: flex-start;
       justify-content: flex-start;
     }
-    width: 100%;
     .product-preview{
       &__left{
         @include media("max", "lg"){
@@ -3202,7 +3240,7 @@ p{
         color: $black;
         margin-bottom: 2px;
         span{
-          font-weight: 700;
+          font-weight: 600;
           color: $blue;
         }
         @include media("max", "lg"){
@@ -3218,7 +3256,7 @@ p{
     }
   }
   &__img{
-    border-radius: 6px;
+    border-radius: 8px;
     flex-shrink: 0;
     position: relative;
     max-height: 215px;
@@ -3226,16 +3264,17 @@ p{
       position: static;
     }
     img{
-      border-radius: 6px;
+      border-radius: 8px;
     }
   }
   &__heart{
     position: absolute;
-    top: 12px;
-    right: 12px;
-    width: 22px;
-    height: 22px;
-    background: none;
+    top: 0;
+    right: 0;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: $white;
     border: none;
     @include media("min", "lg") {
       &:hover svg path:first-child {
@@ -3251,12 +3290,12 @@ p{
     }
   }
   &__content{
-    padding: 10px 8px 0;
+    /*padding: 10px 8px 0;*/
   }
   &__title{
     display: block;
     line-height: 130%;
-    margin-bottom: 6px;
+    margin-bottom: 12px;
     color: $black;
     @include media("min", "lg") {
       &:hover {
@@ -3269,8 +3308,9 @@ p{
     }
   }
   &__text{
-    margin-bottom: 6px;
+    margin-bottom: 12px;
     color: $grayText;
+    line-height: 130%;
     @include media("max", "lg") {
       font-size: 10px;
       line-height: 130%;
@@ -3279,20 +3319,35 @@ p{
   &__status{
     display: block;
     width: fit-content;
-    padding: 0 4px;
+    padding: 2px 6px;
     font-weight: 600;
     font-size: 10px;
     line-height: 150%;
     color: $green;
-    background: #EBF7EE;
+    background: rgba(52, 168, 83, 0.1);
     border-radius: 4px;
-    margin-bottom: 20px;
     &.on{
-      background: rgba(255, 60, 107, 0.05);
+      background: rgba(255, 60, 107, 0.1);
       color: $pink;
     }
     @include media("max", "lg") {
       margin-bottom: 10px;
+    }
+  }
+  &__recipe {
+    display: block;
+    width: fit-content;
+    padding: 2px 6px;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 150%;
+    color: $green;
+    background: $greenBg;
+    border-radius: 4px;
+    cursor: default;
+    &.on {
+      background: rgba(255, 60, 107, 0.05);
+      color: $pink;
     }
   }
   &__price{
@@ -3305,12 +3360,20 @@ p{
       }
     }
     .price{
+      font-weight: 700;
+      font-size: 14px;
       line-height: 130%;
       color: $black;
+      margin: 12px 0;
+      &.h2.hor__card {
+        font-size: 18px;
+        line-height: 130%;
+        color: $black;
+      }
     }
   }
   &__bottom{
-    padding: 0 8px 15px;
+    /*padding: 0 8px 15px;*/
     margin: auto 0 0 0;
   }
   &__btn{
@@ -3323,6 +3386,25 @@ p{
       margin-left: -2px;
       margin-right: 0;
     }
+    &__card {
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: $blue;
+      border-radius: 8px;
+      border: 1px solid $blue;
+      color: $white;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 150%;
+      padding: 4px 22px;
+      min-height: 32px;
+      &:hover {
+        background: #4a89f8;
+        border: 1px solid #4a89f8;
+      }
+    }
   }
 }
 .cookie-notice{
@@ -3332,6 +3414,7 @@ p{
   bottom: 0;
   left: 0;
   z-index: 99;
+  max-width: 600px;
   @include media("max", "lg"){
     padding: 0;
   }
@@ -3339,12 +3422,12 @@ p{
     display: block;
   }
   &__wrapper{
-    background: rgba(110, 126, 150, 0.9);
-    box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.02);
-    border-radius: 6px;
-    /*gap: 20px;*/
-    min-height: 60px;
-    padding: 16px;
+    background: rgba(23, 24, 27, 0.9);
+    border-radius: 8px;
+    min-height: 55px;
+    padding: 12px 16px;
+    box-shadow: 0 3px 16px rgba(0, 0, 0, 0.08);
+    margin: 10px;
     @include media("max", "lg"){
       min-height: 50px;
       padding: 6px;
@@ -3359,20 +3442,19 @@ p{
     }
   }
   &__btn{
-    background: $white;
-    border: 1px solid $white;
-    border-radius: 6px;
-    padding: 9px 16px;
+    background: none;
+    border: 1px solid #898989;
+    border-radius: 8px;
+    padding: 6px 16px;
     min-width: 100px;
-    color: $blue;
     @include media("min", "lg") {
       &:hover {
-        color: $blueHover;
+        color: $white;
       }
     }
     &:focus,
     &:active{
-      color: $blueAccent;
+      color: $white;
     }
   }
 }
@@ -3447,9 +3529,9 @@ p{
   }
   &-rating {
     position: relative;
-    width: 80px;
-    height: 16px;
-    background: $grayBg;
+    min-width: 85px;
+    height: 17px;
+    background: rgba(146, 155, 171, 0.25);
     &:before{
       content: "";
       position: absolute;
@@ -3464,6 +3546,11 @@ p{
       display: block;
       height: 100%;
       background-color: $yellow;
+    }
+    &__text {
+      display: block;
+      color: $grayText;
+      border-bottom: 1px dashed $grayText;
     }
   }
   /*&-rating{
@@ -3512,7 +3599,7 @@ p{
       color: $pink;
     }
     & > *{
-      margin-right: 6px;
+      margin-right: 2px;
     }
     & > *:last-child{
       margin-right: 0;
@@ -3521,7 +3608,7 @@ p{
   &-wrapper{
     padding: 10px 20px 20px;
     background: $white;
-    border-radius: 6px;
+    border-radius: 8px;
     @include media("max", "lg") {
       padding: 12px 10px 15px;
       margin: 0 -10px!important;
@@ -3529,15 +3616,15 @@ p{
     }
   }
   &-nav{
-    margin: -10px -20px 20px;
-    padding: 0px 20px;
+    margin: -10px -20px 24px;
+    padding: 0 20px;
     border-bottom: 1px solid $grayBg;
     /*gap: 35px;*/
     @include media("max", "lg") {
       display: none;
     }
     &__item{
-      margin-right: 20px;
+      margin-right: 30px;
       &:last-child{
         margin-right: 0;
       }
@@ -3549,7 +3636,7 @@ p{
         display: block;
         font-weight: 600;
         color: $grayText;
-        padding: 10px 0;
+        padding: 12px 0;
         border-bottom: 2px solid transparent;
       }
     }
@@ -3589,7 +3676,7 @@ p{
         &__title{
           line-height: 130%;
           color: $grayText;
-          margin-bottom: 5px;
+          margin-bottom: 6px;
         }
         &__value{
           /*gap: 4px;*/
@@ -3647,7 +3734,7 @@ p{
           padding: 4px 8px;
           background: $white;
           box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.06), 0px 0px 3px rgba(0, 0, 0, 0.06);
-          border-radius: 6px;
+          border-radius: 8px;
           min-width: 100px;
           flex: 1 1 auto;
           border: 1px solid $white;
@@ -3756,7 +3843,7 @@ p{
           width: 100%;
           overflow: hidden;
           cursor: zoom-in;
-          border-radius: 6px;
+          border-radius: 8px;
           &.zoom-custom img {
             transition: opacity 0.5s;
             display: block;
@@ -3775,7 +3862,7 @@ p{
       .product{
         &__slide{
           cursor: pointer;
-          border-radius: 6px;
+          border-radius: 8px;
           border: 1px solid $grayLine;
           &.swiper-slide-thumb-active{
             border: 1px solid $blue;
@@ -3785,7 +3872,7 @@ p{
             height: 100%;
             width: 100%;
             object-fit: cover;
-            border-radius: 6px;
+            border-radius: 8px;
           }
         }
       }
@@ -3797,7 +3884,7 @@ p{
 }
 .how-to-work{
   background: $white;
-  border-radius: 6px;
+  border-radius: 8px;
   padding: 20px;
   @include media("max", "lg") {
     padding: 12px 10px;
@@ -3857,7 +3944,7 @@ p{
 }
 .product-block-description{
   background: $white;
-  border-radius: 6px;
+  border-radius: 8px;
   padding: 20px;
   @include media("max", "lg") {
     padding: 12px 10px;
@@ -3958,7 +4045,7 @@ p{
 .product-block-disclaimer{
   background: $white;
   box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.02);
-  border-radius: 6px;
+  border-radius: 8px;
   padding: 20px;
   @include media("max", "lg") {
     padding: 12px 10px;
@@ -3999,7 +4086,7 @@ p{
 .review{
   background: $white;
   box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.02);
-  border-radius: 6px;
+  border-radius: 8px;
   padding: 20px;
   &.review--empty{
     display: flex;
@@ -4072,7 +4159,7 @@ p{
       bottom: 0;
       width: 48px;
       height: 48px;
-      border-radius: 6px;
+      border-radius: 8px;
       overflow: hidden;
       background: rgba(255, 255, 255, 0.8);
     }
@@ -4116,7 +4203,7 @@ p{
       padding: 9px 14px;
       border: 1px solid $grayLine;
       background: transparent;
-      border-radius: 6px;
+      border-radius: 8px;
       font-weight: 700;
       font-size: 12px;
       line-height: 130%;
@@ -4154,7 +4241,7 @@ p{
       .catalog-sorting{
         &__title{
           border: 1px solid $grayBg;
-          border-radius: 6px;
+          border-radius: 8px;
           span{
             font-weight: 700;
           }
@@ -4234,7 +4321,7 @@ p{
       display: none;
       background: $white;
       box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.06), 0px 0px 3px rgba(0, 0, 0, 0.06);
-      border-radius: 6px;
+      border-radius: 8px;
       padding: 10px 8px;
       width: 110px;
       position: absolute;
@@ -4376,7 +4463,7 @@ p{
   top: 80px;
   background: $white;
   box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.02);
-  border-radius: 6px;
+  border-radius: 8px;
   padding: 20px;
   @include media("max", "xl") {
     display: none;
@@ -4539,7 +4626,7 @@ p{
   &__wrapper{
     background: $white;
     box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.02);
-    border-radius: 6px;
+    border-radius: 8px;
     padding: 20px;
     & > *:first-child{
       margin-top: 0!important;
@@ -4580,7 +4667,7 @@ p{
       justify-content: center;
       text-align: center;
       background: $grayBg;
-      border-radius: 6px;
+      border-radius: 8px;
       min-height: 65px;
       padding: 15px;
       @include media("max", "lg") {
@@ -4643,7 +4730,7 @@ p{
       .card{
         /*gap: 12px;*/
         border: 1px solid $grayLine;
-        border-radius: 6px;
+        border-radius: 8px;
         padding: 15px;
         @include media("max", "lg") {
           padding: 15px 12px;
@@ -4707,7 +4794,7 @@ p{
     margin-bottom: 20px;
     background: $white;
     box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.02);
-    border-radius: 6px;
+    border-radius: 8px;
     @include media("max", "lg"){
       flex-flow: column;
       margin: 0 -10px 10px;
@@ -4816,7 +4903,7 @@ p{
   &__btn-mob{
     width: 36px;
     height: 36px;
-    border-radius: 6px;
+    border-radius: 8px;
     border: 1px solid $white;
     background: $white;
     color: $black;
@@ -4841,7 +4928,7 @@ p{
       font-weight: 600;
       background: $white;
       border: 1px solid $white;
-      border-radius: 6px;
+      border-radius: 8px;
       min-height: 36px;
       padding: 8px 8px 8px 14px;
       /*gap: 6px;*/
@@ -4868,7 +4955,7 @@ p{
   }
   .card-sizes{
     background: $white;
-    border-radius: 6px;
+    border-radius: 8px;
     margin: 0;
     &__link{
       width: 36px;
@@ -4876,7 +4963,7 @@ p{
       border: 1px solid $white;
       background: $white;
       color: $grayIcon;
-      border-radius: 6px;
+      border-radius: 8px;
       flex-shrink: 0;
       svg{
         opacity: 0.5;
@@ -4928,7 +5015,7 @@ p{
       color: $black;
       border: 1px solid $white;
       background: $white;
-      border-radius: 6px;
+      border-radius: 8px;
       cursor: pointer;
       /*gap: 8px;*/
       &:hover{
@@ -4955,7 +5042,7 @@ p{
       width: 100%;
       background: $white;
       box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.06), 0px 0px 3px rgba(0, 0, 0, 0.06);
-      border-radius: 6px;
+      border-radius: 8px;
       transition: all 0.3s;
       z-index: 1;
       padding: 8px;
@@ -4963,7 +5050,7 @@ p{
     &__row{
       border-radius: 4px;
       &:hover {
-        background: #F5F7FA;
+        background: $grayBg;
       }
     }
     &__input {
@@ -5037,7 +5124,7 @@ p{
     line-height: 130%;
     width: 32px;
     height: 32px;
-    border-radius: 6px;
+    border-radius: 8px;
     transition: all 0.3s;
     @include media("max", "lg") {
       width: 25px;
@@ -5079,7 +5166,7 @@ p{
     @include media("max", "lg") {
       margin: 0 -10px;
       padding: 12px 10px 0;
-      background: #FFFFFF;
+      background: $white;
       box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.02);
     }
   }
@@ -5121,7 +5208,7 @@ p{
     margin: 20px 0 0;
     background: $white;
     box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.02);
-    border-radius: 6px;
+    border-radius: 8px;
     padding: 20px;
     min-height: 330px;
     @include media("max", "lg"){
@@ -5176,7 +5263,7 @@ p{
 .pharmacy-profile{
   background: $white;
   box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.02);
-  border-radius: 6px;
+  border-radius: 8px;
   padding: 20px;
   margin-bottom: 20px;
   @include media("max", "lg"){
@@ -5205,7 +5292,7 @@ p{
       grid-template-columns: 1fr;
       grid-gap: 12px;
       background: #FAFBFD;
-      border-radius: 6px;
+      border-radius: 8px;
       padding: 12px;
       margin-top: 16px;
       @include media("max", "lg") {
@@ -5243,7 +5330,7 @@ p{
         &__img{
           flex-shrink: 0;
           margin-right: 12px;
-          border-radius: 6px;
+          border-radius: 8px;
         }
         &__status{
           display: block;
@@ -5400,7 +5487,7 @@ p{
   position: relative;
   background: $white;
   box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.05);
-  border-radius: 6px;
+  border-radius: 8px;
   padding: 17px 20px;
   @include media("max", "lg"){
     margin: 0 -10px;
@@ -5453,7 +5540,7 @@ p{
       width: 545px;
       background: $white;
       box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.06), 0px 0px 3px rgba(0, 0, 0, 0.06);
-      border-radius: 6px;
+      border-radius: 8px;
       padding: 8px 10px;
       color: $black;
       @include media("max", "lg"){
@@ -5513,7 +5600,7 @@ p{
     .card{
       background: $white;
       box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.05);
-      border-radius: 6px;
+      border-radius: 8px;
       height: 120px;
       color: $grayIcon;
       padding: 12px;
@@ -5571,7 +5658,7 @@ p{
   &__wrapper{
     background: $white;
     box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.02);
-    border-radius: 6px;
+    border-radius: 8px;
     padding: 16px 20px 20px;
     position: relative;
     @include media("max", "lg") {
@@ -5696,7 +5783,7 @@ p{
       top: 80px;
       padding: 14px 14px 16px 10px;
       border: 1px solid $grayLine;
-      border-radius: 6px;
+      border-radius: 8px;
       height: max-content;
       display: grid;
       grid-template-columns: 1fr;
@@ -5706,7 +5793,7 @@ p{
       padding: 8px;
       line-height: 130%;
       color: $black;
-      border-radius: 6px;
+      border-radius: 8px;
       cursor: pointer;
       @include media("min", "lg") {
         &:hover {
@@ -5718,7 +5805,7 @@ p{
         color: $blueAccent;
       }
       &.active{
-        background: #F5F7FA;
+        background: $grayBg;
         color: $blue;
       }
     }
@@ -5727,7 +5814,7 @@ p{
 .page-about{
   background: $white;
   box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.02);
-  border-radius: 6px;
+  border-radius: 8px;
   padding: 20px;
   @include media("max", "lg"){
     margin: 0 -10px;
@@ -5744,7 +5831,7 @@ p{
 .page-how-make{
   background: $white;
   box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.02);
-  border-radius: 6px;
+  border-radius: 8px;
   padding: 20px;
   @include media("max", "lg"){
     margin: 0 -10px;
@@ -5755,7 +5842,7 @@ p{
 .page-contact{
   background: $white;
   box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.02);
-  border-radius: 6px;
+  border-radius: 8px;
   padding: 20px;
   @include media("max", "lg"){
     margin: 0 -10px;
@@ -5780,7 +5867,7 @@ p{
   &__map{
     height: 320px;
     width: 100%;
-    border-radius: 6px;
+    border-radius: 8px;
     overflow: hidden;
     @include media("max", "lg") {
       width: auto;
@@ -5834,7 +5921,7 @@ p{
 .feedback{
   background: $white;
   box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.02);
-  border-radius: 6px;
+  border-radius: 8px;
   padding: 20px;
   @include media("max", "lg") {
     margin: 10px -10px 0!important;
@@ -5941,7 +6028,7 @@ p{
         width: 100%;
         background: $white;
         border: 1px solid $grayLine;
-        border-radius: 6px;
+        border-radius: 8px;
         padding: 0 12px;
         color: $black;
         cursor: pointer;
@@ -5972,7 +6059,7 @@ p{
         width: 100%;
         background: $white;
         box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.06), 0px 0px 3px rgba(0, 0, 0, 0.06);
-        border-radius: 6px;
+        border-radius: 8px;
         transition: all 0.3s;
         z-index: 1;
         padding: 8px;
@@ -5980,7 +6067,7 @@ p{
       &__row{
         border-radius: 4px;
         &:hover {
-          background: #F5F7FA;
+          background: $grayBg;
         }
       }
       &__input {
@@ -6032,7 +6119,7 @@ p{
       width: 100%;
       background: $white;
       border: 1px solid $grayLine;
-      border-radius: 6px;
+      border-radius: 8px;
       padding-left: 12px;
       color: $black;
       font-size: 14px;
@@ -6054,7 +6141,7 @@ p{
       display: block;
       font-size: 10px;
       line-height: 130%;
-      color: #929BAB;
+      color: $grayText;
       margin-bottom: 16px;
       a{
         text-decoration: underline;
@@ -6086,7 +6173,7 @@ p{
   background-position: center;
   background-repeat: no-repeat;
   box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.02);
-  border-radius: 6px;
+  border-radius: 8px;
   @include media("max", "lg") {
     padding: 16px 16px 0;
     margin: 0 -10px -10px!important;
@@ -6132,7 +6219,7 @@ p{
 .brand-profile{
   background: $white;
   box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.02);
-  border-radius: 6px;
+  border-radius: 8px;
   padding: 20px;
   @include media("max", "lg") {
     margin: 10px -10px!important;
@@ -6313,7 +6400,7 @@ p{
 }
 .account-menu{
   background: $white;
-  border-radius: 6px;
+  border-radius: 8px;
   width: 230px;
   position: sticky;
   top: 80px;
@@ -6346,7 +6433,7 @@ p{
   &__item{
     color: $black;
     padding: 6px 8px;
-    border-radius: 6px;
+    border-radius: 8px;
     cursor: pointer;
     &.active{
       background: $grayBg;
@@ -6375,7 +6462,7 @@ p{
 .account{
   background: $white;
   box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.02);
-  border-radius: 6px;
+  border-radius: 8px;
   padding: 20px;
   @include media("max", "lg") {
     margin: 10px -10px!important;
@@ -6476,7 +6563,7 @@ p{
       display: block;
       background: $white;
       border: 1px solid $grayLine;
-      border-radius: 6px;
+      border-radius: 8px;
       padding-left: 12px;
       font-size: 14px;
       line-height: 150%;
@@ -6599,7 +6686,7 @@ p{
       display: block;
       background: $white;
       border: 1px solid $grayLine;
-      border-radius: 6px;
+      border-radius: 8px;
       padding-left: 12px;
       font-size: 14px;
       line-height: 150%;
@@ -6704,7 +6791,7 @@ p{
     display: none;
     background: $white;
     box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.02);
-    border-radius: 6px;
+    border-radius: 8px;
     padding: 20px;
     min-height: 525px;
     @include media("max", "lg") {
@@ -6731,7 +6818,7 @@ p{
   }
   background: $white;
   box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.02);
-  border-radius: 6px;
+  border-radius: 8px;
   padding: 20px;
   margin: 20px 0;
   @include media("max", "lg") {
@@ -6904,7 +6991,7 @@ p{
 .aside-order{
   background: $white;
   box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.02);
-  border-radius: 6px;
+  border-radius: 8px;
   position: sticky;
   top: 80px;
   z-index: 99;
@@ -6959,7 +7046,7 @@ p{
         width: 190px;
         background: $white;
         box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.06), 0px 0px 3px rgba(0, 0, 0, 0.06);
-        border-radius: 6px;
+        border-radius: 8px;
         color: $black;
         padding: 10px;
         &:before {
@@ -7030,7 +7117,7 @@ p{
     display: none;
     background: $white;
     box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.02);
-    border-radius: 6px;
+    border-radius: 8px;
     padding: 20px;
     min-height: 525px;
     @include media("max", "lg") {
@@ -7090,7 +7177,7 @@ p{
     display: none;
     background: $white;
     box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.02);
-    border-radius: 6px;
+    border-radius: 8px;
     padding: 20px;
     min-height: 525px;
     @include media("max", "lg") {
@@ -7130,7 +7217,7 @@ p{
   &-picker{
     padding: 20px 13px;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.06), 0px 0px 3px rgba(0, 0, 0, 0.06);
-    border-radius: 6px;
+    border-radius: 8px;
     background: $white;
   }
   &-view{
@@ -7193,7 +7280,7 @@ p{
 .order{
   background: $white;
   box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.02);
-  border-radius: 6px;
+  border-radius: 8px;
   padding: 20px;
   margin: 20px 0;
   &.order--empty{
@@ -7404,7 +7491,7 @@ p{
     display: none;
     background: $white;
     box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.02);
-    border-radius: 6px;
+    border-radius: 8px;
     padding: 20px;
     min-height: 525px;
     @include media("max", "lg") {
@@ -7434,7 +7521,7 @@ p{
   position: relative;
   background: $white;
   box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.05);
-  border-radius: 6px;
+  border-radius: 8px;
   padding: 17px 20px;
   @include media("max", "lg"){
     margin: 0 -10px;
@@ -7485,7 +7572,7 @@ p{
 .order-checkout{
   background: $white;
   box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.02);
-  border-radius: 6px;
+  border-radius: 8px;
   padding: 20px;
   margin: 20px 0;
   @include media("max", "lg") {
@@ -7576,7 +7663,7 @@ p{
 .aside-point-issue{
   background: $white;
   box-shadow: 0px 5px 10px rgba(26, 54, 95, 0.02);
-  border-radius: 6px;
+  border-radius: 8px;
   padding: 20px;
   color: $black;
   margin-bottom: 20px;
@@ -7622,7 +7709,7 @@ p{
     &__input{
       background: $white;
       border: 1px solid $grayLine;
-      border-radius: 6px;
+      border-radius: 8px;
       padding: 9px 15px;
       min-width: 130px;
       font-weight: 600;
@@ -7649,14 +7736,14 @@ p{
     }
     &__buttons{
       border: 1px solid $grayLine;
-      border-radius: 6px;
+      border-radius: 8px;
       overflow: hidden;
       margin-right: 18px;
     }
     &__btn{
       background: $white;
       border: none;
-      border-radius: 6px;
+      border-radius: 8px;
       padding: 9px 15px;
       font-weight: 600;
       min-width: 90px;
